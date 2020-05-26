@@ -1,2 +1,1 @@
-# ui
-Shared UI components
+# Shared UI components

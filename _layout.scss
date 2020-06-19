@@ -53,13 +53,13 @@
     overflow-y: hidden;
   }
 
-  .ide-init-indicator {
+  .ui-init-indicator {
     display: none;
   }
 
   &[init]{
 
-    .ide-init-indicator {
+    .ui-init-indicator {
       display: inline-block;
       position: relative;
       width: 8rem;
@@ -67,7 +67,7 @@
       margin: auto;
     }
 
-    .ide-init-indicator div {
+    .ui-init-indicator div {
       box-sizing: border-box;
       display: block;
       position: absolute;
@@ -80,15 +80,15 @@
       border-color: var(--ui-foreground) transparent transparent transparent;
     }
 
-    .ide-init-indicator div:nth-child(1) {
+    .ui-init-indicator div:nth-child(1) {
       animation-delay: -0.45s;
     }
 
-    .ide-init-indicator div:nth-child(2) {
+    .ui-init-indicator div:nth-child(2) {
       animation-delay: -0.3s;
     }
 
-    .ide-init-indicator div:nth-child(3) {
+    .ui-init-indicator div:nth-child(3) {
       animation-delay: -0.15s;
     }
 
@@ -106,7 +106,8 @@
 }
 
 /**
- * UGH:
+ * Tough:
+ *
  * https://medium.com/p/46e78d54af0d/responses/show
  * https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
  */

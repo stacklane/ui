@@ -57,7 +57,7 @@
     display: none;
   }
 
-  &[init]{
+  &[ui-is-init]{
 
     .ui-init-indicator {
       display: inline-block;

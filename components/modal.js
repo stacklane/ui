@@ -1,6 +1,6 @@
 
 /**
- * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
+ * https://css-tricks.com/a-css-approach-to-trap-focus-insui-of-an-element/
  *
  * // https://css-tricks.com/considerations-styling-modal/
 

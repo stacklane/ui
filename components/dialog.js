@@ -9,9 +9,7 @@ class UIDialog extends HTMLElement{
         this.appendChild(header);
         this._header = header;
 
-        const h2 = document.createElement('h2');
-        h2.innerText = title;
-        header.appendChild(h2);
+        header.appendChild(Elements.h5().classes('is-secondary-label').text(title).create());
 
         const contentHolder = document.createElement('div');
         contentHolder.classList.add('ui-dialog-content');
@@ -29,7 +27,7 @@ class UIDialog extends HTMLElement{
     }
 
     set title(title){
-        this.querySelector('.ui-dialog-title h2').innerText = title;
+        this.querySelector('.ui-dialog-title h5').innerText = title;
     }
 
     modal(){

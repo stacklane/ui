@@ -41,6 +41,16 @@ h1,h2,h3,h4,h5,h6{
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  &.is-label{
+    color: var(--ui-label);
+  }
+  &.is-secondary-label{
+    color: var(--ui-secondary-label);
+  }
+  &.is-semibold{
+    weight: var(--ui-weight-semibold);
+  }
 }
 
 /**
@@ -70,7 +80,6 @@ h3{
 h4{
   font-size: var(--ui-font-size);
   line-height: var(--ui-line-height);
-  font-weight: var(--ui-weight-semibold);
 }
 
 /**

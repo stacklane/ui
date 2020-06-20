@@ -2,18 +2,13 @@
   --ui-dialog-background: var(--ui-secondary-background);
   --ui-dialog-label: var(--ui-label);
 
-  --ui-secondary-dialog-background: var(--ui-tertiary-background);
-  --ui-secondary-dialog-label: var(--ui-label);
+  --ui-dialog-secondary-background: var(--ui-tertiary-background);
+  --ui-dialog-secondary-label: var(--ui-label);
 
   --ui-dialog-shadow: var(--ui-secondary-background-shadow);
 
-  --ui-dialog-title-horizontal-padding: .75rem;
-  --ui-dialog-title-vertical-padding: .5rem;
-
-  /**
-   * This must be used by internal components of the dialog as needed.
-   */
-  --ui-dialog-content-padding: 1rem;
+  --ui-dialog-title-vertical-padding: var(--ui-xs-spacing);
+  --ui-dialog-title-horizontal-padding: var(--ui-s-spacing);
 }
 
 ui-modal ui-dialog{
@@ -30,21 +25,17 @@ ui-dialog{
   flex-direction: column;
 
   /**
-   * Secondary content set against the main dialog content. Sidebar, etc.
+   * Secondary content offset against the main dialog content. Sidebar, etc.
    */
   .ui-secondary-dialog-content{
-    background: var(--ui-secondary-dialog-background);
-    color: var(--ui-secondary-dialog-label);
+    background: var(--ui-dialog-secondary-background);
+    color: var(--ui-dialog-secondary-label);
   }
 
-  //.ui-dialog-content{
-    // Leave fully unstyled for wider implementations
-  //}
-
   .ui-dialog-title{
-    background: var(--ui-secondary-dialog-background);
-    color: var(--ui-secondary-dialog-label);
-    padding: var(--ui-dialog-title-vertical-padding) var(--ui-dialog-title-horizontal-padding);
+    background: var(--ui-dialog-secondary-background);
+    color: var(--ui-dialog-secondary-label);
+    padding: var(--ui-dialog-title-vertical-padding);
 
     position: relative;
     display:flex;

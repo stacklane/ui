@@ -32,14 +32,14 @@ ui-dialog{
   /**
    * Secondary content set against the main dialog content. Sidebar, etc.
    */
-  .ui-dialog-secondary{
+  .ui-secondary-dialog-content{
     background: var(--ui-secondary-dialog-background);
     color: var(--ui-secondary-dialog-label);
   }
 
-  .ui-dialog-content{
+  //.ui-dialog-content{
     // Leave fully unstyled for wider implementations
-  }
+  //}
 
   .ui-dialog-title{
     background: var(--ui-secondary-dialog-background);

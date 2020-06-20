@@ -2,6 +2,7 @@
 
 ## Guidelines
 
+- Not intended for high theming customization. Instead small variations nearing "flat" Google/Apple flavored themes.
 - Avoid hover effects as much as possible (not mobile friendly).
 - Don't use the hand for general UI actions. Reserve it for actual HTTP links.
   - Apple’s Human Interface Guidelines: the hand cursor should be used when “the content is a URL link”.

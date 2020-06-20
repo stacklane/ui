@@ -1,4 +1,10 @@
 :root {
+  --ui-dialog-background: var(--ui-secondary-background);
+  --ui-dialog-label: var(--ui-label);
+
+  --ui-secondary-dialog-background: var(--ui-tertiary-background);
+  --ui-secondary-dialog-label: var(--ui-label);
+
   --ui-dialog-shadow: var(--ui-secondary-background-shadow);
 
   --ui-dialog-title-horizontal-padding: .75rem;
@@ -17,18 +23,27 @@ ui-modal ui-dialog{
 }
 
 ui-dialog{
-  background: var(--ui-secondary-background);
-  color: var(--ui-label);
+  background: var(--ui-dialog-background);
+  color: var(--ui-dialog-label);
 
   display: flex;
   flex-direction: column;
+
+  /**
+   * Secondary content set against the main dialog content. Sidebar, etc.
+   */
+  .ui-dialog-secondary{
+    background: var(--ui-secondary-dialog-background);
+    color: var(--ui-secondary-dialog-label);
+  }
 
   .ui-dialog-content{
     // Leave fully unstyled for wider implementations
   }
 
   .ui-dialog-title{
-    background: var(--ui-tertiary-background);
+    background: var(--ui-secondary-dialog-background);
+    color: var(--ui-secondary-dialog-label);
     padding: var(--ui-dialog-title-vertical-padding) var(--ui-dialog-title-horizontal-padding);
 
     position: relative;
@@ -43,12 +58,6 @@ ui-dialog{
 
       position: absolute;
       left: var(--ui-dialog-title-horizontal-padding);
-    }
-
-    h2{
-      color: var(--ui-secondary-label);
-      font-weight: var(--ui-weight-medium);
-      font-size: var(--ui-secondary-font-size);
     }
   }
 }

@@ -1,14 +1,13 @@
 @import "/vars";
 
 html{
-  font-size: $body-size;
+  font-size: var(--ui-font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  min-width: $body-min-width;
-  overflow-x: $body-overflow-x;
-  overflow-y: $body-overflow-y;
-  text-rendering: $body-rendering;
- // text-size-adjust: 100%;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
 }
 
 article,
@@ -26,7 +25,7 @@ button,
 input,
 select,
 textarea {
-  font-family: $body-family;
+  font-family: var(--ui-font);
 }
 
 button,
@@ -45,9 +44,9 @@ pre {
 
 body {
  // color: $body-color;
-  font-size: $body-font-size;
-  font-weight: $body-weight;
-  line-height: $body-line-height;
+  font-size: var(--ui-font-size);
+  font-weight: var(--ui-weight-normal);
+  line-height: var(--ui-line-height);
 }
 
 // Inline

@@ -4,8 +4,27 @@
  */
 
 html{
-  --ui-font-monospace: 'Hack', 'Fira Code', monospace;
-  --ui-font-monospace-vf: 'Hack', 'Fira Code VF', monospace;
+  // Typography
+  // https://learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
+  --ui-font: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --ui-font-monospace: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  --ui-font-size: 15px;
+  //--ui-font-size-s: .75rem;
+  //--ui-font-size-m: .875rem;
+  //--ui-font-size-l: 1rem;
+  //--ui-font-size-xl: 1.3125rem;
+  //--ui-font-size-xl2: 1.75rem;
+  //--ui-font-size-xl3: 2.1875rem;
+  --ui-line-height: 1.5;
+  --ui-line-height-condensed: 1.25;
+
+  // Weight
+  --ui-weight-light: 300;
+  --ui-weight-normal: 400;
+  --ui-weight-medium: 500;
+  --ui-weight-semibold: 600;
+  --ui-weight-bold: 700;
+  --ui-weight-max: 900; // css 2.1
 
   // Text labels that contain primary content:
   --ui-label: rgba(255, 255, 255, 0.85);
@@ -40,14 +59,6 @@ html{
   // Fill color for large areas with complex content:
   --ui-quaternary-fill: rgba(118, 118, 128, 0.18);
 
-  // Weight
-  --ui-weight-light: 300;
-  --ui-weight-normal: 400;
-  --ui-weight-medium: 500;
-  --ui-weight-semibold: 600;
-  --ui-weight-bold: 700;
-  --ui-weight-max: 900; // css 2.1
-
   // Colors
   --ui-link: rgba(9, 132, 255, 1.00);
   --ui-link-invert: white;
@@ -72,8 +83,6 @@ html{
 
   --ui-radius: 4px;
   --ui-radius-rounded: 290486px;
-
-
 }
 
 .ui-theme-light{

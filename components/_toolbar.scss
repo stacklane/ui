@@ -1,5 +1,6 @@
 
-$toolbar-item-spacing: .5rem; // TODO use --ui-toolbar-item-spacing var .. however we use it in a SCSS calculation below
+$toolbar-item-spacing: .5rem; // TODO use --ui-toolbar-item-spacing var ..
+                              // however we use it in a SCSS calculation below .. use css calc(?)
 
 ui-toolbar{
   --ui-toolbar-background: var(--ui-secondary-background);

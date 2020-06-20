@@ -44,7 +44,13 @@ class Elements{
         const e = document.createElement(this._name);
         if (this._text) e.innerText = this._text;
         if (this._html) e.innerHTML = this._html;
-        if (this._classes) e.classList.add(this._classes);
+        if (this._classes) {
+            if (typeof this._classes === 'string'){
+                e.classList.add(this._classes);
+            } else {
+                e.classList.add(...this._classes);
+            }
+        }
         if (this._attr){
             for (let name in this._attr){
                 e.setAttribute(name, this._attr[name]);

@@ -41,16 +41,7 @@ h1,h2,h3,h4,h5,h6{
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  &.is-label{
-    color: var(--ui-label);
-  }
-  &.is-secondary-label{
-    color: var(--ui-secondary-label);
-  }
-  &.is-semibold{
-    weight: var(--ui-weight-semibold);
-  }
+  color: inherit;
 }
 
 /**
@@ -96,4 +87,14 @@ h5{
 h6{
   font-size: 12px;
   line-height: 16px;
+}
+
+.is-label{
+  color: var(--ui-label);
+}
+.is-secondary-label{
+  color: var(--ui-secondary-label);
+}
+.is-weight-semibold{
+  weight: var(--ui-weight-semibold);
 }

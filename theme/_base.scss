@@ -31,7 +31,6 @@ html{
   --ui-secondary-background-shadow: rgba(0, 0, 0, .3);
   // Content layered on top of secondary background:
   --ui-tertiary-background: rgba(70, 70, 70, 1.00);
-  --ui-selection-background: rgba(120, 120, 128, 0.36);
 
   // Thin border or divider lines
   --ui-separator: rgba(255, 255, 255, 0.10);
@@ -46,6 +45,8 @@ html{
   --ui-tertiary-fill: rgba(118, 118, 128, 0.24);
   // Fill color for large areas with complex content:
   --ui-quaternary-fill: rgba(118, 118, 128, 0.18);
+
+  --ui-selection-background: var(--ui-fill);
 
   // Colors
   --ui-link: rgba(9, 132, 255, 1.00);
@@ -76,16 +77,16 @@ html{
   --ui-secondary-background: rgba(236, 236, 236, 1.00);
   --ui-secondary-background-shadow: rgba(100, 100, 100, .3);
   --ui-tertiary-background: rgba(213, 213, 213, 1.00);
-  --ui-selection-background: rgba(120, 120, 128, 0.20);
 
   --ui-separator: rgba(0, 0, 0, 0.10);
   --ui-separator-image: url(/theme/light-separator.svg); // same color but as an image
-
 
   --ui-fill: rgba(120, 120, 128, 0.20);
   --ui-secondary-fill: rgba(120, 120, 128, 0.16);
   --ui-tertiary-fill: rgba(118, 118, 128, 0.12);
   --ui-quaternary-fill: rgba(116, 116, 128, 0.08);
+
+  --ui-selection-background: var(--ui-fill);
 
   // Colors
   --ui-link: rgba(0, 122, 255, 1.00);

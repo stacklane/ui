@@ -2,13 +2,17 @@
 class Elements{
     static h1(){return new Elements('h1')};
     static h2(){return new Elements('h2')};
+    static h3(){return new Elements('h3')};
+    static h4(){return new Elements('h4')};
+    static h5(){return new Elements('h5')};
+    static h6(){return new Elements('h6')};
     static div(){return new Elements('div')};
     static footer(){return new Elements('footer')};
     static blockquote(){return new Elements('blockquote')};
     static select(){return new Elements('select')};
     static option(){return new Elements('option')};
     static button(){return new Elements('button')};
-    static input(){return new Elements('button')};
+    static input(){return new Elements('input')};
     static template(){return new Elements('template')};
 
     constructor(name){

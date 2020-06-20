@@ -1,10 +1,66 @@
+
+/**
+ * Keep in mind these variables may be overridden for class-specific cases.
+ */
+ui-tab{
+  --ui-tab-background: var(--ui-background);
+  --ui-tab-foreground: var(--ui-secondary-label);
+  --ui-tab-hover-background: none;
+  --ui-tab-active-background: var(--ui-secondary-background);
+  --ui-tab-active-foreground: var(--ui-label);
+  --ui-tab-active-hover-background: var(--ui-secondary-background);
+
+  //--ui-tab-active-border-bottom: 0rem solid transparent;
+}
+
 ui-tab, ui-tab-closer{
   @include unselectable;
   outline: none;
   cursor: var(--ui-action-pointer);
 }
 
+ui-tab{
+  padding: .25rem .5rem .25rem .75rem; // TBD
+
+  background: var(--ui-tab-background);
+  color: var(--ui-tab-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    background: var(--ui-tab-hover-background);
+  }
+
+  &[active='true']{
+    background: var(--ui-tab-active-background);
+    color: var(--ui-tab-active-foreground);
+
+    &:hover{
+      background: var(--ui-tab-active-hover-background);
+    }
+
+  }
+}
+
 ui-tab-closer{
   @include delete(16px, inherit, 1px, var(--ui-gray));
   margin-left: .5rem;
+}
+
+ui-tab.has-separator{
+  &:not([active='true']) + ui-tab.has-separator:not(:first-child):not([active='true']){
+    border-left: 1px solid var(--ui-separator);
+  }
+  &:last-child:not([active='true']){
+    border-right: 1px solid var(--ui-separator);
+  }
+
+  &[active='true']{
+    border-right: 1px solid var(--ui-separator);
+
+    &:not(:first-child){
+      border-left: 1px solid var(--ui-separator);
+    }
+  }
 }

@@ -3,14 +3,11 @@
  * Keep in mind these variables may be overridden for class-specific cases.
  */
 ui-tab{
-  --ui-tab-background: var(--ui-background);
-  --ui-tab-foreground: var(--ui-secondary-label);
-  --ui-tab-hover-background: none;
-  --ui-tab-active-background: var(--ui-secondary-background);
-  --ui-tab-active-foreground: var(--ui-label);
-  --ui-tab-active-hover-background: var(--ui-secondary-background);
+  --ui-tab-background: inherit;//var(--ui-background);
+  --ui-tab-foreground: inherit; //var(--ui-label);
 
-  //--ui-tab-active-border-bottom: 0rem solid transparent;
+  --ui-tab-active-background: var(--ui-selection-background);
+  --ui-tab-active-foreground: inherit;
 }
 
 ui-tab, ui-tab-closer{
@@ -26,11 +23,7 @@ ui-tab{
   color: var(--ui-tab-foreground);
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  &:hover{
-    background: var(--ui-tab-hover-background);
-  }
+  justify-content: left;
 
   &[active='true']{
     background: var(--ui-tab-active-background);
@@ -39,7 +32,6 @@ ui-tab{
     &:hover{
       background: var(--ui-tab-active-hover-background);
     }
-
   }
 }
 

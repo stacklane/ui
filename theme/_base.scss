@@ -19,10 +19,12 @@ html{
   --ui-secondary-background-shadow: rgba(0, 0, 0, .3);
   // Content layered on top of secondary background:
   --ui-tertiary-background: rgba(70, 70, 70, 1.00);
+  --ui-selection-background: rgba(120, 120, 128, 0.36);
 
   // Thin border or divider lines
   --ui-separator: rgba(255, 255, 255, 0.10);
   --ui-separator-image: url(/theme/dark-separator.svg); // same color but as an image
+
 
   // Fill color for thin and small shapes:
   --ui-fill: rgba(120, 120, 128, 0.36);
@@ -43,15 +45,6 @@ html{
 
   --ui-gray: rgba(152, 152, 157, 1.00);
 
-  // Misc
-  /**
-   * Don't use the hand for general UI actions. Reserve it for actual HTTP links.
-   *
-   * - Apple’s Human Interface Guidelines: the hand cursor should be used when “the content is a URL link”.
-   * - W3C User Interface guidelines: "The cursor is a pointer that indicates a link”.
-   * - Microsoft: Displaying the hand pointer on hover is the definitive indication of a link.
-   *              To avoid confusion, it is imperative not to use the hand pointer for other purposes.
-   */
   --ui-action-pointer: default;
   --ui-speed: 50ms;
 
@@ -71,9 +64,11 @@ html{
   --ui-secondary-background: rgba(236, 236, 236, 1.00);
   --ui-secondary-background-shadow: rgba(100, 100, 100, .3);
   --ui-tertiary-background: rgba(213, 213, 213, 1.00);
+  --ui-selection-background: rgba(120, 120, 128, 0.20);
 
   --ui-separator: rgba(0, 0, 0, 0.10);
   --ui-separator-image: url(/theme/light-separator.svg); // same color but as an image
+
 
   --ui-fill: rgba(120, 120, 128, 0.20);
   --ui-secondary-fill: rgba(120, 120, 128, 0.16);

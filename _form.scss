@@ -21,7 +21,7 @@ button{
   border: 0;
   border-radius: var(--ui-radius);
   font-weight: var(--ui-weight-medium);
-  padding: .25em .5em;
+  padding: var(--ui-xs-spacing) var(--ui-s-spacing);
 
   // TODO subtle shadow
 

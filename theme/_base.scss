@@ -36,7 +36,6 @@ html{
   --ui-separator: rgba(255, 255, 255, 0.10);
   --ui-separator-image: url(/theme/dark-separator.svg); // same color but as an image
 
-
   // Fill color for thin and small shapes:
   --ui-fill: rgba(120, 120, 128, 0.36);
   // Fill color for medium-size shapes:
@@ -45,8 +44,6 @@ html{
   --ui-tertiary-fill: rgba(118, 118, 128, 0.24);
   // Fill color for large areas with complex content:
   --ui-quaternary-fill: rgba(118, 118, 128, 0.18);
-
-  --ui-selection-background: var(--ui-fill);
 
   // Colors
   --ui-link: rgba(9, 132, 255, 1.00);
@@ -85,8 +82,6 @@ html{
   --ui-secondary-fill: rgba(120, 120, 128, 0.16);
   --ui-tertiary-fill: rgba(118, 118, 128, 0.12);
   --ui-quaternary-fill: rgba(116, 116, 128, 0.08);
-
-  --ui-selection-background: var(--ui-fill);
 
   // Colors
   --ui-link: rgba(0, 122, 255, 1.00);

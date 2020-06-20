@@ -9,7 +9,7 @@ class UIDialog extends HTMLElement{
         this.appendChild(header);
         this._header = header;
 
-        header.appendChild(Elements.h5().classes('is-secondary-label').text(title).create());
+        header.appendChild(Elements.h5().text(title).create());
 
         const contentHolder = document.createElement('div');
         contentHolder.classList.add('ui-dialog-content');

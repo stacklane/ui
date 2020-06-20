@@ -9,6 +9,7 @@
 
   --ui-dialog-title-vertical-padding: var(--ui-s-spacing);
   --ui-dialog-title-horizontal-padding: var(--ui-s-spacing);
+  --ui-dialog-title-weight: var(--ui-weight-semibold);
 }
 
 ui-modal ui-dialog{
@@ -36,6 +37,7 @@ ui-dialog{
     background: var(--ui-dialog-secondary-background);
     color: var(--ui-dialog-secondary-label);
     padding: var(--ui-dialog-title-vertical-padding);
+    font-weight: var(--ui-dialog-title-weight);
 
     position: relative;
     display:flex;

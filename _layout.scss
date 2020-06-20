@@ -10,12 +10,12 @@
   transform: translateZ(0); // for safari repaint issues
 }
 
-.ui-stack-column{
+.ui-separator-column{
   > *:not(:last-child) {
     border-bottom: 1px solid var(--ui-separator);
   }
 }
-.ui-stack-row{
+.ui-separator-row{
   > *:not(:last-child){
     border-right: 1px solid var(--ui-separator);
   }

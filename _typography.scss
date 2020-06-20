@@ -5,6 +5,20 @@
 // https://ivomynttinen.com/blog/ios-design-guidelines
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 :root{
+
+  --ui-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --ui-font-family-monospace: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  --ui-font-size: 16px;
+  --ui-line-height: 21px;
+
+  // Weight
+  --ui-weight-light: 300;
+  --ui-weight-normal: 400;
+  --ui-weight-medium: 500;
+  --ui-weight-semibold: 600;
+  --ui-weight-bold: 700;
+  --ui-weight-max: 900; // css 2.1
+
   //--ui-secondary-font-size: calc(var(--ui-font-size) - 2px);
   //--ui-tertiary-font-size: calc(var(--ui-secondary-font-size) - 2px);
   //--ui-title-font-size: 1.75rem; // largest possible text in ui
@@ -23,9 +37,14 @@
 
 }
 
+h1,h2,h3,h4,h5,h6{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /**
- * "Large Title"
- *
+ * "Large Title" - Featured content, such as empty states, promotions.
  */
 h1{
   font-size: 33px;
@@ -38,11 +57,11 @@ h1{
 h2{
   font-size: 27px;
   line-height: 33px;
-  font-weight: var(--ui-weight-normal);
+}
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+h3{
+  font-size: 21px;
+  line-height: 26px;
 }
 
 /**

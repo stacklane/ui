@@ -25,7 +25,7 @@ class Elements{
         return this;
     }
 
-    classes(classes){
+    classes(...classes){
         this._classes = classes;
         return this;
     }

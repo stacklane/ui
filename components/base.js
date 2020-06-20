@@ -1,4 +1,6 @@
+
 class Elements{
+    static h1(){return new Elements('h1')};
     static h2(){return new Elements('h2')};
     static div(){return new Elements('div')};
     static footer(){return new Elements('footer')};

@@ -48,7 +48,7 @@ ui-dialog{
     h2{
       color: var(--ui-secondary-label);
       font-weight: var(--ui-weight-medium);
-      font-size: .85rem;
+      font-size: var(--ui-font-size-secondary);
     }
   }
 }

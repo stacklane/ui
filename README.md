@@ -4,7 +4,7 @@
 
 - Not intended for complex theming customization.
   Instead, targets small variations nearing "flat" Google/Apple flavored themes.
-- Avoid hover effects as much as possible (not mobile friendly).
+- Avoid hover effects and behaviors as much as possible (not mobile friendly).
 - Reuse/restyle existing HTML elements where they make semantic sense, e.g. `h1`-`h6`, `section`, forms, etc.
 - A component should only be responsible for its own internal spacing -- never its external spacing.
   This way components may be used in a variety of cases without needing to override margins.
@@ -22,15 +22,16 @@ Defines `font-size` and `line-height` only.
 
 ### `section`
 
-Simple container with optional `hX` title as first child, and appropriate spacing between title and following content.
+Simple container with optional `hX` title as first child.
+Supports optional [spacing](#spacing) between title and any following content.
 
 ### `.ui-column`
 
-Simple vertical listing with optional [spacing](#spacing).
+Simple vertical listing. Supports optional [spacing](#spacing) between the column's rows.
 
 ## Spacing
 
-Spacing used for padding, margins, and gap's, depending on the case.
+Case specific spacing, used for: padding, margin, gap, row-gap, column-gap.
 
 ### Variables
 
@@ -44,6 +45,9 @@ Spacing used for padding, margins, and gap's, depending on the case.
 
 ### Case Specific Modifiers
 
+- `.has-2xs-spacing`
+- `.has-xs-spacing`
+- `.has-s-spacing`
 - `.has-spacing`
 - `.has-l-spacing`
 - `.has-xl-spacing`

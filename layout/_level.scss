@@ -1,0 +1,11 @@
+.ui-level{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &.has-spacing{
+    > * + * {
+      margin-left: var(--ui-spacing);
+    }
+  }
+}

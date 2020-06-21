@@ -5,10 +5,11 @@
 
 @import '/typography';
 @import '/form';
-@import '/layout';
 
 @import '/theme/base';
 @import '/theme/derived';
+
+@import '/layout/all';
 
 @import '/components/icon';
 @import '/components/modal';

@@ -1,0 +1,26 @@
+.ui-column{
+  display: grid;
+  grid-template-columns: auto;
+
+  &.has-2xs-spacing{
+    row-gap: var(--ui-2xs-spacing);
+  }
+  &.has-xs-spacing{
+    row-gap: var(--ui-xs-spacing);
+  }
+  &.has-s-spacing{
+    row-gap: var(--ui-s-spacing);
+  }
+  &.has-spacing{
+    row-gap: var(--ui-spacing);
+  }
+  &.has-l-spacing{
+    row-gap: var(--ui-l-spacing);
+  }
+  &.has-xl-spacing{
+    row-gap: var(--ui-xl-spacing);
+  }
+  &.has-2xl-spacing{
+    row-gap: var(--ui-2xl-spacing);
+  }
+}

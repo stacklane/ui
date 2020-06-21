@@ -4,33 +4,8 @@
 // https://learnui.design/blog/ios-font-size-guidelines.html#ipad
 // https://ivomynttinen.com/blog/ios-design-guidelines
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
-:root{
-
-
-  //--ui-secondary-font-size: calc(var(--ui-font-size) - 2px);
-  //--ui-tertiary-font-size: calc(var(--ui-secondary-font-size) - 2px);
-  //--ui-title-font-size: 1.75rem; // largest possible text in ui
-
-
-  // Heading is intended to be used to define a section. Headings are very important for accessibility, as it helps to make copy more easily scannable and guides a user through your content.
- // --ui-heading-font-size: 1.3125rem;
-
-  //--ui-font-size-s: .75rem;
-  //--ui-font-size-m: .875rem;
-  //--ui-font-size-l: 1rem;
-  //--ui-font-size-xl: 1.3125rem;
-  //--ui-font-size-xl2: 1.75rem;
-  //--ui-font-size-xl3: 2.1875rem;
-}
 
 .ui-root, ui-modal {
-  h1, h2, h3, h4, h5, h6 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: inherit;
-  }
-
   /**
    * "Large Title" - Featured content, such as empty states, promotions.
    */
@@ -76,15 +51,20 @@
     line-height: 16px;
   }
 
+  /**
+   * Weight Modifiers
+   */
+  .is-weight-semibold {
+    font-weight: var(--ui-weight-semibold);
+  }
+
+  /**
+   * Color Modifiers
+   */
   .is-label {
     color: var(--ui-label);
   }
-
   .is-secondary-label {
     color: var(--ui-secondary-label);
-  }
-
-  .is-weight-semibold {
-    font-weight: var(--ui-weight-semibold);
   }
 }

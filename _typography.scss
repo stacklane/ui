@@ -23,7 +23,7 @@
   //--ui-font-size-xl3: 2.1875rem;
 }
 
-.ui-root {
+.ui-root, ui-modal {
   h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: row;
@@ -86,11 +86,5 @@
 
   .is-weight-semibold {
     font-weight: var(--ui-weight-semibold);
-  }
-
-  section {
-    h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-bottom: var(--ui-spacing);
-    }
   }
 }

@@ -37,7 +37,10 @@ ui-dialog{
     background: var(--ui-dialog-secondary-background);
     color: var(--ui-dialog-secondary-label);
     padding: var(--ui-dialog-title-vertical-padding);
-    font-weight: var(--ui-dialog-title-weight);
+
+    h5 {
+      font-weight: var(--ui-dialog-title-weight);
+    }
 
     position: relative;
     display:flex;

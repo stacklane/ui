@@ -5,8 +5,8 @@ $toolbar-item-spacing: .5rem; // TODO use --ui-toolbar-item-spacing var ..
 ui-toolbar{
   --ui-toolbar-background: var(--ui-secondary-background);
   --ui-toolbar-label: var(--ui-label);
-  --ui-toolbar-hover: var(--ui-tertiary-background);
-  --ui-toolbar-focus: var(--ui-tertiary-background);
+  --ui-toolbar-hover: var(--ui-selection-background);
+  --ui-toolbar-focus: var(--ui-selection-background);
 
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);

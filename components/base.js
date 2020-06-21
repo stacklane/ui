@@ -61,10 +61,9 @@ class Elements{
             for (let name in this._attr) e.setAttribute(name, this._attr[name]);
         }
         if (this._children){
-            for (let c in this._children) {
-                //(c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c);
-                (c.constructor.name === 'Elements') ? e.appendChild(c.create()) : e.appendChild(c);
-            }
+            this._children.forEach(
+                (c)=>(c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c)
+            );
         }
         return e;
     }

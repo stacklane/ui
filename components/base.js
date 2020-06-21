@@ -1,4 +1,6 @@
-
+/**
+ * Low-level utility for building elements/nodes.
+ */
 class Elements{
     static h1(){return new Elements('h1')};
     static h2(){return new Elements('h2')};
@@ -60,7 +62,8 @@ class Elements{
         }
         if (this._children){
             for (let c in this._children) {
-                (c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c);
+                //(c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c);
+                (c.constructor.name === 'Elements') ? e.appendChild(c.create()) : e.appendChild(c);
             }
         }
         return e;

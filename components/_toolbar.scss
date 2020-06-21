@@ -1,7 +1,4 @@
 
-$toolbar-item-spacing: .5rem; // TODO use --ui-toolbar-item-spacing var ..
-                              // however we use it in a SCSS calculation below .. use css calc(?)
-
 ui-toolbar{
   --ui-toolbar-background: var(--ui-secondary-background);
   --ui-toolbar-label: var(--ui-label);
@@ -17,13 +14,11 @@ ui-toolbar{
 
   flex-shrink:0;
 
-  align-items: stretch;// center;
+  align-items: stretch;
   justify-content: space-between;
   display: flex;
 
   background: var(--ui-toolbar-background);
-
- // border-bottom: 1px solid var(--ui-toolbar-border-bottom);
 
   white-space: nowrap;
 
@@ -50,7 +45,7 @@ ui-toolbar{
   ui-toolbar-right{
     align-items: stretch; //center;
     justify-content: flex-end;
-    margin-right: $toolbar-item-spacing;
+    margin-right: var(--ui-xs-spacing);
   }
 
   ui-toolbar-item,
@@ -65,7 +60,7 @@ ui-toolbar{
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    padding: $toolbar-item-spacing;
+    padding: var(--ui-xs-spacing);
 
     outline:0;
 
@@ -73,41 +68,6 @@ ui-toolbar{
       cursor: not-allowed !important;
       opacity: .5 !important;
       pointer-events: none !important;
-    }
-
-    &.is-changeset-stats{
-
-      .is-changeset-stats-group{
-        font-weight: var(--ui-weight-semibold);
-        font-size: .85em;
-        background: var(--ui-tertiary-background);
-        border-radius: var(--ui-radius-rounded);
-        display: flex;
-        padding: 0em .25em;
-
-        > span{
-          display:flex;
-          padding: 0em .5em;
-
-          + span{
-            border-left: 1px solid var(--ui-separator);
-          }
-        }
-
-        .is-create{
-          color: var(--ui-green);
-        }
-        .is-update{
-          color: var(--ui-yellow);
-        }
-        .is-delete{
-          color: var(--ui-red);
-        }
-      }
-
-      &:empty{
-        display:none;
-      }
     }
 
     &.has-action{
@@ -146,7 +106,7 @@ ui-toolbar{
 
           > li{
             cursor: var(--ui-action-pointer);
-            padding: #{$toolbar-item-spacing / 2} #{$toolbar-item-spacing * 2};
+            padding: var(--ui-2xs-spacing) var(--ui-spacing);
 
             &:hover{
               background: var(--ui-menu-hover-background);
@@ -210,11 +170,6 @@ ui-toolbar{
   }
 
   ui-toolbar-path-item{
-    //font-size: .8rem;
-
-    &.is-app-name{
-      //font-size: .9rem; // slightly bigger than ui-toolbar-path-item
-    }
 
     &.is-action-add:after{
       content: '+';
@@ -229,8 +184,8 @@ ui-toolbar{
       transform: rotate(45deg);
       width: .5rem;
       height: .5rem;
-      margin-right: $toolbar-item-spacing;
-      padding-left: #{$toolbar-item-spacing / 2};
+      margin-right: var(--ui-xs-spacing);
+      padding-left: var(--ui-2xs-spacing);
     }
   }
 

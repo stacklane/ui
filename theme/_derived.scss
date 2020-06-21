@@ -3,7 +3,7 @@
  */
 
 html{
-  --ui-scroll-width: .5rem;
+  --ui-scroll-width: var(--ui-xs-spacing);
   --ui-scroll-thumb: var(--ui-fill);
   --ui-scroll-background: inherit;
 

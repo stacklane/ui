@@ -15,9 +15,19 @@
     border-bottom: 1px solid var(--ui-separator);
   }
 }
+
 .ui-separator-row{
   > *:not(:last-child){
     border-right: 1px solid var(--ui-separator);
+  }
+}
+
+.ui-column{
+  display: grid;
+  grid-template-columns: auto;
+
+  &.has-spacing{
+    row-gap: var(--ui-spacing);
   }
 }
 

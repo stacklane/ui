@@ -6,18 +6,6 @@
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 :root{
 
-  --ui-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --ui-font-family-monospace: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  --ui-font-size: 16px;
-  --ui-line-height: 21px;
-
-  // Weight
-  --ui-weight-light: 300;
-  --ui-weight-normal: 400;
-  --ui-weight-medium: 500;
-  --ui-weight-semibold: 600;
-  --ui-weight-bold: 700;
-  --ui-weight-max: 900; // css 2.1
 
   //--ui-secondary-font-size: calc(var(--ui-font-size) - 2px);
   //--ui-tertiary-font-size: calc(var(--ui-secondary-font-size) - 2px);
@@ -69,7 +57,7 @@
    */
   h4 {
     font-size: var(--ui-font-size);
-    line-height: var(--ui-line-height);
+    line-height: var(--ui-font-line-height);
   }
 
   /**
@@ -101,12 +89,8 @@
   }
 
   section {
-    h1, h2, h3, h4, h5, h6 {
+    h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
       margin-bottom: var(--ui-spacing);
-    }
-
-    + section{
-      margin-top: var(--ui-spacing);
     }
   }
 }

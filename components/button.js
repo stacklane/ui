@@ -2,9 +2,12 @@
 
 class UIButton extends HTMLElement{
 
-    constructor() {
+    constructor(text) {
         super();
         this.setAttribute('tabindex', '0');
+        if (text === 'string') {
+            this.innerText = text;
+        }
     }
 
 }

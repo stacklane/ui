@@ -9,6 +9,7 @@ class Elements{
     static h5(){return new Elements('h5')};
     static h6(){return new Elements('h6')};
     static div(){return new Elements('div')};
+    static span(){return new Elements('span')};
     static section(){return new Elements('section')};
     static footer(){return new Elements('footer')};
     static blockquote(){return new Elements('blockquote')};
@@ -17,6 +18,8 @@ class Elements{
     static button(){return new Elements('button')};
     static input(){return new Elements('input')};
     static template(){return new Elements('template')};
+    static ul(){return new Elements('ul')};
+    static li(){return new Elements('li')};
 
     constructor(name){
         this._name = name;

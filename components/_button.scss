@@ -83,13 +83,12 @@ ui-button, ui-menu-button{
 ui-menu{
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
-  --ui-menu-hover-background: var(--ui-link);
-  --ui-menu-hover-label: var(--ui-link-invert);
+  //--ui-menu-hover-background: var(--ui-link);
+  //--ui-menu-hover-label: var(--ui-link-invert);
   --ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
 
-  display: flex;
-  flex-direction: row; // for each 'ul'
+  display: block;
   position: absolute;
   background: var(--ui-menu-background);
   color: var(--ui-menu-label);
@@ -105,37 +104,6 @@ ui-menu{
   pointer-events: none;
   opacity:0;
   transform: translateY(-5px);
-
-  /**
-   * A series of ul's may be placed within an .action
-   */
-  > ul{
-    flex-grow: 1;
-    text-align:left;
-
-    > li{
-      cursor: var(--ui-action-pointer);
-      padding: var(--ui-2xs-spacing) var(--ui-spacing);
-
-      &:hover{
-        background: var(--ui-menu-hover-background);
-        color: var(--ui-menu-hover-label);
-      }
-
-      &.is-action-add:before{
-        content: '+ ';
-        font-weight: var(--ui-weight-max);
-      }
-      &.is-action-delete:before{
-        content: '× ';
-        font-weight: var(--ui-weight-max);
-      }
-    }
-
-    + ul{
-      border-left: 1px solid var(--ui-separator);
-    }
-  }
 }
 
 ui-menu-button{

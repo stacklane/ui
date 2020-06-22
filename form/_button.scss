@@ -1,24 +1,51 @@
 @import '/utils';
 
+
+@mixin control {
+  appearance: none;
+  border: 0;
+  justify-content: flex-start;
+  display: inline-flex;
+  align-items: center;
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active {
+    outline: none;
+  }
+
+  // TODO vars
+  height: 2.5em;
+  line-height: 1.5;
+}
+
+
+%control {
+  @include control;
+}
+
+
+/**
+ * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
+ */
 .ui-root, ui-modal {
 
   button {
+    @extend %control;
     @extend %unselectable;
 
     --ui-button-backround: inherit;
     --ui-button-label: inherit;
     --ui-button-radius: var(--ui-radius);
     --ui-button-weight: var(--ui-weight-normal);
-    --ui-button-padding: calc(var(--ui-s-spacing)/2) var(--ui-s-spacing);
+    --ui-button-padding-horizontal: var(--ui-s-spacing);
+    --ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
+    --ui-button-hover: var(--ui-selection-background);
 
-    // control
-    appearance: none;
-    border: 0;
-    justify-content: flex-start;
-    display: inline-flex;
-    align-items: center;
-
-    // button
     justify-content: center;
     text-align: center;
     white-space: nowrap;
@@ -29,18 +56,22 @@
     color: var(--ui-button-label);
     border-radius: var(--ui-button-radius);
     font-weight: var(--ui-button-weight);
-    padding: var(--ui-button-padding);
+    padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
 
     :hover{
-
+      background: var(--ui-button-hover);
     }
 
     :active {
-      filter: brightness(1.25);
+      filter: brightness(1.25); // ?
     }
 
     [disabled] {
       filter: brightness(.25);
+    }
+
+    ui-icon{
+      --ui-icon-size: 1.5em;
     }
   }
 

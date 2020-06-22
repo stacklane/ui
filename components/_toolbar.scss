@@ -8,6 +8,8 @@ ui-toolbar{
   --ui-toolbar-item-border-radius: var(--ui-radius);
   --ui-toolbar-path-item-border-radius: var(--ui-toolbar-item-border-radius);
 
+  --ui-toolbar-path-item-arrow-width: 2px;
+
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
   --ui-menu-hover-background: var(--ui-link);
@@ -189,8 +191,8 @@ ui-toolbar{
     &:not(:first-child):before {
       content: "";
       display: inline-block;
-      border-right: 1px solid var(--ui-separator);
-      border-top: 1px solid var(--ui-separator);
+      border-right: var(--ui-toolbar-path-item-arrow-width) solid var(--ui-separator);
+      border-top: var(--ui-toolbar-path-item-arrow-width) solid var(--ui-separator);
       transform: rotate(45deg);
       width: .5rem;
       height: .5rem;

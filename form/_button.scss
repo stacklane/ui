@@ -63,15 +63,15 @@
     font-weight: var(--ui-button-weight);
     padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
 
-    :hover{
+    &:hover{
       background: var(--ui-button-hover);
     }
 
-    :active {
+    &:active {
       filter: brightness(1.25); // ?
     }
 
-    [disabled] {
+    &[disabled] {
       filter: brightness(.25);
     }
 

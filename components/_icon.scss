@@ -1,9 +1,8 @@
 /**
- * Designed usually to be a <span> containing either a single emoji character, or <svg>
+ * Square. Designed usually to be a <span> containing either a single emoji character, or <svg>
  */
 ui-icon{
   --ui-icon-size: 1em;
-  //--ui-icon-s-size: 1rem;
   --ui-icon-color: var(--ui-label);
 
   align-items: center;
@@ -11,6 +10,8 @@ ui-icon{
   justify-content: center;
   height: var(--ui-icon-size);
   width: var(--ui-icon-size);
+
+  font-weight: var(--ui-weight-max);
 
   // not good for case of plain emoji/text icons
   //font-size: var(--ui-icon-size);
@@ -22,36 +23,8 @@ ui-icon{
     fill: var(--ui-icon-color);
   }
 
-  &.is-green /* > svg */ {
-    //fill: var(--ui-green);
+  &.is-green {
     --ui-icon-color: var(--ui-green);
   }
 
-  &.is-small{
-    /*font-size: 1rem;
-    height: 1rem;
-    width: 1rem;
-    line-height: 1rem;
-
-    > svg{
-      height: 1rem;
-      width: 1rem;
-    }*/
-
-   // --ui-icon-size: var(--ui-icon-s-size);
-  }
-
-  &.is-em{
-    /*
-    font-size: 1em;
-    height: 1em;
-    width: 1em;
-    line-height: 1em;
-
-    > svg{
-      height: 1em;
-      width: 1em;
-    }*/
-   // --ui-icon-size: 1em;
-  }
 }

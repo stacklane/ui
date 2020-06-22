@@ -77,6 +77,12 @@ ui-button, ui-menu-button{
 
   ui-icon{
     --ui-icon-size: 1.5em;
+
+    // approach to creating a perfectly square button, when ui-icon is only-child
+    &:only-child{
+      margin-left: calc(-1 / 2 * var(--ui-button-padding-horizontal));
+      margin-right: calc(-1 / 2 * var(--ui-button-padding-horizontal));
+    }
   }
 
   &.is-full-width{

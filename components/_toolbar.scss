@@ -5,18 +5,6 @@ ui-toolbar{
   --ui-toolbar-hover: var(--ui-selection-background);
   --ui-toolbar-focus: var(--ui-selection-background);
 
-  //--ui-toolbar-item-border-radius: var(--ui-radius);
-  --ui-toolbar-path-item-border-radius: var(--ui-toolbar-item-border-radius);
-
-  --ui-toolbar-path-item-arrow-width: 2px;
-
-  --ui-menu-background: var(--ui-secondary-background);
-  --ui-menu-label: var(--ui-label);
-  --ui-menu-hover-background: var(--ui-link);
-  --ui-menu-hover-label: var(--ui-link-invert);
-  --ui-menu-shadow: var(--ui-secondary-background-shadow);
-  --ui-menu-speed: var(--ui-speed);
-
   flex-shrink: 0;
 
   align-items: stretch;
@@ -52,8 +40,7 @@ ui-toolbar{
     justify-content: flex-end;
   }
 
-  ui-toolbar-item,
-  ui-toolbar-path-item{
+  ui-toolbar-item{
     @include unselectable;
 
     background: transparent; //var(--ui-toolbar-background);
@@ -72,86 +59,12 @@ ui-toolbar{
       opacity: .5 !important;
       pointer-events: none !important;
     }
-
-    &.has-action{
-      cursor: var(--ui-action-pointer);
-      position: relative;
-    }
-
-    &.has-menu-action {
-      cursor: var(--ui-action-pointer);
-      position: relative;
-
-      .menu{
-        //font-size: .8rem; // specify here as well, so that it's consistent for other item title sizes
-        display: flex;
-        flex-direction: row; // for each 'ul'
-        position: absolute;
-        background: var(--ui-menu-background);
-        color: var(--ui-menu-label);
-        z-index: 9999;
-        left: 0;
-        top: 100%; // bottom of parent
-        min-width: 100%; // at least as wide as parent
-        //box-shadow: 0 8px 8px var(--ui-menu-shadow), 0 0 0 1px var(--ui-menu-shadow);
-        box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
-        transition-property: opacity,transform;
-        transition-duration: var(--ui-menu-speed);
-        pointer-events:none;
-        opacity:0;
-        transform: translateY(-5px);
-
-        /**
-         * A series of ul's may be placed within an .action
-         */
-        > ul{
-          flex-grow: 1;
-
-          > li{
-            cursor: var(--ui-action-pointer);
-            padding: var(--ui-2xs-spacing) var(--ui-spacing);
-
-            &:hover{
-              background: var(--ui-menu-hover-background);
-              color: var(--ui-menu-hover-label);
-            }
-
-            &.is-action-add:before{
-              content: '+ ';
-              font-weight: var(--ui-weight-max);
-            }
-            &.is-action-delete:before{
-              content: '× ';
-              font-weight: var(--ui-weight-max);
-            }
-          }
-
-          + ul{
-            border-left: 1px solid var(--ui-separator);
-          }
-        }
-      }
-
-      &:hover {
-        background: var(--ui-toolbar-hover);
-      }
-
-      &:focus{
-        background: var(--ui-toolbar-focus);
-
-        .menu{
-          pointer-events: auto;
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    }
   }
 
-  ui-toolbar-right ui-toolbar-item.has-action .action{
-    right: 0;
-    left: unset;
-  }
+  //ui-toolbar-right ui-toolbar-item.has-action .action{
+  //  right: 0;
+  //  left: unset;
+ // }
 
   ui-toolbar-item{
     //border-radius: var(--ui-toolbar-item-border-radius);
@@ -171,27 +84,6 @@ ui-toolbar{
         height: 1rem;
         width: 1rem;
       }
-    }
-  }
-
-  ui-toolbar-path-item{
-    border-radius: var(--ui-toolbar-path-item-border-radius);
-
-    &.is-action-add:after{
-      content: '+';
-      font-weight: var(--ui-weight-max);
-    }
-
-    &:not(:first-child):before {
-      content: "";
-      display: inline-block;
-      border-right: var(--ui-toolbar-path-item-arrow-width) solid var(--ui-separator);
-      border-top: var(--ui-toolbar-path-item-arrow-width) solid var(--ui-separator);
-      transform: rotate(45deg);
-      width: .5rem;
-      height: .5rem;
-      margin-right: var(--ui-xs-spacing);
-      padding-left: calc(var(--ui-xs-spacing) / 2);
     }
   }
 

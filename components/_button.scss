@@ -37,118 +37,113 @@
 /**
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
  */
-.ui-root, ui-modal {
+ui-button, ui-menu-button{
+  @extend %control;
+  @extend %unselectable;
 
-  button, ui-button, ui-menu-button{
-    @extend %control;
-    @extend %unselectable;
+  --ui-button-backround: inherit;
+  --ui-button-label: inherit;
+  --ui-button-radius: var(--ui-radius);
+  --ui-button-weight: var(--ui-weight-normal);
+  --ui-button-padding-horizontal: var(--ui-s-spacing);
+  --ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
+  --ui-button-hover: var(--ui-selection-background);
 
-    --ui-button-backround: inherit;
-    --ui-button-label: inherit;
-    --ui-button-radius: var(--ui-radius);
-    --ui-button-weight: var(--ui-weight-normal);
-    --ui-button-padding-horizontal: var(--ui-s-spacing);
-    --ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
-    --ui-button-hover: var(--ui-selection-background);
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
 
-    justify-content: center;
-    text-align: center;
-    white-space: nowrap;
+  cursor: var(--ui-action-pointer);
 
-    cursor: var(--ui-action-pointer);
+  background: var(--ui-button-backround);
+  color: var(--ui-button-label);
+  border-radius: var(--ui-button-radius);
+  font-weight: var(--ui-button-weight);
+  padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
 
-    background: var(--ui-button-backround);
-    color: var(--ui-button-label);
-    border-radius: var(--ui-button-radius);
-    font-weight: var(--ui-button-weight);
-    padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
+  &:hover{
+    background: var(--ui-button-hover);
+  }
 
-    &:hover{
-      background: var(--ui-button-hover);
-    }
+  &:active {
+    filter: brightness(1.25); // ?
+  }
 
-    &:active {
-      filter: brightness(1.25); // ?
-    }
+  &[disabled] {
+    filter: brightness(.25); // opacity instead?
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+  }
 
-    &[disabled] {
-      filter: brightness(.25); // opacity instead?
-      pointer-events: none !important;
-      cursor: not-allowed !important;
-    }
+  ui-icon{
+    --ui-icon-size: 1.5em;
+  }
+}
 
-    ui-icon{
-      --ui-icon-size: 1.5em;
+ui-menu-button{
+  position: relative;
+
+  .menu{
+    display: flex;
+    flex-direction: row; // for each 'ul'
+    position: absolute;
+    background: var(--ui-menu-background);
+    color: var(--ui-menu-label);
+    z-index: 9999;
+    left: 0;
+    top: 100%; // bottom of parent
+    min-width: 100%; // at least as wide as parent
+    //box-shadow: 0 8px 8px var(--ui-menu-shadow), 0 0 0 1px var(--ui-menu-shadow);
+    box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
+    transition-property: opacity,transform;
+    transition-duration: var(--ui-menu-speed);
+    pointer-events:none; // while hidden
+    opacity:0;
+    transform: translateY(-5px);
+
+    /**
+     * A series of ul's may be placed within an .action
+     */
+    > ul{
+      flex-grow: 1;
+      text-align:left;
+
+      > li{
+        cursor: var(--ui-action-pointer);
+        padding: var(--ui-2xs-spacing) var(--ui-spacing);
+
+        &:hover{
+          background: var(--ui-menu-hover-background);
+          color: var(--ui-menu-hover-label);
+        }
+
+        &.is-action-add:before{
+          content: '+ ';
+          font-weight: var(--ui-weight-max);
+        }
+        &.is-action-delete:before{
+          content: '× ';
+          font-weight: var(--ui-weight-max);
+        }
+      }
+
+      + ul{
+        border-left: 1px solid var(--ui-separator);
+      }
     }
   }
 
-  ui-menu-button{
-    //cursor: var(--ui-action-pointer);
-    position: relative;
+  //&:hover {
+  //  background: var(--ui-selection);
+  // }
+
+  &:focus{
+    //  background: var(--ui-toolbar-focus);
 
     .menu{
-      //font-size: .8rem; // specify here as well, so that it's consistent for other item title sizes
-      display: flex;
-      flex-direction: row; // for each 'ul'
-      position: absolute;
-      background: var(--ui-menu-background);
-      color: var(--ui-menu-label);
-      z-index: 9999;
-      left: 0;
-      top: 100%; // bottom of parent
-      min-width: 100%; // at least as wide as parent
-      //box-shadow: 0 8px 8px var(--ui-menu-shadow), 0 0 0 1px var(--ui-menu-shadow);
-      box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
-      transition-property: opacity,transform;
-      transition-duration: var(--ui-menu-speed);
-      pointer-events:none;
-      opacity:0;
-      transform: translateY(-5px);
-
-      /**
-       * A series of ul's may be placed within an .action
-       */
-      > ul{
-        flex-grow: 1;
-
-        > li{
-          cursor: var(--ui-action-pointer);
-          padding: var(--ui-2xs-spacing) var(--ui-spacing);
-
-          &:hover{
-            background: var(--ui-menu-hover-background);
-            color: var(--ui-menu-hover-label);
-          }
-
-          &.is-action-add:before{
-            content: '+ ';
-            font-weight: var(--ui-weight-max);
-          }
-          &.is-action-delete:before{
-            content: '× ';
-            font-weight: var(--ui-weight-max);
-          }
-        }
-
-        + ul{
-          border-left: 1px solid var(--ui-separator);
-        }
-      }
-    }
-
-    //&:hover {
-    //  background: var(--ui-selection);
-    // }
-
-    &:focus{
-      //  background: var(--ui-toolbar-focus);
-
-      .menu{
-        pointer-events: auto;
-        opacity: 1;
-        transform: translateY(0);
-      }
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-
 }

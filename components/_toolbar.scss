@@ -87,15 +87,28 @@ ui-toolbar{
     }
   }
 
+  /**
+   * Spacing
+   */
+  --ui-toolbar-spacing: 0;
+
+  padding: var(--ui-toolbar-spacing);
+
+  ui-toolbar-item, ui-toolbar-path-item{
+    padding: calc(var(--ui-toolbar-spacing) / 2) var(--ui-toolbar-spacing);
+  }
+
+  ui-toolbar-right{
+    margin-right: var(--ui-toolbar-spacing);
+  }
+
+  &.has-s-spacing{
+    --ui-toolbar-spacing: var(--ui-s-spacing);
+  }
   &.has-xs-spacing{
-    padding: var(--ui-xs-spacing);
-
-    ui-toolbar-item, ui-toolbar-path-item{
-      padding: calc(var(--ui-xs-spacing) / 2) var(--ui-xs-spacing);
-    }
-
-    ui-toolbar-right{
-      margin-right: var(--ui-xs-spacing);
-    }
+    --ui-toolbar-spacing: var(--ui-xs-spacing);
+  }
+  &.has-2xs-spacing{
+    --ui-toolbar-spacing: var(--ui-2xs-spacing);
   }
 }

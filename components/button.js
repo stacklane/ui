@@ -4,7 +4,7 @@ class UIButton extends HTMLElement{
 
     constructor(text) {
         super();
-        if (text === 'string') {
+        if (typeof text === 'string') {
             this.innerText = text;
         }
     }

@@ -157,7 +157,9 @@ html.ui-full {
     text-align:left;
 
     > li{
-      --ui-button-radius: 0px;
+      ui-button {
+        --ui-button-radius: 0px;
+      }
     }
 
     + ul{

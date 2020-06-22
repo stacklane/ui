@@ -6,7 +6,7 @@ class UIButton extends HTMLElement{
         this.setAttribute('tabindex', '0');
     }
 }
-window.customElements.define('ui-button', UIDialog);
+window.customElements.define('ui-button', UIButton);
 
 class UIMenuButton extends HTMLElement{
 
@@ -14,4 +14,4 @@ class UIMenuButton extends HTMLElement{
         this.setAttribute('tabindex', '0');
     }
 }
-window.customElements.define('ui-menu-button', UIDialog);
+window.customElements.define('ui-menu-button', UIMenuButton);

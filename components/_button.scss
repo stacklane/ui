@@ -66,7 +66,7 @@ ui-button, ui-menu-button{
   }
 
   &:active {
-    filter: brightness(1.25); // ?
+    // in any case, this will break ui-menu-button: filter: brightness(1.25); // ?
   }
 
   &[disabled] {
@@ -96,7 +96,6 @@ ui-menu-button{
     position: absolute;
     background: var(--ui-menu-background);
     color: var(--ui-menu-label);
-    z-index: 9999;
     left: 0;
     top: 100%; // bottom of parent
     min-width: 100%; // at least as wide as parent
@@ -104,7 +103,8 @@ ui-menu-button{
     box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
     transition-property: opacity,transform;
     transition-duration: var(--ui-menu-speed);
-    pointer-events:none; // while hidden
+    z-index: -9999; // while hidden
+    pointer-events: none; // while hidden
     opacity:0;
     transform: translateY(-5px);
 
@@ -151,6 +151,7 @@ ui-menu-button{
       pointer-events: auto;
       opacity: 1;
       transform: translateY(0);
+      z-index: 9999;
     }
   }
 }

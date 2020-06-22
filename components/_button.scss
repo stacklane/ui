@@ -39,7 +39,7 @@
  */
 .ui-root, ui-modal {
 
-  button, ui-button {
+  button, ui-button, ui-menu-button{
     @extend %control;
     @extend %unselectable;
 

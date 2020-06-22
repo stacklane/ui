@@ -158,24 +158,6 @@ ui-list-row{
 
     > li{
       --ui-button-radius: 0px;
-
-      /*
-      cursor: var(--ui-action-pointer);
-      padding: var(--ui-2xs-spacing) var(--ui-spacing);
-
-      &:hover{
-        background: var(--ui-menu-hover-background);
-        color: var(--ui-menu-hover-label);
-      }
-
-      &.is-action-add:before{
-        content: '+ ';
-        font-weight: var(--ui-weight-max);
-      }
-      &.is-action-delete:before{
-        content: '× ';
-        font-weight: var(--ui-weight-max);
-      }*/
     }
 
     + ul{

@@ -4,10 +4,13 @@ class UIButton extends HTMLElement{
 
     constructor(text) {
         super();
-        this.setAttribute('tabindex', '0');
         if (text === 'string') {
             this.innerText = text;
         }
+    }
+
+    connectedCallback(){
+        this.setAttribute('tabindex', '0');
     }
 
 }
@@ -17,13 +20,6 @@ class UIMenuButton extends HTMLElement{
 
     constructor() {
         super();
-        this.setAttribute('tabindex', '0');
-        //this.setAttribute('aria-haspopup', 'true');
-        //this.setAttribute('aria-controls', 'ui-menu');
-        const that = this;
-        this.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') that._esc(event);
-        });
     }
 
     /**
@@ -34,6 +30,15 @@ class UIMenuButton extends HTMLElement{
         event.preventDefault();
     }
 
+    connectedCallback(){
+        this.setAttribute('tabindex', '0');
+        //this.setAttribute('aria-haspopup', 'true');
+        //this.setAttribute('aria-controls', 'ui-menu');
+        const that = this;
+        this.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') that._esc(event);
+        });
+    }
 }
 window.customElements.define('ui-menu-button', UIMenuButton);
 
@@ -42,4 +47,4 @@ class UIMenu extends HTMLElement{
         super();
     }
 }
-window.customElements.define('ui-menu', UIMenuButton);
+window.customElements.define('ui-menu', UIMenu);

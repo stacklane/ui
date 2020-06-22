@@ -9,10 +9,12 @@ ui-icon{
   align-items: center;
   display: inline-flex;
   justify-content: center;
-  font-size: var(--ui-icon-size);
   height: var(--ui-icon-size);
   width: var(--ui-icon-size);
-  line-height: var(--ui-icon-size);
+
+  // not good for case of plain emoji/text icons
+  //font-size: var(--ui-icon-size);
+  //line-height: var(--ui-icon-size);
 
   > svg{
     height: var(--ui-icon-size);

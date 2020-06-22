@@ -7,10 +7,14 @@
   justify-content: flex-start;
   display: inline-flex;
   align-items: center;
+  position: relative;
+  vertical-align: top;
+
   &[disabled],
   fieldset[disabled] & {
     cursor: not-allowed;
   }
+
   &:focus,
   &.is-focused,
   &:active,
@@ -21,6 +25,7 @@
   // TODO vars
   height: 2.5em;
   line-height: 1.5;
+  font-size: 1rem;
 }
 
 
@@ -49,8 +54,8 @@
     justify-content: center;
     text-align: center;
     white-space: nowrap;
-    position: relative;
-    vertical-align: top;
+
+    cursor: var(--ui-action-pointer);
 
     background: var(--ui-button-backround);
     color: var(--ui-button-label);

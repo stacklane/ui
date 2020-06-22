@@ -9,6 +9,16 @@ class UIButton extends HTMLElement{
         }
     }
 
+    fullWidth(){
+        this.classList.add('is-full-width');
+        return this;
+    }
+
+    justifyLeft(){
+        this.classList.add('is-justify-left');
+        return this;
+    }
+
     connectedCallback(){
         this.setAttribute('tabindex', '0');
     }
@@ -16,10 +26,10 @@ class UIButton extends HTMLElement{
 }
 window.customElements.define('ui-button', UIButton);
 
-class UIMenuButton extends HTMLElement{
+class UIMenuButton extends UIButton{
 
-    constructor() {
-        super();
+    constructor(text) {
+        super(text);
     }
 
     /**

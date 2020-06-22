@@ -144,8 +144,8 @@ ui-menu-button{
   //  background: var(--ui-selection);
   // }
 
-  &:focus{
-    //  background: var(--ui-toolbar-focus);
+  &:focus, &:focus-within{
+    background: var(--ui-button-hover);
 
     .menu{
       pointer-events: auto;

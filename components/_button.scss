@@ -80,9 +80,7 @@ ui-button, ui-menu-button{
   }
 }
 
-ui-menu-button{
-  position: relative;
-
+ui-menu{
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
   --ui-menu-hover-background: var(--ui-link);
@@ -90,64 +88,68 @@ ui-menu-button{
   --ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
 
-  .menu{
-    display: flex;
-    flex-direction: row; // for each 'ul'
-    position: absolute;
-    background: var(--ui-menu-background);
-    color: var(--ui-menu-label);
-    left: 0;
-    top: 100%; // bottom of parent
-    min-width: 100%; // at least as wide as parent
-    //box-shadow: 0 8px 8px var(--ui-menu-shadow), 0 0 0 1px var(--ui-menu-shadow);
-    box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
-    transition-property: opacity,transform;
-    transition-duration: var(--ui-menu-speed);
-    z-index: -9999; // while hidden
-    pointer-events: none; // while hidden
-    opacity:0;
-    transform: translateY(-5px);
+  display: flex;
+  flex-direction: row; // for each 'ul'
+  position: absolute;
+  background: var(--ui-menu-background);
+  color: var(--ui-menu-label);
+  left: 0;
+  top: 100%; // bottom of parent
+  min-width: 100%; // at least as wide as parent
+  box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
+  transition-property: opacity,transform;
+  transition-duration: var(--ui-menu-speed);
 
-    /**
-     * A series of ul's may be placed within an .action
-     */
-    > ul{
-      flex-grow: 1;
-      text-align:left;
+  // while hidden:
+  z-index: -9999;
+  pointer-events: none;
+  opacity:0;
+  transform: translateY(-5px);
 
-      > li{
-        cursor: var(--ui-action-pointer);
-        padding: var(--ui-2xs-spacing) var(--ui-spacing);
+  /**
+   * A series of ul's may be placed within an .action
+   */
+  > ul{
+    flex-grow: 1;
+    text-align:left;
 
-        &:hover{
-          background: var(--ui-menu-hover-background);
-          color: var(--ui-menu-hover-label);
-        }
+    > li{
+      cursor: var(--ui-action-pointer);
+      padding: var(--ui-2xs-spacing) var(--ui-spacing);
 
-        &.is-action-add:before{
-          content: '+ ';
-          font-weight: var(--ui-weight-max);
-        }
-        &.is-action-delete:before{
-          content: '× ';
-          font-weight: var(--ui-weight-max);
-        }
+      &:hover{
+        background: var(--ui-menu-hover-background);
+        color: var(--ui-menu-hover-label);
       }
 
-      + ul{
-        border-left: 1px solid var(--ui-separator);
+      &.is-action-add:before{
+        content: '+ ';
+        font-weight: var(--ui-weight-max);
+      }
+      &.is-action-delete:before{
+        content: '× ';
+        font-weight: var(--ui-weight-max);
       }
     }
+
+    + ul{
+      border-left: 1px solid var(--ui-separator);
+    }
   }
+}
 
-  //&:hover {
-  //  background: var(--ui-selection);
-  // }
+ui-menu-button{
+  position: relative;
 
+  /**
+   * :focus-within allows focusing input controls within the menu, without closing the menu.
+   *
+   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
+   */
   &:focus, &:focus-within{
     background: var(--ui-button-hover);
 
-    .menu{
+    ui-menu{
       pointer-events: auto;
       opacity: 1;
       transform: translateY(0);

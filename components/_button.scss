@@ -83,6 +83,13 @@ ui-button, ui-menu-button{
 ui-menu-button{
   position: relative;
 
+  --ui-menu-background: var(--ui-secondary-background);
+  --ui-menu-label: var(--ui-label);
+  --ui-menu-hover-background: var(--ui-link);
+  --ui-menu-hover-label: var(--ui-link-invert);
+  --ui-menu-shadow: var(--ui-secondary-background-shadow);
+  --ui-menu-speed: var(--ui-speed);
+
   .menu{
     display: flex;
     flex-direction: row; // for each 'ul'

@@ -5,7 +5,7 @@ ui-toolbar{
   --ui-toolbar-hover: var(--ui-selection-background);
   --ui-toolbar-focus: var(--ui-selection-background);
 
-  --ui-toolbar-item-border-radius: var(--ui-radius);
+  //--ui-toolbar-item-border-radius: var(--ui-radius);
   --ui-toolbar-path-item-border-radius: var(--ui-toolbar-item-border-radius);
 
   --ui-toolbar-path-item-arrow-width: 2px;
@@ -50,7 +50,6 @@ ui-toolbar{
   ui-toolbar-right{
     align-items: stretch; //center;
     justify-content: flex-end;
-    margin-right: var(--ui-xs-spacing);
   }
 
   ui-toolbar-item,
@@ -65,7 +64,6 @@ ui-toolbar{
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    padding: calc(var(--ui-xs-spacing) / 2) var(--ui-xs-spacing);
 
     outline:0;
 
@@ -156,11 +154,7 @@ ui-toolbar{
   }
 
   ui-toolbar-item{
-    border-radius: var(--ui-toolbar-item-border-radius);
-
-    > ui-icon:only-child{
-
-    }
+    //border-radius: var(--ui-toolbar-item-border-radius);
 
     &.is-logo:before{
       content: ' ';
@@ -203,5 +197,13 @@ ui-toolbar{
 
   &.has-xs-spacing{
     padding: var(--ui-xs-spacing);
+
+    ui-toolbar-item, ui-toolbar-path-item{
+      padding: calc(var(--ui-xs-spacing) / 2) var(--ui-xs-spacing);
+    }
+
+    ui-toolbar-right{
+      margin-right: var(--ui-xs-spacing);
+    }
   }
 }

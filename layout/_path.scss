@@ -1,0 +1,46 @@
+@import '/utils';
+
+ui-path{
+  @include unselectable;
+
+  --ui-path-item-arrow-width: 2px;
+  --ui-path-item-color: var(--ui-separator);
+
+  display: flex;
+
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  &:empty{
+    display:none;
+  }
+
+  align-items: stretch;
+  justify-content: space-between;
+  display: flex;
+
+  > ui-path-item{
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    outline:0;
+
+    &:not(:first-child):before {
+      content: "";
+      display: inline-block;
+      border-right: var(--ui-path-item-arrow-width) solid var(--ui-path-item-color);
+      border-top: var(--ui-path-item-arrow-width) solid var(--ui-path-item-color);
+      transform: rotate(45deg);
+
+      // TODO vars
+      width: .5rem;
+      height: .5rem;
+      margin-right: var(--ui-xs-spacing);
+      padding-left: calc(var(--ui-xs-spacing) / 2);
+    }
+  }
+}

@@ -39,6 +39,7 @@
   }
 
   &.is-em{
+    /*
     font-size: 1em;
     height: 1em;
     width: 1em;
@@ -47,6 +48,7 @@
     > svg{
       height: 1em;
       width: 1em;
-    }
+    }*/
+    --ui-icon-size: 1em;
   }
 }

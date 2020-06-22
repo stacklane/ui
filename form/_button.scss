@@ -31,6 +31,10 @@
     font-weight: var(--ui-button-weight);
     padding: var(--ui-button-padding);
 
+    :hover{
+
+    }
+
     :active {
       filter: brightness(1.25);
     }

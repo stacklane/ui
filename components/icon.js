@@ -3,7 +3,7 @@ class UIIcon extends HTMLElement{
         super();
         if (string.indexOf("<svg") === 0){
             this.innerHTML = string;
-        } else if ([...string].length == 1){ // actual character count, via MDN
+        } else if ([...string].length == 1){ // actual character count (for emoji), via MDN
             this.innerText = string;
         } else {
             throw string;

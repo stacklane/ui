@@ -1,0 +1,19 @@
+
+@import '/utils';
+
+// TBD appearance:none for full control over styling
+
+.ui-root, ui-modal {
+  input {
+    //border-radius: var(--ui-radius);
+  }
+
+  input[type="text"] {
+    background: var(--ui-background);
+    color: var(--ui-label);
+    padding: .25em;
+    outline-color: var(--ui-link);
+    outline-width: 3px;
+    width: 100%;
+  }
+}

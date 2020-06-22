@@ -5,6 +5,9 @@ ui-toolbar{
   --ui-toolbar-hover: var(--ui-selection-background);
   --ui-toolbar-focus: var(--ui-selection-background);
 
+  --ui-toolbar-item-border-radius: var(--ui-radius);
+  --ui-toolbar-path-item-border-radius: var(--ui-toolbar-item-border-radius);
+
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
   --ui-menu-hover-background: var(--ui-link);
@@ -12,7 +15,7 @@ ui-toolbar{
   --ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
 
-  flex-shrink:0;
+  flex-shrink: 0;
 
   align-items: stretch;
   justify-content: space-between;
@@ -60,7 +63,7 @@ ui-toolbar{
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    padding: var(--ui-xs-spacing);
+    padding: calc(var(--ui-xs-spacing) / 2) var(--ui-xs-spacing);
 
     outline:0;
 
@@ -151,6 +154,12 @@ ui-toolbar{
   }
 
   ui-toolbar-item{
+    border-radius: var(--ui-toolbar-item-border-radius);
+
+    > ui-icon:only-child{
+
+    }
+
     &.is-logo:before{
       content: ' ';
       height: 1.5rem;
@@ -170,13 +179,14 @@ ui-toolbar{
   }
 
   ui-toolbar-path-item{
+    border-radius: var(--ui-toolbar-path-item-border-radius);
 
     &.is-action-add:after{
       content: '+';
       font-weight: var(--ui-weight-max);
     }
 
-    &:not(:first-child):before { // we could exclude for is-action-add too, however it doesn't look as good
+    &:not(:first-child):before {
       content: "";
       display: inline-block;
       border-right: 1px solid var(--ui-separator);
@@ -185,8 +195,11 @@ ui-toolbar{
       width: .5rem;
       height: .5rem;
       margin-right: var(--ui-xs-spacing);
-      padding-left: var(--ui-2xs-spacing);
+      padding-left: calc(var(--ui-xs-spacing) / 2);
     }
   }
 
+  &.has-xs-spacing{
+    padding: var(--ui-xs-spacing);
+  }
 }

@@ -1,27 +1,32 @@
 /**
  * Designed usually to be a <span> containing either a single emoji character, or <svg>
  */
-.icon, ui-icon{
+.ui-icon, ui-icon{
+  --ui-icon-size: 1.5rem;
+  --ui-icon-s-size: 1rem;
+  --ui-icon-color: var(--ui-label);
+
   align-items: center;
   display: inline-flex;
   justify-content: center;
-  font-size: 1.5rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  line-height: 1.5rem;
+  font-size: var(--ui-icon-size);
+  height: var(--ui-icon-size);
+  width: var(--ui-icon-size);
+  line-height: var(--ui-icon-size);
 
   > svg{
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: var(--ui-label);
+    height: var(--ui-icon-size);
+    width: var(--ui-icon-size);
+    fill: var(--ui-icon-color);
   }
 
-  &.is-green > svg {
-    fill: var(--ui-green);
+  &.is-green /* > svg */ {
+    //fill: var(--ui-green);
+    --ui-icon-color: var(--ui-green);
   }
 
   &.is-small{
-    font-size: 1rem;
+    /*font-size: 1rem;
     height: 1rem;
     width: 1rem;
     line-height: 1rem;
@@ -29,7 +34,8 @@
     > svg{
       height: 1rem;
       width: 1rem;
-    }
+    }*/
+    --ui-icon-size: var(--ui-icon-s-size);
   }
 
   &.is-em{

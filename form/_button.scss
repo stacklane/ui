@@ -1,0 +1,43 @@
+@import '/utils';
+
+.ui-root, ui-modal {
+
+  button {
+    @extend %unselectable;
+
+    --ui-button-backround: inherit;
+    --ui-button-label: inherit;
+    --ui-button-radius: var(--ui-radius);
+    --ui-button-weight: var(--ui-weight-normal);
+    --ui-button-padding: calc(var(--ui-s-spacing)/2) var(--ui-s-spacing);
+
+    // control
+    appearance: none;
+    border: 0;
+    justify-content: flex-start;
+    display: inline-flex;
+    align-items: center;
+
+    // button
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: top;
+
+    background: var(--ui-button-backround);
+    color: var(--ui-button-label);
+    border-radius: var(--ui-button-radius);
+    font-weight: var(--ui-button-weight);
+    padding: var(--ui-button-padding);
+
+    :active {
+      filter: brightness(1.25);
+    }
+
+    [disabled] {
+      filter: brightness(.25);
+    }
+  }
+
+}

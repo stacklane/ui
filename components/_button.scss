@@ -67,7 +67,7 @@ ui-button, ui-menu-button, ui-icon-button{
   padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
 
   // TBD/TODO
-  letter-spacing: 0.02857em;
+ // letter-spacing: 0.02857em;
   font-size: .875rem;
   line-height: 1.75;
   font-weight: 500;
@@ -118,12 +118,13 @@ ui-icon-button{
   font-size: 1.5rem;
   flex: 0 0 auto;
 
-  padding: 12px;
+  padding: 6px;
 
   overflow: visible;
 
   > ui-icon {
-    --ui-icon-size: 1.5em;
+    --ui-icon-size: 1em;
+    font-size: 1.5rem;
   }
 
 }

@@ -49,10 +49,13 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-button-label: inherit;
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
-  --ui-button-padding-horizontal: var(--ui-s-spacing);
-  --ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
+  --ui-button-padding: var(--ui-xs-spacing);
+  //--ui-button-padding-horizontal: var(--ui-xs-spacing);
+  //--ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
   --ui-button-hover: var(--ui-fill);
   --ui-button-active: var(--ui-secondary-fill);
+
+  box-sizing: border-box;
 
   justify-content: center;
   text-align: center;
@@ -64,15 +67,13 @@ ui-button, ui-menu-button, ui-icon-button{
   color: var(--ui-button-label);
   border-radius: var(--ui-button-radius);
   font-weight: var(--ui-button-weight);
-  padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
+  padding: calc(var(--ui-button-padding)/2) var(--ui-button-padding);
 
   // TBD/TODO
  // letter-spacing: 0.02857em;
   font-size: .875rem;
   line-height: 1.75;
   font-weight: 500;
-
-  padding: 6px 8px;
 
   &:hover{
     background: var(--ui-button-hover);
@@ -98,15 +99,18 @@ ui-button, ui-menu-button, ui-icon-button{
   }
 
   // TODO default/primary/secondary
+
+
   &.is-priority-medium{
     // TODO default/primary/secondary
-    padding: 6px 16px;
+    padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
+    border:1px solid var(--ui-fill);
   }
   &.is-priority-high{
    // --ui-button-background: var(--ui-fill);
     //--ui-button-hover: var(ui-)
     background: var(--ui-fill) ; // TODO default/primary/secondary
-    padding: 6px 16px;
+    padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
   }
 }
 
@@ -115,16 +119,16 @@ ui-icon-button{
   //--ui-button-padding-horizontal: var(--ui-xs-spacing);
   //--ui-button-padding-vertical: var(--ui-xs-spacing);
 
-  font-size: 1.5rem;
+  //font-size: 1.5rem;
   flex: 0 0 auto;
 
-  padding: 6px;
+  padding: var(--ui-button-padding);
 
   overflow: visible;
 
   > ui-icon {
-    --ui-icon-size: 1em;
-    font-size: 1.5rem;
+    //--ui-icon-size: 1em;
+    //font-size: 1.5rem;
   }
 
 }

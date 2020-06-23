@@ -2,6 +2,7 @@ $tablet: 769px !default;
 
 :root{
   // Spacing (margin/padding/gap's)
+  // TODO should these auto-vary based on screen size?
   --ui-2xs-spacing: .25rem;
   --ui-xs-spacing: .5rem;
   --ui-s-spacing: .75rem;
@@ -25,6 +26,7 @@ $tablet: 769px !default;
   --ui-weight-semibold: 600;
   --ui-weight-bold: 700;
   --ui-weight-max: 900; // css 2.1
+
 }
 
 

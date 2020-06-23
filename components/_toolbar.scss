@@ -1,4 +1,9 @@
 
+/**
+ * ui-toolbar
+ *   ui-toolbar-left/right
+ *     ui-toolbar-item
+ */
 ui-toolbar{
   --ui-toolbar-background: var(--ui-secondary-background);
 
@@ -35,67 +40,24 @@ ui-toolbar{
   }
 
   ui-toolbar-item{
-    @include unselectable;
-
-    background: transparent; //var(--ui-toolbar-background);
-
     align-items: center;
     display: flex;
     flex-basis: auto;
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-
     outline:0;
-
-    &[disabled]{
-      cursor: not-allowed !important;
-      opacity: .5 !important;
-      pointer-events: none !important;
-    }
-  }
-
-  //ui-toolbar-right ui-toolbar-item.has-action .action{
-  //  right: 0;
-  //  left: unset;
- // }
-
-  ui-toolbar-item{
-    /*
-    //border-radius: var(--ui-toolbar-item-border-radius);
-
-    &.is-logo:before{
-      content: ' ';
-      height: 1.5rem;
-      width: 1.5rem;
-      background-size: 1.5rem 1.5rem;
-      background-image: var(--ui-logo);
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    &.is-app-icon{
-      svg{
-        height: 1rem;
-        width: 1rem;
-      }
-    }*/
   }
 
   /**
    * Spacing
+   *
+   * Generally it's expected that content within ui-toolbar-item's have their own padding (such as ui-button).
+   * Therefore ui-toolbar-item's have no spacing / padding of their own.
    */
   --ui-toolbar-spacing: 0;
 
   padding: var(--ui-toolbar-spacing);
-
-  ui-toolbar-item{
-    padding: calc(var(--ui-toolbar-spacing) / 2) var(--ui-toolbar-spacing);
-  }
-
-  //ui-toolbar-right{
-  //  margin-right: var(--ui-toolbar-spacing);
-  //}
 
   &.has-s-spacing{
     --ui-toolbar-spacing: var(--ui-s-spacing);
@@ -107,10 +69,11 @@ ui-toolbar{
     --ui-toolbar-spacing: var(--ui-2xs-spacing);
   }
 
-  &.has-gutters{
-    padding-left: var(--ui-toolbar-spacing);
-    padding-right: var(--ui-toolbar-spacing);
+  /**
+   * Variations
+   */
 
+  &.has-gutters{
     @include tablet {
       padding-left: calc(var(--ui-toolbar-spacing) * 2);
       padding-right: calc(var(--ui-toolbar-spacing) * 2);
@@ -118,10 +81,10 @@ ui-toolbar{
   }
 
   &.is-main{
-    min-height: 48px;
+    min-height: calc(var(--ui-toolbar-spacing) * 3);
 
     @include tablet {
-      min-height: 64px;
+      min-height:  calc(var(--ui-toolbar-spacing) * 4);
     }
   }
 

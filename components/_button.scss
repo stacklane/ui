@@ -100,17 +100,21 @@ ui-icon-button{
 ui-menu{
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
-  --ui-menu-shadow: var(--ui-secondary-background-shadow);
+  //--ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
+  --ui-menu-radius: var(--ui-radius);
 
   display: block;
   position: absolute;
   background: var(--ui-menu-background);
   color: var(--ui-menu-label);
   left: 0;
+  overflow: hidden; // clip content inside rounded corners
   top: 100%; // bottom of parent
+  margin-top: 2px; // away from a parent a bit
   min-width: 100%; // at least as wide as parent
-  box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
+  border-radius: var(--ui-menu-radius);
+  //box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
   transition-property: opacity,transform;
   transition-duration: var(--ui-menu-speed);
 

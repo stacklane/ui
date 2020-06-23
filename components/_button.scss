@@ -45,8 +45,8 @@ ui-button, ui-menu-button, ui-icon-button{
   @extend %control;
   @extend %unselectable;
 
-  --ui-button-backround: inherit;
-  --ui-button-label: inherit;
+  //--ui-button-backround: inherit;
+  //--ui-button-label: inherit;
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-padding: var(--ui-xs-spacing);
@@ -55,16 +55,23 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-button-hover: var(--ui-fill);
   --ui-button-active: var(--ui-secondary-fill);
 
+  --ui-button-default: var(--ui-label);
+  --ui-button-primary: var(--ui-blue);
+  --ui-button-secondary: var(--ui-gray);
+
   box-sizing: border-box;
 
   justify-content: center;
   text-align: center;
   white-space: nowrap;
 
+  border: 1px solid transparent;
+
   cursor: var(--ui-action-pointer);
 
-  background: var(--ui-button-backround);
-  color: var(--ui-button-label);
+  //background: var(--ui-button-backround);
+  //color: var(--ui-button-label);
+  color: var(--ui-button-default);
   border-radius: var(--ui-button-radius);
   font-weight: var(--ui-button-weight);
   padding: calc(var(--ui-button-padding)/2) var(--ui-button-padding);
@@ -104,8 +111,9 @@ ui-button, ui-menu-button, ui-icon-button{
   &.is-priority-medium{
     // TODO default/primary/secondary
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
-    border:1px solid var(--ui-fill);
+    border: 1px solid var(--ui-fill);
   }
+
   &.is-priority-high{
    // --ui-button-background: var(--ui-fill);
     //--ui-button-hover: var(ui-)
@@ -119,10 +127,10 @@ ui-icon-button{
   //--ui-button-padding-horizontal: var(--ui-xs-spacing);
   //--ui-button-padding-vertical: var(--ui-xs-spacing);
 
-  //font-size: 1.5rem;
+  font-size: 1.5rem;
   flex: 0 0 auto;
 
-  padding: var(--ui-button-padding);
+  padding: var(--ui-button-padding) !important;
 
   overflow: visible;
 

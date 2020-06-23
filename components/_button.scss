@@ -45,19 +45,19 @@ ui-button, ui-menu-button, ui-icon-button{
   @extend %control;
   @extend %unselectable;
 
-  //--ui-button-backround: inherit;
-  //--ui-button-label: inherit;
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-padding: var(--ui-xs-spacing);
-  //--ui-button-padding-horizontal: var(--ui-xs-spacing);
-  //--ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
   --ui-button-hover: var(--ui-fill);
   --ui-button-active: var(--ui-secondary-fill);
 
   --ui-button-default: var(--ui-label);
   --ui-button-primary: var(--ui-blue);
   --ui-button-secondary: var(--ui-gray);
+
+  --ui-button-invert-default: var(--ui-invert-label);
+  --ui-button-invert-primary: var(--ui-label);
+  --ui-button-invert-secondary: var(--ui-black);
 
   box-sizing: border-box;
 
@@ -69,8 +69,6 @@ ui-button, ui-menu-button, ui-icon-button{
 
   cursor: var(--ui-action-pointer);
 
-  //background: var(--ui-button-backround);
-  //color: var(--ui-button-label);
   color: var(--ui-button-default);
   border-radius: var(--ui-button-radius);
   font-weight: var(--ui-button-weight);
@@ -105,31 +103,25 @@ ui-button, ui-menu-button, ui-icon-button{
     text-align: left;
   }
 
-  // TODO default/primary/secondary
-
-  // Inverted for default:
-  --ui-button-priority-high-default-label: var(--ui-background);
-  --ui-button-priority-high-default-background: var(--ui-label);
-  --ui-button-priority-high-primary-label: var( --ui-button-priority-high-default-label);
-  --ui-button-priority-high-primary-background: var(--ui-blue);
-
-  &.is-priority-medium{
-
+  &.is-outline{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
-    border: 1px solid var(--ui-fill);
+    border-color: var(--ui-button-default);
+
+    &.is-primary{
+      border-color: var(--ui-button-primary);
+      color: var(--ui-button-primary);
+    }
   }
 
-  &.is-priority-high{
-   // --ui-button-background: var(--ui-fill);
-    //--ui-button-hover: var(ui-)
-    background: var(--ui-button-priority-high-default-background);
-    color: var(--ui-button-priority-high-default-label);
+  &.is-priority{
+    background: var(--ui-button-default);
+    color: var(--ui-button-invert-default);
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
     box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
 
     &.is-primary{
-      background: var(--ui-button-priority-high-primary-background);
-      color: var(--ui-button-priority-high-primary-label);
+      background: var(--ui-button-primary);
+      color: var(--ui-button-invert-primary);
     }
   }
 }
@@ -150,7 +142,7 @@ ui-icon-button{
   font-size: 1.5rem;
   flex: 0 0 auto;
 
-  padding: var(--ui-button-padding) !important;
+  padding: calc(var(--ui-button-padding)/2) !important;
 
   overflow: visible;
 

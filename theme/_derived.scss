@@ -9,6 +9,8 @@ html{
 
   --ui-selection-background: var(--ui-fill);
 
+  --ui-invert-label: var(--ui-background);
+  --ui-invert-background: var(--ui-label);
 }
 
 .ui-theme-light{

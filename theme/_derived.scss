@@ -9,10 +9,13 @@ html{
 
   --ui-selection-background: var(--ui-fill);
 
+  --ui-primary: var(--ui-blue);
+  --ui-positive: var(--ui-green);
+  --ui-negative: var(--ui-red);
+
   --ui-invert-label: var(--ui-background);
-  --ui-invert-background: var(--ui-label);
-}
-
-.ui-theme-light{
-
+  --ui-invert-primary: var(--ui-label);
+  --ui-invert-positive: var(--ui-label);
+  --ui-invert-negative: var(--ui-label);
+  --ui-invert-link: var(--ui-label);
 }

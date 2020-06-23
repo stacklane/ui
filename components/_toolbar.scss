@@ -5,7 +5,7 @@
  *     ui-toolbar-item
  */
 ui-toolbar{
-  --ui-toolbar-background: var(--ui-secondary-background);
+  --ui-toolbar-background: transparent;
 
   flex-shrink: 0;
 
@@ -81,6 +81,8 @@ ui-toolbar{
   }
 
   &.is-main{
+    //--ui-toolbar-background-main: var(--ui-secondary-background);
+    //--ui-toolbar-background:
     min-height: calc(var(--ui-toolbar-spacing) * 3);
 
     @include tablet {

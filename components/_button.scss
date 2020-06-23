@@ -1,5 +1,8 @@
 @import '/utils';
 
+:root{
+  --ui-control-height: 2.5em;
+}
 
 @mixin control {
   appearance: none;
@@ -22,12 +25,11 @@
     outline: none;
   }
 
-  //
-  //height: 2.5em;
-  //line-height: 1.5;
-  //font-size: 1rem;
-}
 
+ // height: var(--ui-control-height);
+ // line-height: 1.5;
+ // font-size: 1rem;
+}
 
 %control {
   @include control;
@@ -35,7 +37,9 @@
 
 
 /**
+ * https://material-ui.com/components/buttons/
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
+ * https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/
  */
 ui-button, ui-menu-button, ui-icon-button{
   @extend %control;
@@ -62,6 +66,14 @@ ui-button, ui-menu-button, ui-icon-button{
   font-weight: var(--ui-button-weight);
   padding: var(--ui-button-padding-vertical) var(--ui-button-padding-horizontal);
 
+  // TBD/TODO
+  letter-spacing: 0.02857em;
+  font-size: .875rem;
+  line-height: 1.75;
+  font-weight: 500;
+
+  padding: 6px 8px;
+
   &:hover{
     background: var(--ui-button-hover);
   }
@@ -84,12 +96,31 @@ ui-button, ui-menu-button, ui-icon-button{
     justify-content: left;
     text-align: left;
   }
+
+  // TODO default/primary/secondary
+  &.is-priority-medium{
+    // TODO default/primary/secondary
+    padding: 6px 16px;
+  }
+  &.is-priority-high{
+   // --ui-button-background: var(--ui-fill);
+    //--ui-button-hover: var(ui-)
+    background: var(--ui-fill) ; // TODO default/primary/secondary
+    padding: 6px 16px;
+  }
 }
 
 ui-icon-button{
 
-  --ui-button-padding-horizontal: var(--ui-xs-spacing);
-  --ui-button-padding-vertical: var(--ui-xs-spacing);
+  //--ui-button-padding-horizontal: var(--ui-xs-spacing);
+  //--ui-button-padding-vertical: var(--ui-xs-spacing);
+
+  font-size: 1.5rem;
+  flex: 0 0 auto;
+
+  padding: 12px;
+
+  overflow: visible;
 
   > ui-icon {
     --ui-icon-size: 1.5em;

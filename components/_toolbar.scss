@@ -1,9 +1,6 @@
 
 ui-toolbar{
   --ui-toolbar-background: var(--ui-secondary-background);
-  --ui-toolbar-label: var(--ui-label);
-  --ui-toolbar-hover: var(--ui-selection-background);
-  --ui-toolbar-focus: var(--ui-selection-background);
 
   flex-shrink: 0;
 
@@ -15,10 +12,7 @@ ui-toolbar{
 
   white-space: nowrap;
 
- // bad for popup menus:
-  // overflow:hidden;
-
-  ui-toolbar-left, ui-toolbar-right, ui-toolbar-path{
+  ui-toolbar-left, ui-toolbar-right{
     display: flex;
 
     flex-basis: auto;
@@ -67,6 +61,7 @@ ui-toolbar{
  // }
 
   ui-toolbar-item{
+    /*
     //border-radius: var(--ui-toolbar-item-border-radius);
 
     &.is-logo:before{
@@ -84,7 +79,7 @@ ui-toolbar{
         height: 1rem;
         width: 1rem;
       }
-    }
+    }*/
   }
 
   /**
@@ -94,13 +89,13 @@ ui-toolbar{
 
   padding: var(--ui-toolbar-spacing);
 
-  ui-toolbar-item, ui-toolbar-path-item{
+  ui-toolbar-item{
     padding: calc(var(--ui-toolbar-spacing) / 2) var(--ui-toolbar-spacing);
   }
 
-  ui-toolbar-right{
-    margin-right: var(--ui-toolbar-spacing);
-  }
+  //ui-toolbar-right{
+  //  margin-right: var(--ui-toolbar-spacing);
+  //}
 
   &.has-s-spacing{
     --ui-toolbar-spacing: var(--ui-s-spacing);
@@ -111,4 +106,23 @@ ui-toolbar{
   &.has-2xs-spacing{
     --ui-toolbar-spacing: var(--ui-2xs-spacing);
   }
+
+  &.has-gutters{
+    padding-left: var(--ui-toolbar-spacing);
+    padding-right: var(--ui-toolbar-spacing);
+
+    @include tablet {
+      padding-left: calc(var(--ui-toolbar-spacing) * 2);
+      padding-right: calc(var(--ui-toolbar-spacing) * 2);
+    }
+  }
+
+  &.is-main{
+    min-height: 48px;
+
+    @include tablet {
+      min-height: 64px;
+    }
+  }
+
 }

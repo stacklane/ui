@@ -47,7 +47,8 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-padding-horizontal: var(--ui-s-spacing);
   --ui-button-padding-vertical: calc(var(--ui-button-padding-horizontal)/2);
-  --ui-button-hover: var(--ui-selection-background);
+  --ui-button-hover: var(--ui-fill);
+  --ui-button-active: var(--ui-secondary-fill);
 
   justify-content: center;
   text-align: center;
@@ -66,7 +67,7 @@ ui-button, ui-menu-button, ui-icon-button{
   }
 
   &:active {
-    // in any case, this will break ui-menu-button: filter: brightness(1.25); // ?
+    background: var(--ui-button-active);
   }
 
   &[disabled] {
@@ -87,7 +88,8 @@ ui-button, ui-menu-button, ui-icon-button{
 
 ui-icon-button{
 
-  --ui-button-padding-vertical: var(--ui-button-padding-horizontal);
+  --ui-button-padding-horizontal: var(--ui-xs-spacing);
+  --ui-button-padding-vertical: var(--ui-xs-spacing);
 
   > ui-icon {
     --ui-icon-size: 1.5em;
@@ -98,8 +100,6 @@ ui-icon-button{
 ui-menu{
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
-  //--ui-menu-hover-background: var(--ui-link);
-  //--ui-menu-hover-label: var(--ui-link-invert);
   --ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
 

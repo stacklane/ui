@@ -1,7 +1,11 @@
+@import '/utils';
+
 /**
  * Square. Designed usually to be a <span> containing either a single emoji character, or <svg>
  */
 ui-icon{
+  @extend %unselectable;
+
   --ui-icon-size: 1em;
   --ui-icon-color: var(--ui-label);
 
@@ -20,7 +24,9 @@ ui-icon{
   > svg{
     height: var(--ui-icon-size);
     width: var(--ui-icon-size);
-    fill: var(--ui-icon-color);
+    //fill: var(--ui-icon-color);
+    fill: currentColor;
+    flex-shrink: 0;
   }
 
   &.is-green {

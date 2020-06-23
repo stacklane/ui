@@ -26,6 +26,18 @@ class UIButton extends HTMLElement{
 }
 window.customElements.define('ui-button', UIButton);
 
+class UIIconButton extends UIButton{
+    constructor(value) {
+        super();
+        if (value instanceof UIIcon){
+            this.appendChild(value);
+        } else if (value){
+            this.appendChild(new UIIcon(value));
+        }
+    }
+}
+window.customElements.define('ui-icon-button', UIIconButton);
+
 class UIMenuButton extends UIButton{
 
     constructor(text) {

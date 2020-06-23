@@ -37,7 +37,7 @@
 /**
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
  */
-ui-button, ui-menu-button{
+ui-button, ui-menu-button, ui-icon-button{
   @extend %control;
   @extend %unselectable;
 
@@ -75,27 +75,6 @@ ui-button, ui-menu-button{
     cursor: not-allowed !important;
   }
 
-  ui-icon{
-    --ui-icon-size: 1.5em;
-
-    /*
-    &:first-child:not(:last-child) {
-      margin-left: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
-      margin-right: $button-padding-horizontal / 4;
-    }
-
-    &:last-child:not(:first-child) {
-      margin-left: $button-padding-horizontal / 4;
-      margin-right: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
-    }*/
-
-    // approach to creating a perfectly square button, when ui-icon is only-child
-    &:only-child{
-      margin-left: calc(-1 / 2 * var(--ui-button-padding-horizontal));
-      margin-right: calc(-1 / 2 * var(--ui-button-padding-horizontal));
-    }
-  }
-
   &.is-full-width{
     display: flex;
     width: 100%;
@@ -104,6 +83,16 @@ ui-button, ui-menu-button{
     justify-content: left;
     text-align: left;
   }
+}
+
+ui-icon-button{
+
+  --ui-button-padding-vertical: var(--ui-button-padding-horizontal);
+
+  > ui-icon {
+    --ui-icon-size: 1.5em;
+  }
+
 }
 
 ui-menu{

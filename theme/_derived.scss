@@ -9,8 +9,18 @@ html{
 
   --ui-selection-background: var(--ui-fill);
 
+  --ui-link: rgba(var(--ui-link-rgb), 1.00);
+  --ui-green: rgba(var(--ui-green-rgb), 1.00);
+  --ui-red: rgba(var(--ui-red-rgb), 1.00);
+  --ui-blue: rgba(var(--ui-blue-rgb), 1.00);
+  --ui-yellow: rgba(var(--ui-yellow-rgb), 1.00);
+  --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
+  --ui-light-gray: rgba(var(--ui-light-gray-rgb), 1.00);
+
   //--ui-default: var(--ui-light-gray);
   --ui-primary: var(--ui-blue);
+  --ui-primary-light: rgba(var(--ui-blue-rgb), .05);
+
   --ui-positive: var(--ui-green);
   --ui-negative: var(--ui-red);
 

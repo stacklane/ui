@@ -43,13 +43,13 @@ html{
   --ui-quaternary-fill: rgba(118, 118, 128, 0.18);
 
   // Colors
-  --ui-link: rgba(9, 132, 255, 1.00);
-  --ui-green: rgba(50, 215, 75, 1.00);
-  --ui-red: rgba(255, 69, 58, 1.00);
-  --ui-blue: rgba(10, 132, 255, 1.00);
-  --ui-yellow: rgba(255, 214, 10, 1.00);
-  --ui-gray: rgba(152, 152, 157, 1.00);
-  --ui-light-gray: rgba(224, 224, 224, 1.00);
+  --ui-link-rgb: 9, 132, 255;
+  --ui-green-rgb: 50, 215, 75;
+  --ui-red-rgb: 255, 69, 58;
+  --ui-blue-rgb: 10, 132, 255;
+  --ui-yellow-rgb: 255, 214, 10;
+  --ui-gray-rgb: 152, 152, 157;
+  --ui-light-gray-rgb: 224, 224, 224;
 }
 
 .ui-theme-light{
@@ -74,11 +74,11 @@ html{
   --ui-quaternary-fill: rgba(116, 116, 128, 0.08);
 
   // Colors
-  --ui-link: rgba(0, 122, 255, 1.00);
-  --ui-green: rgba(40, 205, 65, 1.00);
-  --ui-red: rgba(255, 59, 48, 1.00);
-  --ui-blue: rgba(0, 122, 255, 1.00);
-  --ui-yellow: rgba(255, 204, 0, 1.00);
-  --ui-gray: rgba(152, 152, 157, 1.00);
-  --ui-light-gray: rgba(224, 224, 224, 1.00);
+  --ui-link-rgb: 0, 122, 255;
+  --ui-green-rgb: 40, 205, 65;
+  --ui-red-rgb: 255, 59, 48;
+  --ui-blue-rgb: 0, 122, 255;
+  --ui-yellow-rgb: 255, 204, 0;
+  --ui-gray-rgb: 152, 152, 157;
+  --ui-light-gray-rgb: 224, 224, 224;
 }

@@ -12,14 +12,21 @@ html{
   --ui-link: rgba(var(--ui-link-rgb), 1.00);
   --ui-green: rgba(var(--ui-green-rgb), 1.00);
   --ui-red: rgba(var(--ui-red-rgb), 1.00);
-  --ui-blue: rgba(var(--ui-blue-rgb), 1.00);
+  --ui-blue: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), 1.00);
   --ui-yellow: rgba(var(--ui-yellow-rgb), 1.00);
   --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
   --ui-light-gray: rgba(var(--ui-light-gray-rgb), 1.00);
 
+  --ui-light-alpha: 0.8;
+  --ui-lighter-alpha: 0.16;
+
   //--ui-default: var(--ui-light-gray);
+
   --ui-primary: var(--ui-blue);
-  --ui-primary-light: rgba(var(--ui-blue-rgb), .05);
+  --ui-primary-light-alpha: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-light-alpha));
+  --ui-primary-lighter-alpha: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-lighter-alpha));
+  --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .25), 1.00);
+  --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .5), 1.00);
 
   --ui-positive: var(--ui-green);
   --ui-negative: var(--ui-red);
@@ -29,4 +36,9 @@ html{
   --ui-invert-positive: var(--ui-label);
   --ui-invert-negative: var(--ui-label);
   --ui-invert-link: var(--ui-label);
+}
+
+.ui-theme-light{
+  --ui-light-alpha: 0.4;
+  --ui-lighter-alpha: 0.8;
 }

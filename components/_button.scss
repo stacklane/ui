@@ -84,6 +84,10 @@ ui-button, ui-menu-button, ui-icon-button{
     filter: brightness(.25); // opacity instead?
     pointer-events: none !important;
     cursor: not-allowed !important;
+
+    &:after{
+      pointer-events: none !important;
+    }
   }
 
   &.is-full-width{
@@ -121,7 +125,6 @@ ui-button, ui-menu-button, ui-icon-button{
       border-color: var(--ui-primary);
       color: var(--ui-primary);
     }
-
   }
 
   &.is-priority{
@@ -135,10 +138,10 @@ ui-button, ui-menu-button, ui-icon-button{
       color: var(--ui-invert-primary);
     }
 
-    &:after:hover{
+    &:hover:after{
       background: var(--ui-quarter-darker);
     }
-    &:after:active{
+    &:active:after{
       background: var(--ui-half-darker);
     }
   }

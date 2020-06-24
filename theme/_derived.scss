@@ -24,14 +24,16 @@ html{
 
   // Used for default or secondary actions -- the most commonly used action color
   --ui-default: var(--ui-label);
-  --ui-primary-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));
-  --ui-primary-alpha-medium: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-medium));
-  --ui-primary-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .75), 1.00);
-  --ui-primary-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .5), 1.00);
+  --ui-default-invert: var(--ui-background);
+  --ui-default-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));
+  --ui-default-alpha-medium: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-medium));
+  --ui-default-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .75), 1.00);
+  --ui-default-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .5), 1.00);
 
   // Used for the most important actions in any scenario.
   // Don’t use more than one primary button in a section or screen to avoid overwhelming users.
   --ui-primary: var(--ui-blue);
+  --ui-primary-invert: var(--ui-label);
   --ui-primary-alpha-high: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-high));
   --ui-primary-alpha-medium: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-medium));
   --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .75), 1.00);
@@ -45,8 +47,7 @@ html{
   --ui-negative: var(--ui-red);
   // TODO
 
-  --ui-invert-label: var(--ui-background);
-  --ui-invert-primary: var(--ui-label);
+
   --ui-invert-positive: var(--ui-label);
   --ui-invert-negative: var(--ui-label);
   --ui-invert-link: var(--ui-label);

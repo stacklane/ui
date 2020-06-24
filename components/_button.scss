@@ -118,20 +118,20 @@ ui-button, ui-menu-button, ui-icon-button{
     border-color: var(--ui-default);
 
     &:hover{
-      border-color: var(--ui-default-light);
+      border-color: var(--ui-default-alpha-medium);
     }
     &:active{
-      border-color: var(--ui-default-light);
+      border-color: var(--ui-default-alpha-medium);
     }
 
     &.is-primary{
       border-color: var(--ui-primary);
 
       &:hover{
-        border-color: var(--ui-primary-light);
+        border-color: var(--ui-primary-alpha-medium);
       }
       &:active{
-        border-color: var(--ui-primary-light);
+        border-color: var(--ui-primary-alpha-medium);
       }
     }
   }

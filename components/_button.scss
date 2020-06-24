@@ -115,23 +115,23 @@ ui-button, ui-menu-button, ui-icon-button{
   &.is-outline{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
 
-    border-color: var(--ui-default);
+    border-color: var(--ui-default-alpha-medium);
 
     &:hover{
-      border-color: var(--ui-default-alpha-medium);
+      border-color: var(--ui-default);
     }
     &:active{
-      border-color: var(--ui-default-alpha-medium);
+      border-color: var(--ui-default);
     }
 
     &.is-primary{
-      border-color: var(--ui-primary);
+      border-color: var(--ui-primary-alpha-medium);
 
       &:hover{
-        border-color: var(--ui-primary-alpha-medium);
+        border-color: var(--ui-primary);
       }
       &:active{
-        border-color: var(--ui-primary-alpha-medium);
+        border-color: var(--ui-primary);
       }
     }
   }

@@ -22,13 +22,18 @@ html{
 
   //--ui-default: var(--ui-light-gray);
 
+  // Used for the most important actions in any scenario.
+  // Don’t use more than one primary button in a section or screen to avoid overwhelming users.
   --ui-primary: var(--ui-blue);
   --ui-primary-alpha-high: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-high));
   --ui-primary-alpha-medium: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-medium));
   --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .75), 1.00);
   --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .5), 1.00);
 
+  // For use when the action has a positive connotation such as creating or publishing a new entity
   --ui-positive: var(--ui-green);
+
+  // For destructive actions - when something can't be undone, for example, deleting entities
   --ui-negative: var(--ui-red);
 
   --ui-invert-label: var(--ui-background);

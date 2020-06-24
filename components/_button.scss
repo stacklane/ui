@@ -105,10 +105,10 @@ ui-button, ui-menu-button, ui-icon-button{
     color: var(--ui-primary);
 
     &:hover{
-      background: var(--ui-primary-light-alpha);
+      background: var(--ui-primary-alpha-medium);
     }
     &:active{
-      background: var(--ui-primary-lighter-alpha);
+      background: var(--ui-primary-alpha-high);
     }
   }
 

@@ -9,13 +9,14 @@ html{
 
   --ui-selection-background: var(--ui-fill);
 
+  --ui-white: white;
   --ui-link: rgba(var(--ui-link-rgb), 1.00);
   --ui-green: rgba(var(--ui-green-rgb), 1.00);
   --ui-red: rgba(var(--ui-red-rgb), 1.00);
   --ui-blue: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), 1.00);
   --ui-yellow: rgba(var(--ui-yellow-rgb), 1.00);
   --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
-  --ui-light-gray: rgba(var(--ui-light-gray-rgb), 1.00);
+  --ui-light-gray: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), var(--ui-light-gray-l), 1.00);
 
   --ui-alpha-medium: 0.24;
   --ui-alpha-high: calc(var(--ui-alpha-medium) / 3);
@@ -27,17 +28,15 @@ html{
   --ui-default-invert: var(--ui-background);
   --ui-default-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));
   --ui-default-alpha-medium: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-medium));
-  //--ui-default-light: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * 1.20), 1.00);
   --ui-default-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .80), 1.00);
   --ui-default-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .65), 1.00);
 
   // Used for the most important actions in any scenario.
   // Don’t use more than one primary button in a section or screen to avoid overwhelming users.
   --ui-primary: var(--ui-blue);
-  --ui-primary-invert: var(--ui-label);
+  --ui-primary-invert: var(--ui-white);
   --ui-primary-alpha-high: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-high));
   --ui-primary-alpha-medium: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-medium));
-  //--ui-primary-light: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * 1.20), 1.00);
   --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .80), 1.00);
   --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .65), 1.00);
 
@@ -51,10 +50,15 @@ html{
   --ui-negative-invert: var(--ui-label);
   // TODO
 
-
-
 }
 
 .ui-theme-light{
   --ui-alpha-medium: 0.12;
+
+  --ui-default: var(--ui-light-gray);
+  --ui-default-invert: var(--ui-background);
+  --ui-default-alpha-high: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), var(--ui-light-gray-l), var(--ui-alpha-high));
+  --ui-default-alpha-medium: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), var(--ui-light-gray-l), var(--ui-alpha-medium));
+  --ui-default-dark: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), calc(var(--ui-light-gray-l) * .80), 1.00);
+  --ui-default-darker: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), calc(var(--ui-light-gray-l) * .65), 1.00);
 }

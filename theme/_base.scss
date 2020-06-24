@@ -53,13 +53,17 @@ html{
   --ui-link-rgb: 9, 132, 255;
   --ui-green-rgb: 50, 215, 75;
   --ui-red-rgb: 255, 69, 58;
-  --ui-blue-rgb: 10, 132, 255;
+
   --ui-blue-h: 209;
   --ui-blue-s: 100%;
   --ui-blue-l: 50%;
+
   --ui-yellow-rgb: 255, 214, 10;
   --ui-gray-rgb: 152, 152, 157;
-  --ui-light-gray-rgb: 224, 224, 224;
+
+  --ui-light-gray-h: 0;
+  --ui-light-gray-s: 0%;
+  --ui-light-gray-l: 88%;
 }
 
 .ui-theme-light{
@@ -89,8 +93,11 @@ html{
   --ui-link-rgb: 0, 122, 255;
   --ui-green-rgb: 40, 205, 65;
   --ui-red-rgb: 255, 59, 48;
-  --ui-blue-rgb: 0, 122, 255;
+ // --ui-blue-rgb: 0, 122, 255;
+  --ui-blue-h: 211;
+  --ui-blue-s: 100%;
+  --ui-blue-l: 50%;
   --ui-yellow-rgb: 255, 204, 0;
   --ui-gray-rgb: 152, 152, 157;
-  --ui-light-gray-rgb: 224, 224, 224;
+
 }

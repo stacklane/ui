@@ -120,10 +120,10 @@ ui-button, ui-menu-button, ui-icon-button{
       border-color: var(--ui-primary);
 
       &:hover{
-        border-color: var(--ui-primary-dark);
+        border-color: var(--ui-primary-light-alpha);
       }
       &:active{
-        border-color: var(--ui-primary-darker);
+        border-color: var(--ui-primary-lighter-alpha);
       }
     }
   }
@@ -140,10 +140,10 @@ ui-button, ui-menu-button, ui-icon-button{
     }
 
     &:hover{
-      background: var(--ui-half-darker);
+      background: var(--ui-primary-dark);
     }
     &:active{
-      background: var(--ui-quarter-darker);
+      background: var(--ui-primary-dark);
     }
   }
 }

@@ -27,8 +27,9 @@ html{
   --ui-default-invert: var(--ui-background);
   --ui-default-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));
   --ui-default-alpha-medium: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-medium));
-  --ui-default-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .75), 1.00);
-  --ui-default-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .5), 1.00);
+  --ui-default-light: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * 1.20), 1.00);
+  --ui-default-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .80), 1.00);
+  --ui-default-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .65), 1.00);
 
   // Used for the most important actions in any scenario.
   // Don’t use more than one primary button in a section or screen to avoid overwhelming users.
@@ -36,21 +37,22 @@ html{
   --ui-primary-invert: var(--ui-label);
   --ui-primary-alpha-high: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-high));
   --ui-primary-alpha-medium: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-medium));
-  --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .75), 1.00);
-  --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .5), 1.00);
+  --ui-primary-light: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * 1.20), 1.00);
+  --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .80), 1.00);
+  --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .65), 1.00);
 
   // For use when the action has a positive connotation such as creating or publishing a new entity
   --ui-positive: var(--ui-green);
+  --ui-positive-invert: var(--ui-label);
   // TODO
 
   // For destructive actions - when something can't be undone, for example, deleting entities
   --ui-negative: var(--ui-red);
+  --ui-negative-invert: var(--ui-label);
   // TODO
 
 
-  --ui-invert-positive: var(--ui-label);
-  --ui-invert-negative: var(--ui-label);
-  --ui-invert-link: var(--ui-label);
+
 }
 
 .ui-theme-light{

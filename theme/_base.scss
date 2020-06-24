@@ -2,7 +2,13 @@
 
 :root{
   --ui-action-pointer: default;
-  --ui-speed: 50ms;
+
+  --ui-speed-short: 100ms;
+  --ui-speed: 200ms;
+  --ui-speed-long: 300ms;
+
+  --ui-easing-default: ease-in-out;
+  --ui-easing-cubic-bezier: cubic-bezier(0.13, 0.62, 0.11, 0.99);
 
   --ui-radius: 4px;
   --ui-radius-rounded: 290486px;

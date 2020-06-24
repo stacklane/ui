@@ -59,10 +59,12 @@ ui-button, ui-menu-button, ui-icon-button{
 
   cursor: var(--ui-action-pointer);
 
-  color: var(--ui-default);
   border-radius: var(--ui-button-radius);
   font-weight: var(--ui-button-weight);
   padding: calc(var(--ui-button-padding)/2) var(--ui-button-padding);
+
+  transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
+              border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
 
   // TBD/TODO
  // letter-spacing: 0.02857em;
@@ -84,10 +86,13 @@ ui-button, ui-menu-button, ui-icon-button{
     display: flex;
     width: 100%;
   }
+
   &.is-justify-left{
     justify-content: left;
     text-align: left;
   }
+
+  color: var(--ui-default);
 
   &:hover{
     background: var(--ui-default-alpha-high);
@@ -109,23 +114,24 @@ ui-button, ui-menu-button, ui-icon-button{
 
   &.is-outline{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
+
     border-color: var(--ui-default);
 
     &:hover{
-      border-color: var(--ui-default-alpha-high);
+      border-color: var(--ui-default-light);
     }
     &:active{
-      border-color: var(--ui-default-alpha-medium);
+      border-color: var(--ui-default-light);
     }
 
     &.is-primary{
       border-color: var(--ui-primary);
 
       &:hover{
-        border-color: var(--ui-primary-alpha-high);
+        border-color: var(--ui-primary-light);
       }
       &:active{
-        border-color: var(--ui-primary-alpha-medium);
+        border-color: var(--ui-primary-light);
       }
     }
   }

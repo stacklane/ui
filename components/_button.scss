@@ -48,8 +48,8 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-padding: var(--ui-xs-spacing);
-  --ui-button-hover: var(--ui-fill);
-  --ui-button-active: var(--ui-secondary-fill);
+ // --ui-button-hover: var(--ui-fill);
+ // --ui-button-active: var(--ui-secondary-fill);
 
   box-sizing: border-box;
 
@@ -73,11 +73,11 @@ ui-button, ui-menu-button, ui-icon-button{
   font-weight: 500;
 
   &:hover{
-    background: var(--ui-button-hover);
+   // background: var(--ui-button-hover);
   }
 
   &:active {
-    background: var(--ui-button-active);
+   // background: var(--ui-button-active);
   }
 
   &[disabled] {
@@ -95,6 +95,24 @@ ui-button, ui-menu-button, ui-icon-button{
     text-align: left;
   }
 
+  // TBD
+  --ui-lighter: rgba(0,0,0,.5);
+  --ui-half-darker: rgba(255,255,255,.5);
+  --ui-quarter-darker: rgba(255,255,255,.25);
+
+  &:after{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -1px;
+    left: -1px;
+    content: ' ';
+    box-sizing: content-box;
+    border-radius: var(--ui-button-radius);
+    background: transparent;
+    border: 1px solid transparent;
+  }
+
   &.is-outline{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
     border-color: var(--ui-button-default);
@@ -103,6 +121,7 @@ ui-button, ui-menu-button, ui-icon-button{
       border-color: var(--ui-primary);
       color: var(--ui-primary);
     }
+
   }
 
   &.is-priority{
@@ -115,6 +134,13 @@ ui-button, ui-menu-button, ui-icon-button{
       background: var(--ui-primary);
       color: var(--ui-invert-primary);
     }
+
+    &:after:hover{
+      background: var(--ui-quarter-darker);
+    }
+    &:after:active{
+      background: var(--ui-half-darker);
+    }
   }
 }
 
@@ -123,6 +149,10 @@ ui-button, ui-menu-button{
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-padding)/2);
     margin-right: var(--ui-button-padding);
+  }
+
+  &.is-primary{
+    color: var(--ui-primary);
   }
 }
 

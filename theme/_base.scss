@@ -1,5 +1,13 @@
 
 
+:root{
+  --ui-action-pointer: default;
+  --ui-speed: 50ms;
+
+  --ui-radius: 4px;
+  --ui-radius-rounded: 290486px;
+}
+
 html{
   // Text labels that contain primary content:
   --ui-label: rgba(255, 255, 255, 0.85);
@@ -36,19 +44,12 @@ html{
 
   // Colors
   --ui-link: rgba(9, 132, 255, 1.00);
-  --ui-link-invert: white;
   --ui-green: rgba(50, 215, 75, 1.00);
   --ui-red: rgba(255, 69, 58, 1.00);
   --ui-blue: rgba(10, 132, 255, 1.00);
   --ui-yellow: rgba(255, 214, 10, 1.00);
-
   --ui-gray: rgba(152, 152, 157, 1.00);
-
-  --ui-action-pointer: default;
-  --ui-speed: 50ms;
-
-  --ui-radius: 4px;
-  --ui-radius-rounded: 290486px;
+  --ui-light-gray: rgba(224, 224, 224, 1.00);
 }
 
 .ui-theme-light{
@@ -74,9 +75,10 @@ html{
 
   // Colors
   --ui-link: rgba(0, 122, 255, 1.00);
-  --ui-link-invert: white;
   --ui-green: rgba(40, 205, 65, 1.00);
   --ui-red: rgba(255, 59, 48, 1.00);
   --ui-blue: rgba(0, 122, 255, 1.00);
   --ui-yellow: rgba(255, 204, 0, 1.00);
+  --ui-gray: rgba(152, 152, 157, 1.00);
+  --ui-light-gray: rgba(224, 224, 224, 1.00);
 }

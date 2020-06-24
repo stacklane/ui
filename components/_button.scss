@@ -59,6 +59,8 @@ ui-button, ui-menu-button, ui-icon-button{
 
   border: 1px solid transparent;
 
+
+
   cursor: var(--ui-action-pointer);
 
   color: var(--ui-label);
@@ -104,7 +106,7 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-half-darker: rgba(255,255,255,.5);
   --ui-quarter-darker: rgba(255,255,255,.25);
 
-  &:after{
+  &:after, &:before{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -115,6 +117,30 @@ ui-button, ui-menu-button, ui-icon-button{
     border-radius: var(--ui-button-radius);
     background: transparent;
     border: 1px solid transparent;
+    z-index: 1;
+  }
+  &:after{
+    z-index: 2;
+  }
+
+  span,ui-icon{
+    z-index: 3; // above :before/:after
+  }
+
+  &.is-primary{
+    color: var(--ui-primary);
+  }
+
+  &:hover{
+    &.is-primary{
+      &:before{
+        background: var(--ui-primary);
+      }
+
+      &:after{
+        background: var(--ui-quarter-darker);
+      }
+    }
   }
 
   &.is-outline{
@@ -128,7 +154,7 @@ ui-button, ui-menu-button, ui-icon-button{
   }
 
   &.is-priority{
-    background: var(--ui-label);
+    background: var(--ui-light-gray);
     color: var(--ui-invert-label);
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
     box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
@@ -139,10 +165,10 @@ ui-button, ui-menu-button, ui-icon-button{
     }
 
     &:hover:after{
-      background: var(--ui-quarter-darker);
+      background: var(--ui-half-darker);
     }
     &:active:after{
-      background: var(--ui-half-darker);
+      background: var(--ui-quarter-darker);
     }
   }
 }

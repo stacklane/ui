@@ -137,13 +137,13 @@ ui-button, ui-menu-button, ui-icon-button{
     &.is-primary{
       background: var(--ui-primary);
       color: var(--ui-invert-primary);
-    }
 
-    &:hover{
-      background: var(--ui-primary-dark);
-    }
-    &:active{
-      background: var(--ui-primary-dark);
+      &:hover{
+        background: var(--ui-primary-dark);
+      }
+      &:active{
+        background: var(--ui-primary-darker);
+      }
     }
   }
 }

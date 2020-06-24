@@ -17,14 +17,14 @@ html{
   --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
   --ui-light-gray: rgba(var(--ui-light-gray-rgb), 1.00);
 
-  --ui-light-alpha: 0.08;
-  --ui-lighter-alpha: 0.04;
+  --ui-alpha-medium: 0.08;
+  --ui-alpha-high: calc(var(--ui-light-alpha) * 3);
 
   //--ui-default: var(--ui-light-gray);
 
   --ui-primary: var(--ui-blue);
-  --ui-primary-light-alpha: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-light-alpha));
-  --ui-primary-lighter-alpha: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-lighter-alpha));
+  --ui-primary-alpha-high: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-high));
+  --ui-primary-alpha-medium: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), var(--ui-alpha-medium));
   --ui-primary-dark: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .75), 1.00);
   --ui-primary-darker: hsla(var(--ui-blue-h), var(--ui-blue-s), calc(var(--ui-blue-l) * .5), 1.00);
 
@@ -39,6 +39,5 @@ html{
 }
 
 .ui-theme-light{
-  --ui-light-alpha: 0.04;
-  --ui-lighter-alpha: 0.02;
+  --ui-alpha-medium: 0.04;
 }

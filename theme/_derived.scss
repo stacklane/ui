@@ -55,7 +55,7 @@ html{
 .ui-theme-light{
   --ui-alpha-medium: 0.12;
 
-  ui-button.is-primary {
+  ui-button.is-priority {
     --ui-default: var(--ui-light-gray);
     --ui-default-invert: var(--ui-label);
     --ui-default-alpha-high: hsla(var(--ui-light-gray-h), var(--ui-light-gray-s), var(--ui-light-gray-l), var(--ui-alpha-high));

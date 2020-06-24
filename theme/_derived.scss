@@ -17,8 +17,8 @@ html{
   --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
   --ui-light-gray: rgba(var(--ui-light-gray-rgb), 1.00);
 
-  --ui-alpha-medium: 0.08;
-  --ui-alpha-high: calc(var(--ui-light-alpha) * 3);
+  --ui-alpha-medium: 0.24;
+  --ui-alpha-high: calc(var(--ui-alpha-medium) / 3);
 
   //--ui-default: var(--ui-light-gray);
 

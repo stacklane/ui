@@ -10,7 +10,8 @@
 
 html{
   // Text labels that contain primary content:
-  --ui-label: rgba(255, 255, 255, 0.85);
+  --ui-label-h: 0; --ui-label-s: 0%; --ui-label-l: 100%;
+  --ui-label: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), 0.85);
   // Secondary content:
   --ui-secondary-label: rgba(255, 255, 255, 0.55);
   // Tertiary content:
@@ -56,7 +57,9 @@ html{
 }
 
 .ui-theme-light{
-  --ui-label: rgba(0, 0, 0, 0.85);
+  --ui-label-h: 0; --ui-label-s: 0%; --ui-label-l: 0%;
+  --ui-label: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), 0.85);
+
   --ui-secondary-label: rgba(0, 0, 0, 0.50);
   --ui-tertiary-label: rgba(0, 0, 0, 0.25);
   --ui-quaternary-label: rgba(0, 0, 0, 0.10);

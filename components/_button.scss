@@ -48,8 +48,6 @@ ui-button, ui-menu-button, ui-icon-button{
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-padding: var(--ui-xs-spacing);
- // --ui-button-hover: var(--ui-fill);
- // --ui-button-active: var(--ui-secondary-fill);
 
   box-sizing: border-box;
 
@@ -58,8 +56,6 @@ ui-button, ui-menu-button, ui-icon-button{
   white-space: nowrap;
 
   border: 1px solid transparent;
-
-
 
   cursor: var(--ui-action-pointer);
 
@@ -73,14 +69,6 @@ ui-button, ui-menu-button, ui-icon-button{
   font-size: .875rem;
   line-height: 1.75;
   font-weight: 500;
-
-  &:hover{
-   // background: var(--ui-button-hover);
-  }
-
-  &:active {
-   // background: var(--ui-button-active);
-  }
 
   &[disabled] {
     filter: brightness(.25); // opacity instead?
@@ -101,6 +89,13 @@ ui-button, ui-menu-button, ui-icon-button{
     text-align: left;
   }
 
+  &:hover{
+    background: var(--ui-default-alpha-high);
+  }
+  &:active{
+    background: var(--ui-default-alpha-medium);
+  }
+
   &.is-primary{
     color: var(--ui-primary);
 
@@ -114,7 +109,14 @@ ui-button, ui-menu-button, ui-icon-button{
 
   &.is-outline{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
-    border-color: var(--ui-button-default);
+    border-color: var(--ui-default);
+
+    &:hover{
+      border-color: var(--ui-default-alpha-high);
+    }
+    &:active{
+      border-color: var(--ui-default-alpha-medium);
+    }
 
     &.is-primary{
       border-color: var(--ui-primary);

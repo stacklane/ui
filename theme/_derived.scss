@@ -22,6 +22,13 @@ html{
 
   //--ui-default: var(--ui-light-gray);
 
+  // Used for default or secondary actions -- the most commonly used action color
+  --ui-default: var(--ui-label);
+  --ui-primary-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));
+  --ui-primary-alpha-medium: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-medium));
+  --ui-primary-dark: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .75), 1.00);
+  --ui-primary-darker: hsla(var(--ui-label-h), var(--ui-label-s), calc(var(--ui-label-l) * .5), 1.00);
+
   // Used for the most important actions in any scenario.
   // Don’t use more than one primary button in a section or screen to avoid overwhelming users.
   --ui-primary: var(--ui-blue);
@@ -32,9 +39,11 @@ html{
 
   // For use when the action has a positive connotation such as creating or publishing a new entity
   --ui-positive: var(--ui-green);
+  // TODO
 
   // For destructive actions - when something can't be undone, for example, deleting entities
   --ui-negative: var(--ui-red);
+  // TODO
 
   --ui-invert-label: var(--ui-background);
   --ui-invert-primary: var(--ui-label);
@@ -44,5 +53,5 @@ html{
 }
 
 .ui-theme-light{
-  --ui-alpha-medium: 0.04;
+  --ui-alpha-medium: 0.12;
 }

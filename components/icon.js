@@ -11,26 +11,5 @@ class UIIcon extends HTMLElement{
             throw string;
         }
     }
-
-    /**
-     * @deprecated
-     */
-    small(){
-        this.classList.add('is-small');
-        return this;
-    }
-
-    /**
-     * @deprecated
-     */
-    em(){
-        this.classList.add('is-em');
-        return this;
-    }
-
-    classes(...classes){
-        (typeof classes === 'string') ? this.classList.add(classes) : this.classList.add(...classes);
-        return this;
-    }
 }
 window.customElements.define('ui-icon', UIIcon);

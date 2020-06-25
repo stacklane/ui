@@ -2,6 +2,7 @@
  * Low-level utility for building elements/nodes.
  */
 class Elements{
+   // static ui(name){return new Elements('ui-' + name)};
     static h1(){return new Elements('h1')};
     static h2(){return new Elements('h2')};
     static h3(){return new Elements('h3')};

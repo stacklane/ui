@@ -21,8 +21,6 @@ html{
   --ui-alpha-medium: 0.24;
   --ui-alpha-high: calc(var(--ui-alpha-medium) / 3);
 
-  //--ui-default: var(--ui-light-gray);
-
   // Used for default or secondary actions -- the most commonly used action color
   --ui-default: var(--ui-label);
   --ui-default-invert: var(--ui-background);
@@ -42,12 +40,12 @@ html{
 
   // For use when the action has a positive connotation such as creating or publishing a new entity
   --ui-positive: var(--ui-green);
-  --ui-positive-invert: var(--ui-label);
+  --ui-positive-invert: var(--ui-white);
   // TODO
 
   // For destructive actions - when something can't be undone, for example, deleting entities
   --ui-negative: var(--ui-red);
-  --ui-negative-invert: var(--ui-label);
+  --ui-negative-invert: var(--ui-white);
   // TODO
 
 }

@@ -20,11 +20,6 @@
 
 Defines `font-size` and `line-height` only.
 
-### `section`
-
-Simple container with optional `hX` title as first child.
-Supports optional [spacing](#spacing) between title and any following content.
-
 ### `.ui-column`
 
 Simple vertical listing. Supports optional [spacing](#spacing) between the column's rows.

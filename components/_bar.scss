@@ -57,6 +57,7 @@ ui-bar{
   &.is-path{
     --ui-path-item-arrow-width: 2px;
     --ui-path-item-color: var(--ui-separator);
+    --ui-path-item-size: .5rem;
 
     > *:not(:first-child):before {
       content: "";
@@ -65,17 +66,16 @@ ui-bar{
       border-top: var(--ui-path-item-arrow-width) solid var(--ui-path-item-color);
       transform: rotate(45deg);
 
-      // TODO vars
-      width: .5rem;
-      height: .5rem;
+      width: var(--ui-path-item-size);
+      height: var(--ui-path-item-size);
       //margin-right: var(--ui-bar-spacing);
       //padding-left: calc(var(--ui-bar-spacing) / 2);
       position: absolute;
-      left: calc(var(--ui-bar-spacing) * -.5);
+      left: calc((var(--ui-path-item-size) * 2) * -1);
     }
 
     > *:not(:first-child) {
-      margin-left: .5rem !important;
+      margin-left: calc(var(--ui-bar-spacing) + var(--ui-path-item-size) + (var(--ui-path-item-size) / 2)) !important;
     }
   }
 }

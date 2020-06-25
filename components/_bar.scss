@@ -1,0 +1,31 @@
+ui-bar{
+  --ui-bar-background: transparent;
+
+  // tbd flex-shrink: 0;
+
+  // tbd align-items: stretch;
+  // tbd justify-content: space-between;
+  display: flex;
+
+  background: var(--ui-toolbar-background);
+
+  white-space: nowrap;
+
+  &:empty{
+    display:none;
+  }
+
+  margin-right: var(--ui-button-padding);
+
+  ui-button:not('.is-outline'):not('.is-primary'),
+  ui-icon-button:not('.is-outline'):not('.is-primary'){
+  ui-menu-button:not('.is-outline'):not('.is-primary'){}
+    // by default buttons have padding
+    margin-left: 0px;
+  }
+
+  &.is-end{
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+}

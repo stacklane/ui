@@ -184,19 +184,9 @@ ui-button, ui-menu-button{
 }
 
 ui-icon-button{
-
   font-size: 1.5rem;
   flex: 0 0 auto;
-
   padding: calc(var(--ui-button-spacing)/1) !important;
-
-  //overflow: visible;
-
-  > ui-icon {
-    //--ui-icon-size: 1em;
-    //font-size: 1.5rem;
-  }
-
 }
 
 ui-menu{
@@ -236,7 +226,7 @@ ui-menu-button{
    * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
    */
   &:focus, &:focus-within{
-    background: var(--ui-button-hover);
+    background: var(--ui-default-alpha-high);
 
     ui-menu{
       pointer-events: auto;

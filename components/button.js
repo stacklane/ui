@@ -18,6 +18,11 @@ class UIButton extends HTMLElement{
         return this;
     }
 
+    round(){
+        this.classList.add('is-round');
+        return this;
+    }
+
     connectedCallback(){
         this.setAttribute('tabindex', '0');
     }

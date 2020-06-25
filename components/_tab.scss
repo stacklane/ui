@@ -27,6 +27,7 @@ ui-tab{
   display: flex;
   align-items: center;
   justify-content: left;
+  position:relative;
 
   &[active='true']{
     background: var(--ui-tab-active-background);

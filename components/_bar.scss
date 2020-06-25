@@ -68,6 +68,8 @@ ui-bar{
    * Separator between ui-bar children.
    */
   &.is-separated{
+    --ui-bar-spacing: 1px;
+
     //> *:not(:first-child):before{
     > *:after{
       content: "";
@@ -83,7 +85,7 @@ ui-bar{
       //> *:not(:first-child) {
         //margin-left: -1px !important;
       //}
-      marging-right: -1px;
+      margin-right: -1px;
     }
   }
 

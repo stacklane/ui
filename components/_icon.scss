@@ -21,6 +21,13 @@ ui-icon{
   //font-size: var(--ui-icon-size);
   //line-height: var(--ui-icon-size);
 
+  &.is-plus:after{
+    content: '＋';
+  }
+  &.is-plus-small:after{
+    content: '﹢';
+  }
+
   > svg{
     height: var(--ui-icon-size);
     width: var(--ui-icon-size);

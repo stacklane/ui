@@ -111,7 +111,10 @@ ui-button, ui-menu-button, ui-icon-button{
     }
   }
 
-  &.is-outline{
+  /**
+   * Outlined Appearance
+   */
+  &.is-outlined{
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
 
     border-color: var(--ui-default-alpha-medium);
@@ -135,6 +138,9 @@ ui-button, ui-menu-button, ui-icon-button{
     }
   }
 
+  /**
+   * Contained / Solid Appearance
+   */
   &.is-contained{
     background: var(--ui-default);
     color: var(--ui-default-invert);

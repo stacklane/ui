@@ -1,4 +1,9 @@
 class UIIcon extends HTMLElement{
+    static plus(){
+        const i = new UIIcon();
+        i.classList.add('is-plus');
+        return i;
+    };
     constructor(string) {
         super();
         if (!string) {

@@ -4,6 +4,11 @@ class UIIcon extends HTMLElement{
         i.classList.add('is-plus');
         return i;
     };
+    static plusSmall(){
+        const i = new UIIcon();
+        i.classList.add('is-plus-small');
+        return i;
+    };
     constructor(string) {
         super();
         if (!string) {

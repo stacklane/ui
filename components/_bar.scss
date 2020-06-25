@@ -5,27 +5,44 @@ ui-bar{
 
   // tbd align-items: stretch;
   // tbd justify-content: space-between;
+
   display: flex;
 
   background: var(--ui-toolbar-background);
 
   white-space: nowrap;
 
+  justify-content: flex-start;
+
+  align-items: center;
+
   &:empty{
     display:none;
   }
 
-  margin-right: var(--ui-button-padding);
+  --ui-bar-spacing: var(--ui-s-spacing);
+
+  > *:not(:last-child) {
+    margin-right: var(--ui-bar-spacing);
+  }
 
   ui-button:not(.is-outlined):not(.is-contained),
   ui-icon-button:not(.is-outlined):not(.is-contained){
   ui-menu-button:not(.is-outlined):not(.is-contained){}
-    // by default buttons have padding
-    margin-left: 0px;
+    margin: 0px; // in this case, the button's padding is the spacing
+  }
+
+  &.is-even{
+    flex-grow: 1;
+    justify-content: space-between;
   }
 
   &.is-end{
-    align-items: stretch;
+    //align-items: stretch;
     justify-content: flex-end;
+
+    &:only-child{
+      flex-grow: 1;
+    }
   }
 }

@@ -1,9 +1,9 @@
-:root{
-  --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
-}
-
+/**
+ * Responsible for spacing between related buttons/controls.
+ */
 ui-bar{
   --ui-bar-background: transparent;
+  --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
 
   display: flex;
   background: var(--ui-toolbar-background);
@@ -48,5 +48,24 @@ ui-bar{
 
   &.is-grow{
     flex-grow: 1;
+  }
+
+  &.is-path{
+    --ui-path-item-arrow-width: 2px;
+    --ui-path-item-color: var(--ui-separator);
+
+    > *:not(:first-child):before {
+      content: "";
+      display: inline-block;
+      border-right: var(--ui-path-item-arrow-width) solid var(--ui-path-item-color);
+      border-top: var(--ui-path-item-arrow-width) solid var(--ui-path-item-color);
+      transform: rotate(45deg);
+
+      // TODO vars
+      width: .5rem;
+      height: .5rem;
+      margin-right: var(--ui-bar-spacing);
+      padding-left: calc(var(--ui-bar-spacing) / 2);
+    }
   }
 }

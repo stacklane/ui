@@ -68,9 +68,8 @@ ui-bar{
    * Separator between ui-bar children.
    */
   &.is-separated{
-    --ui-bar-separator-spacing: .5rem;
-
-    > *:not(:first-child):before{
+    //> *:not(:first-child):before{
+    > *:after{
       content: "";
       display: inline-block;
       width: 1px;
@@ -78,11 +77,13 @@ ui-bar{
       position:absolute;
       height: 100%;
 
-      left: calc((var(--ui-bar-separator-spacing) * 2) * -1);
+      top: 0;
+      left: 0;
 
-      > *:not(:first-child) {
-        margin-left: calc(var(--ui-bar-spacing) + var(--ui-bar-separator-spacing) + (var(--ui-bar-separator-spacing) / 2)) !important;
-      }
+      //> *:not(:first-child) {
+        //margin-left: -1px !important;
+      //}
+      marging-right: -1px;
     }
   }
 

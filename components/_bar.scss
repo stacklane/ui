@@ -22,30 +22,33 @@ ui-bar{
 
   --ui-bar-spacing: var(--ui-s-spacing);
 
-  > *:not(:last-child):not(:first-child) {
+  > *:not(:last-child) {
     margin-right: var(--ui-bar-spacing);
-    margin-left: var(--ui-bar-spacing);
   }
 
   > ui-button:not(.is-outlined):not(.is-contained),
   > ui-icon-button:not(.is-outlined):not(.is-contained),
   > ui-menu-button:not(.is-outlined):not(.is-contained){
     // in this case, the button's inherit padding is the spacing
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: calc(var(--ui-bar-spacing) / 2);
+
+    + ui-button:not(.is-outlined):not(.is-contained),
+    + ui-icon-button:not(.is-outlined):not(.is-contained),
+    + ui-menu-button:not(.is-outlined):not(.is-contained){
+      margin-right: 0px;
+    }
   }
 
   &.is-even{
-    flex-grow: 1;
     justify-content: space-between;
   }
 
   &.is-end{
     //align-items: stretch;
     justify-content: flex-end;
+  }
 
-    &:only-child{
-      flex-grow: 1;
-    }
+  &.is-full{
+    flex-grow: 1;
   }
 }

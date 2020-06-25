@@ -1,3 +1,7 @@
+:root{
+  --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
+}
+
 ui-bar{
   --ui-bar-background: transparent;
 
@@ -10,8 +14,6 @@ ui-bar{
   &:empty{
     display:none;
   }
-
-  --ui-bar-spacing: var(--ui-s-spacing);
 
   > *:not(:first-child) {
     margin-left: var(--ui-bar-spacing);
@@ -34,6 +36,7 @@ ui-bar{
    */
   &.is-even{
     justify-content: space-between;
+    margin-left: 0px;
   }
 
   /**

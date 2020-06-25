@@ -2,6 +2,10 @@
 
 :root{
   --ui-control-height: 2.5em;
+
+  --ui-button-radius: var(--ui-radius);
+  --ui-button-weight: var(--ui-weight-normal);
+  --ui-button-spacing: var(--ui-xs-spacing);
 }
 
 @mixin control {
@@ -44,10 +48,6 @@ ui-button, ui-menu-button, ui-icon-button{
   @extend %control;
   @extend %unselectable;
 
-  --ui-button-radius: var(--ui-radius);
-  --ui-button-weight: var(--ui-weight-normal);
-  --ui-button-padding: var(--ui-xs-spacing);
-
   box-sizing: border-box;
 
   justify-content: center;
@@ -60,7 +60,7 @@ ui-button, ui-menu-button, ui-icon-button{
 
   border-radius: var(--ui-button-radius);
   font-weight: var(--ui-button-weight);
-  padding: calc(var(--ui-button-padding)/2) var(--ui-button-padding);
+  padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
 
   transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
               border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
@@ -115,7 +115,7 @@ ui-button, ui-menu-button, ui-icon-button{
    * Outlined Appearance
    */
   &.is-outlined{
-    padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
+    padding: calc(var(--ui-button-spacing)/2) calc(var(--ui-button-spacing)*2);
 
     border-color: var(--ui-default-alpha-medium);
 
@@ -144,7 +144,7 @@ ui-button, ui-menu-button, ui-icon-button{
   &.is-contained{
     background: var(--ui-default);
     color: var(--ui-default-invert);
-    padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);
+    padding: calc(var(--ui-button-spacing)/2) calc(var(--ui-button-spacing)*2);
 
     &:hover{
       background: var(--ui-default-dark);
@@ -170,8 +170,8 @@ ui-button, ui-menu-button, ui-icon-button{
 ui-button, ui-menu-button{
   ui-icon:first-child:not(:only-child){
     font-size: 1.25rem;
-    margin-left: calc(-1 * var(--ui-button-padding)/2);
-    margin-right: var(--ui-button-padding);
+    margin-left: calc(-1 * var(--ui-button-spacing)/2);
+    margin-right: var(--ui-button-spacing);
   }
 
   &.is-primary{
@@ -181,13 +181,10 @@ ui-button, ui-menu-button{
 
 ui-icon-button{
 
-  //--ui-button-padding-horizontal: var(--ui-xs-spacing);
-  //--ui-button-padding-vertical: var(--ui-xs-spacing);
-
   font-size: 1.5rem;
   flex: 0 0 auto;
 
-  padding: calc(var(--ui-button-padding)/1) !important;
+  padding: calc(var(--ui-button-spacing)/1) !important;
 
   //overflow: visible;
 

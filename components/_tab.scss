@@ -54,7 +54,7 @@ ui-tab-closer{
 
 /**
  * Tabs with separators.
- */
+
 ui-tab.has-separator{
   &:not([active='true']) + ui-tab.has-separator:not(:first-child):not([active='true']){
     border-left: 1px solid var(--ui-separator);
@@ -70,4 +70,4 @@ ui-tab.has-separator{
       border-left: 1px solid var(--ui-separator);
     }
   }
-}
+}*/

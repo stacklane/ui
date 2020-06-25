@@ -9,5 +9,9 @@ class UIBar extends HTMLElement{
         this.classList.add('is-path');
         return this;
     }
+    isSeparated(){
+        this.classList.add('is-separated');
+        return this;
+    }
 }
 window.customElements.define('ui-bar', UIBar);

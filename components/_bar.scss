@@ -19,6 +19,8 @@ ui-bar{
   justify-content: flex-start;
   align-items: center;
 
+  flex-shrink: 0;
+
   &:empty{
     display:none;
   }
@@ -63,7 +65,29 @@ ui-bar{
   }
 
   /**
-   * Path indicator between items in the bar.
+   * Separator between ui-bar children.
+   */
+  &.is-separated{
+    --ui-bar-separator-spacing: .5rem;
+
+    > *:not(:first-child):before{
+      content: "";
+      display: inline-block;
+      width: 1px;
+      background: var(--ui-separator);
+      position:absolute;
+      height: 100%;
+
+      left: calc((var(--ui-bar-separator-spacing) * 2) * -1);
+
+      > *:not(:first-child) {
+        margin-left: calc(var(--ui-bar-spacing) + var(--ui-bar-separator-spacing) + (var(--ui-bar-separator-spacing) / 2)) !important;
+      }
+    }
+  }
+
+  /**
+   * Path indicator between ui-bar children.
    */
   &.is-path{
     --ui-path-item-arrow-width: 2px;

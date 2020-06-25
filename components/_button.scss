@@ -6,6 +6,8 @@
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
   --ui-button-spacing: var(--ui-xs-spacing);
+
+  --ui-icon-button-radius: var(--ui-button-radius);
 }
 
 @mixin control {
@@ -183,10 +185,14 @@ ui-button, ui-menu-button{
   }
 }
 
+/**
+ * Always square
+ */
 ui-icon-button{
   font-size: 1.5rem;
   flex: 0 0 auto;
   padding: calc(var(--ui-button-spacing)/1) !important;
+  border-radius: var(--ui-icon-button-radius);
 }
 
 ui-menu{

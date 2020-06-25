@@ -17,9 +17,9 @@ ui-bar{
 
   margin-right: var(--ui-button-padding);
 
-  ui-button:not('.is-outline'):not('.is-primary'),
-  ui-icon-button:not('.is-outline'):not('.is-primary'){
-  ui-menu-button:not('.is-outline'):not('.is-primary'){}
+  ui-button:not(.is-outlined):not(.is-contained),
+  ui-icon-button:not(.is-outlined):not(.is-contained){
+  ui-menu-button:not(.is-outlined):not(.is-contained){}
     // by default buttons have padding
     margin-left: 0px;
   }

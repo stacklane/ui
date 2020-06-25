@@ -135,7 +135,7 @@ ui-button, ui-menu-button, ui-icon-button{
     }
   }
 
-  &.is-priority{
+  &.is-contained{
     background: var(--ui-default);
     color: var(--ui-default-invert);
     padding: calc(var(--ui-button-padding)/2) calc(var(--ui-button-padding)*2);

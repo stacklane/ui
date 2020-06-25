@@ -1,7 +1,6 @@
 'use strict';
 
 class UIButton extends HTMLElement{
-
     constructor(text) {
         super();
         if (typeof text === 'string') {

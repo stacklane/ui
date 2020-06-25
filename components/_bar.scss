@@ -15,7 +15,7 @@ ui-bar{
     display:none;
   }
 
-  > *:not(:first-child) {
+  > * {
     margin-left: var(--ui-bar-spacing);
   }
 
@@ -29,6 +29,10 @@ ui-bar{
     + ui-menu-button:not(.is-outlined):not(.is-contained){
       margin-left: 0px;
     }
+  }
+
+  > *:first-child{
+    margin-left: 0px !important;
   }
 
   /**
@@ -64,8 +68,14 @@ ui-bar{
       // TODO vars
       width: .5rem;
       height: .5rem;
-      margin-right: var(--ui-bar-spacing);
-      padding-left: calc(var(--ui-bar-spacing) / 2);
+      //margin-right: var(--ui-bar-spacing);
+      //padding-left: calc(var(--ui-bar-spacing) / 2);
+      position: absolute;
+      left: calc(var(--ui-bar-spacing) * -.5);
+    }
+
+    > *:not(:first-child) {
+      margin-left: .5rem !important;
     }
   }
 }

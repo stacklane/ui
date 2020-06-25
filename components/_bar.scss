@@ -1,5 +1,13 @@
 /**
- * Responsible for spacing between related buttons/controls.
+ * Container for related buttons/controls, and responsible for the spacing between them.
+ *
+ * May be nested.
+ *
+ * Variations:
+ *   .is-path
+ *   .is-even
+ *   .is-end
+ *   .is-grow
  */
 ui-bar{
   --ui-bar-background: transparent;
@@ -54,6 +62,9 @@ ui-bar{
     flex-grow: 1;
   }
 
+  /**
+   * Path indicator between items in the bar.
+   */
   &.is-path{
     --ui-path-item-arrow-width: 2px;
     --ui-path-item-color: var(--ui-separator);
@@ -68,8 +79,6 @@ ui-bar{
 
       width: var(--ui-path-item-size);
       height: var(--ui-path-item-size);
-      //margin-right: var(--ui-bar-spacing);
-      //padding-left: calc(var(--ui-bar-spacing) / 2);
       position: absolute;
       left: calc((var(--ui-path-item-size) * 2) * -1);
     }

@@ -1,19 +1,10 @@
 ui-bar{
   --ui-bar-background: transparent;
 
-  // tbd flex-shrink: 0;
-
-  // tbd align-items: stretch;
-  // tbd justify-content: space-between;
-
   display: flex;
-
   background: var(--ui-toolbar-background);
-
   white-space: nowrap;
-
   justify-content: flex-start;
-
   align-items: center;
 
   &:empty{
@@ -22,33 +13,37 @@ ui-bar{
 
   --ui-bar-spacing: var(--ui-s-spacing);
 
-  > *:not(:last-child) {
-    margin-right: var(--ui-bar-spacing);
+  > *:not(:first-child) {
+    margin-left: var(--ui-bar-spacing);
   }
 
   > ui-button:not(.is-outlined):not(.is-contained),
   > ui-icon-button:not(.is-outlined):not(.is-contained),
   > ui-menu-button:not(.is-outlined):not(.is-contained){
-    // in this case, the button's inherit padding is the spacing
-    margin-right: calc(var(--ui-bar-spacing) / 2);
+    margin-left: calc(var(--ui-bar-spacing) / 2);
 
     + ui-button:not(.is-outlined):not(.is-contained),
     + ui-icon-button:not(.is-outlined):not(.is-contained),
     + ui-menu-button:not(.is-outlined):not(.is-contained){
-      margin-right: 0px;
+      margin-left: 0px;
     }
   }
 
+  /**
+   * Typically coupled with .is-grow
+   */
   &.is-even{
     justify-content: space-between;
   }
 
+  /**
+   * Typically coupled with .is-grow
+   */
   &.is-end{
-    //align-items: stretch;
     justify-content: flex-end;
   }
 
-  &.is-full{
+  &.is-grow{
     flex-grow: 1;
   }
 }

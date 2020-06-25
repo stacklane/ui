@@ -22,14 +22,17 @@ ui-bar{
 
   --ui-bar-spacing: var(--ui-s-spacing);
 
-  > *:not(:last-child) {
+  > *:not(:last-child):not(:first-child) {
     margin-right: var(--ui-bar-spacing);
+    margin-left: var(--ui-bar-spacing);
   }
 
-  ui-button:not(.is-outlined):not(.is-contained),
-  ui-icon-button:not(.is-outlined):not(.is-contained){
-  ui-menu-button:not(.is-outlined):not(.is-contained){}
-    margin: 0px; // in this case, the button's padding is the spacing
+  > ui-button:not(.is-outlined):not(.is-contained),
+  > ui-icon-button:not(.is-outlined):not(.is-contained),
+  > ui-menu-button:not(.is-outlined):not(.is-contained){
+    // in this case, the button's inherit padding is the spacing
+    margin-right: 0px;
+    margin-left: 0px;
   }
 
   &.is-even{

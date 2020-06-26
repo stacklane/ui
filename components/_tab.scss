@@ -46,9 +46,9 @@ ui-tab{
   }
 
   /**
-   * Last child ui-button
+   * Last child ui-icon-button
    */
-  > ui-icon:last-child:not(:first-child){
+  > ui-icon-button:last-child:not(:first-child){
     margin-left: var(--ui-tab-spacing);
   }
 }

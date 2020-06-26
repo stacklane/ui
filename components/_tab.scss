@@ -3,14 +3,14 @@
  * Keep in mind these variables may be overridden for class-specific cases.
  */
 
-ui-tab{
+:root{
   --ui-tab-background: inherit;
   --ui-tab-foreground: inherit;
 
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
 
-  --ui-tab-spacing: .5rem;
+  --ui-tab-spacing: var(--ui-xs-spacing);
 }
 
 ui-tab /*, ui-tab-closer*/{
@@ -23,14 +23,15 @@ ui-tab{
   --ui-button-spacing: 2px;
   --ui-icon-button-size: 1rem;
 
-  padding: var(--ui-tab-spacing) .75rem var(--ui-tab-spacing) .75rem;
+  padding: var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5)
+        var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5);
 
   background: var(--ui-tab-background);
   color: var(--ui-tab-foreground);
   display: flex;
   align-items: center;
   justify-content: left;
-  position:relative;
+  position: relative;
 
   &[active='true']{
     background: var(--ui-tab-active-background);
@@ -43,36 +44,11 @@ ui-tab{
   > ui-icon:first-child:not(:last-child){
     margin-right: var(--ui-tab-spacing);
   }
-}
-
-
-//ui-tab-closer{
- // @include delete(16px, inherit, 1px, var(--ui-gray));
 
   /**
-   * Last child is ui-tab-closer, preceded by something else.
+   * Last child ui-button
    */
-  //&:last-child:not(:first-child){
-  //  margin-left: var(--ui-tab-spacing);
- // }
-//}
-
-/**
- * Tabs with separators.
-
-ui-tab.has-separator{
-  &:not([active='true']) + ui-tab.has-separator:not(:first-child):not([active='true']){
-    border-left: 1px solid var(--ui-separator);
+  > ui-icon:last-child:not(:first-child){
+    margin-left: var(--ui-tab-spacing);
   }
-  &:last-child:not([active='true']){
-    border-right: 1px solid var(--ui-separator);
-  }
-
-  &[active='true']{
-    border-right: 1px solid var(--ui-separator);
-
-    &:not(:first-child){
-      border-left: 1px solid var(--ui-separator);
-    }
-  }
-}*/
+}

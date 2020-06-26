@@ -14,7 +14,7 @@ class UIButton extends HTMLElement{
     justifyLeft(){return this._cls('is-justify-left');}
     outlined(){return this._cls('is-outlined');}
     contained(){return this._cls('is-contained');}
-    round(){return this._cls('is-rounded');}
+    round(){return this._cls('is-round');}
     primary(){return this._cls('is-primary');}
     connectedCallback(){this.setAttribute('tabindex', '0');}
 }

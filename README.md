@@ -20,10 +20,6 @@
 
 Defines `font-size` and `line-height` only.
 
-### `.ui-column`
-
-Simple vertical listing. Supports optional [spacing](#spacing) between the column's rows.
-
 ## Spacing
 
 Case specific spacing, used for: padding, margin, gap, row-gap, column-gap.

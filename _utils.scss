@@ -85,18 +85,6 @@
   }
 }
 
-@mixin overlay($offset: 0) {
-  bottom: $offset;
-  left: $offset;
-  position: absolute;
-  right: $offset;
-  top: $offset;
-}
-
-%overlay {
-  @include overlay;
-}
-
 @mixin tablet {
   @media screen and (min-width: $tablet), print {
     @content;

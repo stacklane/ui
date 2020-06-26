@@ -1,5 +1,5 @@
 /**
- * Horizontal for related buttons/controls, and responsible for spacing between them.
+ * Horizontal layout for related buttons/controls, and responsible for spacing between them.
  *
  * May be nested.
  *
@@ -17,7 +17,6 @@
 }
 
 ui-bar{
-
   display: flex;
   background: var(--ui-toolbar-background);
   white-space: nowrap;

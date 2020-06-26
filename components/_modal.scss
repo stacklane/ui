@@ -4,13 +4,24 @@ $modal-content-margin-mobile: 20px !default;
 $modal-content-spacing-mobile: 160px !default;
 $modal-content-spacing-tablet: 40px !default;
 
+@mixin overlay($offset: 0) {
+  bottom: $offset;
+  left: $offset;
+  position: absolute;
+  right: $offset;
+  top: $offset;
+}
+
+%overlay {
+  @include overlay;
+}
+
 ui-modal {
   @extend %overlay;
 
   align-items: center;
   display: none;
   flex-direction: column;
-  //justify-content: center;
   overflow: hidden;
   position: fixed;
   z-index: $modal-z;
@@ -23,13 +34,10 @@ ui-modal {
 .ui-modal-background {
   @extend %overlay;
 
-  background: black;
-  opacity: .5;
+  background: rgba(0,0,0,.5);
 }
 
 .ui-modal-content {
-  //margin: 0 $modal-content-margin-mobile;
-  //max-height: calc(100vh - #{$modal-content-spacing-mobile});
   overflow: visible;
   position: relative;
   width: 100%;
@@ -39,9 +47,6 @@ ui-modal {
 
   // Responsiveness
   @include tablet {
-    //margin-top: 1rem;
-    //margin: 0 auto;
-   // max-height: calc(100vh - #{$modal-content-spacing-tablet});
     width: $modal-content-width;
   }
 }

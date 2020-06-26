@@ -8,6 +8,9 @@
   background: var(--ui-background);
   color: var(--ui-foreground);
 
+  display: flex;
+  flex-direction: column;
+
   ::-webkit-scrollbar {
     width: var(--ui-scroll-width);
     height: var(--ui-scroll-width); // same as width

@@ -1,6 +1,13 @@
 @import '/utils';
 
 /**
+ * Provides no real functionality -- primarily a "root" styling target for typography, etc.
+ */
+ui-app{
+
+}
+
+/**
  * Square. Designed usually to be a <span> containing either a single emoji character, or <svg>.
  */
 ui-icon{

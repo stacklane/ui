@@ -1,0 +1,48 @@
+
+:root{
+  --ui-appbar-spacing: 0;
+  --ui-appbar-background: transparent;
+}
+
+ui-appbar{
+  flex-shrink: 0;
+
+  align-items: stretch;
+  justify-content: space-between;
+  display: flex;
+
+  background: var(--ui-appbar-background);
+
+  white-space: nowrap;
+
+  padding: var(--ui-appbar-spacing);
+
+  &.has-s-spacing{
+    --ui-appbar-spacing: var(--ui-s-spacing);
+  }
+  &.has-xs-spacing{
+    --ui-appbar-spacing: var(--ui-xs-spacing);
+  }
+  &.has-2xs-spacing{
+    --ui-appbar-spacing: var(--ui-2xs-spacing);
+  }
+
+  /**
+   * Variations
+   */
+
+  &.has-gutters{
+    @include tablet {
+      padding-left: calc(var(--ui-appbar-spacing) * 2);
+      padding-right: calc(var(--ui-appbar-spacing) * 2);
+    }
+  }
+
+  &.is-primary{
+    min-height: calc(var(--ui-appbar-spacing) * 3);
+
+    @include tablet {
+      min-height:  calc(var(--ui-appbar-spacing) * 4);
+    }
+  }
+}

@@ -1,4 +1,4 @@
-//@import 'section';
+
 @import 'column';
 
 /**
@@ -25,13 +25,8 @@
   }
 }
 
-ui-app, ui-modal{
+ui-app{
   position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-
   background: var(--ui-background);
   color: var(--ui-foreground);
 
@@ -48,6 +43,15 @@ ui-app, ui-modal{
     border: 3px solid var(--ui-scroll-background);
   }
 
+  &.is-full{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+ui-app{
+
+  // TODO this maybe doesn't belong here.
   > main{
     flex-grow: 1;
 
@@ -57,6 +61,7 @@ ui-app, ui-modal{
     overflow-y: hidden;
   }
 
+  // TODO rethink ui-init-indicator as a component
   .ui-init-indicator {
     display: none;
   }

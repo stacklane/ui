@@ -26,6 +26,9 @@ ui-modal {
   position: fixed;
   z-index: $modal-z;
 
+  background: var(--ui-background);
+  color: var(--ui-foreground);
+
   &[active] {
     display: flex;
   }

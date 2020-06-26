@@ -1,7 +1,7 @@
 /**
  * Utility to be used inside the 'display' of the UITab,
  * and styled in an implementation specific way using classes.
- */
+
 class UITabCloser extends HTMLElement {
     constructor(){
         super();
@@ -13,6 +13,7 @@ class UITabCloser extends HTMLElement {
     }
 }
 window.customElements.define('ui-tab-closer', UITabCloser);
+ */
 
 /**
  * Toggle for any other {HtmlElement} as a view.
@@ -32,6 +33,14 @@ window.customElements.define('ui-tab-closer', UITabCloser);
  *        }
  */
 class UITab extends HTMLElement{
+    static closer(action){
+        const that = action;
+        that.addEventListener('click', (event)=>{
+            that.closest('ui-tab').close();
+            event.stopPropagation(); // prevent UITab from also recognizing click
+        });
+    }
+
     static get ChangeEventName(){
         return 'UITab#change';
     }

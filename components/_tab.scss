@@ -13,7 +13,7 @@ ui-tab{
   --ui-tab-spacing: .5rem;
 }
 
-ui-tab, ui-tab-closer{
+ui-tab /*, ui-tab-closer*/{
   @include unselectable;
   outline: none;
   cursor: var(--ui-action-pointer);
@@ -42,16 +42,17 @@ ui-tab{
   }
 }
 
-ui-tab-closer{
-  @include delete(16px, inherit, 1px, var(--ui-gray));
+
+//ui-tab-closer{
+ // @include delete(16px, inherit, 1px, var(--ui-gray));
 
   /**
    * Last child is ui-tab-closer, preceded by something else.
    */
-  &:last-child:not(:first-child){
-    margin-left: var(--ui-tab-spacing);
-  }
-}
+  //&:last-child:not(:first-child){
+  //  margin-left: var(--ui-tab-spacing);
+ // }
+//}
 
 /**
  * Tabs with separators.

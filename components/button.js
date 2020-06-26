@@ -33,7 +33,7 @@ class UIButton extends HTMLElement{
         return this;
     }
 
-    round(){
+    primary(){
         this.classList.add('is-primary');
         return this;
     }

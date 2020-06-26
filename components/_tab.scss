@@ -1,8 +1,4 @@
 
-/**
- * Keep in mind these variables may be overridden for class-specific cases.
- */
-
 :root{
   --ui-tab-background: inherit;
   --ui-tab-foreground: inherit;
@@ -11,15 +7,25 @@
   --ui-tab-active-foreground: inherit;
 
   --ui-tab-spacing: var(--ui-xs-spacing);
+
+  --ui-tab-justify: center;
 }
 
-ui-tab /*, ui-tab-closer*/{
+--ui-tab-justify-center ui-tab{
+  --ui-tab-justify: center;
+}
+--ui-tab-justify-left ui-tab{
+  --ui-tab-justify: left;
+}
+
+ui-tab{
   @include unselectable;
   outline: none;
   cursor: var(--ui-action-pointer);
 }
 
 ui-tab{
+  // Child Overrides:
   --ui-button-spacing: 2px;
   --ui-icon-button-size: 1rem;
 
@@ -30,12 +36,20 @@ ui-tab{
   color: var(--ui-tab-foreground);
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: var(--ui-tab-justify);
   position: relative;
 
   &[active='true']{
     background: var(--ui-tab-active-background);
     color: var(--ui-tab-active-foreground);
+  }
+
+  &.is-justify-center{
+    --ui-tab-justify: center;
+  }
+
+  &.is-grow{
+    flex-grow: 1;
   }
 
   /**

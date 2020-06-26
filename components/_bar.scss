@@ -1,5 +1,5 @@
 /**
- * Container for related buttons/controls, and responsible for the spacing between them.
+ * Horizontal for related buttons/controls, and responsible for spacing between them.
  *
  * May be nested.
  *
@@ -8,7 +8,9 @@
  *   .is-even
  *   .is-end
  *   .is-grow
+ *   .is-stretch
  */
+
 ui-bar{
   --ui-bar-background: transparent;
   --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
@@ -54,6 +56,13 @@ ui-bar{
   }
 
   /**
+   * For children which should be vertically the same height.
+   */
+  &.is-stretch{
+    align-items: stretch;
+  }
+
+  /**
    * Typically coupled with .is-grow
    */
   &.is-end{
@@ -62,25 +71,6 @@ ui-bar{
 
   &.is-grow{
     flex-grow: 1;
-  }
-
-  /**
-   * Separator between ui-bar children.
-   */
-  &.is-separated{
-    --ui-bar-spacing: 1px;
-
-    > *:after{
-      content: "";
-      display: inline-block;
-      width: 1px;
-      background: var(--ui-separator);
-      position:absolute;
-      height: 100%;
-      top: 0;
-      right: 0;
-      margin-right: -1px;
-    }
   }
 
   /**

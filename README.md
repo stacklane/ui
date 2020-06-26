@@ -4,7 +4,7 @@
 
 - Not intended for complex theming customization.
   Instead, targets small variations nearing "flat" Google/Apple flavored themes.
-- Avoid hover effects and behaviors as much as possible (not mobile friendly).
+- Hiding important functionality or information behind ":hover" effects is not mobile friendly.
 - Reuse/restyle existing HTML elements where they make semantic sense, e.g. `h1`-`h6`, `section`, forms, etc.
 - A component should only be responsible for its own internal spacing -- never its external spacing.
   This way components may be used in a variety of cases without needing to override margins.

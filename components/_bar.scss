@@ -11,9 +11,12 @@
  *   .is-stretch
  */
 
-ui-bar{
+:root{
   --ui-bar-background: transparent;
   --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
+}
+
+ui-bar{
 
   display: flex;
   background: var(--ui-toolbar-background);
@@ -45,6 +48,10 @@ ui-bar{
 
   > *:first-child{
     margin-left: 0px !important;
+  }
+
+  &.is-spacing-none{
+    --ui-bar-spacing: 0px;
   }
 
   /**

@@ -1,7 +1,7 @@
-class UIApp extends HTMLElement{
-    constructor() { super(); }
-}
-window.customElements.define('ui-app', UIApp);
+//class UIApp extends HTMLElement{
+///    constructor() { super(); }
+//}
+//window.customElements.define('ui-app', UIApp);
 
 class UIIcon extends HTMLElement{
     // Un-opinionated 45 degree crossed lines.

@@ -8,39 +8,15 @@ class UIButton extends HTMLElement{
         }
     }
 
-    fullWidth(){
-        this.classList.add('is-full-width');
-        return this;
-    }
+    _cls(c){ this.classList.add(c); return this; }
 
-    justifyLeft(){
-        this.classList.add('is-justify-left');
-        return this;
-    }
-
-    outlined(){
-        this.classList.add('is-outlined');
-        return this;
-    }
-
-    contained(){
-        this.classList.add('is-contained');
-        return this;
-    }
-
-    round(){
-        this.classList.add('is-round');
-        return this;
-    }
-
-    primary(){
-        this.classList.add('is-primary');
-        return this;
-    }
-
-    connectedCallback(){
-        this.setAttribute('tabindex', '0');
-    }
+    fullWidth(){return this._cls('is-full-width');}
+    justifyLeft(){return this._cls('is-justify-left');}
+    outlined(){return this._cls('is-outlined');}
+    contained(){return this._cls('is-contained');}
+    round(){return this._cls('is-rounded');}
+    primary(){return this._cls('is-primary');}
+    connectedCallback(){this.setAttribute('tabindex', '0');}
 }
 window.customElements.define('ui-button', UIButton);
 

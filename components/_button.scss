@@ -8,6 +8,8 @@
   --ui-button-spacing: var(--ui-xs-spacing);
 
   --ui-icon-button-radius: var(--ui-button-radius);
+
+  --ui-icon-button-size: 1.5rem;
 }
 
 @mixin control {
@@ -191,7 +193,6 @@ ui-button, ui-menu-button{
  * <ui-icon> child is expected to be 1em, and therefore use whatever font-size this is.
  */
 ui-icon-button{
-  --ui-icon-button-size: 1.5rem;
   font-size: var(--ui-icon-button-size);
   flex: 0 0 auto;
   padding: calc(var(--ui-button-spacing)/1) !important;

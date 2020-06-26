@@ -20,6 +20,9 @@ ui-tab /*, ui-tab-closer*/{
 }
 
 ui-tab{
+  --ui-button-spacing: 2px;
+  --ui-icon-button-size: 1rem;
+
   padding: var(--ui-tab-spacing) .75rem var(--ui-tab-spacing) .75rem;
 
   background: var(--ui-tab-background);

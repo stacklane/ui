@@ -186,10 +186,13 @@ ui-button, ui-menu-button{
 }
 
 /**
- * Always square
+ * Always square.
+ *
+ * <ui-icon> child is expected to be 1em, and therefore use whatever font-size this is.
  */
 ui-icon-button{
-  font-size: 1.5rem;
+  --ui-icon-button-size: 1.5rem;
+  font-size: var(--ui-icon-button-size);
   flex: 0 0 auto;
   padding: calc(var(--ui-button-spacing)/1) !important;
   border-radius: var(--ui-icon-button-radius);

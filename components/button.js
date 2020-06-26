@@ -18,15 +18,29 @@ class UIButton extends HTMLElement{
         return this;
     }
 
+    outlined(){
+        this.classList.add('is-outlined');
+        return this;
+    }
+
+    contained(){
+        this.classList.add('is-contained');
+        return this;
+    }
+
     round(){
         this.classList.add('is-round');
+        return this;
+    }
+
+    round(){
+        this.classList.add('is-primary');
         return this;
     }
 
     connectedCallback(){
         this.setAttribute('tabindex', '0');
     }
-
 }
 window.customElements.define('ui-button', UIButton);
 

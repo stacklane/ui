@@ -11,22 +11,24 @@
 }
 
 ui-spinner {
+  @extend %unselectable;
   display: inline-flex;
   position: relative;
   width: var(--ui-spinner-size);
   height: var(--ui-spinner-size);
-  //margin: auto;
+  align-self: center;
+  border: 0px;
 
   > div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: var(--ui-init-indicator-size);
-    height: var(--ui-init-indicator-size);
+    width: var(--ui-spinner-size);
+    height: var(--ui-spinner-size);
     border: var(--ui-spinner-width) solid var(--ui-spinner-color);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: var(--ui-foreground) transparent transparent transparent;
+    border-color: var(--ui-spinner-color) transparent transparent transparent;
   }
 
   > div:nth-child(1) {

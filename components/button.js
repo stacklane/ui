@@ -16,7 +16,20 @@ class UIButton extends HTMLElement{
     contained(){return this._cls('is-contained');}
     round(){return this._cls('is-round');}
     primary(){return this._cls('is-primary');}
-    connectedCallback(){this.setAttribute('tabindex', '0');}
+
+    connectedCallback(){
+        this.setAttribute('tabindex', '0');
+
+        // TBD
+        // this.setAttribute('aria-haspopup', 'true');
+        // this.setAttribute('aria-controls', 'ui-menu');
+        // For menus -- :focus/:focus-within to show the menu,
+        // therefore Escape key should unfocus/hide menu.
+        const that = this;
+        that.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') that.blur();
+        });
+    }
 }
 window.customElements.define('ui-button', UIButton);
 
@@ -31,32 +44,6 @@ class UIIconButton extends UIButton{
     }
 }
 window.customElements.define('ui-icon-button', UIIconButton);
-
-class UIMenuButton extends UIButton{
-
-    constructor(text) {
-        super(text);
-    }
-
-    /**
-     * Uses :focus/:focus-within to show the menu, therefore Escape key should unfocus/hide menu.
-     */
-    _esc(event){
-        this.blur();
-        event.preventDefault();
-    }
-
-    connectedCallback(){
-        this.setAttribute('tabindex', '0');
-        //this.setAttribute('aria-haspopup', 'true');
-        //this.setAttribute('aria-controls', 'ui-menu');
-        const that = this;
-        this.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') that._esc(event);
-        });
-    }
-}
-window.customElements.define('ui-menu-button', UIMenuButton);
 
 class UIMenu extends HTMLElement{
     constructor() {

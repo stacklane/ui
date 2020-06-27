@@ -20,6 +20,34 @@
 
 Defines `font-size` and `line-height` only.
 
+### `ui-appbar`
+
+Primarily a case-specific container for one or more `<ui-bar>`'s.
+
+Provides coloring, prominence, spacing, and positioning.
+
+Unlike `<ui-bar>` it is not concerned with the spacing between items.
+
+### `ui-bar`
+
+Horizontal layout for related buttons/controls, and responsible for spacing between them.
+
+For positioning and prominence, see `<ui-appbar>` instead.
+
+May be nested.
+
+Variations:
+    - `.is-path`
+    - `.is-even`
+    - `.is-end`
+    - `.is-grow`
+    - `.is-stretch`
+
+### `ui-button` / `ui-icon-button`
+
+- Textual button, with optional `<ui-icon>`.
+- Button with a single `<ui-icon>`.
+
 ## Spacing
 
 Case specific spacing, used for: padding, margin, gap, row-gap, column-gap.

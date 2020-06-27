@@ -97,9 +97,10 @@ ui-button, ui-menu-button, ui-icon-button{
 
   color: var(--ui-default);
 
-  &:hover{
+  &:hover, &:focus, &:focus-within{
     background: var(--ui-default-alpha-high);
   }
+
   &:active{
     background: var(--ui-default-alpha-medium);
   }
@@ -127,7 +128,7 @@ ui-button, ui-menu-button, ui-icon-button{
 
     border-color: var(--ui-default-alpha-medium);
 
-    &:hover{
+    &:hover, &:focus, &:focus-within{
       border-color: var(--ui-default);
     }
     &:active{
@@ -154,7 +155,7 @@ ui-button, ui-menu-button, ui-icon-button{
     color: var(--ui-default-invert);
     padding: calc(var(--ui-button-spacing)/2) calc(var(--ui-button-spacing)*2);
 
-    &:hover{
+    &:hover, &:focus, &:focus-within{
       background: var(--ui-default-dark);
     }
     &:active{
@@ -173,9 +174,23 @@ ui-button, ui-menu-button, ui-icon-button{
       }
     }
   }
+
+  /**
+   * :focus-within allows focusing input controls within the menu, without closing the menu.
+   *
+   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
+   */
+  &:focus, &:focus-within{
+    ui-menu{
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 9999;
+    }
+  }
 }
 
-ui-button, ui-menu-button{
+ui-button{
   ui-icon:first-child:not(:only-child){
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
@@ -199,10 +214,12 @@ ui-icon-button{
   border-radius: var(--ui-icon-button-radius);
 }
 
+/**
+ * Requires a relative parent/container.
+ */
 ui-menu{
   --ui-menu-background: var(--ui-secondary-background);
   --ui-menu-label: var(--ui-label);
-  //--ui-menu-shadow: var(--ui-secondary-background-shadow);
   --ui-menu-speed: var(--ui-speed);
   --ui-menu-radius: var(--ui-radius);
 
@@ -225,24 +242,4 @@ ui-menu{
   pointer-events: none;
   opacity:0;
   transform: translateY(-5px);
-}
-
-ui-menu-button{
-  position: relative;
-
-  /**
-   * :focus-within allows focusing input controls within the menu, without closing the menu.
-   *
-   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
-   */
-  &:focus, &:focus-within{
-    background: var(--ui-default-alpha-high);
-
-    ui-menu{
-      pointer-events: auto;
-      opacity: 1;
-      transform: translateY(0);
-      z-index: 9999;
-    }
-  }
 }

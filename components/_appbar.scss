@@ -14,8 +14,11 @@ ui-appbar{
   background: var(--ui-appbar-background);
 
   white-space: nowrap;
+  align-items: center;
 
-  padding: var(--ui-appbar-spacing);
+  // NOTE: top/bottom padding comes from appbar's height (and align-items:center
+  padding-left: var(--ui-appbar-spacing);
+  padding-right: var(--ui-appbar-spacing);
 
   &.has-s-spacing{
     --ui-appbar-spacing: var(--ui-s-spacing);
@@ -25,6 +28,12 @@ ui-appbar{
   }
   &.has-2xs-spacing{
     --ui-appbar-spacing: var(--ui-2xs-spacing);
+  }
+
+  height: calc(var(--ui-appbar-spacing) * 3);
+
+  @include tablet {
+    height: calc(var(--ui-appbar-spacing) * 4);
   }
 
   /**

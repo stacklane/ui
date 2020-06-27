@@ -1,0 +1,49 @@
+:root {
+
+  --ui-drawer-width: 240px;
+
+}
+
+/**
+ * May use a ui-appbar to match any toolbar this next to.
+ */
+ui-drawer{
+  background: var(--secondary-background);
+  flex: 0 0 auto;
+  flex-direction: column;
+  transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
+  width: var(--ui-drawer-width);
+
+  &.is-collapsed{
+    margin-left: calc(-1 * var(--ui-drawer-width));
+  }
+
+  // TBD just use an ui-appbar
+  //> ui-drawer-appbar{
+  //  align-items: center;
+  //  display: flex;
+  //  height: 72px; // TODO
+  //  justify-content: space-between;
+  //}
+}
+
+ui-drawer-app-around{
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+ui-drawer-app{
+  display: flex;
+  flex: 1 1 0px;
+  min-height: 1px;
+
+  //> main{
+  //  display: flex;
+  //  flex: 1;
+  //  flex-direction: column;
+    //min-width: 920px;
+  //  position: relative;
+  //}
+
+}

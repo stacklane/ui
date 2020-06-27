@@ -1,6 +1,6 @@
 :root{
-  --ui-spinner-size: 8rem;
   --ui-spinner-width: 2px;
+  --ui-spinner-size: var(--ui-xl-spacing);
   --ui-spinner-color: var(--ui-label);
 }
 

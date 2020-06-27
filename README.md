@@ -48,6 +48,10 @@ Variations:
 - Textual button, with optional `<ui-icon>`.
 - Button with a single `<ui-icon>`.
 
+### `ui-spinner`
+
+`.is-init` / `ui-is-init`
+
 ## Spacing
 
 Case specific spacing, used for e.g.: padding, margin, gap, row-gap, column-gap.

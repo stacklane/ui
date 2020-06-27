@@ -26,7 +26,7 @@ Primarily a case-specific container for one or more `<ui-bar>`'s.
 
 Provides coloring, prominence, spacing, and positioning.
 
-Unlike `<ui-bar>` it is not concerned with the spacing between items.
+Unlike `<ui-bar>` it is not concerned with the spacing *between* items.
 
 ### `ui-bar`
 
@@ -50,7 +50,7 @@ Variations:
 
 ## Spacing
 
-Case specific spacing, used for: padding, margin, gap, row-gap, column-gap.
+Case specific spacing, used for e.g.: padding, margin, gap, row-gap, column-gap.
 
 ### Variables
 

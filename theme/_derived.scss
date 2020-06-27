@@ -12,7 +12,7 @@ html{
   --ui-white: white;
   --ui-link: rgba(var(--ui-link-rgb), 1.00);
   --ui-green: rgba(var(--ui-green-rgb), 1.00);
-  --ui-red: rgba(var(--ui-red-rgb), 1.00);
+  --ui-red: hsla(var(--ui-red-h), var(--ui-red-s), var(--ui-red-l), 1.00);
   --ui-blue: hsla(var(--ui-blue-h), var(--ui-blue-s), var(--ui-blue-l), 1.00);
   --ui-yellow: rgba(var(--ui-yellow-rgb), 1.00);
   --ui-gray: rgba(var(--ui-gray-rgb), 1.00);
@@ -46,8 +46,10 @@ html{
   // For destructive actions - when something can't be undone, for example, deleting entities
   --ui-negative: var(--ui-red);
   --ui-negative-invert: var(--ui-white);
-  // TODO
-
+  --ui-negative-alpha-high: hsla(var(--ui-red-h), var(--ui-red-s), var(--ui-red-l), var(--ui-alpha-high));
+  --ui-negative-alpha-medium: hsla(var(--ui-red-h), var(--ui-red-h), var(--ui-red-l), var(--ui-alpha-medium));
+  --ui-negative-dark: hsla(var(--ui-red-h), var(--ui-red-h), calc(var(--ui-red-l) * .80), 1.00);
+  --ui-negative-darker: hsla(var(--ui-red-h), var(--ui-red-h), calc(var(--ui-red-l) * .65), 1.00);
 }
 
 .ui-theme-light{

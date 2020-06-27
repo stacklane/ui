@@ -54,6 +54,10 @@ html{
   --ui-green-rgb: 50, 215, 75;
   --ui-red-rgb: 255, 69, 58;
 
+  --ui-red-h: 4;
+  --ui-red-s: 100%;
+  --ui-red-l: 61.2%;
+
   --ui-blue-h: 209;
   --ui-blue-s: 100%;
   --ui-blue-l: 50%;
@@ -92,11 +96,15 @@ html{
   // Colors
   --ui-link-rgb: 0, 122, 255;
   --ui-green-rgb: 40, 205, 65;
-  --ui-red-rgb: 255, 59, 48;
- // --ui-blue-rgb: 0, 122, 255;
+
+  --ui-red-h: 3;
+  --ui-red-s: 100%;
+  --ui-red-l: 59.4%;
+
   --ui-blue-h: 211;
   --ui-blue-s: 100%;
   --ui-blue-l: 50%;
+
   --ui-yellow-rgb: 255, 204, 0;
   --ui-gray-rgb: 152, 152, 157;
 

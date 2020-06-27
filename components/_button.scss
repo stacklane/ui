@@ -48,7 +48,7 @@
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
  * https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/
  */
-ui-button, ui-menu-button, ui-icon-button{
+ui-button, ui-icon-button{
   @extend %control;
   @extend %unselectable;
 
@@ -112,11 +112,22 @@ ui-button, ui-menu-button, ui-icon-button{
   &.is-primary{
     color: var(--ui-primary);
 
-    &:hover{
+    &:hover, &:focus, &:focus-within{
       background: var(--ui-primary-alpha-high);
     }
     &:active{
       background: var(--ui-primary-alpha-medium);
+    }
+  }
+
+  &.is-negative{
+    color: var(--ui-negative);
+
+    &:hover, &:focus, &:focus-within{
+      background: var(--ui-negative-alpha-high);
+    }
+    &:active{
+      background: var(--ui-negative-alpha-medium);
     }
   }
 
@@ -138,11 +149,22 @@ ui-button, ui-menu-button, ui-icon-button{
     &.is-primary{
       border-color: var(--ui-primary-alpha-medium);
 
-      &:hover{
+      &:hover, &:focus, &:focus-within{
         border-color: var(--ui-primary);
       }
       &:active{
         border-color: var(--ui-primary);
+      }
+    }
+
+    &.is-negative{
+      border-color: var(--ui-negative-alpha-medium);
+
+      &:hover, &:focus, &:focus-within{
+        border-color: var(--ui-negative);
+      }
+      &:active{
+        border-color: var(--ui-negative);
       }
     }
   }
@@ -166,11 +188,23 @@ ui-button, ui-menu-button, ui-icon-button{
       background: var(--ui-primary);
       color: var(--ui-primary-invert);
 
-      &:hover{
+      &:hover, &:focus, &:focus-within{
         background: var(--ui-primary-dark);
       }
       &:active{
         background: var(--ui-primary-darker);
+      }
+    }
+
+    &.is-negative{
+      background: var(--ui-negative);
+      color: var(--ui-negative-invert);
+
+      &:hover, &:focus, &:focus-within{
+        background: var(--ui-negative-dark);
+      }
+      &:active{
+        background: var(--ui-negative-darker);
       }
     }
   }

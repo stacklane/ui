@@ -50,8 +50,6 @@ ui-dialog{
     border-bottom: 1px solid var(--ui-separator);
 
     .ui-dialog-close{
-      @include delete(14px /* must use px */, var(--ui-red), 1px, var(--ui-red));
-
       position: absolute;
       left: var(--ui-dialog-title-horizontal-padding);
     }

@@ -38,11 +38,11 @@ ui-appbar{
     }
   }
 
-  &.is-primary{
+ // &.is-primary{
     //min-height: calc(var(--ui-appbar-spacing) * 3);
 
     //@include tablet {
       //min-height:  calc(var(--ui-appbar-spacing) * 4);
     //}
-  }
+  //}
 }

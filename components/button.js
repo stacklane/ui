@@ -16,6 +16,7 @@ class UIButton extends HTMLElement{
     contained(){return this._cls('is-contained');}
     round(){return this._cls('is-round');}
     primary(){return this._cls('is-primary');}
+    negative(){return this._cls('is-negative');}
 
     connectedCallback(){
         this.setAttribute('tabindex', '0');

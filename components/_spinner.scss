@@ -4,7 +4,13 @@
   --ui-spinner-color: var(--ui-label);
 }
 
-.ui-spinner {
+[ui-is-init]{
+  ui-spinner.is-init{
+    display: inline-flex;
+  }
+}
+
+ui-spinner {
   display: inline-flex;
   position: relative;
   width: var(--ui-spinner-size);
@@ -49,10 +55,4 @@
   }
 }
 
-[ui-is-init]{
 
-  ui-spinner.is-init{
-    display: inline-flex;
-  }
-
-}

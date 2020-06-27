@@ -8,3 +8,4 @@ class UISpinner extends HTMLElement{
         this.innerHTML = '<div></div><div></div><div></div><div></div>';
     }
 }
+window.customElements.define('ui-spinner', UIBar);

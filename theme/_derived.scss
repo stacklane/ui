@@ -47,9 +47,9 @@ html{
   --ui-negative: var(--ui-red);
   --ui-negative-invert: var(--ui-white);
   --ui-negative-alpha-high: hsla(var(--ui-red-h), var(--ui-red-s), var(--ui-red-l), var(--ui-alpha-high));
-  --ui-negative-alpha-medium: hsla(var(--ui-red-h), var(--ui-red-h), var(--ui-red-l), var(--ui-alpha-medium));
-  --ui-negative-dark: hsla(var(--ui-red-h), var(--ui-red-h), calc(var(--ui-red-l) * .80), 1.00);
-  --ui-negative-darker: hsla(var(--ui-red-h), var(--ui-red-h), calc(var(--ui-red-l) * .65), 1.00);
+  --ui-negative-alpha-medium: hsla(var(--ui-red-h), var(--ui-red-s), var(--ui-red-l), var(--ui-alpha-medium));
+  --ui-negative-dark: hsla(var(--ui-red-h), var(--ui-red-s), calc(var(--ui-red-l) * .80), 1.00);
+  --ui-negative-darker: hsla(var(--ui-red-h), var(--ui-red-s), calc(var(--ui-red-l) * .65), 1.00);
 }
 
 .ui-theme-light{

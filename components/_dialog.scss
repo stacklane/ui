@@ -49,9 +49,11 @@ ui-dialog{
     align-items: center;
     border-bottom: 1px solid var(--ui-separator);
 
-    .ui-dialog-close{
+    ui-icon-button.ui-dialog-close{
       position: absolute;
       left: var(--ui-dialog-title-horizontal-padding);
+      --ui-icon-button-size: 14px;
+      --ui-button-spacing: 2px;
     }
   }
 }

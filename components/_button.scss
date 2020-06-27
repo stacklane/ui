@@ -8,7 +8,6 @@
   --ui-button-spacing: var(--ui-xs-spacing);
 
   --ui-icon-button-radius: var(--ui-button-radius);
-
   --ui-icon-button-size: 1.5rem;
 }
 
@@ -230,10 +229,6 @@ ui-button{
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);
   }
-
-  &.is-primary{
-    color: var(--ui-primary);
-  }
 }
 
 /**
@@ -244,7 +239,7 @@ ui-button{
 ui-icon-button{
   font-size: var(--ui-icon-button-size);
   flex: 0 0 auto;
-  padding: calc(var(--ui-button-spacing)/1) !important;
+  padding: var(--ui-button-spacing) !important;
   border-radius: var(--ui-icon-button-radius);
 }
 

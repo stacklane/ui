@@ -17,7 +17,7 @@
 }
 
 @mixin tablet {
-  @media screen and (min-width: var(--ui-screen-min-tablet)), print {
+  @media screen and (min-width: $tablet), print {
     @content;
   }
 }

@@ -4,7 +4,7 @@ class UIDrawerOverlay extends HTMLElement{
         const that = this;
         that.addEventListener('click', ()=>{
             const layout = that.closest('ui-drawer-layout');
-            layout.classList.add('is-closed');
+            layout.closeDrawer();
         });
     }
 }
@@ -17,8 +17,23 @@ window.customElements.define('ui-drawer', UIDrawer);
 
 class UIDrawerLayout extends HTMLElement{
     constructor() {super();}
+    isDrawerForcedOpen(){
+        return this.classList.contains('is-opened');
+    }
+    openDrawer(){
+        this.classList.remove('is-closed');
+        this.classList.add('is-opened');
+    }
+    closeDrawer(){
+        this.classList.remove('is-opened');
+        this.classList.add('is-closed');
+    }
     connectedCallback(){
-        this.appendChild(new UIDrawerOverlay());
+        const that = this;
+        that.appendChild(new UIDrawerOverlay());
+        that.addEventListener('keydown', function(event){
+           if (event.key === 'Escape' && that.isDrawerForcedOpen()) that.closeDrawer();
+        });
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);
@@ -27,9 +42,7 @@ class UIDrawerCloser extends UIButtonAction{
     constructor() {super();}
     handle(){
         const layout = this.closest('ui-drawer-layout');
-        if (!layout) console.error('!ui-drawer-layout');
-        layout.classList.remove('is-opened');
-        layout.classList.add('is-closed');
+        layout.closeDrawer();
         return true;
     }
 }
@@ -39,9 +52,7 @@ class UIDrawerOpener extends UIButtonAction{
     constructor() {super();}
     handle(){
         const layout = this.closest('ui-drawer-layout');
-        if (!layout) console.error('!ui-drawer-layout');
-        layout.classList.remove('is-closed');
-        layout.classList.add('is-opened');
+        layout.openDrawer();
         return true;
     }
 }

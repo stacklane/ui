@@ -18,7 +18,7 @@
   --ui-tab-justify: left;
 }
 
-ui-tab-closer{ }
+ui-tab-closer{display:inline-flex;}
 
 ui-tab{
   @include unselectable;

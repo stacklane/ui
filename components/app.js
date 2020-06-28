@@ -1,4 +1,5 @@
 
+
 class UIIcon extends HTMLElement{
     // Un-opinionated 45 degree crossed lines.
     static x(){

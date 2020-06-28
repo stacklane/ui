@@ -33,14 +33,6 @@ window.customElements.define('ui-tab-closer', UITabCloser);
  *        }
  */
 class UITab extends HTMLElement{
-    static addCloseEventListener(action){
-        const that = action;
-        that.addEventListener('click', (event)=>{
-            that.closest('ui-tab').close();
-            event.stopPropagation(); // prevent UITab from also recognizing click
-        });
-    }
-
     static get ChangeEventName(){
         return 'UITab#change';
     }

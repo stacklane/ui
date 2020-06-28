@@ -10,13 +10,25 @@
 //  flex-direction: column;
 //}
 
-ui-drawer-app{
+ui-drawer-opener{display:inline-flex;}
+ui-drawer-closer{display:inline-flex;}
+
+ui-drawer-layout{
   display: flex;
   flex: 1 1 0px;
   min-height: 1px;
 
+  &.is-open{
+    ui-drawer {
+      margin-left: 0px;
+    }
+    ui-drawer-opener{
+      display:none;
+    }
+  }
+
   /**
-   * May use a ui-appbar to match any toolbar this next to.
+   * May contain a <ui-appbar> to match height of any toolbar this is next to.
    */
   ui-drawer{
     background: var(--ui-drawer-background);
@@ -24,22 +36,10 @@ ui-drawer-app{
     flex: 0 0 auto;
     flex-direction: column;
     transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
+
     width: var(--ui-drawer-width);
-
-    // TODO maybe this should be on drawer-app
-    &.is-collapsed{
-      margin-left: calc(-1 * var(--ui-drawer-width));
-    }
-
-    // TBD just use an ui-appbar
-    //> ui-drawer-appbar{
-    //  align-items: center;
-    //  display: flex;
-    //  height: 72px; // TODO
-    //  justify-content: space-between;
-    //}
+    margin-left: calc(-1 * var(--ui-drawer-width));
   }
-
 
   //> main{
   //  display: flex;

@@ -57,6 +57,12 @@ Variations:
 
 Case specific spacing, used for e.g.: padding, margin, gap, row-gap, column-gap.
 
+### `ui-tab`
+
+#### `ui-tab-closer`
+
+Click event handler placed inside a `ui-tab`. Parent of any other visible component such as a `<ui-button>`.
+
 ### Variables
 
 - `var(--ui-2xs-spacing)`

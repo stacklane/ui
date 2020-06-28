@@ -85,7 +85,7 @@ ui-icon{
   justify-content: center;
   height: var(--ui-icon-size);
   width: var(--ui-icon-size);
-  font-weight: var(--ui-weight-max);
+  font-weight: var(--ui-weight-bold); // for single plain text character icons
 
   > svg{
     height: var(--ui-icon-size);

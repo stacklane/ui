@@ -10,11 +10,16 @@ class UIButtonAction extends HTMLElement{
         super();
     }
 
-    get stop(){ return true; }
+    //get stop(){ return true; }
 
     handle(){}
 }
 
+/**
+ * For declarative actions, add child elements which extend UIButtonAction.
+ *
+ * For programmatic actions, use UIButton#addAction
+ */
 class UIButton extends HTMLElement{
     constructor(text) {
         super();
@@ -33,6 +38,41 @@ class UIButton extends HTMLElement{
     primary(){return this._cls('is-primary');}
     negative(){return this._cls('is-negative');}
 
+    addAction(callback){
+        if (!this._actions) this._actions = [];
+        this._actions.push(callback);
+        return this;
+    }
+
+    _action(event){
+        const that = this;
+
+        for (let i = 0; i < that.childElementCount; i++){
+            const c = that.children.item(i);
+            if (c instanceof UIButtonAction) {
+                const result = c.handle();
+                //if (result && c.stop) event.stopPropagation();
+            }
+        }
+
+        if (this._actions){
+            for (let i = 0; i < that._actions.length; i++){
+                this._actions[i](event);
+            }
+        }
+
+        if (!(that instanceof UIMenuButton)){ // click event for UIMenuButton is to give it focus to display the menu
+            /**
+             * TBD hard to find too much guidance here.
+             * Intuitively a button is usually a single action --
+             * not something that you repeatedly want to perform.
+             * So doesn't it make sense to blur it when the action is performed?
+             * It does at least from a styling standpoint.
+             */
+            that.blur();
+        }
+    }
+
     connectedCallback(){
         /**
          * Use tabindex to treat this is a native <button> in the sense that
@@ -42,38 +82,17 @@ class UIButton extends HTMLElement{
 
         const that = this;
 
-        /**
-         * Primarily for ui-menu-button, to hide the menu,
-         * however makes sense for any button to be able to unfocus from keyboard.
-         */
         that.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') that.blur();
+            if (event.key === 'Escape')
+                // Primarily for ui-menu-button, to hide the menu,
+                // however makes sense for any button to be able to unfocus from keyboard.
+                that.blur();
+            else if (event.key == 'Enter')
+                // Same as 'click'
+                that._action(event);
         });
 
-        /**
-         * Pass through click event to any UIActionHandler children.
-         *
-         * TODO what about Enter key?
-         */
-        that.addEventListener('click', function(event){
-            for (let i = 0; i < that.childElementCount; i++){
-                const c = that.children.item(i);
-                if (c instanceof UIButtonAction) {
-                    const result = c.handle();
-                    if (result && c.stop) event.stopPropagation();
-                }
-            }
-            if (!(that instanceof UIMenuButton)){
-                /**
-                 * TBD hard to find too much guidance here.
-                 * Intuitively a button is usually a single action --
-                 * not something that you repeatedly want to perform.
-                 * So doesn't it make sense to blur it when the action is performed?
-                 * It does at least from a styling standpoint.
-                 */
-                that.blur();
-            }
-        })
+        that.addEventListener('click', function(event){ that._action(event);})
     }
 }
 window.customElements.define('ui-button', UIButton);

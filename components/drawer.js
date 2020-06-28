@@ -13,38 +13,28 @@ class UIDrawerLayout extends HTMLElement{
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);
 
-class UIDrawerCloser extends HTMLElement{
+class UIDrawerCloser extends UIButtonAction{
     constructor() {
         super();
     }
-    connectedCallback(){
-        const that = this;
-
-        that.addEventListener('click', (event)=>{
-            const layout = that.closest('ui-drawer-layout');
-            if (!layout) console.error('!ui-drawer-layout');
-            layout.classList.remove('is-open');
-            event.stopPropagation();
-            event.preventDefault();
-        });
+    handle(){
+        const layout = this.closest('ui-drawer-layout');
+        if (!layout) console.error('!ui-drawer-layout');
+        layout.classList.remove('is-open');
+        return true;
     }
 }
 window.customElements.define('ui-drawer-closer', UIDrawerCloser);
 
-class UIDrawerOpener extends HTMLElement{
+class UIDrawerOpener extends UIButtonAction{
     constructor() {
         super();
     }
-    connectedCallback(){
-        const that = this;
-
-        that.addEventListener('click', (event)=>{
-            const layout = that.closest('ui-drawer-layout');
-            if (!layout) console.error('!ui-drawer-layout');
-            layout.classList.add('is-open');
-            event.stopPropagation();
-            event.preventDefault();
-        });
+    handle(){
+        const layout = this.closest('ui-drawer-layout');
+        if (!layout) console.error('!ui-drawer-layout');
+        layout.classList.add('is-open');
+        return true;
     }
 }
 window.customElements.define('ui-drawer-opener', UIDrawerOpener);

@@ -1,19 +1,4 @@
-/**
- * Utility to be used inside the 'display' of the UITab,
- * and styled in an implementation specific way using classes.
 
-class UITabCloser extends HTMLElement {
-    constructor(){
-        super();
-        const that = this;
-        this.addEventListener('click', (event)=>{
-           that.closest('ui-tab').close();
-           event.stopPropagation(); // prevent UITab from also recognizing click
-        });
-    }
-}
-window.customElements.define('ui-tab-closer', UITabCloser);
- */
 
 /**
  * Toggle for any other {HtmlElement} as a view.
@@ -155,11 +140,12 @@ class UITab extends HTMLElement{
 }
 window.customElements.define('ui-tab', UITab);
 
-class UITabCloser extends UIActionHandler{
+class UITabCloser extends UIButtonAction{
     constructor(){super();}
 
-    click(){
+    handle(){
         this.closest('ui-tab').close();
+        return true;
     }
 }
 window.customElements.define('ui-tab-closer', UITabCloser);

@@ -1,5 +1,20 @@
 'use strict';
 
+/**
+ * Base class for simple, declarative action handling.
+ *
+ * Nest as a child within a UIButton.
+ */
+class UIButtonAction extends HTMLElement{
+    constructor() {
+        super();
+    }
+
+    get stop(){ return true; }
+
+    handle(){}
+}
+
 class UIButton extends HTMLElement{
     constructor(text) {
         super();
@@ -38,7 +53,12 @@ class UIButton extends HTMLElement{
         that.addEventListener('click', function(event){
             for (let i = 0; i < that.childElementCount; i++){
                 const c = that.children.item(i);
-                if (c instanceof UIActionHandler) c.click();
+                if (c instanceof UIButtonAction) {
+                    if (c.handle() && c.stop){
+                        event.stopPropagation();
+                        event.preventDefault();
+                    }
+                }
             }
         })
     }

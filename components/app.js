@@ -1,13 +1,4 @@
-/**
- * Base class for simple, declarative action handling.
- */
-class UIActionHandler extends HTMLElement{
-    constructor() {
-        super();
-    }
 
-    click(){}
-}
 
 class UIIcon extends HTMLElement{
     // Un-opinionated 45 degree crossed lines.

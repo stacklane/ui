@@ -23,9 +23,8 @@ class UIButtonAction extends HTMLElement{
 class UIButton extends HTMLElement{
     constructor(text) {
         super();
-        if (typeof text === 'string') {
-            this.innerText = text;
-        }
+        if (typeof text === 'string') this.innerText = text;
+        this._blurAfterAction = true;
     }
 
     _cls(c){ this.classList.add(c); return this; }
@@ -44,24 +43,17 @@ class UIButton extends HTMLElement{
         return this;
     }
 
-    _action(event){
-        const that = this;
-
-        for (let i = 0; i < that.childElementCount; i++){
-            const c = that.children.item(i);
-            if (c instanceof UIButtonAction) {
-                const result = c.handle();
-                //if (result && c.stop) event.stopPropagation();
-            }
+    _do(event){
+        for (let i = 0; i < this.childElementCount; i++){
+            const c = this.children.item(i);
+            if (c instanceof UIButtonAction) c.handle();
         }
 
         if (this._actions){
-            for (let i = 0; i < that._actions.length; i++){
-                this._actions[i](event);
-            }
+            for (let i = 0; i < this._actions.length; i++) this._actions[i](event);
         }
 
-        if (!(that instanceof UIMenuButton)){ // click event for UIMenuButton is to give it focus to display the menu
+        if (this._blurAfterAction){
             /**
              * TBD hard to find too much guidance here.
              * Intuitively a button is usually a single action --
@@ -69,7 +61,7 @@ class UIButton extends HTMLElement{
              * So doesn't it make sense to blur it when the action is performed?
              * It does at least from a styling standpoint.
              */
-            that.blur();
+            this.blur();
         }
     }
 
@@ -89,10 +81,10 @@ class UIButton extends HTMLElement{
                 that.blur();
             else if (event.key == 'Enter')
                 // Same as 'click'
-                that._action(event);
+                that._do(event);
         });
 
-        that.addEventListener('click', function(event){ that._action(event);})
+        that.addEventListener('click', function(event){ that._do(event);})
     }
 }
 window.customElements.define('ui-button', UIButton);
@@ -110,7 +102,11 @@ class UIIconButton extends UIButton{
 window.customElements.define('ui-icon-button', UIIconButton);
 
 class UIMenuButton extends UIButton{
-    constructor() { super();}
+    constructor() {
+        super();
+        // click event for UIMenuButton is to give it focus to display the menu
+        this._blurAfterAction = false;
+    }
 
     connectedCallback() {
         super.connectedCallback();

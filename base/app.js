@@ -1,14 +1,17 @@
 
+// Un-opinionated 45 degree crossed lines:
+const _UI_ICON_SVG_X = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+// Un-opinionated crossed lines:
+const _UI_ICON_SVG_PLUS = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>';
+// Un-opinionated 3 horizontal lines, e.g. hamburger:
+const _UI_ICON_SVG_MENU = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
+const _UI_ICON_SVG_MENU_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"/></svg>';
 
 class UIIcon extends HTMLElement{
-    // Un-opinionated 45 degree crossed lines.
-    static x(){
-        return new UIIcon('<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
-    }
-    // Un-opinionated crossed lines.
-    static plus(){
-        return new UIIcon('<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>');
-    };
+    static x(){return new UIIcon(_UI_ICON_SVG_X);}
+    static plus(){return new UIIcon(_UI_ICON_SVG_PLUS);}
+    static menu(){return new UIIcon(_UI_ICON_SVG_MENU);}
+    static menuClose(){return new UIIcon(_UI_ICON_SVG_MENU_CLOSE);}
 
     constructor(string) {
         super();
@@ -22,8 +25,26 @@ class UIIcon extends HTMLElement{
             throw string;
         }
     }
+
+    connectedCallback(){
+        /**
+         * Declaratively create standard icons via class names.
+         */
+        if (this.childElementCount === 0  && this.classList.length > 0){
+            if (this.classList.contains('is-x')){
+                this.innerHTML = _UI_ICON_SVG_X;
+            } else if (this.classList.contains('is-plus')){
+                this.innerText = _UI_ICON_SVG_PLUS;
+            } else if (this.classList.contains('is-menu')){
+                this.innerText = _UI_ICON_SVG_MENU;
+            } else if (this.classList.contains('is-menu-close')){
+                this.innerText = _UI_ICON_SVG_MENU_CLOSE;
+            }
+        }
+    }
 }
 window.customElements.define('ui-icon', UIIcon);
+
 
 /**
  * Low-level utility for building elements/nodes.

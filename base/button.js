@@ -88,10 +88,11 @@ class UIButton extends HTMLElement{
 
         for (let i = 0; i < this.children.length; i++){
             const c = this.children.item(i);
-            if (c instanceof UIButtonAction) {
+            // Can't test instanceof, maybe because they aren't connected at this point: if (c instanceof UIButtonAction) {
+            if (c.tagName.startsWith('ui-') && !c.tagName.startsWith('ui-icon'))
                 // Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).
                 this.classList.add('has-' + c.tagName.toLowerCase());
-            }
+            //}
         }
     }
 }

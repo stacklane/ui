@@ -20,7 +20,8 @@ class UIDrawerCloser extends UIButtonAction{
     handle(){
         const layout = this.closest('ui-drawer-layout');
         if (!layout) console.error('!ui-drawer-layout');
-        layout.classList.remove('is-open');
+        layout.classList.remove('is-opened');
+        layout.classList.add('is-closed');
         return true;
     }
 }
@@ -33,7 +34,8 @@ class UIDrawerOpener extends UIButtonAction{
     handle(){
         const layout = this.closest('ui-drawer-layout');
         if (!layout) console.error('!ui-drawer-layout');
-        layout.classList.add('is-open');
+        layout.classList.remove('is-closed');
+        layout.classList.add('is-opened');
         return true;
     }
 }

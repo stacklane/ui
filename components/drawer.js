@@ -1,9 +1,10 @@
 class UIDrawerOverlay extends HTMLElement{
     constructor() {super();}
     connectedCallback(){
-        const layout = this.closest('ui-drawer-layout');
-        this.addEventListener('click', ()=>{
-           layout.classList.add('is-closed');
+        const that = this;
+        that.addEventListener('click', ()=>{
+            const layout = that.closest('ui-drawer-layout');
+            layout.classList.add('is-closed');
         });
     }
 }

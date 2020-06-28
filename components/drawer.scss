@@ -60,6 +60,7 @@ ui-drawer-layout{
     top: 0;
     background: rgba(0,0,0,0.5);
     z-index: 2;
+    pointer-events: none;
   }
 
   /**
@@ -74,7 +75,7 @@ ui-drawer-layout{
 
     width: var(--ui-drawer-width);
 
-    z-index: 1;
+    z-index: 3;
 
     position: fixed;
     bottom: 0;
@@ -97,7 +98,7 @@ ui-drawer-layout{
     flex-direction: column;
     //min-width: 920px;
     position: relative;
-    z-index: 3;
+    z-index: 1;
   }
 
   @include tablet{

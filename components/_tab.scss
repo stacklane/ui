@@ -18,6 +18,8 @@
   --ui-tab-justify: left;
 }
 
+ui-tab-closer{ }
+
 ui-tab{
   @include unselectable;
   outline: none;

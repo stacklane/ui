@@ -162,3 +162,17 @@ class UITab extends HTMLElement{
     }
 }
 window.customElements.define('ui-tab', UITab);
+
+class UITabCloser extends HTMLElement{
+    constructor(){super();}
+
+    connectedCallback(){
+        const that = this;
+        that.addEventListener('click', (event)=>{
+            that.closest('ui-tab').close();
+            event.stopPropagation(); // prevent parent UITab from also recognizing click
+            event.preventDefault();
+        });
+    }
+}
+window.customElements.define('ui-tab-closer', UITabCloser);

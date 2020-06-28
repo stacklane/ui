@@ -1,17 +1,14 @@
 :root {
-
   --ui-drawer-width: 240px;
-
+  --ui-drawer-background: var(--ui-secondary-background);
+  --ui-drawer-label: var(--ui-label);
 }
 
-
-ui-drawer-app-around{
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-}
-
-
+//ui-drawer-app-around{
+//  display: flex;
+//  flex: 1 1 auto;
+//  flex-direction: column;
+//}
 
 ui-drawer-app{
   display: flex;
@@ -22,12 +19,14 @@ ui-drawer-app{
    * May use a ui-appbar to match any toolbar this next to.
    */
   ui-drawer{
-    background: var(--ui-secondary-background);
+    background: var(--ui-drawer-background);
+    color: var(--ui-drawer-label);
     flex: 0 0 auto;
     flex-direction: column;
     transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
     width: var(--ui-drawer-width);
 
+    // TODO maybe this should be on drawer-app
     &.is-collapsed{
       margin-left: calc(-1 * var(--ui-drawer-width));
     }
@@ -54,7 +53,7 @@ ui-drawer-app{
     display: flex;
     flex: 1;
     flex-direction: column;
-    min-width: 920px;
+    //min-width: 920px;
     position: relative;
   }
 

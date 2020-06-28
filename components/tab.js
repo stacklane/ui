@@ -158,13 +158,8 @@ window.customElements.define('ui-tab', UITab);
 class UITabCloser extends UIActionHandler{
     constructor(){super();}
 
-    connectedCallback(){
-        const that = this;
-        that.addEventListener('click', (event)=>{
-            that.closest('ui-tab').close();
-            event.stopPropagation(); // prevent parent UITab from also recognizing click
-            event.preventDefault();
-        });
+    click(){
+        this.closest('ui-tab').close();
     }
 }
 window.customElements.define('ui-tab-closer', UITabCloser);

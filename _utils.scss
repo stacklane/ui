@@ -1,4 +1,4 @@
-@import '/vars';
+$tablet: 769px !default; // not allowed as a css variable
 
 @mixin overflow-touch {
   -webkit-overflow-scrolling: touch;

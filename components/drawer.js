@@ -1,3 +1,7 @@
+class UIDrawerOverlay extends HTMLElement{
+    constructor() {super();}
+}
+window.customElements.define('ui-drawer-overlay', UIDrawerOverlay);
 
 class UIDrawer extends HTMLElement{
     constructor() {super();}
@@ -11,11 +15,6 @@ class UIDrawerLayout extends HTMLElement{
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);
-
-class UIDrawerOverlay extends HTMLElement{
-    constructor() {super();}
-}
-window.customElements.define('ui-drawer-overlay', UIDrawerOverlay);
 
 class UIDrawerCloser extends UIButtonAction{
     constructor() {super();}

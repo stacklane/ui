@@ -19,9 +19,6 @@
 //  flex-direction: column;
 //}
 
-ui-drawer-opener{display:none;}
-ui-drawer-closer{display:none;}
-
 @mixin ui-drawer-is-opened {
   ui-drawer {
     margin-left: 0px;

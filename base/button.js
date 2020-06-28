@@ -13,6 +13,11 @@ class UIButtonAction extends HTMLElement{
     //get stop(){ return true; }
 
     handle(){}
+
+    connectedCallback(){
+        // CSS target for uniformly hiding:
+        this.setAttribute('data-ui-icon-button-action', 'true');
+    }
 }
 
 /**

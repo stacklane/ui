@@ -11,6 +11,10 @@
   --ui-icon-button-size: 1.5rem;
 }
 
+[data-ui-icon-button-action='true']{
+  display:none;
+}
+
 @mixin buttonBase {
   appearance: none;
   border: 0;
@@ -209,7 +213,10 @@ ui-button, ui-icon-button, ui-menu-button{
 }
 
 ui-button{
-  ui-icon:first-child:not(:only-child){
+  /**
+   * Remember, icon-only buttons use ui-icon-button.
+   */
+  ui-icon:first-child{
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);

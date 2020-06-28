@@ -30,7 +30,7 @@ class UIIcon extends HTMLElement{
         /**
          * Declaratively create standard icons via 'data-type'
          */
-        if (this.children.length === 0 && this.getAttribute('data-type')){
+        if (this.getAttribute('data-type')){
             switch (this.getAttribute('data-type')){
                 case 'x': {this.innerHTML = _UI_ICON_SVG_X;break;}
                 case 'plus': {this.innerHTML = _UI_ICON_SVG_PLUS;break;}

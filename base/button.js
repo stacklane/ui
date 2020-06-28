@@ -85,6 +85,14 @@ class UIButton extends HTMLElement{
         });
 
         that.addEventListener('click', function(event){ that._do(event);})
+
+        for (let i = 0; i < this.childElementCount; i++){
+            const c = this.children.item(i);
+            if (c instanceof UIButtonAction) {
+                // Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).
+                this.classList.add('has-' + c.tagName.toLowerCase());
+            }
+        }
     }
 }
 window.customElements.define('ui-button', UIButton);

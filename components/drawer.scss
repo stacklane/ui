@@ -15,19 +15,27 @@
 ui-drawer-opener{display:none;}
 ui-drawer-closer{display:none;}
 
+@mixin ui-drawer-is-opened {
+  ui-drawer {
+    margin-left: 0px;
+  }
+  .has-ui-drawer-opener{
+    display: none;
+  }
+}
+@mixin ui-drawer-is-closed {
+  ui-drawer {
+    margin-left: calc(-1 * var(--ui-drawer-width));
+  }
+  .has-ui-drawer-opener{
+    display: unset;
+  }
+}
+
 ui-drawer-layout{
   display: flex;
   flex: 1 1 0px;
   min-height: 1px;
-
-  &.is-open{
-    ui-drawer {
-      margin-left: 0px;
-    }
-    ui-drawer-opener{
-      display:none;
-    }
-  }
 
   /**
    * May contain a <ui-appbar> to match height of any toolbar this is next to.
@@ -40,8 +48,9 @@ ui-drawer-layout{
     transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
 
     width: var(--ui-drawer-width);
-    margin-left: calc(-1 * var(--ui-drawer-width));
   }
+
+  @include ui-drawer-is-opened();
 
   //> main{
   //  display: flex;
@@ -59,4 +68,15 @@ ui-drawer-layout{
     position: relative;
   }
 
+  @include tablet{
+    @include ui-drawer-is-opened();
+  }
+
+  &.is-opened{
+    @include ui-drawer-is-opened();
+  }
+
+  &.is-closed{
+    @include ui-drawer-is-closed();
+  }
 }

@@ -30,15 +30,15 @@ class UIIcon extends HTMLElement{
         /**
          * Declaratively create standard icons via class names.
          */
-        if (this.childElementCount === 0  && this.classList.length > 0){
+        if (this.children.length === 0  && this.classList.length > 0){
             if (this.classList.contains('is-x')){
                 this.innerHTML = _UI_ICON_SVG_X;
             } else if (this.classList.contains('is-plus')){
-                this.innerText = _UI_ICON_SVG_PLUS;
+                this.innerHTML = _UI_ICON_SVG_PLUS;
             } else if (this.classList.contains('is-menu')){
-                this.innerText = _UI_ICON_SVG_MENU;
+                this.innerHTML = _UI_ICON_SVG_MENU;
             } else if (this.classList.contains('is-menu-close')){
-                this.innerText = _UI_ICON_SVG_MENU_CLOSE;
+                this.innerHTML = _UI_ICON_SVG_MENU_CLOSE;
             }
         }
     }

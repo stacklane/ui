@@ -32,6 +32,7 @@ class UIDrawerLayout extends HTMLElement{
         const that = this;
         that.appendChild(new UIDrawerOverlay());
         that.addEventListener('keydown', function(event){
+            console.log('KD');
            if (event.key === 'Escape' && that.isDrawerForcedOpen()) that.closeDrawer();
         });
     }

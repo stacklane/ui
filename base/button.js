@@ -65,7 +65,7 @@ class UIButton extends HTMLElement{
         }
     }
 
-    connectedCallback(){
+    connectedCallback() {
         /**
          * Use tabindex to treat this is a native <button> in the sense that
          * it is by default focusable (default focus order).
@@ -74,7 +74,7 @@ class UIButton extends HTMLElement{
 
         const that = this;
 
-        that.addEventListener('keydown', function(event) {
+        that.addEventListener('keydown', function (event) {
             if (event.key === 'Escape')
                 // Primarily for ui-menu-button, to hide the menu,
                 // however makes sense for any button to be able to unfocus from keyboard.
@@ -84,15 +84,22 @@ class UIButton extends HTMLElement{
                 that._do(event);
         });
 
-        that.addEventListener('click', function(event){ that._do(event);})
+        that.addEventListener('click', function (event) {
+            that._do(event);
+        })
 
-        for (let i = 0; i < this.children.length; i++){
-            const c = this.children.item(i);
-            // Can't test instanceof, maybe because they aren't connected at this point: if (c instanceof UIButtonAction) {
-            if (c.tagName.startsWith('ui-') && !c.tagName.startsWith('ui-icon'))
-                // Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).
-                this.classList.add('has-' + c.tagName.toLowerCase());
-            //}
+        /**
+         * Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).
+         * However we can't test "instanceof UIButtonAction", because they are not 'connected' yet.
+         * Therefore we are more broad.
+         */
+        {
+            for (let i = 0; i < this.children.length; i++) {
+                const c = this.children.item(i);
+                const tagNameLower = c.tagName.toLowerCase();
+                if (tagNameLower.startsWith('ui-') && !tagNameLower.startsWith('ui-icon'))
+                    this.classList.add('has-' + tagNameLower);
+            }
         }
     }
 }

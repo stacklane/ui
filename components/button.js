@@ -33,14 +33,12 @@ class UIButton extends HTMLElement{
         });
 
         /**
-         * Pass through click even to any UIActionHandler children.
+         * Pass through click event to any UIActionHandler children.
          */
         that.addEventListener('click', function(event){
             for (let i = 0; i < that.childElementCount; i++){
                 const c = that.children.item(i);
-                if (c instanceof UIActionHandler){
-                    c.dispatchEvent(event);
-                }
+                if (c instanceof UIActionHandler) c.click();
             }
         })
     }

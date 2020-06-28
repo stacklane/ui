@@ -1,7 +1,12 @@
+/**
+ * Base class for simple, declarative action handling.
+ */
 class UIActionHandler extends HTMLElement{
     constructor() {
         super();
     }
+
+    click(){}
 }
 
 class UIIcon extends HTMLElement{

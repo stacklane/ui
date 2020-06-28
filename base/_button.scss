@@ -1,7 +1,7 @@
 @import '/utils';
 
 :root{
-  --ui-control-height: 2.5em;
+  //--ui-control-height: 2.5em;
 
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-normal);
@@ -11,7 +11,7 @@
   --ui-icon-button-size: 1.5rem;
 }
 
-@mixin control {
+@mixin buttonBase {
   appearance: none;
   border: 0;
   justify-content: flex-start;
@@ -26,9 +26,9 @@
   }
 
   &:focus,
-  &.is-focused,
+  /*&.is-focused*/,
   &:active,
-  &.is-active {
+  /*&.is-active*/ {
     outline: none;
   }
 
@@ -37,18 +37,17 @@
  // font-size: 1rem;
 }
 
-%control {
-  @include control;
+%buttonBase {
+  @include buttonBase;
 }
-
 
 /**
  * https://material-ui.com/components/buttons/
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
  * https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/
  */
-ui-button, ui-icon-button{
-  @extend %control;
+ui-button, ui-icon-button, ui-menu-button{
+  @extend %buttonBase;
   @extend %unselectable;
 
   box-sizing: border-box;

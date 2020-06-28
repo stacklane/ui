@@ -18,13 +18,6 @@
 //  flex-direction: column;
 //}
 
-//> ui-drawer-main{
-//  display: flex;
-//  flex: 1;
-//  flex-direction: column;
-//min-width: 920px;
-//  position: relative;
-//}
 
 @mixin ui-drawer-is-opened {
   ui-drawer {
@@ -64,7 +57,6 @@
 ui-drawer-layout{
   display: flex;
   flex: 1 1 0px;
-  min-height: 1px;
   position:relative;
   z-index: 1;
 
@@ -99,14 +91,13 @@ ui-drawer-layout{
 
   @include ui-drawer-is-closed();
 
-
   > ui-drawer-main{
     display: flex;
     flex: 1;
     flex-direction: column;
-    //min-width: 920px;
     position: relative;
     z-index: 1;
+    overflow:hidden; // TODO is this relevant to all cases, or should it be an option?
   }
 
   @include tablet{

@@ -29,7 +29,18 @@
     display: none;
   }
   ui-drawer-overlay{
-    display:block;
+    display: block;
+  }
+  ui-drawer-main{
+    pointer-events: none;
+  }
+  @include tablet(){
+    ui-drawer-overlay{
+      display: none;
+    }
+    ui-drawer-main{
+      pointer-events: all;
+    }
   }
 }
 

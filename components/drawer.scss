@@ -1,11 +1,13 @@
 @import '/utils';
 
 /**
- * Notes:
- *   - For mobile, drawers should be nice-to-have additive parts of the UI, not essential.
- *   - By default drawers are opened / closed based on media queries.
- *   - They may be "forced" opened or closed via actions UIDrawerOpener/UIDrawerCloser.
+ * - For mobile, drawers should be nice-to-have additive parts of the UI, not essential.
+ * - By default drawers are implicitly opened / closed based on screen width.
+ * - They may be explicitly opened or closed via classes, or actions (UIDrawerOpener/UIDrawerCloser).
  */
+
+
+//$ui-drawer-fixed-breakpoint: 0px;
 
 :root {
   --ui-drawer-width: 240px;
@@ -26,6 +28,9 @@
   .has-ui-drawer-opener{
     display: none;
   }
+  ui-drawer-overlay{
+    display:block;
+  }
 }
 
 @mixin ui-drawer-is-closed {
@@ -35,12 +40,27 @@
   .has-ui-drawer-opener{
     display: inherit;
   }
+  ui-drawer-overlay{
+    display:none;
+  }
 }
 
 ui-drawer-layout{
   display: flex;
   flex: 1 1 0px;
   min-height: 1px;
+  position:relative;
+  z-index: 1;
+
+  ui-drawer-overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+  }
 
   /**
    * May contain a <ui-appbar> to match height of any toolbar this is next to.
@@ -53,6 +73,12 @@ ui-drawer-layout{
     transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
 
     width: var(--ui-drawer-width);
+
+    z-index: 1;
+
+    position: fixed;
+    bottom: 0;
+    top: 0;
   }
 
   @include ui-drawer-is-closed();
@@ -71,11 +97,20 @@ ui-drawer-layout{
     flex-direction: column;
     //min-width: 920px;
     position: relative;
+    z-index: 3;
   }
 
   @include tablet{
     @include ui-drawer-is-opened();
   }
+
+  //@media screen and (min-width: $ui-drawer-fixed-breakpoint), print {
+  @include tablet {
+    ui-drawer {
+      position: relative;
+    }
+  }
+  //}
 
   &.is-opened{
     @include ui-drawer-is-opened();

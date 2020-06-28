@@ -1,22 +1,24 @@
 
 class UIDrawer extends HTMLElement{
-    constructor() {
-        super();
-    }
+    constructor() {super();}
 }
 window.customElements.define('ui-drawer', UIDrawer);
 
 class UIDrawerLayout extends HTMLElement{
-    constructor() {
-        super();
+    constructor() {super();}
+    connectedCallback(){
+        this.appendChild(new UIDrawerOverlay());
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);
 
+class UIDrawerOverlay extends HTMLElement{
+    constructor() {super();}
+}
+window.customElements.define('ui-drawer-overlay', UIDrawerOverlay);
+
 class UIDrawerCloser extends UIButtonAction{
-    constructor() {
-        super();
-    }
+    constructor() {super();}
     handle(){
         const layout = this.closest('ui-drawer-layout');
         if (!layout) console.error('!ui-drawer-layout');
@@ -28,9 +30,7 @@ class UIDrawerCloser extends UIButtonAction{
 window.customElements.define('ui-drawer-closer', UIDrawerCloser);
 
 class UIDrawerOpener extends UIButtonAction{
-    constructor() {
-        super();
-    }
+    constructor() {super();}
     handle(){
         const layout = this.closest('ui-drawer-layout');
         if (!layout) console.error('!ui-drawer-layout');

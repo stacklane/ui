@@ -15,10 +15,6 @@
   @include unselectable;
 }
 
-.ui-unselectable{
-  @include unselectable;
-}
-
 @mixin tablet {
   @media screen and (min-width: $tablet), print {
     @content;

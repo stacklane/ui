@@ -22,11 +22,13 @@ ui-bar{
   }
 
   > ui-button:not(.is-outlined):not(.is-contained),
-  > ui-icon-button:not(.is-outlined):not(.is-contained){
+  > ui-icon-button:not(.is-outlined):not(.is-contained),
+  > ui-menu-button:not(.is-outlined):not(.is-contained){
     margin-left: calc(var(--ui-bar-spacing) / 2);
 
     + ui-button:not(.is-outlined):not(.is-contained),
-    + ui-icon-button:not(.is-outlined):not(.is-contained){
+    + ui-icon-button:not(.is-outlined):not(.is-contained)
+    + ui-menu-button:not(.is-outlined):not(.is-contained){
       margin-left: 0px;
     }
   }

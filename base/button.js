@@ -34,31 +34,44 @@ class UIButton extends HTMLElement{
     negative(){return this._cls('is-negative');}
 
     connectedCallback(){
+        /**
+         * Use tabindex to treat this is a native <button> in the sense that
+         * it is by default focusable (default focus order).
+         */
         this.setAttribute('tabindex', '0');
 
-        // TBD
-        // this.setAttribute('aria-haspopup', 'true');
-        // this.setAttribute('aria-controls', 'ui-menu');
-        // For menus -- :focus/:focus-within to show the menu,
-        // therefore Escape key should unfocus/hide menu.
         const that = this;
 
+        /**
+         * Primarily for ui-menu-button, to hide the menu,
+         * however makes sense for any button to be able to unfocus from keyboard.
+         */
         that.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') that.blur();
         });
 
         /**
          * Pass through click event to any UIActionHandler children.
+         *
+         * TODO what about Enter key?
          */
         that.addEventListener('click', function(event){
             for (let i = 0; i < that.childElementCount; i++){
                 const c = that.children.item(i);
                 if (c instanceof UIButtonAction) {
-                    if (c.handle() && c.stop){
-                        event.stopPropagation();
-                        event.preventDefault();
-                    }
+                    const result = c.handle();
+                    if (result && c.stop) event.stopPropagation();
                 }
+            }
+            if (!(that instanceof UIMenuButton)){
+                /**
+                 * TBD hard to find too much guidance here.
+                 * Intuitively a button is usually a single action --
+                 * not something that you repeatedly want to perform.
+                 * So doesn't it make sense to blur it when the action is performed?
+                 * It does at least from a styling standpoint.
+                 */
+                that.blur();
             }
         })
     }
@@ -77,9 +90,22 @@ class UIIconButton extends UIButton{
 }
 window.customElements.define('ui-icon-button', UIIconButton);
 
-class UIMenu extends HTMLElement{
-    constructor() {
-        super();
+class UIMenuButton extends UIButton{
+    constructor() { super();}
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        // const that = this;
+
+        // TBD
+        // this.setAttribute('aria-haspopup', 'true');
+        // this.setAttribute('aria-controls', 'ui-menu');
     }
+}
+window.customElements.define('ui-menu-button', UIMenuButton);
+
+class UIMenu extends HTMLElement{
+    constructor() {super();}
 }
 window.customElements.define('ui-menu', UIMenu);

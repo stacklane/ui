@@ -10,8 +10,6 @@ class UIButtonAction extends HTMLElement{
         super();
     }
 
-    //get stop(){ return true; }
-
     handle(){}
 
     connectedCallback(){
@@ -55,7 +53,8 @@ class UIButton extends HTMLElement{
         }
 
         if (this._actions){
-            for (let i = 0; i < this._actions.length; i++) this._actions[i](event);
+            for (let i = 0; i < this._actions.length; i++)
+                this._actions[i](event);
         }
 
         if (this._blurAfterAction){
@@ -89,9 +88,7 @@ class UIButton extends HTMLElement{
                 that._do(event);
         });
 
-        that.addEventListener('click', function (event) {
-            that._do(event);
-        })
+        that.addEventListener('click', function (event) { that._do(event);})
 
         /**
          * Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).

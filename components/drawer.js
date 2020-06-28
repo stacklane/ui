@@ -31,30 +31,18 @@ class UIDrawerLayout extends HTMLElement{
     connectedCallback(){
         const that = this;
         that.appendChild(new UIDrawerOverlay());
-        that.addEventListener('keydown', function(event){
-            console.log('KD');
-           if (event.key === 'Escape' && that.isDrawerForcedOpen()) that.closeDrawer();
-        });
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);
 
 class UIDrawerCloser extends UIButtonAction{
     constructor() {super();}
-    handle(){
-        const layout = this.closest('ui-drawer-layout');
-        layout.closeDrawer();
-        return true;
-    }
+    handle(){ this.closest('ui-drawer-layout').closeDrawer();}
 }
 window.customElements.define('ui-drawer-closer', UIDrawerCloser);
 
 class UIDrawerOpener extends UIButtonAction{
     constructor() {super();}
-    handle(){
-        const layout = this.closest('ui-drawer-layout');
-        layout.openDrawer();
-        return true;
-    }
+    handle(){ this.closest('ui-drawer-layout').openDrawer();}
 }
 window.customElements.define('ui-drawer-opener', UIDrawerOpener);

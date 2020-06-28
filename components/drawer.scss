@@ -6,9 +6,6 @@
  * - They may be explicitly opened or closed via classes, or actions (UIDrawerOpener/UIDrawerCloser).
  */
 
-
-//$ui-drawer-fixed-breakpoint: 0px;
-
 :root {
   --ui-drawer-width: 240px;
   --ui-drawer-background: var(--ui-secondary-background);
@@ -19,6 +16,14 @@
 //  display: flex;
 //  flex: 1 1 auto;
 //  flex-direction: column;
+//}
+
+//> ui-drawer-main{
+//  display: flex;
+//  flex: 1;
+//  flex-direction: column;
+//min-width: 920px;
+//  position: relative;
 //}
 
 @mixin ui-drawer-is-opened {
@@ -94,13 +99,6 @@ ui-drawer-layout{
 
   @include ui-drawer-is-closed();
 
-  //> main{
-  //  display: flex;
-  //  flex: 1;
-  //  flex-direction: column;
-    //min-width: 920px;
-  //  position: relative;
-  //}
 
   > ui-drawer-main{
     display: flex;

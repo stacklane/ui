@@ -44,7 +44,7 @@ class UIButton extends HTMLElement{
     }
 
     _do(event){
-        for (let i = 0; i < this.childElementCount; i++){
+        for (let i = 0; i < this.children.length; i++){
             const c = this.children.item(i);
             if (c instanceof UIButtonAction) c.handle();
         }
@@ -86,7 +86,7 @@ class UIButton extends HTMLElement{
 
         that.addEventListener('click', function(event){ that._do(event);})
 
-        for (let i = 0; i < this.childElementCount; i++){
+        for (let i = 0; i < this.children.length; i++){
             const c = this.children.item(i);
             if (c instanceof UIButtonAction) {
                 // Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).

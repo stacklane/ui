@@ -1,5 +1,12 @@
 @import '/utils';
 
+/**
+ * Notes:
+ *   - For mobile, drawers should be nice-to-have additive parts of the UI, not essential.
+ *   - By default drawers are opened / closed based on media queries.
+ *   - They may be "forced" opened or closed via actions UIDrawerOpener/UIDrawerCloser.
+ */
+
 :root {
   --ui-drawer-width: 240px;
   --ui-drawer-background: var(--ui-secondary-background);

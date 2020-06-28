@@ -17,20 +17,29 @@ window.customElements.define('ui-drawer', UIDrawer);
 
 class UIDrawerLayout extends HTMLElement{
     constructor() {super();}
-    isDrawerForcedOpen(){
-        return this.classList.contains('is-opened');
+    get _id(){
+        if (this.id) return 'ui-drawer-layout' + this.id;
+        return 'ui-drawer-layout';
     }
     openDrawer(){
         this.classList.remove('is-closed');
         this.classList.add('is-opened');
+        localStorage.setItem(this._id + '-state', 'opened');
     }
     closeDrawer(){
         this.classList.remove('is-opened');
         this.classList.add('is-closed');
+        localStorage.setItem(this._id + '-state', 'closed');
     }
     connectedCallback(){
-        const that = this;
-        that.appendChild(new UIDrawerOverlay());
+        this.appendChild(new UIDrawerOverlay());
+        const state = localStorage.getItem(this._id + '-state');
+        if (state){
+            switch (state){
+                case 'opened': { this.openDrawer(); break; }
+                case 'closed': { this.closeDrawer(); break; }
+            }
+        }
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);

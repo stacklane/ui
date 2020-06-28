@@ -56,7 +56,7 @@ class UIButton extends HTMLElement{
                 if (c instanceof UIButtonAction) {
                     if (c.handle() && c.stop){
                         event.stopPropagation();
-                        //event.preventDefault();
+                        event.preventDefault();
                     }
                 }
             }

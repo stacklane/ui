@@ -50,7 +50,7 @@ ui-drawer-layout{
     width: var(--ui-drawer-width);
   }
 
-  @include ui-drawer-is-opened();
+  @include ui-drawer-is-closed();
 
   //> main{
   //  display: flex;

@@ -1,6 +1,7 @@
-$tablet: 769px !default;
 
 :root{
+  --ui-screen-min-tablet: 769px;
+
   // Spacing (margin/padding/gap's)
   // TODO should these auto-vary based on screen size?
   --ui-2xs-spacing: .25rem;

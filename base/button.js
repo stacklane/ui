@@ -3,7 +3,7 @@
 /**
  * Base class for simple, declarative action handling.
  *
- * Nest as a child within a UIButton.
+ * Nest as a child within a UIButton or UIIconButton.
  */
 class UIButtonAction extends HTMLElement{
     constructor() {

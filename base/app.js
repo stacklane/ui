@@ -28,17 +28,14 @@ class UIIcon extends HTMLElement{
 
     connectedCallback(){
         /**
-         * Declaratively create standard icons via class names.
+         * Declaratively create standard icons via 'data-type'
          */
-        if (this.children.length === 0  && this.classList.length > 0){
-            if (this.classList.contains('is-x')){
-                this.innerHTML = _UI_ICON_SVG_X;
-            } else if (this.classList.contains('is-plus')){
-                this.innerHTML = _UI_ICON_SVG_PLUS;
-            } else if (this.classList.contains('is-menu')){
-                this.innerHTML = _UI_ICON_SVG_MENU;
-            } else if (this.classList.contains('is-menu-close')){
-                this.innerHTML = _UI_ICON_SVG_MENU_CLOSE;
+        if (this.children.length === 0 && this.getAttribute('data-type')){
+            switch (this.getAttribute('data-type')){
+                case 'x': {this.innerHTML = _UI_ICON_SVG_X;break;}
+                case 'plus': {this.innerHTML = _UI_ICON_SVG_PLUS;break;}
+                case 'menu': {this.innerHTML = _UI_ICON_SVG_MENU;break;}
+                case 'menu-close': {this.innerHTML = _UI_ICON_SVG_MENU_CLOSE;break;}
             }
         }
     }

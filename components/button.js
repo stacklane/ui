@@ -27,9 +27,22 @@ class UIButton extends HTMLElement{
         // For menus -- :focus/:focus-within to show the menu,
         // therefore Escape key should unfocus/hide menu.
         const that = this;
+
         that.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') that.blur();
         });
+
+        /**
+         * Pass through click even to any UIActionHandler children.
+         */
+        that.addEventListener('click', function(event){
+            for (let i = 0; i < that.childElementCount; i++){
+                const c = that.children.item(i);
+                if (c instanceof UIActionHandler){
+                    c.dispatchEvent(event);
+                }
+            }
+        })
     }
 }
 window.customElements.define('ui-button', UIButton);

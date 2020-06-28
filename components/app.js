@@ -1,4 +1,8 @@
-
+class UIActionHandler extends HTMLElement{
+    constructor() {
+        super();
+    }
+}
 
 class UIIcon extends HTMLElement{
     // Un-opinionated 45 degree crossed lines.

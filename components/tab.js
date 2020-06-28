@@ -155,7 +155,7 @@ class UITab extends HTMLElement{
 }
 window.customElements.define('ui-tab', UITab);
 
-class UITabCloser extends HTMLElement{
+class UITabCloser extends UIActionHandler{
     constructor(){super();}
 
     connectedCallback(){

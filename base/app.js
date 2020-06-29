@@ -7,6 +7,26 @@ const _UI_ICON_SVG_PLUS = '<svg xmlns="http://www.w3.org/2000/svg" height="24" v
 const _UI_ICON_SVG_MENU = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
 const _UI_ICON_SVG_MENU_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"/></svg>';
 
+/**
+ * May be extended.
+ */
+class UIScrollable extends HTMLElement{
+    constructor(type) {
+        super();
+        this._type = type;
+    }
+    connectedCallback(){
+        if (this._type){
+            switch (this._type){
+                case 'x':{this.classList.add('ui-scrollable-x'); break;}
+                case 'xy':{this.classList.add('ui-scrollable-xy'); break;}
+                default:{this.classList.add('ui-scrollable-y'); break;}
+            }
+        }
+    }
+}
+window.customElements.define('ui-scrollable', UIScrollable);
+
 class UIIcon extends HTMLElement{
     static x(){return new UIIcon(_UI_ICON_SVG_X);}
     static plus(){return new UIIcon(_UI_ICON_SVG_PLUS);}

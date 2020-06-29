@@ -83,6 +83,10 @@ class UIButton extends HTMLElement{
         }
     }
 
+    set ariaLabel(label){
+        this._label = label;
+    }
+
     connectedCallback() {
         /**
          * Use tabindex to treat this is a native <button> in the sense that
@@ -123,6 +127,7 @@ class UIButton extends HTMLElement{
          *
          * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
          */
+        if (this._label) this.setAttribute('aria-label', this._label);
         this.setAttribute('role', 'button');
         this.querySelectorAll('svg').forEach((e)=>{
             e.setAttribute('area-hidden', 'true');
@@ -143,10 +148,7 @@ class UIIconButton extends UIButton{
         } else if (value){
             this.appendChild(new UIIcon(value));
         }
-        this._label = label;
-    }
-    connectedCallback() {
-        if (this._label) this.setAttribute('aria-label', this._label);
+        this.ariaLabel = label;
     }
 }
 window.customElements.define('ui-icon-button', UIIconButton);

@@ -16,12 +16,10 @@ class UIScrollable extends HTMLElement{
         this._type = type;
     }
     connectedCallback(){
-        if (this._type){
-            switch (this._type){
-                case 'x':{this.classList.add('ui-scrollable-x'); break;}
-                case 'xy':{this.classList.add('ui-scrollable-xy'); break;}
-                default:{this.classList.add('ui-scrollable-y'); break;}
-            }
+        switch (this._type){
+            case 'x':{this.classList.add('ui-scrollable-x'); break;}
+            case 'xy':{this.classList.add('ui-scrollable-xy'); break;}
+            default:{this.classList.add('ui-scrollable-y'); break;}
         }
     }
 }

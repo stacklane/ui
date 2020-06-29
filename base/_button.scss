@@ -11,7 +11,7 @@
   --ui-icon-button-size: 1.5rem;
 }
 
-[data-ui-icon-button-action='true']{
+[data-ui-button-action='true']{
   display:none;
 }
 
@@ -50,7 +50,7 @@
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
  * https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/
  */
-ui-button, ui-icon-button, ui-menu-button{
+ui-button, ui-icon-button{
   @extend %buttonBase;
   @extend %unselectable;
 
@@ -210,12 +210,23 @@ ui-button, ui-icon-button, ui-menu-button{
       }
     }
   }
+
+  /**
+   * :focus-within allows focusing input controls within the menu, without closing the menu.
+   *
+   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
+   */
+  &:focus, &:focus-within{
+    ui-button-menu{
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 9999;
+    }
+  }
 }
 
 ui-button{
-  /**
-   * Remember, icon-only buttons use ui-icon-button.
-   */
   ui-icon:first-child{
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
@@ -235,44 +246,28 @@ ui-icon-button{
   border-radius: var(--ui-icon-button-radius);
 }
 
-ui-menu-button{
-  /**
-   * :focus-within allows focusing input controls within the menu, without closing the menu.
-   *
-   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
-   */
-  &:focus, &:focus-within{
-    ui-menu{
-      pointer-events: auto;
-      opacity: 1;
-      transform: translateY(0);
-      z-index: 9999;
-    }
-  }
-}
-
 /**
  * Requires a relative parent/container.
  */
-ui-menu{
-  --ui-menu-background: var(--ui-secondary-background);
-  --ui-menu-label: var(--ui-label);
-  --ui-menu-speed: var(--ui-speed);
-  --ui-menu-radius: var(--ui-radius);
+ui-button-menu{
+  --ui-button-menu-background: var(--ui-secondary-background);
+  --ui-button-menu-label: var(--ui-label);
+  --ui-button-menu-speed: var(--ui-speed);
+  --ui-button-menu-radius: var(--ui-radius);
 
   display: block;
   position: absolute;
-  background: var(--ui-menu-background);
-  color: var(--ui-menu-label);
+  background: var(--ui-button-menu-background);
+  color: var(--ui-button-menu-label);
   left: 0;
-  overflow: hidden; // clip content inside rounded corners
+  overflow: hidden; // clip content inside for rounded corners
   top: 100%; // bottom of parent
   margin-top: 2px; // away from a parent a bit
   min-width: 100%; // at least as wide as parent
-  border-radius: var(--ui-menu-radius);
+  border-radius: var(--ui-button-menu-radius);
   //box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
   transition-property: opacity,transform;
-  transition-duration: var(--ui-menu-speed);
+  transition-duration: var(--ui-button-menu-speed);
 
   // while hidden:
   z-index: -9999;

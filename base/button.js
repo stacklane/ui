@@ -14,9 +14,23 @@ class UIButtonAction extends HTMLElement{
 
     connectedCallback(){
         // CSS target for uniformly hiding:
-        this.setAttribute('data-ui-icon-button-action', 'true');
+        this.setAttribute('data-ui-button-action', 'true');
     }
 }
+
+class UIButtonMenu extends HTMLElement{
+    constructor() {super();}
+    connectedCallback(){
+        const button = this.parentElement;
+        // click event for UIMenuButton is to give it focus to display the menu
+        button._blurAfterAction = false; // see UIButton
+        button.setAttribute('aria-haspopup', 'true');
+
+        // TBD..
+        // button.setAttribute('aria-controls', 'ui-menu');
+    }
+}
+window.customElements.define('ui-button-menu', UIButtonMenu);
 
 /**
  * For declarative actions, add child elements which extend UIButtonAction.
@@ -83,7 +97,7 @@ class UIButton extends HTMLElement{
                 // Primarily for ui-menu-button, to hide the menu,
                 // however makes sense for any button to be able to unfocus from keyboard.
                 that.blur();
-            else if (event.key == 'Enter')
+            else if (event.key === 'Enter' || event.key === 'Space') // https://www.sarasoueidan.com/blog/accessible-icon-buttons/
                 // Same as 'click'
                 that._do(event);
         });
@@ -103,10 +117,24 @@ class UIButton extends HTMLElement{
                     this.classList.add('has-' + tagNameLower);
             }
         }
+
+        /**
+         * ARIA
+         *
+         * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+         */
+        this.setAttribute('role', 'button');
+        this.querySelectorAll('svg').forEach((e)=>{
+            e.setAttribute('area-hidden', 'true');
+            e.setAttribute('focusable', 'false');
+        })
     }
 }
 window.customElements.define('ui-button', UIButton);
 
+/**
+ * TODO aria-label
+ */
 class UIIconButton extends UIButton{
     constructor(value) {
         super();
@@ -118,27 +146,3 @@ class UIIconButton extends UIButton{
     }
 }
 window.customElements.define('ui-icon-button', UIIconButton);
-
-class UIMenuButton extends UIButton{
-    constructor() {
-        super();
-        // click event for UIMenuButton is to give it focus to display the menu
-        this._blurAfterAction = false;
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-
-        // const that = this;
-
-        // TBD
-        // this.setAttribute('aria-haspopup', 'true');
-        // this.setAttribute('aria-controls', 'ui-menu');
-    }
-}
-window.customElements.define('ui-menu-button', UIMenuButton);
-
-class UIMenu extends HTMLElement{
-    constructor() {super();}
-}
-window.customElements.define('ui-menu', UIMenu);

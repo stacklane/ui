@@ -15,13 +15,11 @@
   - Microsoft: Displaying the hand pointer on hover is the definitive indication of a link.
     To avoid confusion, it is imperative not to use the hand pointer for other purposes.
 
-## Elements
-
-### `h1`-`h6`
+## `h1`-`h6`
 
 Defines `font-size` and `line-height` only.
 
-### `ui-appbar`
+## `ui-appbar`
 
 Primarily a case-specific container for one or more `<ui-bar>`'s.
 
@@ -29,7 +27,7 @@ Provides coloring, prominence, spacing, and positioning.
 
 Unlike `<ui-bar>` it is not concerned with the spacing *between* items.
 
-### `ui-bar`
+## `ui-bar`
 
 Horizontal layout for related buttons/controls, and responsible for spacing between them.
 
@@ -44,24 +42,52 @@ Variations:
     - `.is-grow`
     - `.is-stretch`
 
-### `ui-button` / `ui-icon-button`
+## `ui-button` / `ui-icon-button` / `ui-menu-button`
 
-- Textual button, with optional `<ui-icon>`.
-- Button with a single `<ui-icon>`.
+- `ui-button`: Textual button, with optional `<ui-icon>`.
+- `ui-icon-button`: Button with a single `<ui-icon>`.
 
-### `ui-spinner`
+### Actions
+
+Implementations should use `#addAction` to define click events.
+Alternatively actions may be declared as nested as children via subclasses of `UIButtonAction`.
+
+### Appearance
+
+`.is-outlined`, `.is-contained`, `.is-round`
+
+### Color
+
+`.is-primary`, `.is-positive`, `.is-negative`
+
+### Menu
+
+`ui-button-menu` (`UIButtonMenu`) as child.
+
+## `ui-spinner`
 
 `.is-init` / `ui-is-init`
+
+## `ui-tab`
+
+### `ui-tab-closer`
+
+Nested within a `ui-button` to declarative create an action to close the current `ui-tab`.
+
+## `ui-drawer-layout`
+
+An app layout with sidebar `<ui-drawer>` and main content area `<ui-drawer-main>`.
+
+- For mobile friendly UX, drawer/sidebar content should be nice-to-have additive parts of the UI, not essential.
+- By default drawers are implicitly opened / closed based on screen width.
+- Drawers may be explicitly opened/closed via classes,
+  or declarative actions `UIDrawerOpener` / `ui-drawer-opener` / `UIDrawerCloser` / `ui-drawer-closer`.
+  When explicitly opened/closed the preferred state is maintained in `localStorage` for consistency,
+  and server-side rendering cases.
 
 ## Spacing
 
 Case specific spacing, used for e.g.: padding, margin, gap, row-gap, column-gap.
-
-### `ui-tab`
-
-#### `ui-tab-closer`
-
-Click event handler placed inside a `ui-tab`. Parent of any other visible component such as a `<ui-button>`.
 
 ### Variables
 

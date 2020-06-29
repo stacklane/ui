@@ -1,11 +1,5 @@
 @import '/utils';
 
-/**
- * - For mobile, drawers should be nice-to-have additive parts of the UI, not essential.
- * - By default drawers are implicitly opened / closed based on screen width.
- * - They may be explicitly opened or closed via classes, or actions (UIDrawerOpener/UIDrawerCloser).
- */
-
 :root {
   --ui-drawer-width: 240px;
   --ui-drawer-background: var(--ui-secondary-background);
@@ -17,7 +11,6 @@
 //  flex: 1 1 auto;
 //  flex-direction: column;
 //}
-
 
 @mixin ui-drawer-is-opened {
   ui-drawer {
@@ -104,13 +97,11 @@ ui-drawer-layout{
     @include ui-drawer-is-opened();
   }
 
-  //@media screen and (min-width: $ui-drawer-fixed-breakpoint), print {
   @include tablet {
     ui-drawer {
       position: relative;
     }
   }
-  //}
 
   &.is-opened{
     @include ui-drawer-is-opened();

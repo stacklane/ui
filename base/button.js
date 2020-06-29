@@ -94,10 +94,10 @@ class UIButton extends HTMLElement{
 
         that.addEventListener('keydown', function (event) {
             if (event.key === 'Escape')
-                // Primarily for ui-menu-button, to hide the menu,
+                // Primarily to hide UIButtonMenu,
                 // however makes sense for any button to be able to unfocus from keyboard.
                 that.blur();
-            else if (event.key === 'Enter' || event.key === 'Space') // https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+            else if (event.key === 'Enter' || event.key === ' ') // https://www.sarasoueidan.com/blog/accessible-icon-buttons/
                 // Same as 'click'
                 that._do(event);
         });
@@ -133,16 +133,20 @@ class UIButton extends HTMLElement{
 window.customElements.define('ui-button', UIButton);
 
 /**
- * TODO aria-label
+ * Highly recommended to pass or define aria-label
  */
 class UIIconButton extends UIButton{
-    constructor(value) {
+    constructor(value, label) {
         super();
         if (value instanceof UIIcon){
             this.appendChild(value);
         } else if (value){
             this.appendChild(new UIIcon(value));
         }
+        this._label = label;
+    }
+    connectedCallback() {
+        if (this._label) this.setAttribute('aria-label', this._label);
     }
 }
 window.customElements.define('ui-icon-button', UIIconButton);

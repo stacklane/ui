@@ -42,15 +42,15 @@ Variations:
     - `.is-grow`
     - `.is-stretch`
 
-## `ui-button` / `ui-icon-button` / `ui-menu-button`
+## `ui-button` / `ui-icon-button`
 
 - `ui-button`: Textual button, with optional `<ui-icon>`.
-- `ui-icon-button`: Button with a single `<ui-icon>`.
+- `ui-icon-button`: Button with a single `<ui-icon>`. Recommend using `aria-label`.
 
 ### Actions
 
-Implementations should use `#addAction` to define click events.
-Alternatively actions may be declared as nested as children via subclasses of `UIButtonAction`.
+Implementations should use `#addAction` to define button behavior.
+Alternatively actions may be declared as children via subclasses of `UIButtonAction`.
 
 ### Appearance
 

@@ -1,5 +1,28 @@
 @import '/utils';
 
+// note: requires overflow:hidden on an outer layer
+.ui-scrollable-y{
+  display:flex;
+  flex: 1 1 auto;
+  min-height: 1px;
+  overflow-y: auto;
+  overscroll-behavior: none;
+}
+.ui-scrollable-x{
+  display:flex;
+  flex: 1 1 auto;
+  min-height: 1px;
+  overflow-x: auto;
+  overscroll-behavior: none;
+}
+.ui-scrollable-xy{
+  display:flex;
+  flex: 1 1 auto;
+  min-height: 1px;
+  overflow: auto;
+  overscroll-behavior: none;
+}
+
 /**
  * Provides no real functionality -- primarily a "root" styling target for typography, etc.
  */

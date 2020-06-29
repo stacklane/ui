@@ -97,7 +97,7 @@ ui-drawer-layout{
     flex-direction: column;
     position: relative;
     z-index: 1;
-    overflow:hidden; // TODO is this relevant to all cases, or should it be an option?
+    overflow: hidden;
   }
 
   @include tablet{

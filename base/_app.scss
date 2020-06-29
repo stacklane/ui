@@ -2,41 +2,16 @@
 
 /**
  * Requires overflow: hidden on parent or ancestor.
+ *
+ * These classes may be used directly, or via UIScrollable class (or subclass).
  */
-.ui-scrollable-y{
+.ui-scrollable{
   display:flex;
   flex: 1 1 auto;
   min-height: 1px;
-  overflow-y: auto;
-  overflow-x: hidden;
   overscroll-behavior: none;
-}
-.ui-scrollable-x{
-  display:flex;
-  flex: 1 1 auto;
-  min-height: 1px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior: none;
-}
-.ui-scrollable-xy{
-  display:flex;
-  flex: 1 1 auto;
-  min-height: 1px;
-  overflow: auto;
-  overscroll-behavior: none;
-}
-
-/**
- * Provides no real functionality -- primarily a "root" styling target for typography, etc.
- */
-.ui-app{
-  position: relative;
-  background: var(--ui-background);
-  color: var(--ui-foreground);
-
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  scroll-snap-type: none;
 
   ::-webkit-scrollbar {
     width: var(--ui-scroll-width);
@@ -50,6 +25,50 @@
     border-radius: 6px;
     border: 3px solid var(--ui-scroll-background);
   }
+
+  &.is-y{
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &.is-snap{
+      scroll-snap-type: y mandatory;
+    }
+  }
+
+  &.is-x{
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &.is-snap{
+      scroll-snap-type: x mandatory;
+    }
+  }
+
+  &.is-xy{
+    overflow: auto;
+  }
+
+  &.is-snap{
+    .ui-scrollable-snap-center{
+      scroll-snap-align: center;
+    }
+    .ui-scrollable-snap-start{
+      scroll-snap-align: start;
+    }
+  }
+}
+
+
+/**
+ * Provides no real functionality -- primarily a "root" styling target for typography, etc.
+ */
+.ui-app{
+  position: relative;
+  background: var(--ui-background);
+  color: var(--ui-foreground);
+
+  display: flex;
+  flex-direction: column;
 
   &.is-full{
     height: 100%;

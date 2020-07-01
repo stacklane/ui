@@ -67,6 +67,8 @@ ui-drawer-layout{
    * May contain a <ui-appbar> to match height of any toolbar this is next to.
    */
   ui-drawer{
+    overflow: hidden;
+
     background: var(--ui-drawer-background);
     color: var(--ui-drawer-label);
     flex: 0 0 auto;

@@ -6,6 +6,25 @@
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 
 .ui-app, ui-modal {
+  .is-label-small{
+    --ui-label-small-size: 20ch;
+    max-width: var(--ui-label-small-size);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .is-label-medium{
+    --ui-label-medium-size: 40ch;
+    max-width: var(--ui-label-medium-size);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .is-label-large{
+    --ui-label-large-size: 60ch;
+    max-width: var(--ui-label-large-size);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
   /**
    * "Large Title" - Featured content, such as empty states, promotions.
    */

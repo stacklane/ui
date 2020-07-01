@@ -6,23 +6,26 @@
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 
 .ui-app, ui-modal {
-  .is-label-small{
-    --ui-label-small-size: 20ch;
-    max-width: var(--ui-label-small-size);
+  --ui-small-label-size: 20ch;
+  --ui-medium-label-size: calc(--ui-small-label-size * 2);
+  --ui-large-label-size: calc(--ui-small-label-size * 3);
+  .is-small-label{
+    max-width: var(--ui-small-label-size);
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
   }
-  .is-label-medium{
-    --ui-label-medium-size: 40ch;
-    max-width: var(--ui-label-medium-size);
+  .is-medium-label{
+    max-width: var(--ui-medium-label-size);
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
   }
-  .is-label-large{
-    --ui-label-large-size: 60ch;
-    max-width: var(--ui-label-large-size);
+  .is-large-label{
+    max-width: var(--ui-large-label-size);
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
   }
 
   /**

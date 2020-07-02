@@ -29,7 +29,7 @@ $tablet: 769px !default; // not allowed as a css variable
   display: inline-flex;
   align-items: center;
   position: relative;
-  //vertical-align: top;
+  vertical-align: top; // this seems to be necessary and has unexpected / intermittent issues, even with align-items center
 
   &[disabled],
   fieldset[disabled] & {
@@ -63,7 +63,7 @@ $tablet: 769px !default; // not allowed as a css variable
   transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
               border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
 
-  font-size: .875rem;
+  font-size: var(--ui-button-font-size);
   line-height: 1.75;
   font-weight: 500;
 

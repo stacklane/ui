@@ -166,7 +166,7 @@ ui-button{
  * <ui-icon> child is expected to be 1em, and therefore use whatever font-size this is.
  */
 ui-icon-button{
-  font-size: var(--ui-icon-button-size);
+  --ui-button-font-size: var(--ui-icon-button-size);
   flex: 0 0 auto;
   padding: var(--ui-button-spacing) !important;
   border-radius: var(--ui-icon-button-radius);

@@ -44,7 +44,7 @@ ui-bar{
    */
   &.is-even{
     justify-content: space-between;
-    margin-left: 0px;
+    margin: 0px;
   }
 
   /**
@@ -63,6 +63,24 @@ ui-bar{
 
   &.is-grow{
     flex-grow: 1;
+  }
+
+  &.is-column{
+    flex-direction: column;
+
+    > * {
+      margin-top: var(--ui-bar-spacing);
+    }
+
+    > ui-button:not(.is-outlined):not(.is-contained),
+    > ui-icon-button:not(.is-outlined):not(.is-contained){
+      margin-top: calc(var(--ui-bar-spacing) / 2);
+
+      + ui-button:not(.is-outlined):not(.is-contained),
+      + ui-icon-button:not(.is-outlined):not(.is-contained){
+        margin-top: 0px;
+      }
+    }
   }
 
   /**

@@ -9,15 +9,16 @@
 
   --ui-tab-spacing: var(--ui-xs-spacing);
 
-  --ui-tab-justify: center;
+  //--ui-tab-justify: center;
 }
 
+/*
 .--ui-tab-justify-center ui-tab{
   --ui-tab-justify: center;
 }
 .--ui-tab-justify-left ui-tab{
   --ui-tab-justify: left;
-}
+}*/
 
 ui-tab{
   @include unselectable;
@@ -35,9 +36,10 @@ ui-tab{
 
   background: var(--ui-tab-background);
   color: var(--ui-tab-foreground);
-  display: flex;
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: var(--ui-tab-justify);
+  //justify-content: var(--ui-tab-justify);
   position: relative;
 
   &[active='true']{
@@ -45,9 +47,9 @@ ui-tab{
     color: var(--ui-tab-active-foreground);
   }
 
-  &.is-justify-center{
-    --ui-tab-justify: center;
-  }
+  //&.is-justify-center{
+  //  --ui-tab-justify: center;
+ // }
 
   &.is-grow{
     flex-grow: 1;

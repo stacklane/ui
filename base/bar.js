@@ -14,3 +14,10 @@ class UIBar extends HTMLElement{
     stretch(){return this._cls('is-stretch');}
 }
 window.customElements.define('ui-bar', UIBar);
+
+class UIAppBar extends HTMLElement {
+    constructor() {
+        super();
+    }
+}
+window.customElements.define('ui-appbar', UIBar);

@@ -10,7 +10,6 @@ ui-bar{
   white-space: nowrap;
   justify-content: flex-start;
   align-items: center;
-
   flex-shrink: 0;
 
   &:empty{
@@ -97,4 +96,65 @@ ui-bar{
       margin-left: calc(var(--ui-bar-spacing) + var(--ui-path-item-size) + (var(--ui-path-item-size) / 2)) !important;
     }
   }
+}
+
+:root{
+  --ui-appbar-spacing: 0;
+  --ui-appbar-background: transparent;
+}
+
+
+ui-appbar{
+  flex-shrink: 0;
+
+  //align-items: stretch;
+  //justify-content: space-between;
+  display: flex;
+
+  background: var(--ui-appbar-background);
+
+  white-space: nowrap;
+  align-items: center;
+
+  // NOTE: top/bottom "padding" comes from appbar's height (and align-items:center)
+  padding-left: var(--ui-appbar-spacing);
+  padding-right: var(--ui-appbar-spacing);
+
+  &.has-spacing{
+    --ui-appbar-spacing: var(--ui-spacing);
+  }
+  &.has-s-spacing{
+    --ui-appbar-spacing: var(--ui-s-spacing);
+  }
+  &.has-xs-spacing{
+    --ui-appbar-spacing: var(--ui-xs-spacing);
+  }
+  &.has-2xs-spacing{
+    --ui-appbar-spacing: var(--ui-2xs-spacing);
+  }
+
+  //height: calc(var(--ui-appbar-spacing) * 3);
+
+  // @include tablet {
+  height: calc(var(--ui-appbar-spacing) * 4);
+  // }
+
+  /**
+   * Variations
+   */
+
+  &.has-gutters{
+    @include tablet {
+      padding-left: calc(var(--ui-appbar-spacing) * 1.5);
+      padding-right: calc(var(--ui-appbar-spacing) * 1.5);
+    }
+  }
+
+  // &.is-primary{
+  //min-height: calc(var(--ui-appbar-spacing) * 3);
+
+  //@include tablet {
+  //min-height:  calc(var(--ui-appbar-spacing) * 4);
+  //}
+  //}
 }

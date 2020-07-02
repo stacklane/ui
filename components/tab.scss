@@ -20,19 +20,21 @@
   --ui-tab-justify: left;
 }*/
 
+
 ui-tab{
-  @include unselectable;
+  @extend %unselectable;
   outline: none;
   cursor: var(--ui-action-pointer);
-}
 
-ui-tab{
   // Child Overrides:
-  --ui-button-spacing: 2px;
-  --ui-icon-button-size: 1rem;
+  * {
+    --ui-button-spacing: 2px;
+    --ui-icon-button-size: 1rem;
+  }
 
-  padding: var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5)
-        var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5);
+  //padding: var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5)
+  //      var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5);
+  //padding: calc(var(--ui-tab-spacing)/2) var(--ui-tab-spacing);
 
   background: var(--ui-tab-background);
   color: var(--ui-tab-foreground);

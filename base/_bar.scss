@@ -67,20 +67,9 @@ ui-bar{
 
   &.is-column{
     flex-direction: column;
+    align-items: flex-start;
+    margin: 0px;
 
-    > * {
-      margin-top: var(--ui-bar-spacing);
-    }
-
-    > ui-button:not(.is-outlined):not(.is-contained),
-    > ui-icon-button:not(.is-outlined):not(.is-contained){
-      margin-top: calc(var(--ui-bar-spacing) / 2);
-
-      + ui-button:not(.is-outlined):not(.is-contained),
-      + ui-icon-button:not(.is-outlined):not(.is-contained){
-        margin-top: 0px;
-      }
-    }
   }
 
   /**

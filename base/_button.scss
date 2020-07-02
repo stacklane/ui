@@ -39,6 +39,26 @@
  // height: var(--ui-control-height);
  // line-height: 1.5;
  // font-size: 1rem;
+
+  box-sizing: border-box;
+
+  //justify-content: left; // center;
+  // text-align: left; // center;
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+
+  cursor: var(--ui-action-pointer);
+
+  font-weight: var(--ui-button-weight);
+  padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
+
+  transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
+  border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
+
+  font-size: .875rem;
+  line-height: 1.75;
+  font-weight: 500;
 }
 
 %buttonBase {
@@ -54,28 +74,12 @@ ui-button, ui-icon-button{
   @extend %buttonBase;
   @extend %unselectable;
 
-  box-sizing: border-box;
 
-  //justify-content: left; // center;
- // text-align: left; // center;
-  white-space: nowrap;
-
-  border: 1px solid transparent;
-
-  cursor: var(--ui-action-pointer);
 
   border-radius: var(--ui-button-radius);
-  font-weight: var(--ui-button-weight);
-  padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
-
-  transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
-              border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
 
   // TBD/TODO
  // letter-spacing: 0.02857em;
-  font-size: .875rem;
-  line-height: 1.75;
-  font-weight: 500;
 
   &[disabled] {
     filter: brightness(.25); // opacity instead?

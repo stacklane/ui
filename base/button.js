@@ -38,9 +38,16 @@ window.customElements.define('ui-button-menu', UIButtonMenu);
  * For programmatic actions, use UIButton#addAction
  */
 class UIButton extends HTMLElement{
-    constructor(text) {
+    constructor(iconOrText, text) {
         super();
-        if (typeof text === 'string') this.innerText = text;
+        if (iconOrText instanceof UIIcon){
+            this.appendChild(iconOrText);
+        } else if (typeof iconOrText === 'string'){
+            this.appendChild(iconOrText);
+        }
+        if (typeof text === 'string'){
+            this.appendChild(Elements.span().text(text).create());
+        }
         this._blurAfterAction = true;
     }
 

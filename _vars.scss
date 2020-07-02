@@ -29,7 +29,16 @@
   --ui-weight-max: 900; // css 2.1
 }
 
+:root{
+  //--ui-control-height: 2.5em;
 
+  --ui-button-radius: var(--ui-radius);
+  --ui-button-weight: var(--ui-weight-normal);
+  --ui-button-spacing: var(--ui-xs-spacing);
+
+  --ui-icon-button-radius: var(--ui-button-radius);
+  --ui-icon-button-size: 1.5rem;
+}
 
 
 

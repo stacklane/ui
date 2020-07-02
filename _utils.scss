@@ -22,7 +22,6 @@ $tablet: 769px !default; // not allowed as a css variable
   }
 }
 
-
 @mixin buttonBase {
   appearance: none;
   border: 0;
@@ -30,11 +29,19 @@ $tablet: 769px !default; // not allowed as a css variable
   display: inline-flex;
   align-items: center;
   position: relative;
-  vertical-align: top;
+  //vertical-align: top;
 
   &[disabled],
   fieldset[disabled] & {
     cursor: not-allowed;
+
+    filter: brightness(.25); // opacity instead?
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+
+    &:after{
+      pointer-events: none !important;
+    }
   }
 
   &:focus,
@@ -42,14 +49,8 @@ $tablet: 769px !default; // not allowed as a css variable
     outline: none;
   }
 
-  // height: var(--ui-control-height);
-  // line-height: 1.5;
-  // font-size: 1rem;
-
   box-sizing: border-box;
 
-  //justify-content: left; // center;
-  // text-align: left; // center;
   white-space: nowrap;
 
   border: 1px solid transparent;
@@ -60,11 +61,14 @@ $tablet: 769px !default; // not allowed as a css variable
   padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
 
   transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
-  border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
+              border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
 
   font-size: .875rem;
   line-height: 1.75;
   font-weight: 500;
+
+  // TBD/TODO
+  // letter-spacing: 0.02857em;
 }
 
 %buttonBase {

@@ -1,20 +1,11 @@
 @import '/utils';
 
-:root{
-  //--ui-control-height: 2.5em;
-
-  --ui-button-radius: var(--ui-radius);
-  --ui-button-weight: var(--ui-weight-normal);
-  --ui-button-spacing: var(--ui-xs-spacing);
-
-  --ui-icon-button-radius: var(--ui-button-radius);
-  --ui-icon-button-size: 1.5rem;
-}
-
+/**
+ * Automatically applied in UIButtonAction#connectedCallback
+ */
 [data-ui-button-action='true']{
-  display:none;
+  display: none;
 }
-
 
 /**
  * https://material-ui.com/components/buttons/
@@ -25,32 +16,12 @@ ui-button, ui-icon-button{
   @extend %buttonBase;
   @extend %unselectable;
 
-
-
   border-radius: var(--ui-button-radius);
-
-  // TBD/TODO
- // letter-spacing: 0.02857em;
-
-  &[disabled] {
-    filter: brightness(.25); // opacity instead?
-    pointer-events: none !important;
-    cursor: not-allowed !important;
-
-    &:after{
-      pointer-events: none !important;
-    }
-  }
 
   &.is-full-width{
     display: flex;
     width: 100%;
   }
-
-  //&.is-justify-left{
- //   justify-content: left;
- //   text-align: left;
- // }
 
   color: var(--ui-default);
 

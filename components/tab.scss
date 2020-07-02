@@ -1,58 +1,26 @@
 @import '/utils';
 
 :root{
-  --ui-tab-background: inherit;
-  --ui-tab-foreground: inherit;
-
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
 
-  --ui-tab-spacing: var(--ui-xs-spacing);
-
-  //--ui-tab-justify: center;
+  --ui-tab-spacing: var(--ui-button-spacing);
 }
-
-/*
-.--ui-tab-justify-center ui-tab{
-  --ui-tab-justify: center;
-}
-.--ui-tab-justify-left ui-tab{
-  --ui-tab-justify: left;
-}*/
-
 
 ui-tab{
   @extend %buttonBase;
   @extend %unselectable;
-  outline: none;
-  cursor: var(--ui-action-pointer);
 
-  // Child Overrides:
+  // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
   * {
     --ui-button-spacing: 2px;
     --ui-icon-button-size: 1rem;
   }
 
-  //padding: var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5)
-  //      var(--ui-tab-spacing) calc(var(--ui-tab-spacing) * 1.5);
-  //padding: calc(var(--ui-tab-spacing)/2) var(--ui-tab-spacing);
-
-  background: var(--ui-tab-background);
-  color: var(--ui-tab-foreground);
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-  //justify-content: var(--ui-tab-justify);
-  position: relative;
-
   &[active='true']{
     background: var(--ui-tab-active-background);
     color: var(--ui-tab-active-foreground);
   }
-
-  //&.is-justify-center{
-  //  --ui-tab-justify: center;
- // }
 
   &.is-grow{
     flex-grow: 1;

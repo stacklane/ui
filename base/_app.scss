@@ -118,13 +118,14 @@ html.ui-full {
 }
 
 :root{
-  //--ui-icon-size: 1em;
-  --ui-icon-size: 1.5rem; // default of both Bulma and Material
+  --ui-icon-size: 1em;
   --ui-icon-color: var(--ui-label);
 }
 
 /**
  * Square. Designed usually to be a <span> containing either a single emoji character, or <svg>.
+ *
+ * The approach of using "1em" is from both Bulma and Material.
  */
 ui-icon{
   @extend %unselectable;
@@ -133,16 +134,17 @@ ui-icon{
   display: inline-flex;
   justify-content: center;
 
-  height: 1em; //var(--ui-icon-size);
-  width: 1em; //var(--ui-icon-size);
+  height: var(--ui-icon-size);
+  width: var(--ui-icon-size);
 
   font-weight: var(--ui-weight-bold); // for single plain text character icons
 
   font-size: var(--ui-icon-size);
+  line-height: 1;
 
   > svg{
-    height: 1em; var(--ui-icon-size);
-    width: 1em; var(--ui-icon-size);
+    height: 1em;//var(--ui-icon-size);
+    width: 1em;//var(--ui-icon-size);
     fill: currentColor;
     flex-shrink: 0;
     font-size: var(--ui-icon-size);

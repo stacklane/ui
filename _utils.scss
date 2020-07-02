@@ -57,18 +57,14 @@ $tablet: 769px !default; // not allowed as a css variable
 
   cursor: var(--ui-action-pointer);
 
-  font-weight: var(--ui-button-weight);
   padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
 
   transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
               border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;
 
   font-size: var(--ui-button-font-size);
-  line-height: 1.5; // Bootstrap and Bulma
-  font-weight: 500;
-
-  // TBD/TODO
-  // letter-spacing: 0.02857em;
+  line-height: var(--ui-button-line-height);
+  font-weight: var(--ui-button-weight);
 }
 
 %buttonBase {

@@ -38,6 +38,21 @@ window.customElements.define('ui-button-menu', UIButtonMenu);
  * For programmatic actions, use UIButton#addAction
  */
 class UIButton extends HTMLElement{
+    /**
+     * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+     */
+    static isAccessibleActionKey(keyboardEvent){
+        return (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ');
+    }
+
+    static addAccessibleAction(target, action){
+        target.addEventListener('keydown', function (event) {
+            if (UIButton.isAccessibleActionKey(event)) action(event);
+        });
+
+        target.addEventListener('click', function (event) { action(event);})
+    }
+
     constructor(iconOrText, textAfterIcon) {
         super();
         if (iconOrText instanceof UIIcon){
@@ -102,17 +117,14 @@ class UIButton extends HTMLElement{
 
         const that = this;
 
+        UIButton.addAccessibleAction(that, (event)=>{that._do(event)});
+
         that.addEventListener('keydown', function (event) {
             if (event.key === 'Escape')
-                // Primarily to hide UIButtonMenu,
+                // Primarily to hide any nested UIButtonMenu,
                 // however makes sense for any button to be able to unfocus from keyboard.
                 that.blur();
-            else if (event.key === 'Enter' || event.key === ' ') // https://www.sarasoueidan.com/blog/accessible-icon-buttons/
-                // Same as 'click'
-                that._do(event);
         });
-
-        that.addEventListener('click', function (event) { that._do(event);})
 
         /**
          * Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).

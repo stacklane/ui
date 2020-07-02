@@ -1,7 +1,6 @@
 
-
 /**
- * Toggle for any other {HtmlElement} as a view.
+ * Represents a toggle for any other {HtmlElement} as a view (functions may also be used to generate a view).
  *
  * A series of related UITab's must exist within a common parent element.
  *
@@ -39,12 +38,10 @@ class UITab extends HTMLElement{
     /**
      * Use UITab#create
      */
-    constructor(display, view, plainTitle) {
+    constructor(display, view, plainTextTitle) {
         super();
 
-        this.setAttribute('role', 'tab');
-        this.setAttribute('tabindex', '-1');
-        this.setAttribute('aria-selected', 'false');
+        this._plainTitle = plainTextTitle;
 
         if (typeof view === 'function'){
             this._viewSupplier = view;
@@ -55,9 +52,7 @@ class UITab extends HTMLElement{
         }
 
         if (typeof display === 'string'){
-            const displaySpan = document.createElement('span');
-            displaySpan.innerText = display;
-            this.appendChild(displaySpan);
+            this.appendChild(Elements.span().text(display).create());
         } else if (display instanceof HTMLElement) {
             this.appendChild(display);
         } else if (display instanceof Array){
@@ -65,9 +60,6 @@ class UITab extends HTMLElement{
         } else {
             throw '!display';
         }
-
-        this._plainTitle = plainTitle;
-        this.addEventListener('click', ()=>this.activate());
     }
 
     /**
@@ -96,7 +88,7 @@ class UITab extends HTMLElement{
     }
 
     activate(){
-        if (this.parentElement)
+        if (this.parentElement) // For deactivation, all related tabs should be within same parent.
             this.parentElement.querySelectorAll('ui-tab').forEach(e=>e.deactivate());
 
         this.setAttribute('active', 'true');
@@ -136,6 +128,14 @@ class UITab extends HTMLElement{
         if (nextSelection != null && nextSelection instanceof UITab) {
             nextSelection.activate();
         }
+    }
+
+    connectedCallback(){
+        this.setAttribute('role', 'tab');
+        this.setAttribute('tabindex', '0'); //this.setAttribute('tabindex', '-1');
+        this.setAttribute('aria-selected', 'false');
+
+        UIButton.addAccessibleAction(this, (event)=>this.activate());
     }
 }
 window.customElements.define('ui-tab', UITab);

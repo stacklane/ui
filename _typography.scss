@@ -7,8 +7,8 @@
 
 .ui-app, ui-modal {
   --ui-small-label-size: 20ch;
-  --ui-medium-label-size: calc(--ui-small-label-size * 2);
-  --ui-large-label-size: calc(--ui-small-label-size * 3);
+  --ui-medium-label-size: calc(var(--ui-small-label-size) * 2);
+  --ui-large-label-size: calc(var(--ui-small-label-size) * 3);
   .is-small-label{
     max-width: var(--ui-small-label-size);
     text-overflow: ellipsis;

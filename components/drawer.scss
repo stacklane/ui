@@ -1,7 +1,15 @@
 @import '/utils';
 
+/**
+ * Note: there are two general approaches to open/close drawer transitions:
+ *   1) using margin-left
+ *   2) using translate3d
+ *
+ * #2 works better for "auto" width drawers.
+ */
+
 :root {
-  --ui-drawer-width: 240px;
+  --ui-drawer-width: auto; //240px;
   --ui-drawer-background: var(--ui-secondary-background);
   --ui-drawer-label: var(--ui-label);
 }
@@ -14,7 +22,7 @@
 
 @mixin ui-drawer-is-opened {
   ui-drawer {
-    margin-left: 0px;
+    transform: translate3d(0px, 0px, 0px); //margin-left: 0px;
   }
   .has-ui-drawer-opener{
     display: none;
@@ -37,7 +45,7 @@
 
 @mixin ui-drawer-is-closed {
   ui-drawer {
-    margin-left: calc(-1 * var(--ui-drawer-width));
+    transform: translate3d(-100%, 0px, 0px); //margin-left: calc(-1 * var(--ui-drawer-width));
   }
   .has-ui-drawer-opener{
     display: inherit;
@@ -73,7 +81,7 @@ ui-drawer-layout{
     color: var(--ui-drawer-label);
     flex: 0 0 auto;
     flex-direction: column;
-    transition: margin-left var(--ui-speed) ease-out, transform var(--ui-speed) ease-out;
+    transition: /*margin-left var(--ui-speed) ease-out,*/ transform var(--ui-speed) ease-out;
 
     width: var(--ui-drawer-width);
 

@@ -60,7 +60,7 @@ class UIButton extends HTMLElement{
             if (typeof textAfterIcon === 'string')
                 this.appendChild(Elements.span().text(textAfterIcon).create());
         } else if (typeof iconOrText === 'string'){
-            this.appendChild(iconOrText);
+            this.innerText = iconOrText;
         }
         this._blurAfterAction = true;
     }
@@ -68,7 +68,7 @@ class UIButton extends HTMLElement{
     _cls(c){ this.classList.add(c); return this; }
 
     fullWidth(){return this._cls('is-full-width');}
-    justifyLeft(){return this._cls('is-justify-left');}
+    //justifyLeft(){return this._cls('is-justify-left');}
     outlined(){return this._cls('is-outlined');}
     contained(){return this._cls('is-contained');}
     round(){return this._cls('is-round');}

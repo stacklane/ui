@@ -143,6 +143,10 @@ ui-appbar{
    * Variations
    */
 
+  &.is-stretch{
+    align-items: stretch;
+  }
+
   &.has-gutters{
     @include tablet {
       padding-left: calc(var(--ui-appbar-spacing) * 1.5);

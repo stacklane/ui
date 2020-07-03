@@ -34,15 +34,14 @@
 
   --ui-button-radius: var(--ui-radius);
   --ui-button-weight: var(--ui-weight-medium);
-  --ui-button-spacing: var(--ui-xs-spacing);
+  --ui-button-spacing: var(--ui-s-spacing);
   --ui-button-font-size: 1rem; // Material is .875rem
 
-  // "1" is almost never used in the wild, but it works well for predictable heights
-  // on icon-only versus text, buttons/tabs, side by side
-  --ui-button-line-height: 1; // Bootstrap and Bulma == 1.5, Material == 1.75
+  --ui-button-line-height: 1;//inherit; //1.5; // Bootstrap and Bulma == 1.5, Material == 1.75
 
   --ui-icon-button-radius: var(--ui-button-radius);
   --ui-icon-button-size: 1.5rem;
+  --ui-icon-button-spacing: calc(var(--ui-button-spacing)/2);
 }
 
 

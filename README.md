@@ -28,8 +28,7 @@ Unlike `<ui-bar>` it is not concerned with the spacing *between* items.
 Supports [spacing](#spacing).
 
 Variations:
-  - `.has-gutters`
-  - `.is-stretch`
+  - `.is-stretch` (typically any nested `ui-bar` would also use `.is-stretch`)
 
 ## `ui-bar`
 

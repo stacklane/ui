@@ -114,6 +114,9 @@ ui-appbar{
   white-space: nowrap;
   align-items: center;
 
+  padding-left: calc(var(--ui-appbar-spacing) * 1);
+  padding-right: calc(var(--ui-appbar-spacing) * 1);
+
   &.has-l-spacing{
     --ui-appbar-spacing: var(--ui-l-spacing);
   }
@@ -126,11 +129,11 @@ ui-appbar{
   &.has-xs-spacing{
     --ui-appbar-spacing: var(--ui-xs-spacing);
   }
-  &.has-2xs-spacing{
-    --ui-appbar-spacing: var(--ui-2xs-spacing);
-  }
+  //&.has-2xs-spacing{
+  //  --ui-appbar-spacing: var(--ui-2xs-spacing);
+ // }
 
-  height: calc(var(--ui-appbar-spacing) * 4);
+  height: calc(var(--ui-appbar-spacing) * 4); // has-spacing == 16px x 4 == 64px
 
   /**
    * Variations
@@ -139,16 +142,4 @@ ui-appbar{
   &.is-stretch{
     align-items: stretch;
   }
-
-  padding-left: calc(var(--ui-appbar-spacing) * 1);
-  padding-right: calc(var(--ui-appbar-spacing) * 1);
-
-  /*
-  &.has-gutters{
-
-    @include tablet {
-      padding-left: calc(var(--ui-appbar-spacing) * 1.5);
-      padding-right: calc(var(--ui-appbar-spacing) * 1.5);
-    }
-  }*/
 }

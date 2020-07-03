@@ -21,11 +21,15 @@ Defines `font-size` and `line-height` only.
 
 ## `ui-appbar`
 
-Primarily a case-specific container for one or more `<ui-bar>`'s.
-
-Provides coloring, prominence, spacing, and positioning.
+Fixed height bar. Primarily a case-specific container for one or more `<ui-bar>`'s.
 
 Unlike `<ui-bar>` it is not concerned with the spacing *between* items.
+
+Supports [spacing](#spacing).
+
+Variations:
+  - `.has-gutters`
+  - `.is-stretch`
 
 ## `ui-bar`
 
@@ -36,11 +40,11 @@ For positioning and prominence, see `<ui-appbar>` instead.
 May be nested.
 
 Variations:
-    - `.is-path`
-    - `.is-even`
-    - `.is-end`
-    - `.is-grow`
-    - `.is-stretch`
+  - `.is-path`
+  - `.is-even`
+  - `.is-end`
+  - `.is-grow`
+  - `.is-stretch`
 
 ## `ui-button` / `ui-icon-button`
 

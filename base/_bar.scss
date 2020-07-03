@@ -140,13 +140,15 @@ ui-appbar{
     align-items: stretch;
   }
 
+  padding-left: calc(var(--ui-appbar-spacing) * 1);
+  padding-right: calc(var(--ui-appbar-spacing) * 1);
+
+  /*
   &.has-gutters{
-    padding-left: calc(var(--ui-appbar-spacing) * 1);
-    padding-right: calc(var(--ui-appbar-spacing) * 1);
 
     @include tablet {
       padding-left: calc(var(--ui-appbar-spacing) * 1.5);
       padding-right: calc(var(--ui-appbar-spacing) * 1.5);
     }
-  }
+  }*/
 }

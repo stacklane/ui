@@ -16,13 +16,16 @@
   --ui-tab-spacing: var(--ui-button-spacing);
 }
 
---ui-tab-has-bottom-border ui-tab,
---ui-tab-has-bottom-border-l ui-tab{
+.--ui-tab-has-bottom-border ui-tab,
+.--ui-tab-has-bottom-border-l ui-tab{
+  --ui-tab-active-background: transparent;
+  --ui-tab-hover-background: transparent;
+  --ui-tab-active-foreground: inherit;
   --ui-tab-border-bottom-size: 1px;
   --ui-tab-hover-border-color: var(--ui-separator);
   --ui-tab-active-border-color: var(--ui-blue);
 }
---ui-tab-has-bottom-border-l ui-tab{
+.--ui-tab-has-bottom-border-l ui-tab{
   --ui-tab-border-bottom-size: 2px;
 }
 

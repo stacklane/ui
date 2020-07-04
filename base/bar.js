@@ -20,4 +20,4 @@ class UIAppBar extends HTMLElement {
         super();
     }
 }
-window.customElements.define('ui-appbar', UIBar);
+window.customElements.define('ui-appbar', UIAppBar);

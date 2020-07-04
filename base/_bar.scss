@@ -99,7 +99,7 @@ ui-bar{
 
 :root{
   --ui-appbar-spacing: 0;
-  --ui-appbar-height: calc(var(--ui-appbar-spacing) * 4); // by default has-spacing == 16px x 4 == 64px
+  --ui-appbar-height: auto;
   --ui-appbar-background: transparent;
 }
 ui-appbar{
@@ -123,14 +123,19 @@ ui-appbar{
 
   &.has-l-spacing{
     --ui-appbar-spacing: var(--ui-l-spacing);
+    --ui-appbar-height: calc(var(--ui-l-spacing) * 4);
   }
   &.has-spacing{
+    // by default has-spacing == 16px x 4 == 64px
     --ui-appbar-spacing: var(--ui-spacing);
+    --ui-appbar-height: calc(var(--ui-spacing) * 4);
   }
   &.has-s-spacing{
     --ui-appbar-spacing: var(--ui-s-spacing);
+    --ui-appbar-height: calc(var(--ui-s-spacing) * 4);
   }
   &.has-xs-spacing{
     --ui-appbar-spacing: var(--ui-xs-spacing);
+    --ui-appbar-height: calc(var(--ui-xs-spacing) * 4);
   }
 }

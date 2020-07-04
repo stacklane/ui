@@ -3,17 +3,38 @@
 :root{
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
-  --ui-tab-active-bottom-border-color: transparent;
-
   --ui-tab-hover-background: inherit;
-  --ui-tab-hover-bottom-border-color: transparent;
+
+  --ui-tab-border-bottom-size: 0px;
+  --ui-tab-border-left-size: 0px;
+  --ui-tab-border-right-size: 0px;
+  --ui-tab-border-top-size: 0px;
+
+  --ui-tab-active-border-color: transparent;
+  --ui-tab-hover-border-color: transparent;
 
   --ui-tab-spacing: var(--ui-button-spacing);
+}
+
+--ui-tab-has-bottom-border ui-tab,
+--ui-tab-has-bottom-border-l ui-tab{
+  --ui-tab-border-bottom-size: 1px;
+  --ui-tab-hover-border-color: var(--ui-separator);
+  --ui-tab-active-border-color: var(--ui-blue);
+}
+--ui-tab-has-bottom-border-l ui-tab{
+  --ui-tab-border-bottom-size: 2px;
 }
 
 ui-tab{
   @extend %buttonBase;
   @extend %unselectable;
+
+  border: none;
+  border-left: var(--ui-tab-border-left-size) solid transparent;
+  border-right: var(--ui-tab-border-right-size) solid transparent;
+  border-bottom: var(--ui-tab-border-bottom-size) solid transparent;
+  border-top: var(--ui-tab-border-top-size) solid transparent;
 
   // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
   * {
@@ -24,12 +45,12 @@ ui-tab{
   &[active='true']{
     color: var(--ui-tab-active-foreground);
     background: var(--ui-tab-active-background);
-    border-bottom-color: var(--ui-tab-active-bottom-border-color);
+    border-color: var(--ui-tab-active-border-color);
   }
 
   &:hover{
     background: var(--ui-tab-hover-background);
-    border-bottom-color: var(--ui-tab-hover-bottom-border-color);
+    border-color: var(--ui-tab-hover-border-color);
   }
 
   &.is-grow{

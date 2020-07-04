@@ -1,6 +1,9 @@
 @import '/utils';
+@import '/base/button_vars';
 
 :root{
+  --ui-tab-inactive-opacity: .7;
+
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
   --ui-tab-hover-background: inherit;
@@ -40,6 +43,12 @@ ui-tab{
   border-bottom: var(--ui-tab-border-bottom-size) solid transparent;
   border-top: var(--ui-tab-border-top-size) solid transparent;
 
+  opacity: var(--ui-tab-inactive-opacity);
+
+  //@include lastChildUncontainedButton{
+
+  //}
+
   // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
   * {
     --ui-button-spacing: 2px;
@@ -49,7 +58,8 @@ ui-tab{
   &[active='true']{
     color: var(--ui-tab-active-foreground);
     background: var(--ui-tab-active-background);
-    border-color: var(--ui-tab-active-border-color) !important; // don't let hover change it.
+    border-color: var(--ui-tab-active-border-color) !important; // don't let hover change it
+    opacity: 1;
   }
 
   &:hover{
@@ -61,17 +71,18 @@ ui-tab{
     flex-grow: 1;
   }
 
+  // TBD in theses why not nest a ui-bar inside the ui-tab?
   /**
    * First child ui-icon, followed by something else.
-   */
+
   > ui-icon:first-child:not(:last-child){
     margin-right: var(--ui-tab-spacing);
-  }
+  }*/
 
   /**
    * Last child ui-icon-button
-   */
+
   > ui-icon-button:last-child:not(:first-child){
     margin-left: var(--ui-tab-spacing);
-  }
+  }*/
 }

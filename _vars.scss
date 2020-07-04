@@ -1,7 +1,6 @@
 
 
 :root{
-
   // Spacing (margin/padding/gap's)
   // TODO should these auto-vary based on screen size?
   --ui-2xs-spacing: .25rem;
@@ -28,22 +27,6 @@
   --ui-weight-bold: 700;
   --ui-weight-max: 900; // css 2.1
 }
-
-:root{
-  //--ui-control-height: 2.5em;
-
-  --ui-button-radius: var(--ui-radius);
-  --ui-button-weight: var(--ui-weight-medium);
-  --ui-button-spacing: var(--ui-s-spacing);
-  --ui-button-font-size: 1rem; // Material is .875rem
-
-  --ui-button-line-height: 1;//inherit; //1.5; // Bootstrap and Bulma == 1.5, Material == 1.75
-
-  --ui-icon-button-radius: var(--ui-button-radius);
-  --ui-icon-button-size: 1.5rem;
-  --ui-icon-button-spacing: calc(var(--ui-button-spacing)/2);
-}
-
 
 
 

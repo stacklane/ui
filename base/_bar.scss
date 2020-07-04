@@ -1,3 +1,4 @@
+@import '/base/button_vars';
 
 :root{
   --ui-bar-background: transparent;
@@ -19,12 +20,10 @@ ui-bar{
     margin-left: var(--ui-bar-spacing);
   }
 
-  > ui-button:not(.is-outlined):not(.is-contained),
-  > ui-icon-button:not(.is-outlined):not(.is-contained){
+  @include childUncontainedButton{
     margin-left: calc(var(--ui-bar-spacing) / 2);
 
-    + ui-button:not(.is-outlined):not(.is-contained),
-    + ui-icon-button:not(.is-outlined):not(.is-contained){
+    @include siblingUncontainedButton{
       margin-left: 0px;
     }
   }
@@ -33,8 +32,17 @@ ui-bar{
     margin-left: 0px !important;
   }
 
-  &.is-spacing-none{
+  &.has-0-spacing{
     --ui-bar-spacing: 0px;
+  }
+  &.has-spacing{
+    --ui-bar-spacing: var(--ui-spacing);
+  }
+  &.has-s-spacing{
+    --ui-bar-spacing: var(--ui-s-spacing);
+  }
+  &.has-xs-spacing{
+    --ui-bar-spacing: var(--ui-xs-spacing);
   }
 
   /**

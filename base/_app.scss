@@ -128,7 +128,7 @@ html.ui-full {
  * The approach of using "1em" is from both Bulma and Material.
  */
 ui-icon{
-  @extend %unselectable;
+  @include unselectable;
 
   align-items: center;
   display: inline-flex;

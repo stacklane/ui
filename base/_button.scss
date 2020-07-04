@@ -1,4 +1,5 @@
 @import '/utils';
+@import '/base/button_vars';
 
 /**
  * Automatically applied in UIButtonAction#connectedCallback
@@ -15,8 +16,8 @@
  * https://uxdesign.cc/ui-cheat-sheets-buttons-7329ed9d6112
  */
 ui-button, ui-icon-button{
-  @extend %buttonBase;
-  @extend %unselectable;
+  @include buttonBase;
+  @include unselectable;
 
   border-radius: var(--ui-button-radius);
 

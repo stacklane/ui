@@ -3,7 +3,6 @@
   --ui-bar-background: transparent;
   --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
 }
-
 ui-bar{
   display: flex;
   background: var(--ui-toolbar-background);
@@ -100,10 +99,9 @@ ui-bar{
 
 :root{
   --ui-appbar-spacing: 0;
+  --ui-appbar-height: calc(var(--ui-appbar-spacing) * 4); // by default has-spacing == 16px x 4 == 64px
   --ui-appbar-background: transparent;
 }
-
-
 ui-appbar{
   flex-shrink: 0;
 
@@ -114,8 +112,14 @@ ui-appbar{
   white-space: nowrap;
   align-items: center;
 
+  height: var(--ui-appbar-height);
+
   padding-left: calc(var(--ui-appbar-spacing) * 1);
   padding-right: calc(var(--ui-appbar-spacing) * 1);
+
+  &.is-stretch{
+    align-items: stretch;
+  }
 
   &.has-l-spacing{
     --ui-appbar-spacing: var(--ui-l-spacing);
@@ -128,18 +132,5 @@ ui-appbar{
   }
   &.has-xs-spacing{
     --ui-appbar-spacing: var(--ui-xs-spacing);
-  }
-  //&.has-2xs-spacing{
-  //  --ui-appbar-spacing: var(--ui-2xs-spacing);
- // }
-
-  height: calc(var(--ui-appbar-spacing) * 4); // has-spacing == 16px x 4 == 64px
-
-  /**
-   * Variations
-   */
-
-  &.is-stretch{
-    align-items: stretch;
   }
 }

@@ -3,6 +3,10 @@
 :root{
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
+  --ui-tab-active-bottom-border-color: transparent;
+
+  --ui-tab-hover-background: inherit;
+  --ui-tab-hover-bottom-border-color: transparent;
 
   --ui-tab-spacing: var(--ui-button-spacing);
 }
@@ -18,8 +22,14 @@ ui-tab{
   }
 
   &[active='true']{
-    background: var(--ui-tab-active-background);
     color: var(--ui-tab-active-foreground);
+    background: var(--ui-tab-active-background);
+    border-bottom-color: var(--ui-tab-active-bottom-border-color);
+  }
+
+  &:hover{
+    background: var(--ui-tab-hover-background);
+    border-bottom-color: var(--ui-tab-hover-bottom-border-color);
   }
 
   &.is-grow{

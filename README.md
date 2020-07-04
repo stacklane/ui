@@ -32,9 +32,11 @@ Variations:
 
 ## `ui-bar`
 
-Horizontal layout for related buttons/controls, and responsible for spacing between them.
+Horizontal layout for related buttons/controls
 
-For positioning and prominence, see `<ui-appbar>` instead.
+Only responsible for spacing between items, and has no spacing for the bar itself.
+
+See `<ui-appbar>` instead for outer spacing / padding / fixed height.
 
 May be nested.
 

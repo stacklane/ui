@@ -1,10 +1,10 @@
 @import '/base/button_vars';
 
-:root{
-  --ui-bar-background: transparent;
-  --ui-bar-spacing: var(--ui-button-spacing, var(--ui-xs-spacing));
-}
 ui-bar{
+  // Important: these are set/reset for every bar instance, so that nested bars have their own default
+  --ui-bar-background: transparent;
+  --ui-bar-spacing: var(--ui-button-spacing);
+
   display: flex;
   background: var(--ui-toolbar-background);
   white-space: nowrap;
@@ -105,12 +105,11 @@ ui-bar{
   }
 }
 
-:root{
+ui-appbar{
   --ui-appbar-spacing: 0;
   --ui-appbar-height: auto;
   --ui-appbar-background: transparent;
-}
-ui-appbar{
+
   flex-shrink: 0;
 
   display: flex;

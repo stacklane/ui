@@ -2,8 +2,15 @@
  * @see _bar.scss
  */
 class UIBar extends HTMLElement{
-    constructor() {
+    constructor(elements) {
         super();
+        if (typeof elements === 'string'){
+            this.appendChild(Elements.span().text(elements).create());
+        } else if (elements instanceof HTMLElement) {
+            this.appendChild(elements);
+        } else if (elements instanceof Array){
+            for (let i = 0; i < elements.length; i++) this.appendChild(elements[i]);
+        }
     }
     _cls(c){ this.classList.add(c); return this; }
     path(){return this._cls('is-path');}

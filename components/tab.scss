@@ -23,11 +23,10 @@
 .--ui-tab-is-bordered-l ui-tab{
   --ui-tab-active-background: transparent;
   --ui-tab-hover-background: transparent;
-  color: var(--ui-secondary-label);
   --ui-tab-active-foreground: var(--ui-label);
   --ui-tab-border-bottom-size: 1px;
   --ui-tab-hover-border-color: var(--ui-label);
-  --ui-tab-active-border-color: var(--ui-blue);
+  --ui-tab-active-border-color: var(--ui-primary);
 }
 .--ui-tab-is-bordered-l ui-tab{
   --ui-tab-border-bottom-size: 2px;
@@ -45,13 +44,10 @@ ui-tab{
 
   opacity: var(--ui-tab-inactive-opacity);
 
-  //@include lastChildUncontainedButton{
-
-  //}
-
   // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
   * {
     --ui-button-spacing: 2px;
+    --ui-icon-button-spacing: 2px;
     --ui-icon-button-size: 1rem;
   }
 

@@ -31,13 +31,6 @@ class UITab extends HTMLElement{
         return elementStart.querySelector('ui-tab[' + UITab.ViewTabId + '="' + id + '"]');
     }
 
-    static create(display, view, plainTitle){
-        return new UITab(display, view, plainTitle);
-    }
-
-    /**
-     * Use UITab#create
-     */
     constructor(display, view, plainTextTitle) {
         super();
 

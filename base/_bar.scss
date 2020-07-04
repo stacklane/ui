@@ -1,9 +1,10 @@
 @import '/base/button_vars';
 
 ui-bar{
-  // Important: these are set/reset for every bar instance, so that nested bars have their own default
+  // Important: these are set/reset for every bar instance,
+  // so that nested bars have their own default, and don't inherit a parent's values.
   --ui-bar-background: transparent;
-  --ui-bar-spacing: var(--ui-button-spacing);
+  --ui-bar-spacing: var(--ui-s-spacing); //var(--ui-button-spacing);
 
   display: flex;
   background: var(--ui-toolbar-background);

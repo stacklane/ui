@@ -1,6 +1,9 @@
 @import '/utils';
 @import '/base/button_vars';
 
+/**
+ * For complex tabs, nest a <ui-bar> as the child.
+ */
 ui-tab{
   --ui-tab-inactive-opacity: 1;
   --ui-tab-inactive-background: inherit;
@@ -38,6 +41,7 @@ ui-tab{
     --ui-button-spacing: 2px;
     --ui-icon-button-spacing: 2px;
     --ui-icon-button-size: 1rem;
+    --ui-icon-size: .8rem;
   }
 
   &:hover{

@@ -52,9 +52,6 @@ ui-dialog{
     ui-icon-button.ui-dialog-close{
       position: absolute;
       left: var(--ui-dialog-title-horizontal-padding);
-      // use is-tiny
-      //--ui-icon-button-size: 14px;
-      //--ui-button-spacing: 2px;
     }
   }
 }

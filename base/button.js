@@ -165,5 +165,9 @@ class UIIconButton extends UIButton{
         }
         this.ariaLabel = label;
     }
+    tiny(){
+        this.classList.add('is-tiny');
+        return this;
+    }
 }
 window.customElements.define('ui-icon-button', UIIconButton);

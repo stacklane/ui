@@ -4,8 +4,14 @@
 ui-box{
   --ui-box-spacing: var(--ui-spacing);
 
+  display: flex;
+
   padding: var(--ui-box-spacing);
 
+  &.is-gutter{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   &.has-0-spacing{
     --ui-box-spacing: 0;
   }

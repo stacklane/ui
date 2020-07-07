@@ -59,6 +59,9 @@ ui-tab{
 
 /**
  * Square appearance
+ *
+ * TODO this needs work -- typically goes with a ui-bar having:
+        is-stretch is-separated is-even is-grow has-0-spacing --ui-tab-is-squares --ui-tab-is-grow
  */
 .--ui-tab-is-squares{
   --ui-tab-inactive-background: var(--ui-secondary-background); /** or secondary fill? */

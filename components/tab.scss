@@ -88,8 +88,12 @@ ui-tab{
 /**
  * Vertical orientation appearance
  */
-.--ui-tab-is-list-item ui-tab{
+.--ui-tab-is-list-item ui-tab,
+.--ui-tab-is-pill-item ui-tab{
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-hover-background: var(--ui-selection-background);
   width: 100%;
+}
+.--ui-tab-is-pill-item ui-tab {
+  border-radius: var(--ui-radius);
 }

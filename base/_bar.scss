@@ -31,6 +31,7 @@ ui-bar{
 
   > *:first-child{
     margin-left: 0px !important;
+    margin-top: 0px !important;
   }
 
   &.has-0-spacing{
@@ -81,6 +82,7 @@ ui-bar{
 
     > * {
       margin-left: 0px;
+      margin-top: var(--ui-bar-spacing);
     }
   }
 

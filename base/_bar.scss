@@ -89,6 +89,12 @@ ui-bar{
     }
   }
 
+  &.is-separated{
+    > *{
+      border-left: 1px solid var(--ui-separator);
+    }
+  }
+
   /**
    * Path indicator between ui-bar children.
    */

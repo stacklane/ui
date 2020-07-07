@@ -3,18 +3,20 @@
 
 ui-tab{
   --ui-tab-inactive-opacity: 1;
+  --ui-tab-inactive-background: inherit;
+  --ui-tab-inactive-foreground: inherit;
 
   --ui-tab-active-background: inherit;
   --ui-tab-active-foreground: inherit;
-  --ui-tab-hover-background: inherit;
+  --ui-tab-active-border-color: transparent;
 
   --ui-tab-border-bottom-size: 0px;
   --ui-tab-border-left-size: 0px;
   --ui-tab-border-right-size: 0px;
   --ui-tab-border-top-size: 0px;
 
-  --ui-tab-active-border-color: transparent;
   --ui-tab-hover-border-color: transparent;
+  --ui-tab-hover-background: inherit;
 
   --ui-tab-spacing: var(--ui-button-spacing);
 
@@ -27,6 +29,8 @@ ui-tab{
   border-bottom: var(--ui-tab-border-bottom-size) solid transparent;
   border-top: var(--ui-tab-border-top-size) solid transparent;
 
+  background: var(--ui-tab-inactive-background);
+  color: var(--ui-tab-inactive-foreground);
   opacity: var(--ui-tab-inactive-opacity);
 
   // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
@@ -66,6 +70,19 @@ ui-tab{
   > ui-icon-button:last-child:not(:first-child){
     margin-left: var(--ui-tab-spacing);
   }*/
+}
+
+/**
+ * Square appearance
+ */
+.--ui-tab-is-squares{
+  --ui-tab-inactive-background: var(--ui-secondary-background); /** or secondary fill? */
+  --ui-tab-inactive-foreground: var(--ui-secondary-label);
+
+  --ui-tab-active-background: transparent;
+  --ui-tab-active-foreground: var(--ui-label);
+
+  --ui-tab-hover-background: transparent;
 }
 
 /**

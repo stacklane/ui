@@ -14,7 +14,6 @@ class UIBar extends HTMLElement{
     }
     _cls(c){ this.classList.add(c); return this; }
     path(){return this._cls('is-path');}
-    column(){return this._cls('is-column');}
     grow(){return this._cls('is-grow');}
     growEnd(){return this._cls('is-end')._cls('is-grow');}
     growEven(){return this._cls('is-even')._cls('is-grow');}
@@ -22,9 +21,21 @@ class UIBar extends HTMLElement{
 }
 window.customElements.define('ui-bar', UIBar);
 
-class UIAppBar extends HTMLElement {
-    constructor() {
+class UISideBar extends HTMLElement {
+    constructor(elements) {
         super();
+        if (typeof elements === 'string'){
+            this.appendChild(Elements.span().text(elements).create());
+        } else if (elements instanceof HTMLElement) {
+            this.appendChild(elements);
+        } else if (elements instanceof Array){
+            for (let i = 0; i < elements.length; i++) this.appendChild(elements[i]);
+        }
     }
+}
+window.customElements.define('ui-sidebar', UISideBar);
+
+class UIAppBar extends HTMLElement {
+    constructor() {super();}
 }
 window.customElements.define('ui-appbar', UIAppBar);

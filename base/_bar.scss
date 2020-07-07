@@ -1,10 +1,13 @@
 @import '/base/button_vars';
 
+/**
+ * Horizontal, responsible for spacing and other options *between* children.
+ */
 ui-bar{
   // Important: these are set/reset for every bar instance,
   // so that nested bars have their own default, and don't inherit a parent's values.
   --ui-bar-background: transparent;
-  --ui-bar-spacing: var(--ui-s-spacing); //var(--ui-button-spacing);
+  --ui-bar-spacing: var(--ui-s-spacing);
 
   display: flex;
   background: var(--ui-toolbar-background);
@@ -31,7 +34,6 @@ ui-bar{
 
   > *:first-child{
     margin-left: 0px !important;
-    margin-top: 0px !important;
   }
 
   &.has-0-spacing{
@@ -79,16 +81,6 @@ ui-bar{
     flex-grow: 1;
   }
 
-  &.is-column{
-    flex-direction: column;
-    align-items: flex-start;
-
-    > * {
-      margin-left: 0px;
-      margin-top: var(--ui-bar-spacing);
-    }
-  }
-
   /**
    * 1px line between children
    */
@@ -134,6 +126,40 @@ ui-bar{
     > *:not(:first-child) {
       margin-left: calc(var(--ui-bar-spacing) + var(--ui-path-item-size) + (var(--ui-path-item-size) / 2)) !important;
     }
+  }
+}
+
+/**
+ * Vertical, responsible for spacing *between* children.
+ */
+ui-sidebar{
+  --ui-sidebar-background: transparent;
+  --ui-sidebar-spacing: var(--ui-s-spacing);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background: var(--ui-sidebar-background);
+
+  > *:not(:first-child) {
+    margin-top: var(--ui-sidebar-spacing);
+  }
+
+  &.has-0-spacing{
+    --ui-sidebar-spacing: 0px;
+  }
+  &.has-spacing{
+    --ui-sidebar-spacing: var(--ui-spacing);
+  }
+  &.has-s-spacing{
+    --ui-sidebar-spacing: var(--ui-s-spacing);
+  }
+  &.has-xs-spacing{
+    --ui-sidebar-spacing: var(--ui-xs-spacing);
+  }
+  &.has-2xs-spacing{
+    --ui-sidebar-spacing: var(--ui-2xs-spacing);
   }
 }
 

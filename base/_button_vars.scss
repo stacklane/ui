@@ -76,7 +76,7 @@
 
   cursor: var(--ui-action-pointer);
 
-  padding: calc(var(--ui-button-spacing)/2) var(--ui-button-spacing);
+  padding: calc(var(--ui-button-spacing)/1.75) var(--ui-button-spacing);
 
   transition: background-color var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms,
               border var(--ui-speed) var(--ui-easing-cubic-bezier) 0ms;

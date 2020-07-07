@@ -46,6 +46,9 @@ ui-bar{
   &.has-xs-spacing{
     --ui-bar-spacing: var(--ui-xs-spacing);
   }
+  &.has-2xs-spacing{
+    --ui-bar-spacing: var(--ui-2xs-spacing);
+  }
 
   /**
    * Typically coupled with .is-grow

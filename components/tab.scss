@@ -57,6 +57,10 @@ ui-tab{
 .--ui-tab-is-grow ui-tab{
   flex-grow: 1;
 }
+.--ui-tab-is-wide ui-tab{
+  margin-left: calc(var(--ui-button-spacing) * -1);
+  margin-right: calc(100% + var(--ui-button-spacing) + var(--ui-button-spacing));
+}
 
 /**
  * Square appearance

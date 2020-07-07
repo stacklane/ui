@@ -182,8 +182,8 @@ ui-appbar{
 
   height: var(--ui-appbar-height);
 
-  padding-left: calc(var(--ui-appbar-spacing) * 1);
-  padding-right: calc(var(--ui-appbar-spacing) * 1);
+  padding-left: var(--ui-appbar-spacing);
+  padding-right: var(--ui-appbar-spacing);
 
   &.is-stretch{
     align-items: stretch;

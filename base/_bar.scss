@@ -167,8 +167,8 @@ ui-sidebar{
  * Horizontal, always fixed height, typically contains 1 or more ui-bar's.
  */
 ui-appbar{
-  --ui-appbar-spacing: 0;
-  --ui-appbar-height: auto;
+  --ui-appbar-spacing: var(--ui-spacing);
+  --ui-appbar-height: calc(var(--ui-spacing) * 4);
   --ui-appbar-background: transparent;
 
   flex-shrink: 0;
@@ -200,8 +200,6 @@ ui-appbar{
   }
   &.has-spacing{
     // by default has-spacing == 16px x 4 == 64px
-    --ui-appbar-spacing: var(--ui-spacing);
-    --ui-appbar-height: calc(var(--ui-spacing) * 4);
   }
   &.has-s-spacing{
     --ui-appbar-spacing: var(--ui-s-spacing);

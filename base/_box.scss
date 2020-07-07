@@ -17,7 +17,7 @@ ui-box{
     --ui-box-spacing: 0;
   }
   &.has-spacing{
-    --ui-box-spacing: var(--ui-spacing);
+    // default / no-change
   }
   &.has-s-spacing{
     --ui-box-spacing: var(--ui-s-spacing);

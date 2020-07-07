@@ -1,8 +1,8 @@
 @import '/utils';
 @import '/base/button_vars';
 
-:root{
-  --ui-tab-inactive-opacity: .7;
+ui-tab{
+  --ui-tab-inactive-opacity: 1;
 
   --ui-tab-active-background: var(--ui-selection-background);
   --ui-tab-active-foreground: inherit;
@@ -17,22 +17,7 @@
   --ui-tab-hover-border-color: transparent;
 
   --ui-tab-spacing: var(--ui-button-spacing);
-}
 
-.--ui-tab-is-bordered ui-tab,
-.--ui-tab-is-bordered-l ui-tab{
-  --ui-tab-active-background: transparent;
-  --ui-tab-hover-background: transparent;
-  --ui-tab-active-foreground: var(--ui-label);
-  --ui-tab-border-bottom-size: 1px;
-  --ui-tab-hover-border-color: var(--ui-label);
-  --ui-tab-active-border-color: var(--ui-primary);
-}
-.--ui-tab-is-bordered-l ui-tab{
-  --ui-tab-border-bottom-size: 2px;
-}
-
-ui-tab{
   @include buttonBase;
   @include unselectable;
 
@@ -81,4 +66,28 @@ ui-tab{
   > ui-icon-button:last-child:not(:first-child){
     margin-left: var(--ui-tab-spacing);
   }*/
+}
+
+/**
+ * Bottom border appearance
+ */
+.--ui-tab-is-bordered ui-tab,
+.--ui-tab-is-bordered-l ui-tab{
+  --ui-tab-inactive-opacity: .75;
+  --ui-tab-active-background: transparent;
+  --ui-tab-hover-background: transparent;
+  --ui-tab-active-foreground: var(--ui-label);
+  --ui-tab-border-bottom-size: 1px;
+  --ui-tab-hover-border-color: var(--ui-label);
+  --ui-tab-active-border-color: var(--ui-primary);
+}
+.--ui-tab-is-bordered-l ui-tab{
+  --ui-tab-border-bottom-size: 2px;
+}
+
+/**
+ * Vertical orientation apperance
+ */
+.--ui-tab-is-vertical ui-tab{
+
 }

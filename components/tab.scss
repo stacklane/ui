@@ -47,29 +47,14 @@ ui-tab{
 
   &[active='true']{
     color: var(--ui-tab-active-foreground);
-    background: var(--ui-tab-active-background);
-    border-color: var(--ui-tab-active-border-color);
+    background: var(--ui-tab-active-background) !important;
+    border-color: var(--ui-tab-active-border-color) !important;
     opacity: 1;
   }
+}
 
-  &.is-grow{
-    flex-grow: 1;
-  }
-
-  // TBD in theses why not nest a ui-bar inside the ui-tab?
-  /**
-   * First child ui-icon, followed by something else.
-
-  > ui-icon:first-child:not(:last-child){
-    margin-right: var(--ui-tab-spacing);
-  }*/
-
-  /**
-   * Last child ui-icon-button
-
-  > ui-icon-button:last-child:not(:first-child){
-    margin-left: var(--ui-tab-spacing);
-  }*/
+.--ui-tab-is-grow ui-tab{
+  flex-grow: 1;
 }
 
 /**
@@ -83,6 +68,10 @@ ui-tab{
   --ui-tab-active-foreground: var(--ui-label);
 
   --ui-tab-hover-background: transparent;
+
+  ui-tab + ui-tab{
+    border-left: 1px solid var(--ui-separator);
+  }
 }
 
 /**

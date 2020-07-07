@@ -6,13 +6,6 @@ ui-box{
 
   padding: var(--ui-box-spacing);
 
-  /**
-   * Match default <ui-appbar>
-   */
-  &.is-appbar{
-    padding: 0 var(--ui-appbar-spacing);
-  }
-
   &.has-0-spacing{
     --ui-box-spacing: 0;
   }

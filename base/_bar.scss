@@ -90,8 +90,12 @@ ui-bar{
   }
 
   &.is-separated{
-    > *{
-      border-left: 1px solid var(--ui-separator);
+    > *:not(:first-child):before {
+      content: "";
+      display:inline-block;
+      width: 1px;
+      background: var(--ui-separator);
+      height: 100%;
     }
   }
 

@@ -4,7 +4,7 @@
 ui-tab{
   --ui-tab-inactive-opacity: 1;
 
-  --ui-tab-active-background: var(--ui-selection-background);
+  --ui-tab-active-background: inherit;
   --ui-tab-active-foreground: inherit;
   --ui-tab-hover-background: inherit;
 
@@ -36,16 +36,16 @@ ui-tab{
     --ui-icon-button-size: 1rem;
   }
 
-  &[active='true']{
-    color: var(--ui-tab-active-foreground);
-    background: var(--ui-tab-active-background);
-    border-color: var(--ui-tab-active-border-color) !important; // don't let hover change it
-    opacity: 1;
-  }
-
   &:hover{
     background: var(--ui-tab-hover-background);
     border-color: var(--ui-tab-hover-border-color);
+  }
+
+  &[active='true']{
+    color: var(--ui-tab-active-foreground);
+    background: var(--ui-tab-active-background);
+    border-color: var(--ui-tab-active-border-color);
+    opacity: 1;
   }
 
   &.is-grow{
@@ -86,8 +86,10 @@ ui-tab{
 }
 
 /**
- * Vertical orientation apperance
+ * Vertical orientation appearance
  */
-.--ui-tab-is-vertical ui-tab{
-
+.--ui-tab-is-list-item ui-tab{
+  --ui-tab-active-background: var(--ui-selection-background);
+  --ui-tab-hover-background: var(--ui-selection-background);
+  width: 100%;
 }

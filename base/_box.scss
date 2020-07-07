@@ -1,10 +1,10 @@
 /**
- * Simple outer spacing.
+ * Simple outer spacing, typically for a single direct child.
  */
 ui-box{
   --ui-box-spacing: var(--ui-spacing);
 
-  display: flex;
+  display: block;
 
   padding: var(--ui-box-spacing);
 

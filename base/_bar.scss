@@ -164,9 +164,11 @@ ui-sidebar{
 }
 
 /**
- * Horizontal, always fixed height, typically contains 1 or more <ui-bar>'s.
+ * Horizontal, fixed height, typically contains 1 or more <ui-bar>'s.
  *
- * Use <ui-box> for exteral padding.
+ * Spacing classes influence fixed height.
+ *
+ * Use parent <ui-box> for external padding or gutters.
  */
 ui-appbar{
   --ui-appbar-spacing: var(--ui-spacing);
@@ -184,17 +186,8 @@ ui-appbar{
 
   height: var(--ui-appbar-height);
 
-  //padding-left: var(--ui-appbar-spacing);
-  //padding-right: var(--ui-appbar-spacing);
-
   &.is-stretch{
     align-items: stretch;
-  }
-
-  /*
-  &.has-0-gutters{
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   &.has-l-spacing{
@@ -211,5 +204,5 @@ ui-appbar{
   &.has-xs-spacing{
     --ui-appbar-spacing: var(--ui-xs-spacing);
     --ui-appbar-height: calc(var(--ui-xs-spacing) * 4);
-  }*/
+  }
 }

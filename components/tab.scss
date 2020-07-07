@@ -54,14 +54,6 @@ ui-tab{
   }
 }
 
-.--ui-tab-is-grow ui-tab{
-  flex-grow: 1;
-}
-.--ui-tab-is-wide ui-tab{
-  margin-left: calc(var(--ui-button-spacing) * -1);
-  width: calc(100% + var(--ui-button-spacing) + var(--ui-button-spacing));
-}
-
 /**
  * Square appearance
  *
@@ -106,4 +98,15 @@ ui-tab{
 }
 .--ui-tab-is-pill-item ui-tab {
   border-radius: var(--ui-radius);
+}
+
+/**
+ * More options
+ */
+.--ui-tab-is-grow ui-tab{
+  flex-grow: 1;
+}
+.--ui-tab-is-wide ui-tab{
+  margin-left: calc(var(--ui-button-spacing) / 2 * -1);
+  width: calc(100% + var(--ui-button-spacing));
 }

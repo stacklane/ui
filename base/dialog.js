@@ -33,7 +33,7 @@ class UIDialog extends HTMLElement{
     modal(){
         const modal = new UIModal(this);
 
-        const closer = new UIIconButton(UIIcon.x()).round();
+        const closer = new UIIconButton(UIIcon.x()).round().tiny();
         closer.classList.add('ui-dialog-close');
 
         closer.addEventListener('click', ()=>modal.close());

@@ -171,6 +171,7 @@ ui-button{
 ui-icon-button{
   flex: 0 0 auto;
 
+  // Tiniest "usable" size
   &.is-tiny{
     --ui-icon-button-size: 14px;
     --ui-button-spacing: 2px;

@@ -37,12 +37,9 @@ ui-tab{
   opacity: var(--ui-tab-inactive-opacity);
 
   // Nested UIIconButton overrides (the UITab, which is button-like, may also contain a UIIconButton):
-  * {
-    --ui-button-spacing: 2px;
-    --ui-icon-button-spacing: 2px;
-    --ui-icon-button-size: 1rem;
-    --ui-icon-size: .8rem;
-  }
+
+  --ui-icon-button-spacing: 2px;
+  --ui-icon-size: 14px;
 
   &:hover{
     background: var(--ui-tab-hover-background);

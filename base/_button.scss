@@ -170,6 +170,12 @@ ui-button{
  */
 ui-icon-button{
   flex: 0 0 auto;
+
+  &.is-tiny{
+    --ui-icon-button-size: 14px;
+    --ui-button-spacing: 2px;
+  }
+
   --ui-button-font-size: var(--ui-icon-button-size);
   padding: var(--ui-icon-button-spacing) !important;
   border-radius: var(--ui-icon-button-radius);

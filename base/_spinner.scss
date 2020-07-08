@@ -4,12 +4,12 @@
   --ui-spinner-color: var(--ui-label);
 }
 
-[ui-spinner-is-active]{
+[ui-spinner-is-active='true']{
   ui-spinner.is-activated{
     display: inline-flex;
   }
 }
-ui-spinner.is-activated[ui-spinner-is-active]{
+ui-spinner.is-activated[ui-spinner-is-active='true']{
   display: inline-flex;
 }
 

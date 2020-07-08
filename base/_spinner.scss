@@ -1,8 +1,4 @@
-:root{
-  --ui-spinner-width: 2px;
-  --ui-spinner-size: var(--ui-xl-spacing);
-  --ui-spinner-color: var(--ui-label);
-}
+@import '/utils';
 
 [ui-spinner-is-active='true']{
   ui-spinner.is-activated{
@@ -14,13 +10,20 @@ ui-spinner.is-activated[ui-spinner-is-active='true']{
 }
 
 ui-spinner {
-  @extend %unselectable;
-  display: inline-flex;
-  position: relative;
+  --ui-spinner-width: 2px;
+  --ui-spinner-size: var(--ui-xl-spacing);
+  --ui-spinner-color: var(--ui-label);
+
+  @include unselectable;
+
+  display: block;
+  position: absolute;
   width: var(--ui-spinner-size);
   height: var(--ui-spinner-size);
-  align-self: center;
+  //align-self: center;
   border: 0px;
+  left: 50%;
+  top: 50%;
 
   > div {
     box-sizing: border-box;

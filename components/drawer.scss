@@ -3,6 +3,8 @@
 /**
  * Sidebar/drawer as main application layout.
  *
+ * As a main layout, it's not intended to be nested.
+ *
  * This approach uses margin-left to animate the sidebar.
  * This looks nice, and works well with the flex layout,
  * however it does require a known drawer width (--ui-drawer-width).
@@ -27,6 +29,9 @@
   .is-hidden-when-drawer-opened{
     display: none;
   }
+  .is-hidden-when-drawer-closed{
+    display: inherit;
+  }
   ui-drawer-overlay{
     display: block;
   }
@@ -49,6 +54,9 @@
   }
   .is-hidden-when-drawer-opened{
     display: inherit;
+  }
+  .is-hidden-when-drawer-closed{
+    display: none;
   }
   ui-drawer-overlay{
     display:none;

@@ -24,6 +24,7 @@ ui-spinner {
   border: 0px;
   left: 50%;
   top: 50%;
+  z-index: 1000;
 
   > div {
     box-sizing: border-box;

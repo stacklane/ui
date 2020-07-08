@@ -1,10 +1,13 @@
 @import '/utils';
 
 /**
+ * Sidebar/drawer as main application layout.
+ *
  * This approach uses margin-left to animate the sidebar.
  * This looks nice, and works well with the flex layout,
  * however it does require a known drawer width (--ui-drawer-width).
  */
+
 :root {
   --ui-drawer-width: 240px;
   --ui-drawer-background: var(--ui-secondary-background);
@@ -21,7 +24,7 @@
   ui-drawer {
     margin-left: 0px;
   }
-  .has-ui-drawer-opener{
+  .is-hidden-when-drawer-opened{
     display: none;
   }
   ui-drawer-overlay{
@@ -44,7 +47,7 @@
   ui-drawer {
     margin-left: calc(-1 * var(--ui-drawer-width));
   }
-  .has-ui-drawer-opener{
+  .is-hidden-when-drawer-opened{
     display: inherit;
   }
   ui-drawer-overlay{

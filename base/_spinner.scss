@@ -4,10 +4,13 @@
   --ui-spinner-color: var(--ui-label);
 }
 
-[ui-is-init]{
-  ui-spinner.is-init{
+[ui-spinner-is-active]{
+  ui-spinner.is-activated{
     display: inline-flex;
   }
+}
+ui-spinner.is-activated[ui-spinner-is-active]{
+  display: inline-flex;
 }
 
 ui-spinner {
@@ -52,7 +55,7 @@ ui-spinner {
     }
   }
 
-  &.is-init{
+  &.is-activated{
     display: none;
   }
 }

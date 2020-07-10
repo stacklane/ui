@@ -41,9 +41,13 @@ ui-tab{
   --ui-icon-button-spacing: 2px;
   --ui-icon-size: 14px;
 
-  &:hover{
+  &:hover:not([disabled]){
     background: var(--ui-tab-hover-background);
     border-color: var(--ui-tab-hover-border-color);
+  }
+
+  &[disabled]{
+    pointer-events: none;
   }
 
   &[active='true']{

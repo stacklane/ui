@@ -44,14 +44,16 @@ class UITab extends HTMLElement{
             this._view = view;
         }
 
-        if (typeof display === 'string'){
-            this.appendChild(Elements.span().text(display).create());
-        } else if (display instanceof HTMLElement) {
-            this.appendChild(display);
-        } else if (display instanceof Array){
-            for (let i = 0; i < display.length; i++) this.appendChild(display[i]);
-        } else {
-            throw '!display';
+        if (display) {
+            if (typeof display === 'string') {
+                this.appendChild(Elements.span().text(display).create());
+            } else if (display instanceof HTMLElement) {
+                this.appendChild(display);
+            } else if (display instanceof Array) {
+                for (let i = 0; i < display.length; i++) this.appendChild(display[i]);
+            } else {
+                throw '!display';
+            }
         }
     }
 

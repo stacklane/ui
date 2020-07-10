@@ -79,6 +79,8 @@ class UIButton extends HTMLElement{
     }
 
     _do(event){
+        if (this.hasAttribute('disabled')) return;
+
         for (let i = 0; i < this.children.length; i++){
             const c = this.children.item(i);
             if (c instanceof UIButtonAction) c.handle();

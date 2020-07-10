@@ -54,7 +54,7 @@
   fieldset[disabled] & {
     cursor: not-allowed;
 
-    filter: brightness(.25); // opacity instead?
+    filter: brightness(0.5); // opacity instead?
     pointer-events: none !important;
     cursor: not-allowed !important;
 

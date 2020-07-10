@@ -16,10 +16,14 @@ class UISkeletons extends HTMLElement{
     constructor() {super();}
     connectedCallback(){
         const n = this.getAttribute('count');
-        const inner = this.innerHTML;
-        let result = '';
-        for (let i = 0; i < n; i++) result += inner;
-        this.innerHTML = result;
+        const nodes = this.childNodes;
+        const result = [];
+        for (let i = 0; i < n; i++) {
+            for (let z = 0; z < nodes.length; z++){
+                result.push(nodes[z].cloneNode(true));
+            }
+        }
+        this.replaceWith(...result);
     }
 }
 window.customElements.define('ui-skeletons', UISkeletons);

@@ -155,11 +155,12 @@ ui-icon{
 }
 
 ui-skeleton{
-  display:block;
+  display: flex; //display:block;
   position: relative;
   animation: ui-skeleton-keyframes-pulse 1.5s ease-in-out 0.5s infinite;
   background: rgba(255, 255, 255, 0.13); // TODO theme, light = rgba(0, 0, 0, 0.11)
   height: 1.2em;
+  pointer-events: none;
 
   &.is-rect{
     // default
@@ -176,6 +177,7 @@ ui-skeleton{
     border-radius: 4px;
     margin-bottom: 0;
     transform-origin: 0 60%;
+    width: 100%;
   }
 
   &.is-auto {

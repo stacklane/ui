@@ -44,10 +44,14 @@ class UIButton extends HTMLElement{
 
     static addAccessibleAction(target, action){
         target.addEventListener('keydown', function (event) {
+            if (target.hasAttribute('disabled')) return;
             if (UIButton.isAccessibleActionKey(event)) action(event);
         });
 
-        target.addEventListener('click', function (event) { action(event);})
+        target.addEventListener('click', function (event) {
+            if (target.hasAttribute('disabled')) return;
+            action(event);
+        });
     }
 
     constructor(iconOrText, textAfterIcon) {
@@ -79,8 +83,6 @@ class UIButton extends HTMLElement{
     }
 
     _do(event){
-        if (this.hasAttribute('disabled')) return;
-
         for (let i = 0; i < this.children.length; i++){
             const c = this.children.item(i);
             if (c instanceof UIButtonAction) c.handle();

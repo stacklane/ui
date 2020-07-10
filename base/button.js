@@ -10,10 +10,28 @@ class UIButtonAction extends HTMLElement{
     handle(){}
 
     connectedCallback(){
-        // CSS target for uniformly hiding:
+        // CSS target for uniformly hiding regardless of subclass:
         this.setAttribute('data-ui-button-action', 'true');
     }
 }
+
+/**
+ * Action to alter window.location.hash, which in turn fires 'hashchange' event.
+ */
+class UIButtonHashAction extends UIButtonAction{
+    constructor(hash) {
+        super();
+        this._hash = hash;
+    }
+    handle(){
+        window.location.hash = this._hash;
+    }
+    connectedCallback() {
+        super.connectedCallback();
+        if (!this._hash) this._hash = this.getAttribute('value');
+    }
+}
+window.customElements.define('ui-button-hash-action', UIButtonMenu);
 
 class UIButtonMenu extends HTMLElement{
     constructor() {super();}

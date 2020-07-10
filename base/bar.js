@@ -9,7 +9,13 @@ class UIBar extends HTMLElement{
         } else if (elements instanceof HTMLElement) {
             this.appendChild(elements);
         } else if (elements instanceof Array){
-            for (let i = 0; i < elements.length; i++) this.appendChild(elements[i]);
+            for (let i = 0; i < elements.length; i++) {
+                if (typeof elements[i] === 'string') {
+                    this.appendChild(Elements.span().text(elements[i]).create());
+                } else {
+                    this.appendChild(elements[i]);
+                }
+            }
         }
     }
     _cls(c){ this.classList.add(c); return this; }

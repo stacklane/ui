@@ -153,3 +153,54 @@ ui-icon{
     font-size: var(--ui-icon-size);
   }
 }
+
+ui-skeleton{
+  display:block;
+  position: relative;
+  animation: ui-skeleton-keyframes-pulse 1.5s ease-in-out 0.5s infinite;
+  background: rgba(255, 255, 255, 0.13); // TODO theme, light = rgba(0, 0, 0, 0.11)
+  height: 1.2em;
+
+  &.is-rect{
+    // default
+  }
+
+  &.is-text{
+    &:empty:before{
+      content: "\00a0";
+    }
+    border-radius: var(--ui-radius);
+    height: auto;
+    transform: scale(1, 0.60);
+    margin-top: 0;
+    border-radius: 4px;
+    margin-bottom: 0;
+    transform-origin: 0 60%;
+  }
+
+  &.is-auto {
+    height: auto;
+    max-width: fit-content;
+
+    > * {
+      visibility: hidden;
+    }
+  }
+
+  &.is-circle{
+    border-radius: var(--ui-radius-rounded);
+  }
+
+  @keyframes ui-skeleton-keyframes-pulse {
+    0% {
+      opacity: 1
+    }
+    50% {
+      opacity: .4
+    }
+    100% {
+      opacity: 1
+    }
+  }
+
+}

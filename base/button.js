@@ -31,7 +31,7 @@ class UIButtonHashAction extends UIButtonAction{
         if (!this._hash) this._hash = this.getAttribute('value');
     }
 }
-window.customElements.define('ui-button-hash-action', UIButtonMenu);
+window.customElements.define('ui-button-hash-action', UIButtonHashAction);
 
 class UIButtonMenu extends HTMLElement{
     constructor() {super();}

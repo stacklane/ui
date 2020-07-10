@@ -172,9 +172,9 @@ ui-skeleton{
     }
     border-radius: var(--ui-radius);
     height: auto;
-    transform: scale(1, 0.60);
+    transform: scale(1, 0.60); // because text at full size looks too large for a skeleton
     border-radius: 4px;
-    transform-origin: 0 60%;
+    // not good for flex vertical alignment: transform-origin: 0 60%;
     width: 100%;
   }
 

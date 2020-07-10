@@ -12,6 +12,18 @@ class UISkeleton extends HTMLElement{
 }
 window.customElements.define('ui-skeleton', UISkeleton);
 
+class UISkeletons extends HTMLElement{
+    constructor() {super();}
+    connectedCallback(){
+        const n = this.getAttribute('count');
+        const inner = this.innerHTML;
+        let result = '';
+        for (let i = 0; i < n; i++) result += inner;
+        this.innerHTML = result;
+    }
+}
+window.customElements.define('ui-skeletons', UISkeletons);
+
 class UIBox extends HTMLElement{
     constructor() {super();}
 }

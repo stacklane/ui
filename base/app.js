@@ -10,7 +10,7 @@ const _UI_ICON_SVG_MENU_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height=
 class UISkeleton extends HTMLElement{
     constructor() {super();}
 }
-window.customElements.define('ui-skeleton', UIBox);
+window.customElements.define('ui-skeleton', UISkeleton);
 
 class UIBox extends HTMLElement{
     constructor() {super();}

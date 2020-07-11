@@ -21,10 +21,10 @@ class UITab extends HTMLElement{
         return 'UITab#change';
     }
     static get ViewTabId(){
-        return 'data-ui-tab-view-id';
+        return 'view';
     }
     static get ActivatedAttribute(){
-        return 'data-ui-tab-view-active';
+        return 'active';
     }
 
     static find(elementStart, id){
@@ -33,6 +33,8 @@ class UITab extends HTMLElement{
 
     constructor(display, view, plainTextTitle) {
         super();
+
+        if (display) Elements.append(this, display);
 
         this._plainTitle = plainTextTitle;
 
@@ -43,8 +45,6 @@ class UITab extends HTMLElement{
             this.setAttribute(UITab.ViewTabId, view.id);
             this._view = view;
         }
-
-        if (display) Elements.append(this, display);
     }
 
     /**

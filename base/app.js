@@ -124,6 +124,17 @@ class Elements{
     static ul(){return new Elements('ul')};
     static li(){return new Elements('li')};
 
+    static append(parent, elements){
+        if (typeof elements === 'string'){
+            parent.appendChild(Elements.span().text(elements).create());
+        } else if (elements instanceof HTMLElement) {
+            parent.appendChild(elements);
+        } else if (elements instanceof Array){
+            for (let i = 0; i < elements.length; i++)
+                Elements.append(parent, elements[i]);
+        }
+    }
+
     constructor(name){
         this._name = name;
     }

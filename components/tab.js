@@ -4,14 +4,13 @@
  *
  * A series of related UITab's must exist within a common parent element.
  *
- * Styled in an implementation specific way using classes.
- *
  * UITab's make no assumption about where their corresponding view exists in the document.
  *
- * @param {view} should define an #id, and observe activation:
+ * @param {view} should define an #id.
+ *        It may observe activation:
  *        static get observedAttributes() { return [UITab.ActivatedAttribute]; }
  *        attributeChangedCallback(name, oldValue, newValue) {
- *            if (name === UITab.ActivatedAttribute && newValue === 'true) {
+ *            if (name === UITab.ViewActivatedAttribute && newValue === 'true) {
  *                ...
  *            }
  *        }
@@ -23,8 +22,8 @@ class UITab extends HTMLElement{
     static get ViewTabId(){
         return 'view';
     }
-    static get ActivatedAttribute(){
-        return 'active';
+    static get ViewActivatedAttribute(){
+        return 'data-ui-tab-view-active';
     }
 
     static find(elementStart, id){
@@ -63,6 +62,11 @@ class UITab extends HTMLElement{
 
         this._view = this._viewSupplier();
         if (!this._view.id) throw '!view.id';
+
+        if (this._view.hasAttribute(UITab.ViewActivatedAttribute)){
+            this._view.setAttribute(UITab.ViewActivatedAttribute, 'false');
+        }
+
         this.setAttribute(UITab.ViewTabId, this._view.id);
 
         return this._view;
@@ -79,7 +83,7 @@ class UITab extends HTMLElement{
         this.setAttribute('active', 'true');
         this.setAttribute('aria-selected', 'true');
 
-        this.view.setAttribute(UITab.ActivatedAttribute, 'true');
+        this.view.setAttribute(UITab.ViewActivatedAttribute, 'true');
 
         // Instead:
         const toFocus = this.view.querySelectorAll('input, textarea, select');
@@ -96,7 +100,7 @@ class UITab extends HTMLElement{
         this.setAttribute('active', 'false');
         this.setAttribute('aria-selected', 'false');
 
-        if (this._view) this._view.setAttribute(UITab.ActivatedAttribute, 'false');
+        if (this._view) this._view.setAttribute(UITab.ViewActivatedAttribute, 'false');
     }
 
     close(){

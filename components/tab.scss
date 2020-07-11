@@ -1,6 +1,13 @@
 @import '/utils';
 @import '/base/button_vars';
 
+[data-ui-tab-view-active='false']{
+  display: none;
+}
+[data-ui-tab-view-active='true']{
+  display: inherit;
+}
+
 /**
  * For complex tabs, nest a <ui-bar> as the child.
  */

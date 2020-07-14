@@ -51,6 +51,15 @@
   position: relative;
   vertical-align: top; // this seems to be necessary and has unexpected / intermittent issues, even with align-items center
 
+  /**
+   * Text labels of unknown length within the button.
+   */
+  span,h1,h2,h3,h4,h5,h6{
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow:hidden;
+  }
+
   &[disabled],
   fieldset[disabled] & {
     cursor: not-allowed;

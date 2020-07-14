@@ -16,6 +16,8 @@ ui-bar{
   align-items: center;
   flex-shrink: 0;
 
+  max-width:100%; // especially for containing buttons whose text may be very long, the bar width must be restricted, so the button length is also restricted
+
   &:empty{
     display:none;
   }

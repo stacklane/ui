@@ -52,7 +52,13 @@
   vertical-align: top; // this seems to be necessary and has unexpected / intermittent issues, even with align-items center
 
   /**
-   * Text labels of unknown length within the button.
+   * Handle overflowing labels of unknown/dynamic length within the button.
+   *
+   * For more explicit control, use one of:
+   *
+   * .is-small-label
+   * .is-medium-label
+   * .is-large-label
    */
   span,h1,h2,h3,h4,h5,h6{
     max-width: 100%;

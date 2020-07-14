@@ -1,3 +1,4 @@
+'use strict';
 
 // Un-opinionated 45 degree crossed lines:
 const _UI_ICON_SVG_X = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
@@ -185,3 +186,201 @@ class Elements{
         return e;
     }
 }
+
+/**
+ * Base class for simple, declarative action handling.
+ * Subclass, then nest as a child within a UIButton or UIIconButton.
+ */
+class UIButtonAction extends HTMLElement{
+    constructor() {super();}
+
+    handle(){}
+
+    connectedCallback(){
+        // CSS target for uniformly hiding regardless of subclass:
+        this.setAttribute('data-ui-button-action', 'true');
+    }
+}
+
+/**
+ * Action to alter window.location.hash, which in turn fires 'hashchange' event.
+ */
+class UIButtonHashAction extends UIButtonAction{
+    constructor(hash) {
+        super();
+        this._hash = hash;
+    }
+    handle(){
+        window.location.hash = this._hash;
+    }
+    connectedCallback() {
+        super.connectedCallback();
+        if (!this._hash) this._hash = this.getAttribute('value');
+    }
+}
+window.customElements.define('ui-button-hash-action', UIButtonHashAction);
+
+class UIButtonMenu extends HTMLElement{
+    constructor() {super();}
+    connectedCallback(){
+        const button = this.parentElement;
+        // click event for UIMenuButton is to give it focus to display the menu
+        button._blurAfterAction = false; // see UIButton
+        button.setAttribute('aria-haspopup', 'true');
+
+        // TBD..
+        // button.setAttribute('aria-controls', 'ui-menu');
+    }
+}
+window.customElements.define('ui-button-menu', UIButtonMenu);
+
+/**
+ * For declarative actions, add child elements which extend UIButtonAction.
+ *
+ * For programmatic actions, use UIButton#addAction
+ */
+class UIButtonBase extends HTMLElement{
+    /**
+     * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+     */
+    static isAccessibleActionKey(keyboardEvent){
+        return (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ');
+    }
+
+    static addAccessibleAction(target, action){
+        target.addEventListener('keydown', function (event) {
+            if (target.hasAttribute('disabled')) return;
+            if (UIButton.isAccessibleActionKey(event)) action(event);
+        });
+
+        target.addEventListener('click', function (event) {
+            if (target.hasAttribute('disabled')) return;
+            action(event);
+        });
+    }
+
+    constructor() {
+        super();
+    }
+
+    _cls(c){ this.classList.add(c); return this; }
+
+    fullWidth(){return this._cls('is-full-width');}
+    //justifyLeft(){return this._cls('is-justify-left');}
+    outlined(){return this._cls('is-outlined');}
+    contained(){return this._cls('is-contained');}
+    round(){return this._cls('is-round');}
+    primary(){return this._cls('is-primary');}
+    negative(){return this._cls('is-negative');}
+
+    addAction(callback){
+        if (!this._actions) this._actions = [];
+        this._actions.push(callback);
+        return this;
+    }
+
+    _do(event){
+        for (let i = 0; i < this.children.length; i++){
+            const c = this.children.item(i);
+            if (c instanceof UIButtonAction) c.handle();
+        }
+
+        if (this._actions){
+            for (let i = 0; i < this._actions.length; i++)
+                this._actions[i](event);
+        }
+
+        if (this._blurAfterAction){
+            /**
+             * TBD hard to find too much guidance here.
+             * Intuitively a button is usually a single action --
+             * not something that you repeatedly want to perform.
+             * So doesn't it make sense to blur it when the action is performed?
+             * It does at least from a styling standpoint.
+             */
+            this.blur();
+        }
+    }
+
+    set ariaLabel(label){
+        this._label = label;
+    }
+
+    connectedCallback() {
+        /**
+         * Use tabindex to treat this is a native <button> in the sense that
+         * it is by default focusable (default focus order).
+         */
+        this.setAttribute('tabindex', '0');
+
+        const that = this;
+
+        UIButton.addAccessibleAction(that, (event)=>{that._do(event)});
+
+        that.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape')
+                // Primarily to hide any nested UIButtonMenu,
+                // however makes sense for any button to be able to unfocus from keyboard.
+                that.blur();
+        });
+
+        /**
+         * Allow CSS to target the parent of the UIButtonAction (the UIButton containing the action).
+         * However we can't test "instanceof UIButtonAction", because they are not 'connected' yet.
+         * Therefore we are more broad.
+         */
+        {
+            for (let i = 0; i < this.children.length; i++) {
+                const c = this.children.item(i);
+                const tagNameLower = c.tagName.toLowerCase();
+                if (tagNameLower.startsWith('ui-') && !tagNameLower.startsWith('ui-icon'))
+                    this.classList.add('has-' + tagNameLower);
+            }
+        }
+
+        /**
+         * ARIA
+         *
+         * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+         */
+        if (this._label) this.setAttribute('aria-label', this._label);
+        this.setAttribute('role', 'button');
+        this.querySelectorAll('svg').forEach((e)=>{
+            e.setAttribute('area-hidden', 'true');
+            e.setAttribute('focusable', 'false');
+        })
+    }
+}
+
+class UIButton extends UIButtonBase{
+    constructor(iconOrText, textAfterIcon) {
+        super();
+        if (iconOrText instanceof UIIcon){
+            this.appendChild(iconOrText);
+            if (typeof textAfterIcon === 'string')
+                this.appendChild(Elements.span().text(textAfterIcon).create());
+        } else if (typeof iconOrText === 'string'){
+            this.innerText = iconOrText;
+        }
+        this._blurAfterAction = true;
+    }
+    vertical(){ return this._cls('is-vertical');}
+}
+window.customElements.define('ui-button', UIButton);
+
+/**
+ * Highly recommended to pass or define aria-label
+ */
+class UIIconButton extends UIButtonBase{
+    constructor(value, label) {
+        super();
+        if (value instanceof UIIcon){
+            this.appendChild(value);
+        } else if (value){
+            this.appendChild(new UIIcon(value));
+        }
+        this.ariaLabel = label;
+    }
+    tiny(){ return this._cls('is-tiny');}
+}
+window.customElements.define('ui-icon-button', UIIconButton);

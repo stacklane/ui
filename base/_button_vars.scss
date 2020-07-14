@@ -44,6 +44,7 @@
 @mixin buttonBase {
   appearance: none;
   border: 0;
+  flex-direction: row;
   justify-content: flex-start;
   display: inline-flex;
   align-items: center;

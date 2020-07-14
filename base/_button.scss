@@ -161,6 +161,15 @@ ui-button{
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);
   }
+
+  &.is-vertical{
+    flex-direction: column;
+    padding: calc(var(--ui-button-spacing) / 2);
+
+    ui-icon:first-child{
+      margin: 0 0 calc(var(--ui-button-spacing) / 2);
+    }
+  }
 }
 
 /**

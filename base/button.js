@@ -52,7 +52,7 @@ window.customElements.define('ui-button-menu', UIButtonMenu);
  *
  * For programmatic actions, use UIButton#addAction
  */
-class UIButton extends HTMLElement{
+class UIButtonBase extends HTMLElement{
     /**
      * https://www.sarasoueidan.com/blog/accessible-icon-buttons/
      */
@@ -72,16 +72,8 @@ class UIButton extends HTMLElement{
         });
     }
 
-    constructor(iconOrText, textAfterIcon) {
+    constructor() {
         super();
-        if (iconOrText instanceof UIIcon){
-            this.appendChild(iconOrText);
-            if (typeof textAfterIcon === 'string')
-                this.appendChild(Elements.span().text(textAfterIcon).create());
-        } else if (typeof iconOrText === 'string'){
-            this.innerText = iconOrText;
-        }
-        this._blurAfterAction = true;
     }
 
     _cls(c){ this.classList.add(c); return this; }
@@ -172,12 +164,27 @@ class UIButton extends HTMLElement{
         })
     }
 }
+
+class UIButton extends UIButtonBase{
+    constructor(iconOrText, textAfterIcon) {
+        super();
+        if (iconOrText instanceof UIIcon){
+            this.appendChild(iconOrText);
+            if (typeof textAfterIcon === 'string')
+                this.appendChild(Elements.span().text(textAfterIcon).create());
+        } else if (typeof iconOrText === 'string'){
+            this.innerText = iconOrText;
+        }
+        this._blurAfterAction = true;
+    }
+    vertical(){ return this._cls('is-vertical');}
+}
 window.customElements.define('ui-button', UIButton);
 
 /**
  * Highly recommended to pass or define aria-label
  */
-class UIIconButton extends UIButton{
+class UIIconButton extends UIButtonBase{
     constructor(value, label) {
         super();
         if (value instanceof UIIcon){
@@ -187,9 +194,6 @@ class UIIconButton extends UIButton{
         }
         this.ariaLabel = label;
     }
-    tiny(){
-        this.classList.add('is-tiny');
-        return this;
-    }
+    tiny(){ return this._cls('is-tiny');}
 }
 window.customElements.define('ui-icon-button', UIIconButton);

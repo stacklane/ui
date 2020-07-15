@@ -365,6 +365,7 @@ class UIButton extends UIButtonBase{
         this._blurAfterAction = true;
     }
     vertical(){return this._cls('is-vertical');}
+    even(){return this._cls('has-even-spacing');}
 }
 window.customElements.define('ui-button', UIButton);
 

@@ -364,7 +364,7 @@ class UIButton extends UIButtonBase{
         }
         this._blurAfterAction = true;
     }
-    vertical(){ return this._cls('is-vertical');}
+    vertical(){return this._cls('is-vertical');}
 }
 window.customElements.define('ui-button', UIButton);
 

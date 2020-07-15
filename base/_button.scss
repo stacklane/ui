@@ -8,11 +8,12 @@
   display: none;
 }
 
---ui-button-has-even-spacing{
+.--ui-button-has-even-spacing{
   ui-button{
     padding: var(--ui-button-spacing);
   }
 }
+
 /**
  * https://material-ui.com/components/buttons/
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/

@@ -8,12 +8,6 @@
   display: none;
 }
 
-.--ui-button-has-even-spacing{
-  ui-button{
-    padding: var(--ui-button-spacing);
-  }
-}
-
 /**
  * https://material-ui.com/components/buttons/
  * https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/
@@ -162,24 +156,23 @@ ui-button, ui-icon-button{
   }
 }
 
+.--ui-button-has-even-spacing ui-button, ui-button.has-even-spacing{
+  padding: var(--ui-button-spacing);
+}
+.--ui-button-is-vertical ui-button, ui-button.is-vertical{
+  flex-direction: column;
+  padding: calc(var(--ui-button-spacing));
+
+  ui-icon:first-child{
+    margin: 0 0 calc(var(--ui-button-spacing) / 2);
+  }
+}
+
 ui-button{
   ui-icon:first-child{
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);
-  }
-
-  &.is-vertical{
-    flex-direction: column;
-    padding: calc(var(--ui-button-spacing));
-
-    ui-icon:first-child{
-      margin: 0 0 calc(var(--ui-button-spacing) / 2);
-    }
-  }
-
-  &.has-even-spacing{
-    padding: var(--ui-button-spacing) !important;
   }
 }
 

@@ -6,7 +6,11 @@
   --ui-button-spacing: var(--ui-s-spacing);
   --ui-button-font-size: 1rem; // Material is .875rem
 
-  --ui-button-line-height: 1; //inherit; //1.5; // Bootstrap and Bulma == 1.5, Material == 1.75
+  // Impacts button height.
+  // Can't be "1", because then when overflow is hidden,
+  // the lower reaching characters like "y" may be cut off.
+  // Bootstrap and Bulma == 1.5, Material == 1.75
+  --ui-button-line-height: 1.2; //inherit; //1.5;
 
   --ui-icon-button-radius: var(--ui-button-radius);
   --ui-icon-button-size: 1.5rem;
@@ -60,7 +64,7 @@
    * .is-medium-label
    * .is-large-label
    */
-  span,h1,h2,h3,h4,h5,h6{
+  > span{
     max-width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;

@@ -104,8 +104,9 @@ ui-button, ui-icon-button{
    * Contained / Solid Appearance
    */
   &.is-contained{
-    background: var(--ui-default);
-    color: var(--ui-default-invert);
+    //background: var(--ui-default);
+    //color: var(--ui-default-invert);
+    background: var(--ui-default-alpha-high);
     padding: calc(var(--ui-button-spacing)/2) calc(var(--ui-button-spacing)*2);
 
     &:hover, &:focus, &:focus-within{

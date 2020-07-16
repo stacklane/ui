@@ -121,27 +121,37 @@ ui-drawer-layout{
     }
   }
 
+  /**
+   * Manually/explicitly opened.
+   */
   &.is-opened{
     @include ui-drawer-is-opened();
   }
 
+  /**
+   * Manually/explicitly closed.
+   */
   &.is-closed{
     @include ui-drawer-is-closed();
   }
 
   /**
-   * .is-something
+   * .is-mobile-nav -- alternative navigation:
+   *
+   * - Displays always when screen < tablet
+   * - Forces display if drawer manually closed and screen > tablet
+   *   (otherwise there would be no navigation displayed)
    */
-  .is-something{
+  .is-drawer-mobile-nav{
     @include tablet{
       display: none;
     }
   }
 
   &.is-closed{
-    .is-something {
+    .is-drawer-mobile-nav {
       @include tablet {
-        display: inherit;
+        display: initial;
       }
     }
   }

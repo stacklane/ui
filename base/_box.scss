@@ -27,7 +27,13 @@ ui-box{
 
   &.is-main{
     margin: 0 auto;
-    max-width: 1400px; // ?
+
+    //width: 100%;
+
+    //
+    max-width: 1092px;
+    min-width: 760px;
+    width: calc(100vw - 302px);
 
     @include tablet{
       padding-left: calc(var(--ui-box-spacing) * 2.75);

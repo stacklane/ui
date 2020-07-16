@@ -1,3 +1,5 @@
+@import '/utils';
+
 :root{
   //--ui-control-height: 2.5em;
 
@@ -65,9 +67,7 @@
    * .is-large-label
    */
   > span{
-    max-width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    @include label;
   }
 
   &[disabled],

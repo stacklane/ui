@@ -83,7 +83,7 @@ ui-drawer-layout{
    * May contain a <ui-appbar> to match height of any toolbar this is next to.
    */
   ui-drawer{
-    overflow: hidden;
+    // not good for popup menus which are wider than sidebar: overflow: hidden;
 
     background: var(--ui-drawer-background);
     color: var(--ui-drawer-label);

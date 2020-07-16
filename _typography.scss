@@ -13,6 +13,9 @@
   --ui-medium-label-size: calc(var(--ui-small-label-size) * 2);
   --ui-large-label-size: calc(var(--ui-small-label-size) * 3);
 
+  .is-label{
+    @include label;
+  }
   .is-small-label{
     max-width: var(--ui-small-label-size);
     text-overflow: ellipsis;

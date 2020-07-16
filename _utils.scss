@@ -12,6 +12,13 @@ $tablet: 769px !default; // not allowed as a css variable
   user-select: none;
 }
 
+@mixin label {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 %unselectable {
   @include unselectable;
 }

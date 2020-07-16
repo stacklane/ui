@@ -12,6 +12,9 @@ ui-box{
     --ui-box-spacing: var(--ui-l-spacing);
   }
 
+  /**
+   * Only left/right padding.
+   */
   &.is-gutter{
     padding-top: 0;
     padding-bottom: 0;
@@ -29,6 +32,10 @@ ui-box{
     --ui-box-spacing: var(--ui-xs-spacing);
   }
 
+  /**
+   * A main content or app area, where on larger screens
+   * there is more breathing room on the left/right.
+   */
   &.is-main{
     margin: 0;
 

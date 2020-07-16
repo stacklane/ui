@@ -8,6 +8,10 @@ ui-box{
 
   padding: var(--ui-box-spacing);
 
+  &.has-l-spacing{
+    --ui-box-spacing: var(--ui-l-spacing);
+  }
+
   &.is-gutter{
     padding-top: 0;
     padding-bottom: 0;
@@ -32,7 +36,7 @@ ui-box{
 
     //width: 100%;
     //
-    max-width: 1092px;
+    max-width: 1092px; // 1400
     //min-width: 760px;
     //width: calc(100vw - 302px);
 

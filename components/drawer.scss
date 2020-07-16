@@ -139,8 +139,10 @@ ui-drawer-layout{
   }
 
   &.is-closed{
-    @include tablet{
-      display: inherit;
+    .is-something {
+      @include tablet {
+        display: inherit;
+      }
     }
   }
 }

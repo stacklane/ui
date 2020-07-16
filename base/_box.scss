@@ -26,14 +26,19 @@ ui-box{
   }
 
   &.is-main{
-    margin: 0 auto;
+    margin: 0;
+
+    //margin: 0 auto;
 
     //width: 100%;
-
     //
     max-width: 1092px;
-    min-width: 760px;
-    width: calc(100vw - 302px);
+    //min-width: 760px;
+    //width: calc(100vw - 302px);
+
+    &.is-centered{
+      margin: 0 auto;
+    }
 
     @include tablet{
       padding-left: calc(var(--ui-box-spacing) * 2.75);

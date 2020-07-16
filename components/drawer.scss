@@ -121,17 +121,26 @@ ui-drawer-layout{
     }
   }
 
-  .is-something{
-    @include tablet{
-      display: none;
-    }
-  }
-
   &.is-opened{
     @include ui-drawer-is-opened();
   }
 
   &.is-closed{
     @include ui-drawer-is-closed();
+  }
+
+  /**
+   * .is-something
+   */
+  .is-something{
+    @include tablet{
+      display: none;
+    }
+  }
+
+  &.is-closed{
+    @include tablet{
+      display: inherit;
+    }
   }
 }

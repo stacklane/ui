@@ -24,4 +24,14 @@ ui-box{
   &.has-xs-spacing{
     --ui-box-spacing: var(--ui-xs-spacing);
   }
+
+  &.is-main{
+    margin: 0 auto;
+    max-width: 1400px; // ?
+
+    @include tablet{
+      padding-left: calc(var(--ui-box-spacing) * 2.75);
+      padding-right: calc(var(--ui-box-spacing) * 2.75);
+    }
+  }
 }

@@ -13,22 +13,22 @@
   --ui-medium-label-size: calc(var(--ui-small-label-size) * 2);
   --ui-large-label-size: calc(var(--ui-small-label-size) * 3);
 
-  .is-label{
+  .ui-label{
     @include label;
   }
-  .is-small-label{
+  .ui-small-label{
     max-width: var(--ui-small-label-size);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
-  .is-medium-label{
+  .ui-medium-label{
     max-width: var(--ui-medium-label-size);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
-  .is-large-label{
+  .ui-large-label{
     max-width: var(--ui-large-label-size);
     text-overflow: ellipsis;
     overflow: hidden;

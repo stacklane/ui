@@ -11,7 +11,7 @@
  */
 
 :root {
-  --ui-drawer-width: 240px;
+  --ui-drawer-width: 250px;
   --ui-drawer-background: var(--ui-secondary-background);
   --ui-drawer-label: var(--ui-label);
 }
@@ -118,6 +118,12 @@ ui-drawer-layout{
   @include tablet {
     ui-drawer {
       position: relative;
+    }
+  }
+
+  .is-something{
+    @include tablet{
+      display: none;
     }
   }
 

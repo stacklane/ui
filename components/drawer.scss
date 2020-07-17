@@ -26,7 +26,7 @@
   ui-drawer {
     margin-left: 0px;
   }
-  .is-hidden-when-drawer-opened{
+  :not(.is-closed).is-hidden-when-drawer-opened{
     display: none;
   }
   .is-hidden-when-drawer-closed{
@@ -55,7 +55,7 @@
   .is-hidden-when-drawer-opened{
     //display: inherit;
   }
-  .is-hidden-when-drawer-closed{
+  :not(.is-opened).is-hidden-when-drawer-closed{
     display: none;
   }
   ui-drawer-overlay{

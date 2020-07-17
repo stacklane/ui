@@ -29,9 +29,6 @@
   &:not(.is-closed) .is-hidden-when-drawer-opened{
     display: none;
   }
-  //.is-hidden-when-drawer-closed{
-    //display: inherit;
-  //}
   ui-drawer-overlay{
     display: block;
   }
@@ -52,9 +49,6 @@
   ui-drawer {
     margin-left: calc(-1 * var(--ui-drawer-width));
   }
-  //.is-hidden-when-drawer-opened{
-    //display: inherit;
-  //}
   &:not(.is-opened) .is-hidden-when-drawer-closed{
     display: none;
   }
@@ -142,17 +136,14 @@ ui-drawer-layout{
   }
 
   /**
-   * .is-mobile-nav -- alternative navigation:
+   * .is-mobile-nav -- alternative navigation
    *
-   * - Displays always when screen < tablet
-   * - Forces display if drawer manually closed and screen > tablet
-   *   (otherwise there would be no navigation displayed)
+   * When wide (screen > tablet), hide if not manually closed.
    */
-  &:not(.is-closed) {
-    .is-drawer-mobile-nav {
-      @include tablet {
+  @include tablet {
+    &:not(.is-closed) .is-drawer-mobile-nav {
         display: none;
-      }
     }
   }
+
 }

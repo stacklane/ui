@@ -228,17 +228,19 @@ ui-button-menu{
   margin-top: 2px; // away from a parent a bit
   min-width: 100%; // at least as wide as parent
   border-radius: var(--ui-button-menu-radius);
-  // TODO box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
   transition-property: opacity, transform;
   transition-duration: var(--ui-button-menu-speed);
 
+  // TBD:
+  box-shadow: 0 2px 2px rgba(0,0,0,0.02),0 4px 36px 4px rgba(0,0,0,0.1);
+
   &.is-over-parent{
-    top: -1;
-    left: -1;
+    top: -1px;
+    left: -1px;
     margin-top: 0px;
   }
 
-  // while hidden:
+  // default, while hidden:
   z-index: -9999;
   pointer-events: none;
   opacity:0;

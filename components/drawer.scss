@@ -142,7 +142,7 @@ ui-drawer-layout{
    */
   @include tablet {
     &:not(.is-closed) .is-drawer-mobile-nav {
-        display: none;
+      display: none;
     }
   }
 

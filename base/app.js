@@ -225,7 +225,7 @@ class UIButtonMenu extends HTMLElement{
     connectedCallback(){
         const button = this.parentElement;
         // click event for UIMenuButton is to give it focus to display the menu
-        button._blurAfterAction = false; // see UIButton
+        button._retainFocus = true; // see UIButton
         button.setAttribute('aria-haspopup', 'true');
 
         // TBD..
@@ -290,7 +290,7 @@ class UIButtonBase extends HTMLElement{
                 this._actions[i](event);
         }
 
-        if (this._blurAfterAction){
+        if (!(this._retainFocus === true)){
             /**
              * TBD hard to find too much guidance here.
              * Intuitively a button is usually a single action --
@@ -362,7 +362,6 @@ class UIButton extends UIButtonBase{
         } else if (typeof iconOrText === 'string'){
             this.innerText = iconOrText;
         }
-        this._blurAfterAction = true;
     }
     vertical(){return this._cls('is-vertical');}
     even(){return this._cls('has-even-spacing');}

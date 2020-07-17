@@ -13,6 +13,10 @@
   --ui-medium-label-size: calc(var(--ui-small-label-size) * 2);
   --ui-large-label-size: calc(var(--ui-small-label-size) * 3);
 
+  /**
+   * Labels are always a single line, and may not overflow.
+   * Their value may be highly variable in length and are often from a user.
+   */
   .ui-label{
     @include label;
   }

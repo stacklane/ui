@@ -136,13 +136,13 @@ ui-drawer-layout{
   }
 
   .is-something{
-    display: none;
+    //display: initial;
   }
 
   &.is-opened{
     @include tablet{
       .is-something {
-        display: initial;
+        display: none;
       }
     }
   }

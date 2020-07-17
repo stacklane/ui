@@ -135,13 +135,8 @@ ui-drawer-layout{
     @include ui-drawer-is-closed();
   }
 
-  &.is-closed {
-    .is-something {
-      display: none;
-    }
-  }
   @include tablet{
-    .is-something {
+    .is-hidden-when-drawer-wide {
       display: none;
     }
   }

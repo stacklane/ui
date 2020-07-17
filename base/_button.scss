@@ -232,13 +232,10 @@ ui-button-menu{
   transition-property: opacity, transform;
   transition-duration: var(--ui-button-menu-speed);
 
-  &.is-round{
-    --ui-button-menu-radius: var(--ui-radius-rounded);
-  }
-
   &.is-over-parent{
     top:0;
     left:0;
+    margin-top: -1px;
   }
 
   // while hidden:

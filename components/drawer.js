@@ -42,7 +42,7 @@ class UIDrawerLayout extends HTMLElement{
         }
         const that = this;
         this.addEventListener('keydown', function(event){
-            if (event.key === 'Escape' && this.classList.contains('is-opened')) {
+            if (event.key === 'Escape' && that.classList.contains('is-opened')) {
                 that.closeDrawer();
             }
         });

@@ -13,6 +13,7 @@
 :root {
   --ui-drawer-width: 240px; // or 250
   --ui-drawer-background: var(--ui-secondary-background);
+  --ui-drawer-menu-background: var(--ui-tertiary-background);
   --ui-drawer-label: var(--ui-label);
 }
 
@@ -92,6 +93,8 @@ ui-drawer-layout{
     position: fixed;
     bottom: 0;
     top: 0;
+
+    --ui-button-menu-background: var(--ui-drawer-menu-background);
   }
 
   @include ui-drawer-is-closed();

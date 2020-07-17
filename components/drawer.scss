@@ -139,13 +139,13 @@ ui-drawer-layout{
     //display: initial;
   }
 
-  &.is-opened{
+  //&.is-opened{
     @include tablet{
       .is-something {
         display: none;
       }
     }
-  }
+ // }
 
   /**
    * .is-mobile-nav -- alternative navigation:

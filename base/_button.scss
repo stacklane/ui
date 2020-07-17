@@ -181,6 +181,10 @@ ui-button{
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);
   }
+  &.is-round{
+    padding-left: calc(var(--ui-button-spacing) * 1.5);
+    padding-right: calc(var(--ui-button-spacing) * 1.5);
+  }
 }
 
 /**

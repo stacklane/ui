@@ -190,7 +190,7 @@ ui-button{
  */
 ui-icon-button{
   // Utility for current width of THIS button.
-  --ui-icon-button-width: calc((2px + var(--ui-icon-button-size) + (var(--ui-icon-button-spacing) * 2)) * -1);
+  --ui-icon-button-width: calc(2px /*borders*/ + var(--ui-icon-button-size) + (var(--ui-icon-button-spacing) * 2));
 
   flex: 0 0 auto;
 

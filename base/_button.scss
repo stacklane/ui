@@ -210,7 +210,7 @@ ui-icon-button{
 }
 
 /**
- * Requires a relative parent/container.
+ * Requires a relative parent/container (ui-button / ui-icon-button)
  */
 ui-button-menu{
   --ui-button-menu-background: var(--ui-secondary-background);
@@ -228,9 +228,18 @@ ui-button-menu{
   margin-top: 2px; // away from a parent a bit
   min-width: 100%; // at least as wide as parent
   border-radius: var(--ui-button-menu-radius);
-  //box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
-  transition-property: opacity,transform;
+  // TODO box-shadow: 0 0.5em 1em -0.125em var(--ui-menu-shadow), 0 0px 0 1px var(--ui-menu-shadow);
+  transition-property: opacity, transform;
   transition-duration: var(--ui-button-menu-speed);
+
+  &.is-round{
+    --ui-button-menu-radius: var(--ui-radius-rounded);
+  }
+
+  &.is-over-parent{
+    top:0;
+    left:0;
+  }
 
   // while hidden:
   z-index: -9999;

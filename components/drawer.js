@@ -40,12 +40,6 @@ class UIDrawerLayout extends HTMLElement{
                 case 'closed': { this.closeDrawer(); break; }
             }
         }
-        const that = this;
-        this.addEventListener('keydown', function(event){
-            if (event.key === 'Escape' && that.classList.contains('is-opened')) {
-                that.closeDrawer();
-            }
-        });
     }
 }
 window.customElements.define('ui-drawer-layout', UIDrawerLayout);

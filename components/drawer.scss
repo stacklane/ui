@@ -26,12 +26,12 @@
   ui-drawer {
     margin-left: 0px;
   }
-  :not(.is-closed).is-hidden-when-drawer-opened{
+  &:not(.is-closed).is-hidden-when-drawer-opened{
     display: none;
   }
-  .is-hidden-when-drawer-closed{
+  //.is-hidden-when-drawer-closed{
     //display: inherit;
-  }
+  //}
   ui-drawer-overlay{
     display: block;
   }
@@ -52,10 +52,10 @@
   ui-drawer {
     margin-left: calc(-1 * var(--ui-drawer-width));
   }
-  .is-hidden-when-drawer-opened{
+  //.is-hidden-when-drawer-opened{
     //display: inherit;
-  }
-  :not(.is-opened).is-hidden-when-drawer-closed{
+  //}
+  &:not(.is-opened).is-hidden-when-drawer-closed{
     display: none;
   }
   ui-drawer-overlay{
@@ -83,7 +83,7 @@ ui-drawer-layout{
    * May contain a <ui-appbar> to match height of any toolbar this is next to.
    */
   ui-drawer{
-    // not good for popup menus which are wider than sidebar: overflow: hidden;
+    overflow:visible; // important for popup menus which are wider than drawer
 
     background: var(--ui-drawer-background);
     color: var(--ui-drawer-label);
@@ -148,16 +148,10 @@ ui-drawer-layout{
    * - Forces display if drawer manually closed and screen > tablet
    *   (otherwise there would be no navigation displayed)
    */
-  .is-drawer-mobile-nav{
-    @include tablet{
-      display: none;
-    }
-  }
-
-  &.is-closed{
+  &:not(.is-closed) {
     .is-drawer-mobile-nav {
       @include tablet {
-        display: initial;
+        display: none;
       }
     }
   }

@@ -189,6 +189,9 @@ ui-button{
  * <ui-icon> child is expected to be 1em, and therefore use whatever font-size this is.
  */
 ui-icon-button{
+  // Utility for current width of THIS button.
+  --ui-icon-button-width: calc((2px + var(--ui-icon-button-size) + (var(--ui-icon-button-spacing) * 2)) * -1);
+
   flex: 0 0 auto;
 
   // Tiniest "usable" size

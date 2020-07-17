@@ -135,6 +135,18 @@ ui-drawer-layout{
     @include ui-drawer-is-closed();
   }
 
+  .is-something{
+    display: none;
+  }
+
+  &.is-opened{
+    @include tablet{
+      .is-something {
+        display: initial;
+      }
+    }
+  }
+
   /**
    * .is-mobile-nav -- alternative navigation:
    *
@@ -155,4 +167,6 @@ ui-drawer-layout{
       }
     }
   }
+
+
 }

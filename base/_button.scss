@@ -140,22 +140,6 @@ ui-button, ui-icon-button{
       }
     }
   }
-
-  /**
-   * :focus-within allows focusing input controls within the menu, without closing the menu.
-   *
-   * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
-   */
-  &:focus, &:focus-within{
-    ui-button-menu{
-      pointer-events: auto;
-      opacity: 1;
-      transform: translateY(0);
-      z-index: 9999;
-      visibility: visible;
-      transition-duration: 0s; // immediately hide
-    }
-  }
 }
 
 /**
@@ -172,13 +156,13 @@ ui-button, ui-icon-button{
   flex-direction: column;
   padding: calc(var(--ui-button-spacing));
 
-  ui-icon:first-child{
+  > ui-icon:first-child{
     margin: 0 0 calc(var(--ui-button-spacing) / 2);
   }
 }
 
 ui-button{
-  ui-icon:first-child{
+  > ui-icon:first-child{
     font-size: 1.25rem;
     margin-left: calc(-1 * var(--ui-button-spacing)/2);
     margin-right: calc(var(--ui-button-spacing)/2);
@@ -237,7 +221,7 @@ ui-button-menu{
   box-shadow: 0 2px 2px rgba(0,0,0,0.02),0 4px 36px 4px rgba(0,0,0,0.1);
 
   &.is-over-parent{
-    top: -1px;
+    top: -1px; // account for parent button border
     left: -1px;
     margin-top: 0px;
   }
@@ -248,4 +232,21 @@ ui-button-menu{
   opacity:0;
   transform: translateY(-5px);
   visibility: hidden;
+}
+
+/**
+ * :focus-within allows focusing input controls within the menu, without closing the menu.
+ *
+ * https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/
+ */
+ui-button,ui-icon-button {
+  &:focus, &:focus-within {
+    > ui-button-menu {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 9999;
+      visibility: visible;
+    }
+  }
 }

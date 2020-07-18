@@ -152,6 +152,8 @@ ui-button, ui-icon-button{
       opacity: 1;
       transform: translateY(0);
       z-index: 9999;
+      visibility: visible;
+      transition-duration: 0s; // immediately hide
     }
   }
 }
@@ -245,4 +247,5 @@ ui-button-menu{
   pointer-events: none;
   opacity:0;
   transform: translateY(-5px);
+  visibility: hidden;
 }

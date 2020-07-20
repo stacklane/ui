@@ -4,10 +4,6 @@
 [data-ui-tab-view-active='false']{
   display: none !important;
 }
-// shouldn't be needed
-//[data-ui-tab-view-active='true']{
-//  display: inherit;
-//}
 
 /**
  * For complex tabs, nest a <ui-bar> as the child.

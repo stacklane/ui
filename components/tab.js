@@ -77,6 +77,14 @@ class UITab extends HTMLElement{
     }
 
     activate(){
+        if (this._hash){
+            window.location.hash = this._hash; // Handled during 'hashchange' event instead
+        } else {
+            this._activate();
+        }
+    }
+
+    _activate(){
         if (this.parentElement) // For deactivation, all related tabs should be within same parent.
             this.parentElement.querySelectorAll('ui-tab').forEach(e=>e.deactivate());
 
@@ -125,6 +133,12 @@ class UITab extends HTMLElement{
         this.setAttribute('aria-selected', 'false');
 
         UIButton.addAccessibleAction(this, (event)=>this.activate());
+
+        if (this.hasAttribute('hash')){
+            // Enables hash based routing.
+            this._hash = this.getAttribute('hash');
+            window.addEventListener('hashchange', ()=>this._activate());
+        }
     }
 }
 window.customElements.define('ui-tab', UITab);

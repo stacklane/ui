@@ -98,6 +98,10 @@ class UITab extends HTMLElement{
         if (toFocus.length > 0) toFocus[0].focus();
 
         this._fireChangeEvent();
+
+        if (this._hash && this._plainTitle){
+            document.title = this._plainTitle;
+        }
     }
 
     async _fireChangeEvent(){

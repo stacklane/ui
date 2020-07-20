@@ -23,6 +23,7 @@ html{
   --ui-alpha-high: 0.08;
 
   // Used for default or secondary actions -- the most commonly used action color
+  // these probably should always be layerable (use transparency), and therefore use something like "ui-xyz-fill"
   --ui-default: var(--ui-label);
   --ui-default-invert: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high)); //var(--ui-quaternary-fill); //var(--ui-background);
   --ui-default-alpha-high: hsla(var(--ui-label-h), var(--ui-label-s), var(--ui-label-l), var(--ui-alpha-high));

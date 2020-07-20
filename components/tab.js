@@ -32,7 +32,7 @@ const _TAB_HASH_ROUTING = ()=>{
     const d = document.querySelector('ui-tab[init="true"]');
     if (d) d.activate();
 };
-window.addEventListener('hashchange', TAB_HASH_ROUTING);
+window.addEventListener('hashchange', _TAB_HASH_ROUTING);
 
 class UITab extends HTMLElement{
     static InitRouting(){

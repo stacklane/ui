@@ -1,4 +1,5 @@
 
+
 /**
  * Represents a toggle for any other {HtmlElement} as a view (functions may also be used to generate a view).
  *
@@ -15,7 +16,29 @@
  *            }
  *        }
  */
+
+const _TAB_HASH_ROUTING = ()=>{
+    let h = window.location.hash;
+
+    if (h.startsWith('#')) {
+        h = h.substring(1);
+        const t = document.querySelector('ui-tab[hash="' + h + '"]');
+        if (t) {
+            t._activate();
+            return;
+        }
+    }
+
+    const d = document.querySelector('ui-tab[init="true"]');
+    if (d) d.activate();
+};
+window.addEventListener('hashchange', TAB_HASH_ROUTING);
+
 class UITab extends HTMLElement{
+    static InitRouting(){
+        _TAB_HASH_ROUTING();
+    }
+
     static get ChangeEventName(){
         return 'UITab#change';
     }
@@ -49,6 +72,11 @@ class UITab extends HTMLElement{
     set hash(hash){
         this.setAttribute('hash', hash);
         this._hash = hash
+    }
+
+    set init(d){
+        this.setAttribute('init', d);
+        this._init = d;
     }
 
     /**
@@ -138,20 +166,15 @@ class UITab extends HTMLElement{
 
     connectedCallback(){
         this.setAttribute('role', 'tab');
-        this.setAttribute('tabindex', '0'); //this.setAttribute('tabindex', '-1');
+        this.setAttribute('tabindex', '0');
         this.setAttribute('aria-selected', 'false');
 
         UIButton.addAccessibleAction(this, (event)=>this.activate());
 
         if (this.hasAttribute('hash')){
             // Enables hash based routing, suitable when tabs are also the main navigation.
+            // Recommended format is "group:name"
             this._hash = this.getAttribute('hash');
-            window.addEventListener('hashchange', ()=>{
-                const h = window.location.hash;
-                if (h.startsWith('#') && h.substring(1) === this._hash) {
-                    this._activate();
-                }
-            });
         }
     }
 }

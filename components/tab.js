@@ -146,7 +146,12 @@ class UITab extends HTMLElement{
         if (this.hasAttribute('hash')){
             // Enables hash based routing.
             this._hash = this.getAttribute('hash');
-            window.addEventListener('hashchange', ()=>this._activate());
+            window.addEventListener('hashchange', ()=>{
+                const h = window.location.hash;
+                if (h.startsWith('#') && h.substring(1) === this._hash) {
+                    this._activate();
+                }
+            });
         }
     }
 }

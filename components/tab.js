@@ -69,14 +69,16 @@ class UITab extends HTMLElement{
         }
     }
 
-    set hash(hash){
+    hash(hash){
         this.setAttribute('hash', hash);
-        this._hash = hash
+        this._hash = hash;
+        return this;
     }
 
-    set init(d){
+    init(d){
         this.setAttribute('init', d);
         this._init = d;
+        return this;
     }
 
     /**

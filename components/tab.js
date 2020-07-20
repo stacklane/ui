@@ -46,6 +46,10 @@ class UITab extends HTMLElement{
         }
     }
 
+    set hash(hash){
+        this._hash = hash;
+    }
+
     /**
      * Optional
      */

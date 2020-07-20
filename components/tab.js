@@ -35,7 +35,7 @@ const _TAB_HASH_ROUTING = ()=>{
 window.addEventListener('hashchange', _TAB_HASH_ROUTING);
 
 class UITab extends HTMLElement{
-    static InitRouting(){
+    static initRouting(){
         _TAB_HASH_ROUTING();
     }
 

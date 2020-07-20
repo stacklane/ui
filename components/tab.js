@@ -144,7 +144,7 @@ class UITab extends HTMLElement{
         UIButton.addAccessibleAction(this, (event)=>this.activate());
 
         if (this.hasAttribute('hash')){
-            // Enables hash based routing.
+            // Enables hash based routing, suitable when tabs are also the main navigation.
             this._hash = this.getAttribute('hash');
             window.addEventListener('hashchange', ()=>{
                 const h = window.location.hash;

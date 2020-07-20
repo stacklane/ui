@@ -273,6 +273,12 @@ class UIButtonBase extends HTMLElement{
     primary(){return this._cls('is-primary');}
     negative(){return this._cls('is-negative');}
 
+    hash(hash){
+        return this.addAction(()=>{
+            window.location.hash = hash;
+        })
+    }
+
     addAction(callback){
         if (!this._actions) this._actions = [];
         this._actions.push(callback);

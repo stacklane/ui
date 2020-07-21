@@ -390,3 +390,11 @@ class UIIconButton extends UIButtonBase{
     tiny(){ return this._cls('is-tiny');}
 }
 window.customElements.define('ui-icon-button', UIIconButton);
+
+class UIEmpty extends HTMLElement{
+    constructor(children) {
+        super();
+        Elements.append(this, children);
+    }
+}
+window.customElements.define('ui-empty', UIEmpty);

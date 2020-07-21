@@ -1,0 +1,20 @@
+/**
+ * Merely a column of child elements, usually:
+ *
+ * <ui-icon> (decoration)
+ * <hx>
+ * <hy>
+ * <ui-button> (call to action)
+ */
+
+ui-empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+ui-empty * > ui-empty *{
+  margin-top: var(--ui-spacing);
+}

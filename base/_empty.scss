@@ -14,7 +14,13 @@ ui-empty{
   height: 100%;
   width: 100%;
   flex-direction: column;
-}
-ui-empty * > ui-empty *{
-  margin-top: var(--ui-spacing);
+
+  > * + *{
+    margin-top: var(--ui-spacing);
+  }
+
+  > ui-icon:first-child{
+    // TBD
+    --ui-icon-size: 4rem;
+  }
 }

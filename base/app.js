@@ -401,6 +401,8 @@ window.customElements.define('ui-empty', UIEmpty);
 
 
 /**
+ * @see _modal.scss
+ *
  * https://css-tricks.com/a-css-approach-to-trap-focus-insui-of-an-element/
  *
  * // https://css-tricks.com/considerations-styling-modal/
@@ -414,6 +416,10 @@ window.customElements.define('ui-empty', UIEmpty);
  https://blog.logrocket.com/the-dialog-element-the-way-to-create-tomorrows-modal-windows-f1d4ab14380b/
 
  */
+class UIModalBackdrop extends HTMLElement{
+    constructor() {super();}
+}
+window.customElements.define('ui-modal-backdrop', UIModalBackdrop);
 class UIModal extends HTMLElement{
     static _isVisibleElement(element){
         // jquery approach
@@ -434,6 +440,8 @@ class UIModal extends HTMLElement{
         this.appendChild(bg);
 
         this._putContent(content);
+
+        this._backdrop = new UIModalBackdrop();
 
         const that = this;
         this.addEventListener('keydown', function(event){
@@ -488,27 +496,42 @@ class UIModal extends HTMLElement{
         }
     }
 
+    get dynamic(){
+        return true; //!this.hasAttribute('id');
+    }
+
     _putContent(element){
-        const content = document.createElement('div');
-        content.classList.add('ui-modal-content');
+        //const content = document.createElement('div');
+        //content.classList.add('ui-modal-content');
         this.appendChild(content);
-        content.appendChild(element);
+        //content.appendChild(element);
     }
 
     show(){
         this._currentActiveElement = document.activeElement;
-        document.body.appendChild(this);
-        this.setAttribute('active', '');
+        if (this.dynamic) document.body.appendChild(this);
+        this.setAttribute('open', '');
         this.setAttribute('aria-hidden', 'false');
+
+        document.body.appendChild(this._backdrop);
         this.focus();
     }
 
     close(){
-        this.removeAttribute('active');
-        document.body.removeChild(this);
+        this.removeAttribute('open');
+        this.setAttribute('aria-hidden', 'true');
+
+        if (this.dynamic) document.body.removeChild(this);
+
+        document.body.removeChild(this._backdrop);
 
         // Restore focus
         if (this._currentActiveElement) this._currentActiveElement.focus();
+    }
+
+    connectedCallback(){
+        this.removeAttribute('open');
+        this.setAttribute('aria-hidden', 'true');
     }
 }
 window.customElements.define('ui-modal', UIModal);
@@ -549,6 +572,9 @@ class UIAppBar extends HTMLElement {
 }
 window.customElements.define('ui-appbar', UIAppBar);
 
+/**
+ * @see _dialog.scss
+ */
 class UIDialog extends HTMLElement{
     constructor(content, title) {
         super();
@@ -579,6 +605,9 @@ class UIDialog extends HTMLElement{
         this.querySelector('.ui-dialog-title h5').innerText = title;
     }
 
+    /**
+     * Wrap this in a UIModal, make it closable, show the UIModal.
+     */
     modal(){
         const modal = new UIModal(this);
 

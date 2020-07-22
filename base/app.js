@@ -417,7 +417,10 @@ window.customElements.define('ui-empty', UIEmpty);
 
  */
 class UIModalBackdrop extends HTMLElement{
-    constructor() {super();}
+    constructor() {
+        super();
+        this.setAttribute('tabindex', '-1');
+    }
 }
 window.customElements.define('ui-modal-backdrop', UIModalBackdrop);
 class UIModal extends HTMLElement{
@@ -434,9 +437,9 @@ class UIModal extends HTMLElement{
         this.setAttribute('aria-hidden', 'true');
         this.setAttribute('role', 'dialog');
 
-        const bg = document.createElement('div');
-        bg.classList.add('ui-modal-background');
-        bg.setAttribute('tabindex', '-1');
+        //const bg = document.createElement('div');
+        //bg.classList.add('ui-modal-background');
+        //bg.setAttribute('tabindex', '-1');
         this.appendChild(bg);
 
         this._putContent(content);

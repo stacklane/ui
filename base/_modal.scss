@@ -22,28 +22,45 @@ $modal-z: 40 !default;
 */
 
 
-ui-modal-backdrop{
+ui-modal + ui-modal-backdrop{
+  // https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css
+
   position: fixed;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   background: rgba(0,0,0,.75);
-  z-index: 40;
 }
 
 ui-modal {
-  //@include modalOverlay;
-  //align-items: center;
-  //display: none;
-  //flex-direction: column;
-  //overflow: hidden;
-  z-index: 41;
-  display: none;
+  // https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css
+
+  //z-index: 41;
+
+  display: block;
   position: absolute;
-  &[open] {
-    display: block;
+  outline:0;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+ // margin: auto; // TODO tbd
+
+  &.is-fixed{
+    position: fixed;
+    top: 50%;
+    transform: translate(0, -50%);
   }
+}
+ui-modal:not([open]) {
+  display: none;
 }
 
 /*

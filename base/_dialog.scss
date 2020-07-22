@@ -1,3 +1,11 @@
+
+/**
+ * Appears as floating or full screen dialog, depending on mobile size.
+ * Designed for use within a <ui-modal>
+ */
+
+$ui-dialog-content-width: 640px !default;
+
 :root {
   --ui-dialog-background: var(--ui-secondary-background);
   --ui-dialog-label: var(--ui-label);
@@ -13,17 +21,23 @@
 }
 
 ui-modal ui-dialog{
-  box-shadow: 0 0.5em 1em -0.125em var(--ui-dialog-shadow), 0 0px 0 1px var(--ui-dialog-shadow);
-  border-radius: var(--ui-radius);
-  border: 1px solid var(--ui-separator);
+  @include tablet{
+    box-shadow: 0 0.5em 1em -0.125em var(--ui-dialog-shadow), 0 0px 0 1px var(--ui-dialog-shadow);
+    border-radius: var(--ui-radius);
+    border: 1px solid var(--ui-separator);
+  }
 }
 
 ui-dialog{
   background: var(--ui-dialog-background);
   color: var(--ui-dialog-label);
 
+  margin-top: .5rem;
+
   display: flex;
   flex-direction: column;
+
+  max-height: 100%;
 
   /**
    * Secondary content offset against the main dialog content. Sidebar, etc.

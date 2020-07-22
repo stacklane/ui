@@ -1,12 +1,17 @@
 @import '/utils';
 
-$modal-z: 40 !default;
-$modal-content-width: 640px !default;
-$modal-content-margin-mobile: 20px !default;
-$modal-content-spacing-mobile: 160px !default;
-$modal-content-spacing-tablet: 40px !default;
+/**
+ * Covers entire viewport and must be dismissed/closed.
+ *
+ * See: <ui-dialog>
+ */
 
-@mixin overlay($offset: 0) {
+$modal-z: 40 !default;
+//$modal-content-margin-mobile: 20px !default;
+//$modal-content-spacing-mobile: 160px !default;
+//$modal-content-spacing-tablet: 40px !default;
+
+@mixin modalOverlay($offset: 0) {
   bottom: $offset;
   left: $offset;
   position: absolute;
@@ -14,13 +19,8 @@ $modal-content-spacing-tablet: 40px !default;
   top: $offset;
 }
 
-%overlay {
-  @include overlay;
-}
-
 ui-modal {
-  @extend %overlay;
-
+  @include modalOverlay;
   align-items: center;
   display: none;
   flex-direction: column;
@@ -37,7 +37,7 @@ ui-modal {
 }
 
 .ui-modal-background {
-  @extend %overlay;
+  @include modalOverlay;
 
   background: rgba(0,0,0,.5);
 }
@@ -47,11 +47,4 @@ ui-modal {
   position: relative;
   width: 100%;
   max-width: 100%;
-  margin-top: .5rem;
-  max-height: 100%;
-
-  // Responsiveness
-  @include tablet {
-    width: $modal-content-width;
-  }
 }

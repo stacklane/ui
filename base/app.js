@@ -30,7 +30,18 @@ class UISkeletons extends HTMLElement{
 window.customElements.define('ui-skeletons', UISkeletons);
 
 class UIBox extends HTMLElement{
-    constructor() {super();}
+    constructor(elements) {
+        super();
+        Elements.append(this, elements);
+    }
+    xs(){
+        this.classList.add('has-xs-spacing');
+        return this;
+    }
+    gutter(){
+        this.classList.add('is-gutter');
+        return this;
+    }
 }
 window.customElements.define('ui-box', UIBox);
 
@@ -580,7 +591,7 @@ class UIDialog extends HTMLElement{
         //header.appendChild(Elements.h5().text(title).create());
 
         // TODO should be a "back arrow" instead of an "x"
-        this.appendChild(new UIAppBar(new UIBar(new UIButton(UIIcon.x()))));
+        this.appendChild(new UIBox(new UIAppBar(new UIBar(new UIIconButton(UIIcon.x())))).xs().gutter());
 
         const contentHolder = document.createElement('div');
         contentHolder.classList.add('ui-dialog-content');

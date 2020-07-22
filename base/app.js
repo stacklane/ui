@@ -621,11 +621,6 @@ class UIDialog extends HTMLElement{
 }
 window.customElements.define('ui-dialog', UIDialog);
 
-
-window.addEventListener('DOMContentLoaded', ()=>{
-    const layers = document.createElement('layers');
-});
-
 class UILayer extends HTMLElement{
     constructor(contents) {
         super();
@@ -634,10 +629,9 @@ class UILayer extends HTMLElement{
         const s1 = Elements.span().create();
         s1.setAttribute('tabindex', "-1");
 
+        this.appendChild(d1);
         d1.appendChild(d2);
         d2.appendChild(s1);
-
-        this._inner = s1;
         s1.appendChild(contents);
     }
 
@@ -650,6 +644,7 @@ class UILayer extends HTMLElement{
         let l = document.getElementById('ui-layers');
         if (!l) l = Elements.div().id('ui-layers').create();
         l.appendChild(this);
+        return this;
     }
 }
 window.customElements.define('ui-layer', UILayer);

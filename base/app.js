@@ -437,12 +437,7 @@ class UIModal extends HTMLElement{
         this.setAttribute('aria-hidden', 'true');
         this.setAttribute('role', 'dialog');
 
-        //const bg = document.createElement('div');
-        //bg.classList.add('ui-modal-background');
-        //bg.setAttribute('tabindex', '-1');
-        this.appendChild(bg);
-
-        this._putContent(content);
+        this.appendChild(content);
 
         this._backdrop = new UIModalBackdrop();
 
@@ -501,15 +496,6 @@ class UIModal extends HTMLElement{
 
     get dynamic(){
         return true; //!this.hasAttribute('id');
-    }
-
-    _putContent(element){
-        //const content = document.createElement('div');
-        //content.classList.add('ui-modal-content');
-        //this.appendChild(content);
-        //content.appendChild(element);
-
-        this.appendChild(element);
     }
 
     show(){

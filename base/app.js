@@ -503,8 +503,10 @@ class UIModal extends HTMLElement{
     _putContent(element){
         //const content = document.createElement('div');
         //content.classList.add('ui-modal-content');
-        this.appendChild(content);
+        //this.appendChild(content);
         //content.appendChild(element);
+
+        this.appendChild(element);
     }
 
     show(){

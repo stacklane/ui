@@ -1,6 +1,6 @@
 
 /**
- * A "standard" looking floating/closable dialog box.
+ * A "standard looking" floating/closable dialog box.
  * Floating or full screen, depending on mobile size.
  * Designed for use within a <ui-modal>
  */
@@ -22,20 +22,19 @@
 ui-modal ui-dialog{
   @include tablet{
     min-width: 400px;
-    max-width: 800px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0.5em 1em -0.125em var(--ui-dialog-shadow), 0 0px 0 1px var(--ui-dialog-shadow);
     border-radius: var(--ui-radius);
     border: 1px solid var(--ui-separator);
+    margin-top: var(--ui-spacing);
   }
 }
 
 ui-dialog{
   background: var(--ui-dialog-background);
   color: var(--ui-dialog-label);
-
-  margin-top: .5rem;
 
   display: flex;
   flex-direction: column;

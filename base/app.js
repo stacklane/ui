@@ -512,3 +512,83 @@ class UIModal extends HTMLElement{
     }
 }
 window.customElements.define('ui-modal', UIModal);
+
+/**
+ * @see _bar.scss
+ */
+class UIBar extends HTMLElement{
+    constructor(elements) {
+        super();
+        Elements.append(this, elements);
+    }
+    _cls(c){ this.classList.add(c); return this; }
+    path(){return this._cls('is-path');}
+    grow(){return this._cls('is-grow');}
+    growEnd(){return this._cls('is-end')._cls('is-grow');}
+    growEven(){return this._cls('is-even')._cls('is-grow');}
+    stretch(){return this._cls('is-stretch');}
+}
+window.customElements.define('ui-bar', UIBar);
+
+class UISideBar extends HTMLElement {
+    constructor(elements) {
+        super();
+        if (typeof elements === 'string'){
+            this.appendChild(Elements.span().text(elements).create());
+        } else if (elements instanceof HTMLElement) {
+            this.appendChild(elements);
+        } else if (elements instanceof Array){
+            for (let i = 0; i < elements.length; i++) this.appendChild(elements[i]);
+        }
+    }
+}
+window.customElements.define('ui-sidebar', UISideBar);
+
+class UIAppBar extends HTMLElement {
+    constructor() {super();}
+}
+window.customElements.define('ui-appbar', UIAppBar);
+
+class UIDialog extends HTMLElement{
+    constructor(content, title) {
+        super();
+
+        const header = document.createElement('div');
+        header.classList.add('ui-dialog-title');
+        this.appendChild(header);
+        this._header = header;
+
+        header.appendChild(Elements.h5().text(title).create());
+
+        const contentHolder = document.createElement('div');
+        contentHolder.classList.add('ui-dialog-content');
+
+        if (content instanceof HTMLElement) {
+            contentHolder.appendChild(content);
+        } else if (content instanceof Array){
+            for (let i = 0; i < content.length; i++)
+                contentHolder.appendChild(content[i]);
+        } else {
+            throw '' + content;
+        }
+
+        this.appendChild(contentHolder);
+    }
+
+    set title(title){
+        this.querySelector('.ui-dialog-title h5').innerText = title;
+    }
+
+    modal(){
+        const modal = new UIModal(this);
+
+        const closer = new UIIconButton(UIIcon.x()).round().tiny();
+        closer.classList.add('ui-dialog-close');
+
+        closer.addEventListener('click', ()=>modal.close());
+        this._header.appendChild(closer);
+
+        modal.show();
+    }
+}
+window.customElements.define('ui-dialog', UIDialog);

@@ -632,10 +632,14 @@ class UILayer extends HTMLElement{
         const s1 = Elements.span().create();
         s1.setAttribute('tabindex', "-1");
 
-        this.appendChild(d1);
         d1.appendChild(d2);
         d2.appendChild(s1);
-        s1.appendChild(contents);
+
+        Elements.append(this, contents);
+
+        d1.appendChild(this);
+
+        this._d1 = d1;
     }
 
     full(){
@@ -649,7 +653,7 @@ class UILayer extends HTMLElement{
             l = Elements.div().id('ui-layers').create();
             document.body.appendChild(l);
         }
-        l.appendChild(this);
+        l.appendChild(this._d1);
         return this;
     }
 }

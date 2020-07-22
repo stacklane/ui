@@ -644,7 +644,7 @@ class UILayer extends HTMLElement{
         let l = document.getElementById('ui-layers');
         if (!l) {
             l = Elements.div().id('ui-layers').create();
-            document.appendChild(l);
+            document.body.appendChild(l);
         }
         l.appendChild(this);
         return this;

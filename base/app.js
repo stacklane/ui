@@ -637,7 +637,7 @@ class UILayer extends HTMLElement{
 
         Elements.append(this, contents);
 
-        d1.appendChild(this);
+        s1.appendChild(this);
 
         this._d1 = d1;
     }

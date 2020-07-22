@@ -27,7 +27,6 @@ ui-spinner {
   z-index: 1000;
 
   > div {
-    box-sizing: border-box;
     display: block;
     position: absolute;
     width: var(--ui-spinner-size);

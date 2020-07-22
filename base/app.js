@@ -161,6 +161,11 @@ class Elements{
         return this;
     }
 
+    id(id){
+        this._id = id;
+        return this;
+    }
+
     child(child){
         if (!this._children) this._children = [];
         this._children.push(child);
@@ -169,6 +174,7 @@ class Elements{
 
     create(){
         const e = document.createElement(this._name);
+        if (this._id) e.id = this._id;
         if (this._text) e.innerText = this._text;
         if (this._html) e.innerHTML = this._html;
         if (this._classes) {
@@ -600,6 +606,7 @@ class UIDialog extends HTMLElement{
      * Wrap this in a UIModal, make it closable, show the UIModal.
      */
     modal(){
+        /*
         const modal = new UIModal(this);
 
         const closer = new UIIconButton(UIIcon.x()).round().tiny();
@@ -608,7 +615,41 @@ class UIDialog extends HTMLElement{
         closer.addEventListener('click', ()=>modal.close());
         this._header.appendChild(closer);
 
-        modal.show();
+        modal.show();*/
+        new UILayer(this).full().show();
     }
 }
 window.customElements.define('ui-dialog', UIDialog);
+
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    const layers = document.createElement('layers');
+});
+
+class UILayer extends HTMLElement{
+    constructor(contents) {
+        super();
+        const d1 = Elements.div().create();
+        const d2 = Elements.div().create();
+        const s1 = Elements.span().create();
+        s1.setAttribute('tabindex', "-1");
+
+        d1.appendChild(d2);
+        d2.appendChild(s1);
+
+        this._inner = s1;
+        s1.appendChild(contents);
+    }
+
+    full(){
+        this.classList.add('is-full');
+        return this;
+    }
+
+    show(){
+        let l = document.getElementById('ui-layers');
+        if (!l) l = Elements.div().id('ui-layers').create();
+        l.appendChild(this);
+    }
+}
+window.customElements.define('ui-layer', UILayer);

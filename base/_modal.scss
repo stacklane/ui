@@ -25,11 +25,7 @@ ui-modal {
   display: none;
   flex-direction: column;
   overflow: hidden;
-  position: fixed;
   z-index: $modal-z;
-
-  background: var(--ui-background);
-  color: var(--ui-foreground);
 
   &[active] {
     display: flex;
@@ -39,7 +35,7 @@ ui-modal {
 .ui-modal-background {
   @include modalOverlay;
 
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.75);
 }
 
 .ui-modal-content {
@@ -47,4 +43,7 @@ ui-modal {
   position: relative;
   width: 100%;
   max-width: 100%;
+
+  background: var(--ui-background);
+  color: var(--ui-foreground);
 }

@@ -6,13 +6,13 @@
  */
 
 :root {
-  --ui-dialog-background: var(--ui-secondary-background);
+  --ui-dialog-background: var(--ui-background);
   --ui-dialog-label: var(--ui-label);
 
-  --ui-dialog-secondary-background: var(--ui-tertiary-background);
+  --ui-dialog-secondary-background: var(--ui-secondary-background);
   --ui-dialog-secondary-label: var(--ui-label);
 
-  --ui-dialog-shadow: var(--ui-secondary-background-shadow);
+  //--ui-dialog-shadow: var(--ui-secondary-background-shadow);
 
   --ui-dialog-title-vertical-padding: var(--ui-s-spacing);
   --ui-dialog-title-horizontal-padding: var(--ui-s-spacing);
@@ -20,13 +20,9 @@
 }
 
 ui-dialog{
-  background: var(--ui-dialog-background);
-  color: var(--ui-dialog-label);
-
   display: flex;
   flex-direction: column;
-
-  max-height: 100%;
+  flex-grow: 1;
 
   /**
    * Secondary content offset against the main dialog content. Sidebar, etc.
@@ -37,7 +33,7 @@ ui-dialog{
   }
 
   .ui-dialog-content{
-
+    border-top: 1px solid var(--ui-separator);
   }
 
   .ui-dialog-title{
@@ -63,6 +59,7 @@ ui-dialog{
   }
 }
 
+/*
 ui-modal ui-dialog{
   @include tablet{
     min-width: 400px;
@@ -74,4 +71,4 @@ ui-modal ui-dialog{
     border: 1px solid var(--ui-separator);
     margin-top: var(--ui-spacing);
   }
-}
+}*/

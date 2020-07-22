@@ -594,7 +594,7 @@ class UIDialog extends HTMLElement{
         this.appendChild(new UIBox(new UIAppBar(new UIBar(new UIIconButton(UIIcon.x())))).xs().gutter());
 
         const contentHolder = document.createElement('div');
-        contentHolder.classList.add('ui-dialog-content');
+        contentHolder.classList.add('ui-dialog-content', 'ui-scrollable', 'is-y');
 
         Elements.append(contentHolder, content);
 

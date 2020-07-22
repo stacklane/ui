@@ -553,19 +553,16 @@ window.customElements.define('ui-bar', UIBar);
 class UISideBar extends HTMLElement {
     constructor(elements) {
         super();
-        if (typeof elements === 'string'){
-            this.appendChild(Elements.span().text(elements).create());
-        } else if (elements instanceof HTMLElement) {
-            this.appendChild(elements);
-        } else if (elements instanceof Array){
-            for (let i = 0; i < elements.length; i++) this.appendChild(elements[i]);
-        }
+        Elements.append(this, elements);
     }
 }
 window.customElements.define('ui-sidebar', UISideBar);
 
 class UIAppBar extends HTMLElement {
-    constructor() {super();}
+    constructor(elements) {
+        super();
+        Elements.append(this, elements);
+    }
 }
 window.customElements.define('ui-appbar', UIAppBar);
 
@@ -576,24 +573,19 @@ class UIDialog extends HTMLElement{
     constructor(content, title) {
         super();
 
-        const header = document.createElement('div');
-        header.classList.add('ui-dialog-title');
-        this.appendChild(header);
-        this._header = header;
+        //const header = document.createElement('div');
+        //header.classList.add('ui-dialog-title');
+        //this.appendChild(header);
 
-        header.appendChild(Elements.h5().text(title).create());
+        //header.appendChild(Elements.h5().text(title).create());
+
+        // TODO should be a "back arrow" instead of an "x"
+        this.appendChild(new UIAppBar(new UIBar(new UIButton(UIIcon.x()))));
 
         const contentHolder = document.createElement('div');
         contentHolder.classList.add('ui-dialog-content');
 
-        if (content instanceof HTMLElement) {
-            contentHolder.appendChild(content);
-        } else if (content instanceof Array){
-            for (let i = 0; i < content.length; i++)
-                contentHolder.appendChild(content[i]);
-        } else {
-            throw '' + content;
-        }
+        Elements.append(contentHolder, content);
 
         this.appendChild(contentHolder);
     }

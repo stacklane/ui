@@ -499,7 +499,7 @@ class UIDialog extends HTMLElement{
 
         this._layer = new UILayer(this).full();
 
-        const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this._layer.remove());
+        const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this.close());
         const bar = new UIBar(close, this._title);
         const appBar = new UIAppBar(bar).bottomSeparator();
         this.appendChild(new UIBox(appBar).xs().gutter());
@@ -597,7 +597,7 @@ class UIDialog extends HTMLElement{
     }
 
     connectedCallback(){
-        this._attr();
+
     }
 }
 window.customElements.define('ui-dialog', UIDialog);

@@ -585,6 +585,7 @@ class UIDialog extends HTMLElement{
             this._currentActiveElement = document.activeElement;
             this._layer.create();
             this.setAttribute('aria-hidden', 'false');
+            this.focus();
         } else {
             this._layer.remove();
             this.setAttribute('aria-hidden', 'true');

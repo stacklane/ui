@@ -7,6 +7,7 @@ const _UI_ICON_SVG_PLUS = '<svg xmlns="http://www.w3.org/2000/svg" height="24" v
 // Un-opinionated 3 horizontal lines, e.g. hamburger:
 const _UI_ICON_SVG_MENU = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
 const _UI_ICON_SVG_MENU_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"/></svg>';
+const _UI_ICON_SVG_ARROW_BACK = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>';
 
 class UISkeleton extends HTMLElement{
     constructor() {super();}
@@ -61,9 +62,22 @@ window.customElements.define('ui-spinner', UISpinner);
  * May be subclassed.
  */
 class UIScrollable extends HTMLElement{
-    constructor(type) {
+    constructor(content) {
         super();
-        this._type = type;
+        this.y();
+        Elements.append(this, content);
+    }
+    y(){
+        this._type = 'y';
+        return this;
+    }
+    x(){
+        this._type = 'x';
+        return this;
+    }
+    xy(){
+        this._type = 'xy';
+        return this;
     }
     connectedCallback(){
         this.classList.add('ui-scrollable');
@@ -81,6 +95,7 @@ class UIIcon extends HTMLElement{
     static plus(){return new UIIcon(_UI_ICON_SVG_PLUS);}
     static menu(){return new UIIcon(_UI_ICON_SVG_MENU);}
     static menuClose(){return new UIIcon(_UI_ICON_SVG_MENU_CLOSE);}
+    static arrowBack(){return new UIIcon(_UI_ICON_SVG_ARROW_BACK);}
 
     constructor(string) {
         super();
@@ -416,134 +431,6 @@ class UIEmpty extends HTMLElement{
 }
 window.customElements.define('ui-empty', UIEmpty);
 
-
-/**
- * @see _modal.scss
- *
- * https://css-tricks.com/a-css-approach-to-trap-focus-insui-of-an-element/
- *
- * // https://css-tricks.com/considerations-styling-modal/
-
- // TODO accessibility...
- // https://github.com/gdkraus/accessible-modal-dialog
-
- TODO dialog element as it becomes available:
- https://caniuse.com/#search=dialog
- polyfill
- https://blog.logrocket.com/the-dialog-element-the-way-to-create-tomorrows-modal-windows-f1d4ab14380b/
-
- */
-class UIModalBackdrop extends HTMLElement{
-    constructor() {
-        super();
-        this.setAttribute('tabindex', '-1');
-    }
-}
-window.customElements.define('ui-modal-backdrop', UIModalBackdrop);
-class UIModal extends HTMLElement{
-    static _isVisibleElement(element){
-        // jquery approach
-        // https://stackoverflow.com/questions/13388616/firefox-query-selector-and-the-visible-pseudo-selector
-        return element.offsetWidth > 0 || element.offsetHeight > 0;
-    }
-
-    constructor(content) {
-        super();
-
-        this.setAttribute('tabindex', '0'); // necessary for focus() call to work
-        this.setAttribute('aria-hidden', 'true');
-        this.setAttribute('role', 'dialog');
-
-        this.appendChild(content);
-
-        this._backdrop = new UIModalBackdrop();
-
-        const that = this;
-        this.addEventListener('keydown', function(event){
-            if (event.key === 'Escape') {
-                that._esc(event);
-            } else if (event.key === 'Tab'){
-                that._tab(event);
-            }
-        });
-    }
-
-    _esc(event){
-        this.close();
-        event.preventDefault();
-    }
-
-    /**
-     * Trap the tab key within the modal, to prevent it from going to 'outer' / main document.
-     */
-    _tab(event){
-        event.preventDefault(); // always?
-
-        // get list of all children elements:
-        const o = Array.from(this.querySelectorAll('.ui-modal-content *'));
-
-        // get list of focusable items
-        const focusableItems = o.filter((e)=>UIModal._isVisibleElement(e));
-
-        // get currently focused item
-        const focusedItem = document.activeElement;
-
-        // get the number of focusable items
-        const numberOfFocusableItems = focusableItems.length
-
-        // get the index of the currently focused item
-        const focusedItemIndex = focusableItems.index(focusedItem);
-
-        if (event.shiftKey) {
-            // back tab
-            // if focused on first item and user preses back-tab, go to the last focusable item
-            if (focusedItemIndex == 0) {
-                focusableItems.get(numberOfFocusableItems - 1).focus();
-                event.preventDefault();
-            }
-        } else {
-            // forward tab
-            // if focused on the last item and user preses tab, go to the first focusable item
-            if (focusedItemIndex == numberOfFocusableItems - 1) {
-                focusableItems.get(0).focus();
-                event.preventDefault();
-            }
-        }
-    }
-
-    get dynamic(){
-        return true; //!this.hasAttribute('id');
-    }
-
-    show(){
-        this._currentActiveElement = document.activeElement;
-        if (this.dynamic) document.body.appendChild(this);
-        this.setAttribute('open', '');
-        this.setAttribute('aria-hidden', 'false');
-
-        document.body.appendChild(this._backdrop);
-        this.focus();
-    }
-
-    close(){
-        this.removeAttribute('open');
-        this.setAttribute('aria-hidden', 'true');
-
-        if (this.dynamic) document.body.removeChild(this);
-
-        document.body.removeChild(this._backdrop);
-
-        // Restore focus
-        if (this._currentActiveElement) this._currentActiveElement.focus();
-    }
-
-    connectedCallback(){
-        this.removeAttribute('open');
-        this.setAttribute('aria-hidden', 'true');
-    }
-}
-window.customElements.define('ui-modal', UIModal);
-
 /**
  * @see _bar.scss
  */
@@ -574,52 +461,143 @@ class UIAppBar extends HTMLElement {
         super();
         Elements.append(this, elements);
     }
+    bottomSeparator(){
+        this.classList.add('has-bottom-separator');
+        return this;
+    }
 }
 window.customElements.define('ui-appbar', UIAppBar);
 
 /**
- * @see _dialog.scss
+ * https://css-tricks.com/a-css-approach-to-trap-focus-insui-of-an-element/
+ *
+ * // https://css-tricks.com/considerations-styling-modal/
+
+ // TODO accessibility...
+ // https://github.com/gdkraus/accessible-modal-dialog
+
+ TODO dialog element as it becomes available:
+ https://caniuse.com/#search=dialog
+ polyfill
+ https://blog.logrocket.com/the-dialog-element-the-way-to-create-tomorrows-modal-windows-f1d4ab14380b/
+
  */
 class UIDialog extends HTMLElement{
+    static get observedAttributes() { return ['open']; }
+
+    static _isVisibleElement(element){
+        // jquery approach
+        // https://stackoverflow.com/questions/13388616/firefox-query-selector-and-the-visible-pseudo-selector
+        return element.offsetWidth > 0 || element.offsetHeight > 0;
+    }
+
     constructor(content, title) {
         super();
 
-        //const header = document.createElement('div');
-        //header.classList.add('ui-dialog-title');
-        //this.appendChild(header);
+        this._title = Elements.span().create();
+        if (this._title) this._title.innerText = title;
 
-        //header.appendChild(Elements.h5().text(title).create());
+        this._layer = new UILayer(this).full();
 
-        // TODO should be a "back arrow" instead of an "x"
-        this.appendChild(new UIBox(new UIAppBar(new UIBar(new UIIconButton(UIIcon.x())))).xs().gutter());
+        const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this._layer.remove());
+        const bar = new UIBar(close, this._title);
+        const appBar = new UIAppBar(bar).bottomSeparator();
+        this.appendChild(new UIBox(appBar).xs().gutter());
 
-        const contentHolder = document.createElement('div');
-        contentHolder.classList.add('ui-dialog-content', 'ui-scrollable', 'is-y');
+        this.appendChild(new UIScrollable(content));
 
-        Elements.append(contentHolder, content);
+        this.setAttribute('tabindex', '0'); // necessary for focus() call to work
+        this.setAttribute('aria-hidden', 'true');
+        this.setAttribute('role', 'dialog');
 
-        this.appendChild(contentHolder);
+        const that = this;
+        this.addEventListener('keydown', function(event){
+            if (event.key === 'Escape') {
+                that._esc(event);
+            } else if (event.key === 'Tab'){
+                that._tab(event);
+            }
+        });
+    }
+
+    get title(){
+        return this._title.innerText;
     }
 
     set title(title){
-        this.querySelector('.ui-dialog-title h5').innerText = title;
+        this._title.innerText = title;
+    }
+
+    _esc(event){
+        this.close();
+        event.preventDefault();
     }
 
     /**
-     * Wrap this in a UIModal, make it closable, show the UIModal.
+     * Trap the tab key within the modal, to prevent it from going to 'outer' / main document.
      */
-    modal(){
-        /*
-        const modal = new UIModal(this);
+    _tab(event){
+        event.preventDefault(); // always?
 
-        const closer = new UIIconButton(UIIcon.x()).round().tiny();
-        closer.classList.add('ui-dialog-close');
+        // get list of all children elements:
+        const o = Array.from(this.querySelectorAll('.ui-modal-content *'));
 
-        closer.addEventListener('click', ()=>modal.close());
-        this._header.appendChild(closer);
+        // get list of focusable items
+        const focusableItems = o.filter((e)=>UIDialog._isVisibleElement(e));
 
-        modal.show();*/
-        new UILayer(this).full().show();
+        // get currently focused item
+        const focusedItem = document.activeElement;
+
+        // get the number of focusable items
+        const numberOfFocusableItems = focusableItems.length
+
+        // get the index of the currently focused item
+        const focusedItemIndex = focusableItems.index(focusedItem);
+
+        if (event.shiftKey) {
+            // back tab
+            // if focused on first item and user preses back-tab, go to the last focusable item
+            if (focusedItemIndex == 0) {
+                focusableItems.get(numberOfFocusableItems - 1).focus();
+                event.preventDefault();
+            }
+        } else {
+            // forward tab
+            // if focused on the last item and user preses tab, go to the first focusable item
+            if (focusedItemIndex == numberOfFocusableItems - 1) {
+                focusableItems.get(0).focus();
+                event.preventDefault();
+            }
+        }
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if ('open' === name) this._attr();
+    }
+
+    _attr(){
+        if (this.hasAttribute('open')){
+            this._currentActiveElement = document.activeElement;
+            this._layer.create();
+            this.setAttribute('aria-hidden', 'false');
+        } else {
+            this._layer.remove();
+            this.setAttribute('aria-hidden', 'true');
+            // Restore focus:
+            if (this._currentActiveElement) this._currentActiveElement.focus();
+        }
+    }
+
+    open(){
+        this.setAttribute('open', '');
+    }
+
+    close(){
+        this.removeAttribute('open');
+    }
+
+    connectedCallback(){
+        this._attr();
     }
 }
 window.customElements.define('ui-dialog', UIDialog);
@@ -647,13 +625,21 @@ class UILayer extends HTMLElement{
         return this;
     }
 
-    show(){
+    _layers(){
         let l = document.getElementById('ui-layers');
         if (!l) {
             l = Elements.div().id('ui-layers').create();
             document.body.appendChild(l);
         }
-        l.appendChild(this._d1);
+        return l;
+    }
+
+    remove(){
+        this._layers().removeChild(this._d1);
+    }
+
+    create(){
+        this._layers().appendChild(this._d1);
         return this;
     }
 }

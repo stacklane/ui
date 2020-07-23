@@ -208,4 +208,7 @@ ui-appbar{
     --ui-appbar-spacing: var(--ui-xs-spacing);
     --ui-appbar-height: calc(var(--ui-xs-spacing) * 4);
   }
+  &.has-bottom-separator{
+    border-bottom: 1px solid var(--ui-separator);
+  }
 }

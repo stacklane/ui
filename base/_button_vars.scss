@@ -56,6 +56,7 @@
   align-items: center;
   position: relative;
   vertical-align: top; // this seems to be necessary and has unexpected / intermittent issues, even with align-items center
+  flex-shrink:0;
 
   /**
    * Handle overflowing labels of unknown/dynamic length within the button.

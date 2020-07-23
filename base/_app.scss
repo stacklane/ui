@@ -9,9 +9,14 @@ ui-scrollable{
   display: block;
   height: 100%; // for proper height within a flex parent
   //flex: 1 1 auto;
+
+  &.is-full{
+    display: flex;
+    flex-grow: 1;
+  }
 }
 .ui-scrollable{
-  // Does not override 'display'
+  // Important: Does not override 'display'
   min-height: 1px;
   overscroll-behavior: none;
   overflow: hidden;

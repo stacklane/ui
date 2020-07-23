@@ -67,6 +67,10 @@ class UIScrollable extends HTMLElement{
         this.y();
         Elements.append(this, content);
     }
+    full(){
+        this.classList.add('is-full');
+        return this;
+    }
     y(){
         this._type = 'y';
         return this;
@@ -501,10 +505,11 @@ class UIDialog extends HTMLElement{
 
         const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this.close());
         const bar = new UIBar(close, this._title);
-        const appBar = new UIAppBar(bar).bottomSeparator();
-        this.appendChild(new UIBox(appBar).xs().gutter());
+        const box = new UIBox(bar).xs().gutter();
+        const appBar = new UIAppBar(box).bottomSeparator();
+        this.appendChild(appBar);
 
-        this.appendChild(new UIScrollable(content));
+        this.appendChild(new UIScrollable(content).full());
 
         this.setAttribute('tabindex', '0'); // necessary for focus() call to work
         this.setAttribute('aria-hidden', 'true');
@@ -594,10 +599,6 @@ class UIDialog extends HTMLElement{
 
     close(){
         this.removeAttribute('open');
-    }
-
-    connectedCallback(){
-
     }
 }
 window.customElements.define('ui-dialog', UIDialog);

@@ -554,24 +554,26 @@ class UIDialog extends HTMLElement{
         const focusedItem = document.activeElement;
 
         // get the number of focusable items
-        const numberOfFocusableItems = focusableItems.length
+        const numberOfFocusableItems = focusableItems.length;
+
+        if (numberOfFocusableItems === 0) return;
 
         // get the index of the currently focused item
-        const focusedItemIndex = focusableItems.index(focusedItem);
+        const focusedItemIndex = focusedItem ? focusableItems.indexOf(focusedItem) : -1;
 
         if (event.shiftKey) {
             // back tab
             // if focused on first item and user preses back-tab, go to the last focusable item
-            if (focusedItemIndex == 0) {
-                focusableItems.get(numberOfFocusableItems - 1).focus();
-                event.preventDefault();
+            if (focusedItemIndex === 0) {
+                focusableItems[numberOfFocusableItems - 1].focus();
+                //event.preventDefault();
             }
         } else {
             // forward tab
             // if focused on the last item and user preses tab, go to the first focusable item
-            if (focusedItemIndex == numberOfFocusableItems - 1) {
-                focusableItems.get(0).focus();
-                event.preventDefault();
+            if (focusedItemIndex === numberOfFocusableItems - 1) {
+                focusableItems[0].focus();
+                //event.preventDefault();
             }
         }
     }

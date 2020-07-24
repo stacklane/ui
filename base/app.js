@@ -128,22 +128,13 @@ class UIBox extends HTMLElement{
         Elements.append(this, elements);
         Elements.append(this, more)
     }
-    s(){
-        this.classList.add('has-s-spacing');
-        return this;
-    }
-    xs(){
-        this.classList.add('has-xs-spacing');
-        return this;
-    }
-    gutter(){
-        this.classList.add('is-gutter');
-        return this;
-    }
-    bottomSeparator(){
-        this.classList.add('has-bottom-separator');
-        return this;
-    }
+    _cls(c){ this.classList.add(c); return this; }
+    s(){return this._cls.add('has-s-spacing')};
+    xs(){return this._cls.add('has-s-spacing')};
+    gutter(){return this._cls.add('is-gutter')};
+    bottomSeparator(){return this._cls.add('has-bottom-separator')};
+    rightSeparator(){return this._cls.add('has-right-separator')};
+
 }
 window.customElements.define('ui-box', UIBox);
 
@@ -554,6 +545,7 @@ class UIDialog extends HTMLElement{
     }
 
     /**
+     * TODO review / test
      * Trap the tab key within the modal, to prevent it from going to 'outer' / main document.
      */
     _tab(event){

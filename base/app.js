@@ -123,9 +123,10 @@ class UISkeletons extends HTMLElement{
 window.customElements.define('ui-skeletons', UISkeletons);
 
 class UIBox extends HTMLElement{
-    constructor(elements) {
+    constructor(elements, ...more) {
         super();
         Elements.append(this, elements);
+        Elements.append(this, more)
     }
     xs(){
         this.classList.add('has-xs-spacing');
@@ -438,9 +439,10 @@ window.customElements.define('ui-empty', UIEmpty);
  * @see _bar.scss
  */
 class UIBar extends HTMLElement{
-    constructor(elements) {
+    constructor(elements, ...more) {
         super();
         Elements.append(this, elements);
+        Elements.append(this, more);
     }
     _cls(c){ this.classList.add(c); return this; }
     path(){return this._cls('is-path');}
@@ -472,6 +474,10 @@ class UIAppBar extends HTMLElement {
 window.customElements.define('ui-appbar', UIAppBar);
 
 /**
+ * Opinionated dialog/overlay, as a full screen with a "back arrow" for exiting/closing.
+ *
+ *
+ *
  * https://css-tricks.com/a-css-approach-to-trap-focus-insui-of-an-element/
  *
  * // https://css-tricks.com/considerations-styling-modal/
@@ -494,19 +500,20 @@ class UIDialog extends HTMLElement{
         return element.offsetWidth > 0 || element.offsetHeight > 0;
     }
 
-    constructor(content, title) {
+    constructor(content, title, actions) {
         super();
 
         this._title = Elements.span().text(title).create();
         this._layer = new UILayer(this).full();
 
         const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this.close());
-        const bar = new UIBar([close, this._title]);
-        const box = new UIBox(bar).xs().gutter();
+        const leftBar = new UIBar(close, this._title);
+        const rightBar = new UIBar(actions).growEnd();
+        const box = new UIBox(leftBar, rightBar).xs().gutter();
         const appBar = new UIAppBar(box).bottomSeparator();
         this.appendChild(appBar);
 
-        this.appendChild(new UIScrollable(content).full());
+        this.appendChild(content);
 
         this.setAttribute('tabindex', '0'); // necessary for focus() call to work
         this.setAttribute('aria-hidden', 'true');

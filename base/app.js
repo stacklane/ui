@@ -134,7 +134,7 @@ class UIBox extends HTMLElement{
     gutter(){return this._cls.add('is-gutter')};
     bottomSeparator(){return this._cls.add('has-bottom-separator')};
     rightSeparator(){return this._cls.add('has-right-separator')};
-
+    scrollY(){return this._cls.add('ui-scrollable', 'is-y')};
 }
 window.customElements.define('ui-box', UIBox);
 

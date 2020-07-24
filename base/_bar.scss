@@ -167,11 +167,7 @@ ui-sidebar{
 }
 
 /**
- * Horizontal, fixed height, typically contains 1 or more <ui-bar>'s.
- *
- * Spacing classes influence fixed height.
- *
- * Use parent <ui-box> for external padding, borders, or gutters.
+ * @see UIAppBar
  */
 ui-appbar{
   --ui-appbar-spacing: var(--ui-spacing);

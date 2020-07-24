@@ -128,6 +128,10 @@ class UIBox extends HTMLElement{
         Elements.append(this, elements);
         Elements.append(this, more)
     }
+    s(){
+        this.classList.add('has-s-spacing');
+        return this;
+    }
     xs(){
         this.classList.add('has-xs-spacing');
         return this;
@@ -440,7 +444,7 @@ class UIEmpty extends HTMLElement{
 window.customElements.define('ui-empty', UIEmpty);
 
 /**
- * @see _bar.scss
+ *
  */
 class UIBar extends HTMLElement{
     constructor(elements, ...more) {
@@ -465,6 +469,13 @@ class UISideBar extends HTMLElement {
 }
 window.customElements.define('ui-sidebar', UISideBar);
 
+/**
+ * Horizontal, fixed height, typically contains 1 or more UIBar's.
+ *
+ * Spacing classes influence fixed height.
+ *
+ * Use parent <ui-box> for external padding, borders, or gutters.
+ */
 class UIAppBar extends HTMLElement {
     constructor(elements, ...more) {
         super();
@@ -511,7 +522,7 @@ class UIDialog extends HTMLElement{
         const leftBar = new UIBar(close, this._title);
         const rightBar = new UIBar(actions).growEnd();
         const appBar = new UIAppBar(leftBar, rightBar);
-        this.appendChild(new UIBox(appBar).xs().gutter().bottomSeparator());
+        this.appendChild(new UIBox(appBar).gutter().bottomSeparator());
 
         this.appendChild(content);
 

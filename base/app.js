@@ -499,7 +499,7 @@ class UIDialog extends HTMLElement{
         super();
 
         this._title = Elements.span().create();
-        if (this._title) this._title.innerText = title;
+        if (title) this._title.innerText = title;
 
         this._layer = new UILayer(this).full();
 
@@ -545,7 +545,7 @@ class UIDialog extends HTMLElement{
         event.preventDefault(); // always?
 
         // get list of all children elements:
-        const o = Array.from(this.querySelectorAll('.ui-modal-content *'));
+        const o = Array.from(this.querySelectorAll('*'));
 
         // get list of focusable items
         const focusableItems = o.filter((e)=>UIDialog._isVisibleElement(e));

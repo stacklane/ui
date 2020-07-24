@@ -171,7 +171,7 @@ ui-sidebar{
  *
  * Spacing classes influence fixed height.
  *
- * Use parent <ui-box> for external padding or gutters.
+ * Use parent <ui-box> for external padding, borders, or gutters.
  */
 ui-appbar{
   --ui-appbar-spacing: var(--ui-spacing);
@@ -207,8 +207,5 @@ ui-appbar{
   &.has-xs-spacing{
     --ui-appbar-spacing: var(--ui-xs-spacing);
     --ui-appbar-height: calc(var(--ui-xs-spacing) * 4);
-  }
-  &.has-bottom-separator{
-    border-bottom: 1px solid var(--ui-separator);
   }
 }

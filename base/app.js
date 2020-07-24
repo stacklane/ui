@@ -136,6 +136,10 @@ class UIBox extends HTMLElement{
         this.classList.add('is-gutter');
         return this;
     }
+    bottomSeparator(){
+        this.classList.add('has-bottom-separator');
+        return this;
+    }
 }
 window.customElements.define('ui-box', UIBox);
 
@@ -462,13 +466,10 @@ class UISideBar extends HTMLElement {
 window.customElements.define('ui-sidebar', UISideBar);
 
 class UIAppBar extends HTMLElement {
-    constructor(elements) {
+    constructor(elements, ...more) {
         super();
         Elements.append(this, elements);
-    }
-    bottomSeparator(){
-        this.classList.add('has-bottom-separator');
-        return this;
+        Elements.append(this, more);
     }
 }
 window.customElements.define('ui-appbar', UIAppBar);
@@ -509,9 +510,8 @@ class UIDialog extends HTMLElement{
         const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this.close());
         const leftBar = new UIBar(close, this._title);
         const rightBar = new UIBar(actions).growEnd();
-        const box = new UIBox(leftBar, rightBar).xs().gutter();
-        const appBar = new UIAppBar(box).bottomSeparator();
-        this.appendChild(appBar);
+        const appBar = new UIAppBar(leftBar, rightBar);
+        this.appendChild(new UIBox(appBar).xs().gutter().bottomSeparator());
 
         this.appendChild(content);
 

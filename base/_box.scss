@@ -32,6 +32,10 @@ ui-box{
     --ui-box-spacing: var(--ui-xs-spacing);
   }
 
+  &.has-bottom-separator{
+    border-bottom: 1px solid var(--ui-separator);
+  }
+
   /**
    * A main content or app area, where on larger screens
    * there is more breathing room on the left/right.

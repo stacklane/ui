@@ -129,12 +129,12 @@ class UIBox extends HTMLElement{
         Elements.append(this, more)
     }
     _cls(c){ this.classList.add(c); return this; }
-    s(){return this._cls.add('has-s-spacing')};
-    xs(){return this._cls.add('has-s-spacing')};
-    gutter(){return this._cls.add('is-gutter')};
-    bottomSeparator(){return this._cls.add('has-bottom-separator')};
-    rightSeparator(){return this._cls.add('has-right-separator')};
-    scrollY(){return this._cls.add('ui-scrollable', 'is-y')};
+    s(){return this._cls('has-s-spacing')};
+    xs(){return this._cls('has-s-spacing')};
+    gutter(){return this._cls('is-gutter')};
+    bottomSeparator(){return this._cls('has-bottom-separator')};
+    rightSeparator(){return this._cls('has-right-separator')};
+    scrollY(){return this._cls('ui-scrollable', 'is-y')};
 }
 window.customElements.define('ui-box', UIBox);
 

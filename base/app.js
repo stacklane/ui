@@ -498,13 +498,11 @@ class UIDialog extends HTMLElement{
     constructor(content, title) {
         super();
 
-        this._title = Elements.span().create();
-        if (title) this._title.innerText = title;
-
+        this._title = Elements.span().text(title).create();
         this._layer = new UILayer(this).full();
 
         const close = new UIIconButton(UIIcon.arrowBack()).addAction(()=>this.close());
-        const bar = new UIBar(close, this._title);
+        const bar = new UIBar([close, this._title]);
         const box = new UIBox(bar).xs().gutter();
         const appBar = new UIAppBar(box).bottomSeparator();
         this.appendChild(appBar);

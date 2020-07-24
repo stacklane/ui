@@ -9,6 +9,98 @@ const _UI_ICON_SVG_MENU = '<svg xmlns="http://www.w3.org/2000/svg" height="24" v
 const _UI_ICON_SVG_MENU_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"/></svg>';
 const _UI_ICON_SVG_ARROW_BACK = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>';
 
+/**
+ * Low-level utility for building elements/nodes.
+ */
+class Elements{
+    // static ui(name){return new Elements('ui-' + name)};
+    static h1(){return new Elements('h1')};
+    static h2(){return new Elements('h2')};
+    static h3(){return new Elements('h3')};
+    static h4(){return new Elements('h4')};
+    static h5(){return new Elements('h5')};
+    static h6(){return new Elements('h6')};
+    static div(){return new Elements('div')};
+    static span(){return new Elements('span')};
+    static section(){return new Elements('section')};
+    static footer(){return new Elements('footer')};
+    static blockquote(){return new Elements('blockquote')};
+    static select(){return new Elements('select')};
+    static option(){return new Elements('option')};
+    static button(){return new Elements('button')};
+    static input(){return new Elements('input')};
+    static template(){return new Elements('template')};
+    static ul(){return new Elements('ul')};
+    static li(){return new Elements('li')};
+
+    static append(parent, elements){
+        if (typeof elements === 'string'){
+            parent.appendChild(Elements.span().text(elements).create());
+        } else if (elements instanceof HTMLElement) {
+            parent.appendChild(elements);
+        } else if (elements instanceof Array){
+            for (let i = 0; i < elements.length; i++)
+                Elements.append(parent, elements[i]);
+        }
+    }
+
+    constructor(name){
+        this._name = name;
+    }
+
+    attr(name, value){
+        if (!this._attr) this._attr = {};
+        this._attr[name] = value;
+        return this;
+    }
+
+    classes(...classes){
+        this._classes = classes;
+        return this;
+    }
+
+    html(html){
+        this._html = html;
+        return this;
+    }
+
+    text(text){
+        this._text = text;
+        return this;
+    }
+
+    id(id){
+        this._id = id;
+        return this;
+    }
+
+    child(child){
+        if (!this._children) this._children = [];
+        this._children.push(child);
+        return this;
+    }
+
+    create(){
+        const e = document.createElement(this._name);
+        if (this._id) e.id = this._id;
+        if (this._text) e.innerText = this._text;
+        if (this._html) e.innerHTML = this._html;
+        if (this._classes) {
+            (typeof this._classes === 'string') ?
+                e.classList.add(this._classes) : e.classList.add(...this._classes);
+        }
+        if (this._attr){
+            for (let name in this._attr) e.setAttribute(name, this._attr[name]);
+        }
+        if (this._children){
+            this._children.forEach(
+                (c)=>(c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c)
+            );
+        }
+        return e;
+    }
+}
+
 class UISkeleton extends HTMLElement{
     constructor() {super();}
 }
@@ -129,99 +221,6 @@ class UIIcon extends HTMLElement{
     }
 }
 window.customElements.define('ui-icon', UIIcon);
-
-
-/**
- * Low-level utility for building elements/nodes.
- */
-class Elements{
-   // static ui(name){return new Elements('ui-' + name)};
-    static h1(){return new Elements('h1')};
-    static h2(){return new Elements('h2')};
-    static h3(){return new Elements('h3')};
-    static h4(){return new Elements('h4')};
-    static h5(){return new Elements('h5')};
-    static h6(){return new Elements('h6')};
-    static div(){return new Elements('div')};
-    static span(){return new Elements('span')};
-    static section(){return new Elements('section')};
-    static footer(){return new Elements('footer')};
-    static blockquote(){return new Elements('blockquote')};
-    static select(){return new Elements('select')};
-    static option(){return new Elements('option')};
-    static button(){return new Elements('button')};
-    static input(){return new Elements('input')};
-    static template(){return new Elements('template')};
-    static ul(){return new Elements('ul')};
-    static li(){return new Elements('li')};
-
-    static append(parent, elements){
-        if (typeof elements === 'string'){
-            parent.appendChild(Elements.span().text(elements).create());
-        } else if (elements instanceof HTMLElement) {
-            parent.appendChild(elements);
-        } else if (elements instanceof Array){
-            for (let i = 0; i < elements.length; i++)
-                Elements.append(parent, elements[i]);
-        }
-    }
-
-    constructor(name){
-        this._name = name;
-    }
-
-    attr(name, value){
-        if (!this._attr) this._attr = {};
-        this._attr[name] = value;
-        return this;
-    }
-
-    classes(...classes){
-        this._classes = classes;
-        return this;
-    }
-
-    html(html){
-        this._html = html;
-        return this;
-    }
-
-    text(text){
-        this._text = text;
-        return this;
-    }
-
-    id(id){
-        this._id = id;
-        return this;
-    }
-
-    child(child){
-        if (!this._children) this._children = [];
-        this._children.push(child);
-        return this;
-    }
-
-    create(){
-        const e = document.createElement(this._name);
-        if (this._id) e.id = this._id;
-        if (this._text) e.innerText = this._text;
-        if (this._html) e.innerHTML = this._html;
-        if (this._classes) {
-            (typeof this._classes === 'string') ?
-                e.classList.add(this._classes) : e.classList.add(...this._classes);
-        }
-        if (this._attr){
-            for (let name in this._attr) e.setAttribute(name, this._attr[name]);
-        }
-        if (this._children){
-            this._children.forEach(
-                (c)=>(c instanceof Elements) ? e.appendChild(c.create()) : e.appendChild(c)
-            );
-        }
-        return e;
-    }
-}
 
 /**
  * Base class for simple, declarative action handling.

@@ -650,7 +650,7 @@ class UIDialog extends HTMLElement{
             // Restore focus:
             if (this._currentActiveElement) this._currentActiveElement.focus();
             // Restore history:
-            if (this._history) window.location.back();
+            if (this._history) window.history.back();
         }
     }
 

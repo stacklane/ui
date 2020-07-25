@@ -514,7 +514,7 @@ class UIDialog extends HTMLElement{
         const leftBar = new UIBar(close, this._title);
         const rightBar = new UIBar(actions).growEnd();
         const appBar = new UIAppBar(leftBar, rightBar);
-        this.appendChild(new UIBox(appBar).gutter().bottomSeparator());
+        this.appendChild(new UIBox(appBar).gutter().secondaryBackground().bottomSeparator());
 
         this.appendChild(content);
 

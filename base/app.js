@@ -156,7 +156,7 @@ window.customElements.define('ui-spinner', UISpinner);
  */
 class Router{
     constructor(callback) { this._callback = callback; }
-    handle(value){ return (this._callback) ? this._callback(value) : false;}
+    handle(value){ return (this._callback) ? this._callback(value) : false; }
     _handle(){
         let h = window.location.hash;
         if (h.startsWith('#')) h = h.substring(1);
@@ -167,7 +167,7 @@ class Router{
         return this;
     }
     register(){
-        window.addEventListener('hashchange', ()=>this._handle);
+        window.addEventListener('hashchange', ()=>this._handle());
         return this;
     }
 }

@@ -181,7 +181,11 @@ class CompositeRouter extends Router{
         this._routers = [];
     }
     add(router){
-        this._routers.push(router);
+        if (typeof router === 'function'){
+            this._routers.push(new Router(router));
+        } else {
+            this._routers.push(router);
+        }
     }
     handle(value){
         for (let i = 0; i < this._routers.length; i++)

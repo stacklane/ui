@@ -167,7 +167,7 @@ class Router{
         return this;
     }
     register(){
-        window.addEventListener('hashchange', this._handle);
+        window.addEventListener('hashchange', ()=>this._handle);
         return this;
     }
 }

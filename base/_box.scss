@@ -1,5 +1,6 @@
 /**
- * Simple outer spacing, typically for a single direct child.
+ * Typically for decorating a single direct child.
+ * Primary goal is to keep other components simpler.
  */
 ui-box{
   --ui-box-spacing: var(--ui-spacing);
@@ -7,6 +8,10 @@ ui-box{
   display: block;
 
   padding: var(--ui-box-spacing);
+
+  &.has-secondary-background{
+    background: var(--ui-secondary-background);
+  }
 
   &.has-l-spacing{
     --ui-box-spacing: var(--ui-l-spacing);
@@ -47,6 +52,7 @@ ui-box{
   &.has-separator{
     border: 1px solid var(--ui-separator);
   }
+
   /**
    * A main content or app area, where on larger screens
    * there is more breathing room on the left/right.

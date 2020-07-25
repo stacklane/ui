@@ -17,26 +17,26 @@
  *        }
  */
 
-const _TAB_HASH_ROUTING = ()=>{
-    let h = window.location.hash;
+class UITab extends HTMLElement{
 
-    if (h.startsWith('#')) {
-        h = h.substring(1);
-        const t = document.querySelector('ui-tab[hash="' + h + '"]');
-        if (t) {
-            t._activate();
-            return;
+    static createInitRouter(){
+        const d = document.querySelector('ui-tab[init="true"]');
+        if (d) {
+            d.activate();
+            return true;
         }
+        return false;
     }
 
-    const d = document.querySelector('ui-tab[init="true"]');
-    if (d) d.activate();
-};
-window.addEventListener('hashchange', _TAB_HASH_ROUTING);
-
-class UITab extends HTMLElement{
-    static initRouting(){
-        _TAB_HASH_ROUTING();
+    static createGlobalRouter(){
+        return new Router((value)=>{
+            const t = document.querySelector('ui-tab[hash="' + value + '"]');
+            if (t) {
+                t._activate();
+                return true;
+            }
+            return false;
+        });
     }
 
     static get ChangeEventName(){

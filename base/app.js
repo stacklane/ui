@@ -152,6 +152,39 @@ class UISpinner extends HTMLElement{
 window.customElements.define('ui-spinner', UISpinner);
 
 /**
+ * Subclassed or used directly.
+ */
+class Router{
+    constructor(callback) { this._callback = callback; }
+    handle(value){ return (this._callback) ? this._callback(value) : false;}
+}
+
+/**
+ * Series of ordered Router's.
+ */
+class Routing extends Router{
+    constructor() {
+        super();
+        this._handlers = [];
+    }
+    add(router){
+        this._handlers.push(router);
+    }
+    route(){
+        let h = window.location.hash;
+        if (h.startsWith('#')) h = h.substring(1);
+        this.handle(h);
+    }
+    handle(value){
+        for (let i = 0; i < this._handlers.length; i++)
+            if (this._handlers[i].handle(value)) break;
+    }
+    register(){
+        window.addEventListener('hashchange', this.route);
+    }
+}
+
+/**
  * May be subclassed.
  */
 class UIScrollable extends HTMLElement{

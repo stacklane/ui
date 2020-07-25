@@ -152,35 +152,40 @@ class UISpinner extends HTMLElement{
 window.customElements.define('ui-spinner', UISpinner);
 
 /**
- * Subclassed or used directly.
+ * Subclassed or used directly by passing a callback.
  */
 class Router{
     constructor(callback) { this._callback = callback; }
     handle(value){ return (this._callback) ? this._callback(value) : false;}
+    _handle(){
+        let h = window.location.hash;
+        if (h.startsWith('#')) h = h.substring(1);
+        this.handle(h);
+    }
+    init(){
+        this._handle();
+        return this;
+    }
+    register(){
+        window.addEventListener('hashchange', this._handle);
+        return this;
+    }
 }
 
 /**
  * Series of ordered Router's.
  */
-class Routing extends Router{
+class CompositeRouter extends Router{
     constructor() {
         super();
-        this._handlers = [];
+        this._routers = [];
     }
     add(router){
-        this._handlers.push(router);
-    }
-    route(){
-        let h = window.location.hash;
-        if (h.startsWith('#')) h = h.substring(1);
-        this.handle(h);
+        this._routers.push(router);
     }
     handle(value){
-        for (let i = 0; i < this._handlers.length; i++)
-            if (this._handlers[i].handle(value)) break;
-    }
-    register(){
-        window.addEventListener('hashchange', this.route);
+        for (let i = 0; i < this._routers.length; i++)
+            if (this._routers[i].handle(value)) break;
     }
 }
 

@@ -20,12 +20,14 @@
 class UITab extends HTMLElement{
 
     static createInitRouter(){
-        const d = document.querySelector('ui-tab[init="true"]');
-        if (d) {
-            d.activate();
-            return true;
-        }
-        return false;
+        return new Router((value)=>{
+            const d = document.querySelector('ui-tab[init="true"]');
+            if (d) {
+                d.activate();
+                return true;
+            }
+            return false;
+        });
     }
 
     static createGlobalRouter(){

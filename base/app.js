@@ -574,6 +574,12 @@ class UIDialog extends HTMLElement{
         });
     }
 
+    history(){
+        this._history = true;
+        return this;
+    }
+
+
     get title(){
         return this._title.innerText;
     }
@@ -643,6 +649,8 @@ class UIDialog extends HTMLElement{
             this.setAttribute('aria-hidden', 'true');
             // Restore focus:
             if (this._currentActiveElement) this._currentActiveElement.focus();
+            // Restore history:
+            if (this._history) window.location.back();
         }
     }
 

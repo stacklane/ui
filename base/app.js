@@ -175,7 +175,7 @@ class Router{
 /**
  * Series of ordered Router's.
  */
-class CompositeRouter extends Router{
+class Routing extends Router{
     constructor() {
         super();
         this._routers = [];

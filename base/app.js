@@ -540,6 +540,17 @@ window.customElements.define('ui-appbar', UIAppBar);
 class UIDialog extends HTMLElement{
     static get observedAttributes() { return ['open']; }
 
+    static createRemovalRouter(){
+        return new Router(()=>{
+            const d = document.querySelector('#ui-layers ui-dialog[open]')
+            if (d){
+                // Correct, do not call "close"
+                d._layer.remove();
+            }
+            return false; // to continue on to any others
+        });
+    }
+
     static _isVisibleElement(element){
         // jquery approach
         // https://stackoverflow.com/questions/13388616/firefox-query-selector-and-the-visible-pseudo-selector
@@ -675,14 +686,6 @@ class UIDialog extends HTMLElement{
 window.customElements.define('ui-dialog', UIDialog);
 
 class UILayer extends HTMLElement{
-
-    static createClosingRouter(){
-        return new Router(()=>{
-            const l = document.getElementById('ui-layers');
-            if (l) l.innerHTML = '';
-            return false; // to continue on to any others
-        });
-    }
 
     constructor(contents) {
         super();

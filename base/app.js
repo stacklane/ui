@@ -579,7 +579,6 @@ class UIDialog extends HTMLElement{
         return this;
     }
 
-
     get title(){
         return this._title.innerText;
     }
@@ -650,7 +649,15 @@ class UIDialog extends HTMLElement{
             // Restore focus:
             if (this._currentActiveElement) this._currentActiveElement.focus();
             // Restore history:
-            if (this._history) window.history.back();
+            if (this._history) {
+                if (window.history.length > 1) {
+                    // There is history to nav back to:
+                    window.history.back();
+                } else {
+                    // Nav back to an initial state:
+                    window.location.hash = '';
+                }
+            }
         }
     }
 

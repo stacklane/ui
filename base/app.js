@@ -574,6 +574,9 @@ class UIDialog extends HTMLElement{
         });
     }
 
+    /**
+     * When the dialog layer is closed, also consider the action "back" navigation.
+     */
     history(){
         this._history = true;
         return this;
@@ -672,6 +675,15 @@ class UIDialog extends HTMLElement{
 window.customElements.define('ui-dialog', UIDialog);
 
 class UILayer extends HTMLElement{
+
+    static createClosingRouter(){
+        return new Router(()=>{
+            const l = document.getElementById('ui-layers');
+            if (l) l.innerHTML = '';
+            return false; // to continue on to any others
+        });
+    }
+
     constructor(contents) {
         super();
         const d1 = Elements.div().create();
